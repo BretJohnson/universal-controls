@@ -37,17 +37,15 @@ namespace Microsoft.StandardUI
         public ILinearGradientBrush CreateLinearGradientBrush() => throw CreateInitNotCalledException();
         public IRadialGradientBrush CreateRadialGradientBrush() => throw CreateInitNotCalledException();
 
-        public ILineSegment CreateLineSegment(in Point point) => throw CreateInitNotCalledException();
-        public IPolyLineSegment CreatePolyLineSegment(Points points) => throw CreateInitNotCalledException();
-        public IBezierSegment CreateBezierSegment(in Point point1, in Point point2, in Point point3) => throw CreateInitNotCalledException();
-        public IPolyBezierSegment CreatePolyBezierSegment(Points points) => throw CreateInitNotCalledException();
-        public IQuadraticBezierSegment CreateQuadraticBezierSegment(in Point point1, in Point point2) => throw CreateInitNotCalledException();
-        public IPolyQuadraticBezierSegment CreatePolyQuadraticBezierSegment(Points points) => throw CreateInitNotCalledException();
-        public IArcSegment CreateArcSegment(in Point point, in Size size, double rotationAngle, bool isLargeArc,
-            SweepDirection sweepDirection) => throw CreateInitNotCalledException();
-
-        public IPathGeometry CreatePathGeometry(ITransform? transform, IEnumerable<IPathFigure> figures, FillRule fillRule) => throw CreateInitNotCalledException();
-        public IPathFigure CreatePathFigure(IEnumerable<IPathSegment> segments, Point startPoint, bool isClosed, bool isFilled) => throw CreateInitNotCalledException();
+        public ILineSegment CreateLineSegment() => throw CreateInitNotCalledException();
+        public IPolyLineSegment CreatePolyLineSegment() => throw CreateInitNotCalledException();
+        public IBezierSegment CreateBezierSegment() => throw CreateInitNotCalledException();
+        public IPolyBezierSegment CreatePolyBezierSegment() => throw CreateInitNotCalledException();
+        public IQuadraticBezierSegment CreateQuadraticBezierSegment() => throw CreateInitNotCalledException();
+        public IPolyQuadraticBezierSegment CreatePolyQuadraticBezierSegment() => throw CreateInitNotCalledException();
+        public IArcSegment CreateArcSegment() => throw CreateInitNotCalledException();
+        public IPathGeometry CreatePathGeometry() => throw CreateInitNotCalledException();
+        public IPathFigure CreatePathFigure() => throw CreateInitNotCalledException();
 
         private Exception CreateInitNotCalledException() => new InvalidOperationException("The Standard UI host framework hasn't been initialized: " + Environment.StackTrace);
     }

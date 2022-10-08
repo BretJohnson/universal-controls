@@ -1,4 +1,4 @@
-﻿using Microsoft.StandardUI.Controls;
+using Microsoft.StandardUI.Controls;
 using Microsoft.StandardUI.Media;
 using Microsoft.StandardUI.Shapes;
 
@@ -30,6 +30,16 @@ namespace Microsoft.StandardUI
         public static ISolidColorBrush SolidColorBrush(Color color) => Factory.CreateSolidColorBrush().Color(color);
         public static ILinearGradientBrush LinearGradientBrush() => Factory.CreateLinearGradientBrush();
         public static IRadialGradientBrush RadialGradientBrush() => Factory.CreateRadialGradientBrush();
+
+        public static ILineSegment LineSegment() => Factory.CreateLineSegment();
+        public static IPolyLineSegment PolyLineSegment() => Factory.CreatePolyLineSegment();
+        public static IBezierSegment BezierSegment() => Factory.CreateBezierSegment();
+        public static IPolyBezierSegment PolyBezierSegment() => Factory.CreatePolyBezierSegment();
+        public static IQuadraticBezierSegment QuadraticBezierSegment() => Factory.CreateQuadraticBezierSegment();
+        public static IPolyQuadraticBezierSegment PolyQuadraticBezierSegment() => Factory.CreatePolyQuadraticBezierSegment();
+        public static IArcSegment ArcSegment() => Factory.CreateArcSegment();
+        public static IPathGeometry PathGeometry() => Factory.CreatePathGeometry();
+        public static IPathFigure PathFigure() => Factory.CreatePathFigure();
 
         /*** Constants **/
 

@@ -37,14 +37,14 @@ namespace Microsoft.StandardUI.Wpf
         public ILinearGradientBrush CreateLinearGradientBrush() => new LinearGradientBrush();
         public IRadialGradientBrush CreateRadialGradientBrush() => new RadialGradientBrush();
 
-        public IArcSegment CreateArcSegment(in Point point, in Size size, double rotationAngle, bool isLargeArc, SweepDirection sweepDirection) => throw new NotImplementedException();
-        public IBezierSegment CreateBezierSegment(in Point point1, in Point point2, in Point point3) => throw new NotImplementedException();
-        public ILineSegment CreateLineSegment(in Point point) => throw new NotImplementedException();
-        public IPathFigure CreatePathFigure(IEnumerable<IPathSegment> segments, Point startPoint, bool isClosed, bool isFilled) => throw new NotImplementedException();
-        public IPathGeometry CreatePathGeometry(ITransform? transform, IEnumerable<IPathFigure> figures, FillRule fillRule) => throw new NotImplementedException();
-        public IPolyBezierSegment CreatePolyBezierSegment(Points points) => throw new NotImplementedException();
-        public IPolyLineSegment CreatePolyLineSegment(Points points) => throw new NotImplementedException();
-        public IPolyQuadraticBezierSegment CreatePolyQuadraticBezierSegment(Points points) => throw new NotImplementedException();
-        public IQuadraticBezierSegment CreateQuadraticBezierSegment(in Point point1, in Point point2) => throw new NotImplementedException();
+        public ILineSegment CreateLineSegment() => new LineSegment();
+        public IPolyLineSegment CreatePolyLineSegment() => new PolyLineSegment();
+        public IBezierSegment CreateBezierSegment() => new BezierSegment();
+        public IPolyBezierSegment CreatePolyBezierSegment() => new PolyBezierSegment();
+        public IQuadraticBezierSegment CreateQuadraticBezierSegment() => new QuadraticBezierSegment();
+        public IPolyQuadraticBezierSegment CreatePolyQuadraticBezierSegment() => new PolyQuadraticBezierSegment();
+        public IArcSegment CreateArcSegment() => new ArcSegment();
+        public IPathGeometry CreatePathGeometry() => new PathGeometry();
+        public IPathFigure CreatePathFigure() => new PathFigure();
     }
 }
