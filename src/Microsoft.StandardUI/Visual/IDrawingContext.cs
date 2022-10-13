@@ -1,5 +1,6 @@
 using System;
 using Microsoft.StandardUI.Controls;
+using Microsoft.StandardUI.Media;
 using Microsoft.StandardUI.Shapes;
 
 namespace Microsoft.StandardUI
@@ -17,8 +18,17 @@ namespace Microsoft.StandardUI
         void DrawPath(IPath path);
         void DrawPolygon(IPolygon polygon);
         void DrawPolyline(IPolyline polyline);
+
+        void DrawRectangle(IBrush? brush, Pen? pen, Rect rect);
+        void DrawRoundedRectangle(IBrush? brush, Pen? pen, Rect rect, double radiusX, double radiusY);
         void DrawRectangle(IRectangle rectangle);
+
         void DrawTextBlock(ITextBlock textBlock);
+
+        void PushRotateTransform(double angle, double centerX, double centerY);
+        void PushTransform(ITransform transform);
+        void Pop();
+
         IVisual? Close();
     }
 }

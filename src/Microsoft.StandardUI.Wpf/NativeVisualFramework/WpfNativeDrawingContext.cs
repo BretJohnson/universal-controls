@@ -3,10 +3,10 @@ using System.Globalization;
 using System.Windows.Media;
 using Microsoft.StandardUI.Controls;
 using Microsoft.StandardUI.Media;
+using Microsoft.StandardUI.Media.Wpf;
 using Microsoft.StandardUI.Shapes;
 using Microsoft.StandardUI.Wpf.Text;
-using PenLineCap = Microsoft.StandardUI.Media.PenLineCap;
-using PenLineJoin = Microsoft.StandardUI.Media.PenLineJoin;
+using Pen = Microsoft.StandardUI.Media.Pen;
 
 namespace Microsoft.StandardUI.Wpf.NativeVisualFramework
 {
@@ -44,7 +44,7 @@ namespace Microsoft.StandardUI.Wpf.NativeVisualFramework
         public void DrawEllipse(IEllipse ellipse)
         {
             Brush? wpfBrush = ellipse.Fill.ToWpfBrush();
-            Pen? wpfPen = ToWpfNativePen(ellipse);
+            System.Windows.Media.Pen? wpfPen = ToWpfNativePen(ellipse);
 
             double radiusX = ellipse.Width / 2;
             double radiusY = ellipse.Height / 2;
@@ -55,7 +55,7 @@ namespace Microsoft.StandardUI.Wpf.NativeVisualFramework
 
         public void DrawLine(ILine line)
         {
-            Pen? wpfPen = ToWpfNativePen(line);
+            System.Windows.Media.Pen? wpfPen = ToWpfNativePen(line);
             if (wpfPen != null)
             {
                 _drawingContext!.DrawLine(wpfPen,
@@ -91,12 +91,30 @@ namespace Microsoft.StandardUI.Wpf.NativeVisualFramework
 #endif
         }
 
+        public void DrawRectangle(IBrush? brush, Pen? pen, Rect rect)
+        {
+            System.Windows.Rect wpfRect = rect.ToWpfRect();
+            Brush? wpfBurush = brush?.ToWpfBrush();
+            System.Windows.Media.Pen? wpfPen = pen?.ToWpfPen();
+
+            _drawingContext!.DrawRectangle(wpfBurush, wpfPen, wpfRect);
+        }
+
+        public void DrawRoundedRectangle(IBrush? brush, Pen? pen, Rect rect, double radiusX, double radiusY)
+        {
+            System.Windows.Rect wpfRect = rect.ToWpfRect();
+            Brush? wpfBurush = brush?.ToWpfBrush();
+            System.Windows.Media.Pen? wpfPen = pen?.ToWpfPen();
+
+            _drawingContext!.DrawRoundedRectangle(wpfBurush, wpfPen, wpfRect, radiusX, radiusY);
+        }
+
         public void DrawRectangle(IRectangle rectangle)
         {
             System.Windows.Rect wpfRect = new System.Windows.Rect(0, 0, rectangle.Width, rectangle.Height);
 
             Brush? wpfBurush = rectangle.Fill.ToWpfBrush();
-            Pen? wpfPen = ToWpfNativePen(rectangle);
+            System.Windows.Media.Pen? wpfPen = ToWpfNativePen(rectangle);
 
             if (rectangle.RadiusX > 0 || rectangle.RadiusY > 0)
                 _drawingContext!.DrawRoundedRectangle(wpfBurush, wpfPen, wpfRect, rectangle.RadiusX, rectangle.RadiusY);
@@ -126,6 +144,26 @@ namespace Microsoft.StandardUI.Wpf.NativeVisualFramework
                 1.0); // TODO: Set this appropriately
 
             _drawingContext!.DrawText(formattedText, new System.Windows.Point(0, 0));
+        }
+
+        public void PushRotateTransform(double angle, double centerX, double centerY)
+        {
+            var transform = new RotateTransform(
+                angle: angle,
+                centerX: centerX,
+                centerY: centerY);
+            _drawingContext!.PushTransform(transform);
+        }
+
+        public void PushTransform(ITransform transform)
+        {
+            Transform wpfTransform = transform.ToWpfTransform();
+            _drawingContext!.PushTransform(wpfTransform);
+        }
+
+        public void Pop()
+        {
+            _drawingContext!.Pop();
         }
 
         public IVisual? Close()
@@ -187,36 +225,19 @@ namespace Microsoft.StandardUI.Wpf.NativeVisualFramework
         }
 #endif
 
-        public static Pen? ToWpfNativePen(IShape shape)
+        public static System.Windows.Media.Pen? ToWpfNativePen(IShape shape)
         {
             IBrush? strokeBrush = shape.Stroke;
-
             if (strokeBrush == null)
                 return null;
 
-            var pen = new Pen(strokeBrush.ToWpfBrush(), shape.StrokeThickness);
-
-            pen.MiterLimit = shape.StrokeMiterLimit;
-
-            System.Windows.Media.PenLineCap lineCap = shape.StrokeLineCap switch
+            return new System.Windows.Media.Pen(strokeBrush.ToWpfBrush(), shape.StrokeThickness)
             {
-                PenLineCap.Flat => System.Windows.Media.PenLineCap.Flat,
-                PenLineCap.Round => System.Windows.Media.PenLineCap.Round,
-                PenLineCap.Square => System.Windows.Media.PenLineCap.Square,
-                _ => throw new InvalidOperationException($"Unknown PenLineCap value {shape.StrokeLineCap}")
+                MiterLimit = shape.StrokeMiterLimit,
+                StartLineCap = shape.StrokeStartLineCap.ToWpfPenLineCap(),
+                EndLineCap = shape.StrokeEndLineCap.ToWpfPenLineCap(),
+                LineJoin = shape.StrokeLineJoin.ToWpfPenLineJoin()
             };
-            pen.StartLineCap = lineCap;
-            pen.EndLineCap = lineCap;
-
-            pen.LineJoin = shape.StrokeLineJoin switch
-            {
-                PenLineJoin.Miter => System.Windows.Media.PenLineJoin.Miter,
-                PenLineJoin.Bevel => System.Windows.Media.PenLineJoin.Bevel,
-                PenLineJoin.Round => System.Windows.Media.PenLineJoin.Round,
-                _ => throw new InvalidOperationException($"Unknown PenLineJoin value {shape.StrokeLineJoin}")
-            };
-
-            return pen;
         }
 
 #if LATER
