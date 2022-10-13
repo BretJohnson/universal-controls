@@ -87,16 +87,53 @@ namespace SimpleControls.RadialGauge
 
         [DefaultValue(double.NaN)]
         public double ValueAngle { get; set; }
+
+        public class Metadata
+        {
+            public static IGrid DefaultTemplate(IRadialGauge control, out IPath? partScale, out IPath? partTrail, out ITextBlock? partValueText) =>
+                Grid()
+                    .Width(200)
+                    .Height(200)._(
+
+                    // Scale
+                    Path()
+                        .Assign<IPath>(out partScale)
+                        .Stroke(control.ScaleBrush)
+                        .StrokeThickness(control.ScaleWidth),
+
+                    // Trail
+                    Path()
+                        .Assign<IPath>(out partTrail)
+                        .Stroke(control.ScaleBrush)
+                        .StrokeThickness(control.ScaleWidth),
+
+                    // Value and unit
+                    VerticalStack()
+                        .HorizontalAlignment(HorizontalAlignment.Center)
+                        .VerticalAlignment(VerticalAlignment.Bottom).Children(
+
+                        TextBlock()
+                            .Assign<ITextBlock>(out partValueText)
+                            .FontSize(control.ScaleWidth)
+                            .Margin(new Thickness(0, 0, 0, 2))
+                            .FontSize(20)
+                            .FontWeight(FontWeights.SemiBold)
+                            //.Foreground(Control.Foreground)
+                            .TextAlignment(TextAlignment.Center),
+
+                        TextBlock()
+                            .Margin(new Thickness(0))
+                            .FontSize(16)
+                            //.Foreground(Control.Foreground)
+                            .Text(control.Unit)
+                            .TextAlignment(TextAlignment.Center)
+                        )
+                );
+        }
     }
 
     public class RadialGauge : StandardControlImplementation<IRadialGauge>
     {
-        // Template Parts.
-        private const string ContainerPartName = "PART_Container";
-        private const string ScalePartName = "PART_Scale";
-        private const string TrailPartName = "PART_Trail";
-        private const string ValueTextPartName = "PART_ValueText";
-
         // For convenience
         private const double Degrees2Radians = Math.PI / 180;
 
@@ -113,12 +150,6 @@ namespace SimpleControls.RadialGauge
 
         private double _normalizedMinAngle;
         private double _normalizedMaxAngle;
-
-#if LATER
-        private Compositor _compositor;
-        private ContainerVisual _root;
-#endif
-        private IVisual _needle;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RadialGauge"/> class.
@@ -243,56 +274,17 @@ namespace SimpleControls.RadialGauge
         }
 #endif
 
-        private void Build()
+        public override IUIElement Build()
         {
             IGrid grid = BuildTemplate(out IPath? partScale, out IPath? partTrail, out ITextBlock? partValueText);
 
-
+            return null;
         }
 
+        private IGrid BuildTemplate(out IPath? partScale, out IPath? partTrail, out ITextBlock? partValueText) =>
+            IRadialGauge.Metadata.DefaultTemplate(Control, out partScale, out partTrail, out partValueText);
 
-
-        private IGrid BuildTemplate(out IPath? partScale, out IPath? partTrail, out ITextBlock? partValueText) => 
-            Grid()
-                .Width(200)
-                .Height(200)._(
-
-                // Scale
-                Path()
-                    .Assign<IPath>(out partScale)
-                    .Stroke(Control.ScaleBrush)
-                    .StrokeThickness(Control.ScaleWidth),
-
-                // Trail
-                Path()
-                    .Assign<IPath>(out partTrail)
-                    .Stroke(Control.ScaleBrush)
-                    .StrokeThickness(Control.ScaleWidth),
-
-                // Value and unit
-                VerticalStack()
-                    .HorizontalAlignment(HorizontalAlignment.Center)
-                    .VerticalAlignment(VerticalAlignment.Bottom).Children(
-
-                    TextBlock()
-                        .Assign<ITextBlock>(out partValueText)
-                        .FontSize(Control.ScaleWidth)
-                        .Margin(new Thickness(0, 0, 0, 2))
-                        .FontSize(20)
-                        .FontWeight(FontWeights.SemiBold)
-                        //.Foreground(Control.Foreground)
-                        .TextAlignment(TextAlignment.Center),
-
-                    TextBlock()
-                        .Margin(new Thickness(0))
-                        .FontSize(16)
-                        //.Foreground(Control.Foreground)
-                        .Text(Control.Unit)
-                        .TextAlignment(TextAlignment.Center)
-                    )
-            );
-
-        private void DrawValue(IDrawingContext drawingContext, IPath? trail, ITextBlock? valueText)
+        private void DrawValue(IDrawingContext drawingContext, IPath? trailPart, ITextBlock? valuePart)
         {
             if (!double.IsNaN(Control.Value))
             {
@@ -304,18 +296,26 @@ namespace SimpleControls.RadialGauge
                 var middleOfScale = 100 - Control.ScalePadding - (Control.ScaleWidth / 2);
                 Control.ValueAngle = ValueToAngle(Control.Value);
 
-                // Needle
-                if (_needle != null)
-                {
-                    _needle.RotationAngleInDegrees = (float)Control.ValueAngle;
-                }
+                drawingContext.PushRotateTransform(
+                    angle: Control.ValueAngle,
+                    centerX: Control.NeedleWidth / 2,
+                    centerY: Control.NeedleLength);
+                drawingContext.DrawRectangle(
+                    brush: Control.NeedleBrush,
+                    pen: null,
+                    rect: new Rect(
+                        x: 100 - (Control.NeedleWidth / 2),
+                        y: 100 - (float)Control.NeedleLength,
+                        width: Control.NeedleWidth,
+                        height: Control.NeedleLength));
+                drawingContext.Pop();
 
                 // Trail
-                if (trail != null)
+                if (trailPart != null)
                 {
                     if (Control.ValueAngle > _normalizedMinAngle)
                     {
-                        trail.Visible = true;
+                        trailPart.Visible = true;
 
                         if (Control.ValueAngle - _normalizedMinAngle == 360)
                         {
@@ -331,35 +331,35 @@ namespace SimpleControls.RadialGauge
                         else
                         {
                             // Draw arc.
-                            var pg = new PathGeometry();
-                            var pf = new PathFigure();
-                            pf.IsClosed = false;
-                            pf.StartPoint = Control.ScalePoint(Control.NormalizedMinAngle, middleOfScale);
-                            var seg = new ArcSegment();
-                            seg.SweepDirection = SweepDirection.Clockwise;
-                            seg.IsLargeArc = Control.ValueAngle > (180 + Control.NormalizedMinAngle);
-                            seg.Size = new Size(middleOfScale, middleOfScale);
-                            seg.Point = Control.ScalePoint(Math.Min(Control.ValueAngle, Control.NormalizedMaxAngle), middleOfScale);  // On overflow, stop trail at MaxAngle.
-                            pf.Segments.Add(seg);
-                            pg.Figures.Add(pf);
-                            trail.Data = pg;
+                            trailPart.Data =
+                                PathGeometry()
+                                    .Figures(
+                                        PathFigure()
+                                            .IsClosed(false)
+                                            .StartPoint(ScalePoint(NormalizedMinAngle, middleOfScale))
+                                            .Segments(
+                                                ArcSegment()
+                                                    .SweepDirection(SweepDirection.Clockwise)
+                                                    .IsLargeArc(Control.ValueAngle > (180 + NormalizedMinAngle))
+                                                    .Size(new Size(middleOfScale, middleOfScale))
+                                                    .Point(ScalePoint(Math.Min(Control.ValueAngle, NormalizedMaxAngle), middleOfScale))
+                                            )
+                                        );
                         }
                     }
                     else
                     {
-                        trail.Visibility = Visibility.Collapsed;
+                        trailPart.Visible = false;
                     }
                 }
 
                 // Value Text
-                if (valueText != null)
+                if (valuePart != null)
                 {
-                    valueText.Text = Control.Value.ToString(Control.ValueStringFormat);
+                    valuePart.Text = Control.Value.ToString(Control.ValueStringFormat);
                 }
             }
         }
-
-
 
 #if LATER
         private static void OnInteractivityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -381,39 +381,42 @@ namespace SimpleControls.RadialGauge
         }
 #endif
 
-        private void DrawScale(IDrawingContext drawingContext, IPath partScale)
+        private void DrawScale(IDrawingContext drawingContext, IPath? scalePart)
         {
-            RadialGauge radialGauge = (RadialGauge)d;
-
             UpdateNormalizedAngles();
 
-            if (partScale != null)
+            if (scalePart != null)
             {
                 if (_normalizedMaxAngle - _normalizedMinAngle == 360)
                 {
+#if LATER
                     // Draw full circle.
                     var eg = new EllipseGeometry();
                     eg.Center = new Point(100, 100);
                     eg.RadiusX = 100 - Control.ScalePadding - (Control.ScaleWidth / 2);
                     eg.RadiusY = eg.RadiusX;
-                    scale.Data = eg;
+                    scalePart.Data = eg;
+#endif
                 }
                 else
                 {
-                    // Draw arc.
-                    var pg = new PathGeometry();
-                    var pf = new PathFigure();
-                    pf.IsClosed = false;
                     var middleOfScale = 100 - Control.ScalePadding - (Control.ScaleWidth / 2);
-                    pf.StartPoint = Control.ScalePoint(Control.NormalizedMinAngle, middleOfScale);
-                    var seg = new ArcSegment();
-                    seg.SweepDirection = SweepDirection.Clockwise;
-                    seg.IsLargeArc = Control.NormalizedMaxAngle > (Control.NormalizedMinAngle + 180);
-                    seg.Size = new Size(middleOfScale, middleOfScale);
-                    seg.Point = Control.ScalePoint(Control.NormalizedMaxAngle, middleOfScale);
-                    pf.Segments.Add(seg);
-                    pg.Figures.Add(pf);
-                    scale.Data = pg;
+
+                    // Draw arc.
+                    scalePart.Data =
+                        PathGeometry()
+                            .Figures(
+                                PathFigure()
+                                    .IsClosed(false)
+                                    .StartPoint(ScalePoint(NormalizedMinAngle, middleOfScale))
+                                    .Segments(
+                                        ArcSegment()
+                                            .SweepDirection(SweepDirection.Clockwise)
+                                            .IsLargeArc(NormalizedMaxAngle > (NormalizedMinAngle + 180))
+                                            .Size(new Size(middleOfScale, middleOfScale))
+                                            .Point(ScalePoint(NormalizedMaxAngle, middleOfScale))
+                                    )
+                                );
                 }
 
                 if (!DesignTimeHelpers.IsRunningInLegacyDesignerMode)
@@ -431,102 +434,39 @@ namespace SimpleControls.RadialGauge
             }
         }
 
-        private static void OnFaceChanged(DependencyObject d)
+        private void DrawTicks(IDrawingContext drawingContext)
         {
-            RadialGauge radialGauge = (RadialGauge)d;
-
-            var container = Control.GetTemplateChild(ContainerPartName) as Grid;
-            if (container == null || DesignTimeHelpers.IsRunningInLegacyDesignerMode)
-            {
-                // Bad template.
-                return;
-            }
-
-            Control._root = container.GetVisual();
-            Control._root.Children.RemoveAll();
-            Control._compositor = Control._root.Compositor;
-
             if (Control.TickSpacing > 0)
             {
-                // Ticks.
-                SpriteVisual tick;
+                // Ticks
+                Rect tickRect = new Rect(100 - Control.TickWidth / 2, 0.0, Control.TickWidth, Control.TickLength);
                 for (double i = Control.Minimum; i <= Control.Maximum; i += Control.TickSpacing)
                 {
-                    tick = Control._compositor.CreateSpriteVisual();
-                    tick.Size = new Vector2((float)Control.TickWidth, (float)Control.TickLength);
-                    tick.Brush = Control._compositor.CreateColorBrush(Control.TickBrush.Color);
-                    tick.Opacity = (float)Control.TickBrush.Opacity;
-                    tick.Offset = new Vector3(100 - ((float)Control.TickWidth / 2), 0.0f, 0);
-                    tick.CenterPoint = new Vector3((float)Control.TickWidth / 2, 100.0f, 0);
-                    tick.RotationAngleInDegrees = (float)Control.ValueToAngle(i);
-                    Control._root.Children.InsertAtTop(tick);
+                    drawingContext.PushRotateTransform(
+                        angle: ValueToAngle(i),
+                        centerX: Control.TickWidth / 2,
+                        centerY: 100.0);
+                    drawingContext.DrawRectangle(
+                        brush: Control.TickBrush,
+                        pen: null,
+                        rect: tickRect);
+                    drawingContext.Pop();
                 }
 
-                // Scale Ticks.
+                // Scale Ticks
+                Rect scaleTickRect = new Rect(100 - (Control.ScaleTickWidth / 2), Control.ScalePadding, Control.ScaleTickWidth, Control.ScaleTickWidth);
                 for (double i = Control.Minimum; i <= Control.Maximum; i += Control.TickSpacing)
                 {
-                    tick = Control._compositor.CreateSpriteVisual();
-                    tick.Size = new Vector2((float)Control.ScaleTickWidth, (float)Control.ScaleWidth);
-                    tick.Brush = Control._compositor.CreateColorBrush(Control.ScaleTickBrush.Color);
-                    tick.Opacity = (float)Control.ScaleTickBrush.Opacity;
-                    tick.Offset = new Vector3(100 - ((float)Control.ScaleTickWidth / 2), (float)Control.ScalePadding, 0);
-                    tick.CenterPoint = new Vector3((float)Control.ScaleTickWidth / 2, 100 - (float)Control.ScalePadding, 0);
-                    tick.RotationAngleInDegrees = (float)Control.ValueToAngle(i);
-                    Control._root.Children.InsertAtTop(tick);
+                    drawingContext.PushRotateTransform(
+                        angle: ValueToAngle(i),
+                        centerX: Control.ScaleTickWidth / 2,
+                        centerY: 100 - Control.ScalePadding);
+                    drawingContext.DrawRectangle(
+                        brush: Control.ScaleTickBrush,
+                        pen: null,
+                        rect: tickRect);
+                    drawingContext.Pop();
                 }
-            }
-
-            // Needle.
-            Control._needle = Control._compositor.CreateSpriteVisual();
-            Control._needle.Size = new Vector2((float)Control.NeedleWidth, (float)Control.NeedleLength);
-            Control._needle.Brush = Control._compositor.CreateColorBrush(Control.NeedleBrush.Color);
-            Control._needle.Opacity = (float)Control.NeedleBrush.Opacity;
-            Control._needle.CenterPoint = new Vector3((float)Control.NeedleWidth / 2, (float)Control.NeedleLength, 0);
-            Control._needle.Offset = new Vector3(100 - ((float)Control.NeedleWidth / 2), 100 - (float)Control.NeedleLength, 0);
-            Control._root.Children.InsertAtTop(Control._needle);
-
-            OnValueChanged(radialGauge);
-        }
-
-        private void OnColorsChanged()
-        {
-            if (ThemeListener.IsHighContrast)
-            {
-                // Apply High Contrast Theme.
-                ClearBrush(_needleBrush, NeedleBrushProperty);
-                ClearBrush(_trailBrush, TrailBrushProperty);
-                ClearBrush(_scaleBrush, ScaleBrushProperty);
-                ClearBrush(_scaleTickBrush, ScaleTickBrushProperty);
-                ClearBrush(_tickBrush, TickBrushProperty);
-                ClearBrush(_foreground, ForegroundProperty);
-            }
-            else
-            {
-                // Apply User Defined or Default Theme.
-                RestoreBrush(_needleBrush, NeedleBrushProperty);
-                RestoreBrush(_trailBrush, TrailBrushProperty);
-                RestoreBrush(_scaleBrush, ScaleBrushProperty);
-                RestoreBrush(_scaleTickBrush, ScaleTickBrushProperty);
-                RestoreBrush(_tickBrush, TickBrushProperty);
-                RestoreBrush(_foreground, ForegroundProperty);
-            }
-
-            OnScaleChanged(this);
-        }
-
-        private void ClearBrush(Brush brush, DependencyProperty prop)
-        {
-            if (brush != null)
-            {
-                ClearValue(prop);
-            }
-        }
-
-        private void RestoreBrush(IBrush source, DependencyProperty prop)
-        {
-            if (source != null)
-            {
-                SetValue(prop, source);
             }
         }
 
@@ -595,10 +535,10 @@ namespace SimpleControls.RadialGauge
             Control.Value = RoundToMultiple(value, Control.StepSize);
         }
 
-        private Point ScalePoint(double angle, double middleOfScale)
-        {
-            return new Point(100 + (Math.Sin(Degrees2Radians * angle) * middleOfScale), 100 - (Math.Cos(Degrees2Radians * angle) * middleOfScale));
-        }
+        private static Point ScalePoint(double angle, double middleOfScale) =>
+            new Point(
+                100 + (Math.Sin(Degrees2Radians * angle) * middleOfScale),
+                100 - (Math.Cos(Degrees2Radians * angle) * middleOfScale));
 
         private double ValueToAngle(double value)
         {
