@@ -52,9 +52,7 @@ namespace Microsoft.StandardUI.SourceGenerator
                 INamedTypeSymbol? ancestorType = GetBaseInterface(importType);
                 while (ancestorType != null)
                 {
-                    var symbolDisplayFormat = new SymbolDisplayFormat(
-                        typeQualificationStyle: SymbolDisplayTypeQualificationStyle.NameAndContainingTypesAndNamespaces);
-                    string ancestorFullTypeName = ancestorType.ToDisplayString(symbolDisplayFormat);
+                    string ancestorFullTypeName = Utils.GetTypeFullName(ancestorType);
 
                     if (ancestorFullTypeName == KnownTypes.IStandardControl || generatedInterfaces.Contains(ancestorFullTypeName))
                         break;
@@ -67,29 +65,12 @@ namespace Microsoft.StandardUI.SourceGenerator
             }
         }
 
-        private static UIFramework GetUIFramework(Context context)
-        {
-            foreach (AssemblyIdentity referencedAssembly in context.Compilation.ReferencedAssemblyNames)
-            {
-                string assemblyName = referencedAssembly.Name;
-
-                if (assemblyName == "Microsoft.StandardUI.Wpf")
-                    return new WpfUIFramework(context);
-                else if (assemblyName == "Microsoft.StandardUI.WinForms")
-                    return new WinFormsUIFramework(context);
-                else if (assemblyName == "Microsoft.StandardUI.Blazor")
-                    return new BlazorUIFramework(context);
-            }
-
-            throw UserVisibleErrors.CouldNotIdentifyUIFramework();
-        }
-
         private static void GenerateSourceFile(Context context, INamedTypeSymbol interfaceSymbol)
         {
             UIFramework uiFramework = GetUIFramework(context);
 
-            var intface = new Interface(context, interfaceSymbol);
-            intface.Generate(uiFramework);
+                var intface = new Interface(context, interfaceSymbol);
+                intface.Generate(uiFramework);
         }
 
         /// <summary>

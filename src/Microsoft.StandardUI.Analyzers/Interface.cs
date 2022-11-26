@@ -12,7 +12,9 @@ namespace Microsoft.StandardUI.SourceGenerator
         public InterfacePurpose Purpose { get; }
         public INamespaceSymbol Namespace { get; }
         public string NamespaceName { get; }
+        public string GetFrameworkNamespaceName(UIFramework uiFramework) => uiFramework.ToFrameworkNamespaceName(Namespace);
         public string FrameworkClassName { get; }
+        public string GetFullFrameworkClassName(UIFramework uiFramework) => $"{GetFrameworkNamespaceName(uiFramework)}.{FrameworkClassName}";
         public INamedTypeSymbol? AttachedType { get; }
         public string Name { get; }
         public string VariableName { get; }
@@ -128,7 +130,7 @@ namespace Microsoft.StandardUI.SourceGenerator
 
             string generatedFrom = $"{Name}.cs";
 
-            string frameworkNamespaceName = uiFramework.ToFrameworkNamespaceName(Namespace);
+            string frameworkNamespaceName = GetFrameworkNamespaceName(uiFramework);
 
             var mainClassSource = new ClassSource(Context,
                 generatedFrom: generatedFrom,

@@ -35,5 +35,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Microsoft.StandardUI\Microsoft.StandardUI.csproj" />
+    <ProjectReference Include="..\..\..\src\Microsoft.StandardUI.Analyzers\Microsoft.StandardUI.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
 </Project>

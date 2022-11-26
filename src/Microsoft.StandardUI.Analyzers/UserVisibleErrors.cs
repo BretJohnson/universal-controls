@@ -37,12 +37,12 @@ namespace Microsoft.StandardUI.SourceGenerator
             CreateError(8, message: $"{symbol.Name} should have a string value for the [{attributeName}] attribute",
                 locationSymbol: symbol);
 
-        public static UserViewableException ControlLibraryAttributeInvalid(SyntaxReference? attributeSyntaxReference) =>
-            CreateError(9, message: $"The [ControlLibrary] attribute should have a single argument with the fully qualified library name",
-                location: GetLocation(attributeSyntaxReference));
+        public static UserViewableException ControlLibraryNameInvalid(INamedTypeSymbol libraryClass) =>
+            CreateError(9, message: $"The [ControlLibrary] class name should end with the suffix 'ControlLibrary'",
+                locationSymbol: libraryClass);
 
-        public static UserViewableException MissingControlLibraryAttribute() =>
-            CreateError(10, message: $"No [ControlLibrary] assembly attribute found; it should be added");
+        public static UserViewableException MissingControlLibraryClass() =>
+            CreateError(10, message: $"No [ControlLibrary] class found");
 
         public static string InternalErrorId = ErrorIdFromInt(99);
 

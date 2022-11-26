@@ -169,6 +169,8 @@ namespace Microsoft.StandardUI.SourceGenerator
 
         public static string GetTypeFullName(ITypeSymbol type) => type.ToDisplayString(TypeFullNameSymbolDisplayFormat);
 
+        public static string GetTypeNamespace(ITypeSymbol type) => type.ToDisplayString(TypeFullNameSymbolDisplayFormat);
+
         public static string GetNamespaceFullName(INamespaceSymbol namespce) => namespce.ToDisplayString(TypeFullNameSymbolDisplayFormat);
 
         public static bool IncludeDraw(ITypeSymbol type)
