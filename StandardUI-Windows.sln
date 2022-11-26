@@ -37,8 +37,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "skia", "skia", "{705D949C-2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.StandardUI.SkiaVisualFramework", "src\skia\Microsoft.StandardUI.SkiaVisualFramework\Microsoft.StandardUI.SkiaVisualFramework.csproj", "{66AC78D8-0A73-41FC-925C-E2840EA2639F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebAssemblyHost", "samples\host-apps\BlazorWebAssemblyHost\BlazorWebAssemblyHost.csproj", "{9A48B66D-9B8D-4CD6-992E-BB0921AAE059}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "component-model-ex", "component-model-ex", "{E3C556B6-A9DB-4772-A7CA-74B4E4CBD362}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.ComponentModelEx", "component-model-ex\src\Microsoft.ComponentModelEx\Microsoft.ComponentModelEx.csproj", "{BAE8337E-9497-4790-B6F2-49FF9467D4EF}"
@@ -89,10 +87,6 @@ Global
 		{66AC78D8-0A73-41FC-925C-E2840EA2639F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66AC78D8-0A73-41FC-925C-E2840EA2639F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66AC78D8-0A73-41FC-925C-E2840EA2639F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A48B66D-9B8D-4CD6-992E-BB0921AAE059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A48B66D-9B8D-4CD6-992E-BB0921AAE059}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A48B66D-9B8D-4CD6-992E-BB0921AAE059}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A48B66D-9B8D-4CD6-992E-BB0921AAE059}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BAE8337E-9497-4790-B6F2-49FF9467D4EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BAE8337E-9497-4790-B6F2-49FF9467D4EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAE8337E-9497-4790-B6F2-49FF9467D4EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -109,7 +103,6 @@ Global
 		{CFF4EEBA-0EA7-49D1-B4F2-17DF640F2174} = {9FA8F699-79F5-48DB-A2D9-717CE875C5F0}
 		{D3A2A5DB-8EBE-47FB-936A-8A66CAEDA9A8} = {705D949C-2C10-46AD-9007-37E62BC8FA7A}
 		{66AC78D8-0A73-41FC-925C-E2840EA2639F} = {705D949C-2C10-46AD-9007-37E62BC8FA7A}
-		{9A48B66D-9B8D-4CD6-992E-BB0921AAE059} = {63D6491B-37EA-4F36-8B9D-2AD526F74BB8}
 		{BAE8337E-9497-4790-B6F2-49FF9467D4EF} = {E3C556B6-A9DB-4772-A7CA-74B4E4CBD362}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
