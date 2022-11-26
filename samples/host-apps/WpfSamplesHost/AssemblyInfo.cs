@@ -1,5 +1,7 @@
 using System.Windows;
+using Microcharts;
 using Microsoft.StandardUI;
+using SimpleControls;
 
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located
@@ -10,5 +12,5 @@ using Microsoft.StandardUI;
                                               // app, or any theme specific resource dictionaries)
 )]
 
-[assembly: ImportStandardControl(typeof(Microcharts.IChart))]
-[assembly: ImportStandardControl(typeof(AlohaKit.StandardControls.IToggleSwitch))]
+[assembly: ImportControlLibrary(typeof(SimpleControlsControlLibrary))]
+[assembly: ImportControlLibrary(typeof(MicrochartsControlLibrary))]

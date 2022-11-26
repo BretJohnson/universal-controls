@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.StandardUI.SourceGenerator.UIFrameworks;
 
 namespace Microsoft.StandardUI.SourceGenerator
 {
@@ -216,6 +217,23 @@ namespace Microsoft.StandardUI.SourceGenerator
             }
 
             return typeNamespace;
+        }
+
+        public static UIFramework GetUIFramework(Context context)
+        {
+            foreach (AssemblyIdentity referencedAssembly in context.Compilation.ReferencedAssemblyNames)
+            {
+                string assemblyName = referencedAssembly.Name;
+
+                if (assemblyName == "Microsoft.StandardUI.Wpf")
+                    return new WpfUIFramework(context);
+                else if (assemblyName == "Microsoft.StandardUI.WinForms")
+                    return new WinFormsUIFramework(context);
+                else if (assemblyName == "Microsoft.StandardUI.Blazor")
+                    return new BlazorUIFramework(context);
+            }
+
+            throw UserVisibleErrors.CouldNotIdentifyUIFramework();
         }
     }
 }

@@ -18,8 +18,8 @@ namespace Microsoft.StandardUI.SourceGenerator
     internal class ControlLibraryGenerator : SourceGeneratorBase<SyntaxNode>
     {
         protected override bool Filter(SyntaxNode node) =>
-            node is InterfaceDeclarationSyntax classDeclarationSyntax && classDeclarationSyntax.AttributeLists.Count > 0 ||
-            node is AttributeSyntax attrib && attrib.ArgumentList?.Arguments.Count == 1;
+            node is InterfaceDeclarationSyntax interfaceDeclarationSyntax && interfaceDeclarationSyntax.AttributeLists.Count > 0 ||
+            node is ClassDeclarationSyntax classDeclarationSyntax && classDeclarationSyntax.AttributeLists.Count > 0;
 
         protected override SyntaxNode? Transform(SemanticModel semanticModel, SyntaxNode node)
         {
@@ -29,9 +29,10 @@ namespace Microsoft.StandardUI.SourceGenerator
             {
                 return interfaceDeclarationSyntax;
             }
-            else if (node is AttributeSyntax attributeSyntax && IsMatchingAttribute(semanticModel, attributeSyntax, KnownTypes.ControlLibraryAttribute))
+            else if (node is ClassDeclarationSyntax classDeclarationSyntax &&
+                GetTypeAttribute(semanticModel, classDeclarationSyntax, KnownTypes.ControlLibraryAttribute) != null)
             {
-                return attributeSyntax;
+                return classDeclarationSyntax;
             }
 
             return null;
@@ -39,8 +40,7 @@ namespace Microsoft.StandardUI.SourceGenerator
 
         protected override void Generate(Context context, ImmutableArray<SyntaxNode> inputs)
         {
-            AttributeSyntax? controlLibraryAttributeSyntax = null;
-            string? controlLibraryName = null;
+            INamedTypeSymbol? controlLibraryClass = null;
             List<Interface> interfaces = new();
 
             foreach (SyntaxNode input in inputs)
@@ -55,18 +55,21 @@ namespace Microsoft.StandardUI.SourceGenerator
                         interfaces.Add(intface);
                     }
                 }
-                else if (input is AttributeSyntax attributeSyntax)
+                else if (input is ClassDeclarationSyntax classDeclarationSyntax)
                 {
-                    controlLibraryAttributeSyntax = attributeSyntax;
-                    controlLibraryName = GetAttributeStringArgument(attributeSyntax, 0);
+                    SemanticModel semanticModel = context.Compilation.GetSemanticModel(classDeclarationSyntax.SyntaxTree);
+                    ISymbol? symbol = semanticModel.GetDeclaredSymbol(classDeclarationSyntax);
+                    if (symbol is INamedTypeSymbol classTypeSymbol)
+                    {
+                        controlLibraryClass = classTypeSymbol;
+                    }
                 }
             }
 
-            if (controlLibraryName == null || controlLibraryAttributeSyntax == null)
+            if (controlLibraryClass == null)
                 return;
 
-            var controlLibrary = new ControlLibrary(context, controlLibraryName,
-                controlLibraryAttributeSyntax.GetReference(), interfaces);
+            var controlLibrary = new ControlLibrary(context, controlLibraryClass, interfaces);
             controlLibrary.GenerateStaticsClass();
             controlLibrary.GenerateFactoryClass();
         }

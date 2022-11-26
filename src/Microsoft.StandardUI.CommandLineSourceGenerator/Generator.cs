@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Build.Locator;
 using Microsoft.CodeAnalysis;
@@ -53,39 +50,6 @@ namespace Microsoft.StandardUI.CommandLineSourceGenerator
             }
         }
 
-        public class GatherInterfacesVisitor : SymbolVisitor
-        {
-            private readonly Context _context;
-            private readonly List<Interface> _interfaces = new();
-
-            public GatherInterfacesVisitor(Context context)
-            {
-                _context = context;
-            }
-
-            public List<Interface> Interfaces => _interfaces;
-
-            public override void VisitNamespace(INamespaceSymbol symbol)
-            {
-                foreach (INamespaceOrTypeSymbol childSymbol in symbol.GetMembers())
-                {
-                    // We must implement the visitor pattern ourselves and 
-                    // accept the child symbols in order to visit their children
-                    childSymbol.Accept(this);
-                }
-            }
-
-            public override void VisitNamedType(INamedTypeSymbol symbol)
-            {
-                InterfacePurpose interfacePuprpose = Interface.IdentifyPurpose(symbol);
-                if (interfacePuprpose != InterfacePurpose.Unspecified)
-                {
-                    var intface = new Interface(_context, symbol);
-                    _interfaces.Add(intface);
-                }
-            }
-        }
-
         private static void GenerateClasses(string rootDirectory, Project project)
         {
             Compilation? compilation = project.GetCompilationAsync().Result;
@@ -93,48 +57,22 @@ namespace Microsoft.StandardUI.CommandLineSourceGenerator
                 return;
 
             var context = new Context(compilation, new DirectoryOutput(rootDirectory));
+            var controlLibrary = new ControlLibrary(context, context.Compilation.Assembly);
 
-            // attributes that indicate the InterfacePurpose is related to Standard UI
-            // Get all the interfaces that should generate source, namely those with
-            // (e.g. [StandardControl], [UIObject], etc.)
-            var gatherInterfacesVisitor = new GatherInterfacesVisitor(context);
-            gatherInterfacesVisitor.Visit(compilation.GlobalNamespace);
-
-            AttributeData? controlLibraryAttribute = compilation.Assembly.GetAttributes()
-                .FirstOrDefault(a => a.AttributeClass?.ToString() == KnownTypes.ControlLibraryAttribute);
-            if (controlLibraryAttribute == null)
-                throw UserVisibleErrors.MissingControlLibraryAttribute();
-
-            ImmutableArray<TypedConstant> constructorArguments = controlLibraryAttribute.ConstructorArguments;
-            if (constructorArguments.Length != 1)
-                throw UserVisibleErrors.ControlLibraryAttributeInvalid(controlLibraryAttribute.ApplicationSyntaxReference);
-
-            if (constructorArguments[0].Value is not string libraryFullyQualifiedName)
-                throw UserVisibleErrors.ControlLibraryAttributeInvalid(controlLibraryAttribute.ApplicationSyntaxReference);
-
-            var controlLibrary = new ControlLibrary(context, libraryFullyQualifiedName,
-                controlLibraryAttribute.ApplicationSyntaxReference, gatherInterfacesVisitor.Interfaces);
-
-            var wpfUIFramework = new WpfUIFramework(context);
-            var winUIUIFramework = new WinUIUIFramework(context);
-            var winFormsUIFramework = new WinFormsUIFramework(context);
-            var macUIFramework = new MacUIFramework(context);
-            var mauiUIFramework = new MauiUIFramework(context);
-            var blazorUIFramework = new BlazorUIFramework(context);
-
-            // Generate source for the various UI frameworks and shared source
-            foreach (Interface intface in gatherInterfacesVisitor.Interfaces)
+            Console.WriteLine($"Generating source for these interfaces:");
+            foreach (Interface intface in controlLibrary.Interfaces)
             {
-                Console.WriteLine($"Processing {intface.Name}");
-
-                intface.Generate(wpfUIFramework);
-                intface.Generate(winUIUIFramework);
-                intface.Generate(winFormsUIFramework);
-                intface.Generate(macUIFramework);
-                intface.Generate(mauiUIFramework);
-                intface.Generate(blazorUIFramework);
-                intface.GenerateExtensionsClass();
+                Console.WriteLine($"{intface.Name}");
             }
+
+            controlLibrary.GenerateControlClasses(new WpfUIFramework(context));
+            controlLibrary.GenerateControlClasses(new WinUIUIFramework(context));
+            controlLibrary.GenerateControlClasses(new WinFormsUIFramework(context));
+            controlLibrary.GenerateControlClasses(new MacUIFramework(context));
+            controlLibrary.GenerateControlClasses(new MauiUIFramework(context));
+            controlLibrary.GenerateControlClasses(new BlazorUIFramework(context));
+
+            controlLibrary.GenerateExtensionsClasses();
 
             //controlLibrary.GenerateFactoryClass();
             //controlLibrary.GenerateStaticsClass();
