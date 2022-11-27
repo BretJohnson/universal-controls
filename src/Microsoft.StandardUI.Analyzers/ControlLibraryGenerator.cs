@@ -72,6 +72,7 @@ namespace Microsoft.StandardUI.SourceGenerator
             var controlLibrary = new ControlLibrary(context, controlLibraryClass, interfaces);
             controlLibrary.GenerateStaticsClass();
             controlLibrary.GenerateFactoryClass();
+            controlLibrary.GenerateExtensionsClasses();
         }
     }
 }

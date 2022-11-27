@@ -13,7 +13,7 @@ namespace Microsoft.ComponentModelEx
         /// <summary>
         /// The name of the property that is associated with direct content
         /// </summary>
-        public string Name { get; }
+        public string? Name { get; }
 
         /// <summary>
         /// Creates a new content property attriubte that indicates that associated
