@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.StandardUI
+namespace Microsoft.StandardUI.Wpf
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class WpfStandardUIElementAttribute : Attribute

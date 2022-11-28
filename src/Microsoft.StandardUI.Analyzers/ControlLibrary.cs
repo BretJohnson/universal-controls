@@ -232,7 +232,7 @@ namespace Microsoft.StandardUI.SourceGenerator
 
         public void GenerateControlClasses(UIFramework uiFramework)
         {
-            foreach (var intface in Interfaces)
+            foreach (Interface intface in Interfaces)
             {
                 intface.Generate(uiFramework);
             }
