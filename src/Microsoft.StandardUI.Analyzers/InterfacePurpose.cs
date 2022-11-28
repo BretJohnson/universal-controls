@@ -4,6 +4,7 @@
     {
         UIObject,
         StandardUIObject,
+        StandardUIElement,
         StandardControl,
         StandardPanel,
         UISingleton,

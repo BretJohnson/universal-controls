@@ -64,6 +64,8 @@ namespace Microsoft.StandardUI.SourceGenerator
                     return InterfacePurpose.UISingleton;
                 else if (attributeTypeFullName == KnownTypes.UIObjectAttribute)
                     return InterfacePurpose.UIObject;
+                else if (attributeTypeFullName == KnownTypes.StandardUIElementAttribute)
+                    return InterfacePurpose.StandardUIElement;
                 else if (attributeTypeFullName == KnownTypes.StandardPanelAttribute)
                     return InterfacePurpose.StandardPanel;
                 else if (attributeTypeFullName == KnownTypes.StandardControlAttribute)
@@ -118,7 +120,7 @@ namespace Microsoft.StandardUI.SourceGenerator
             ContentPropertyName = Utils.GetAttributeStringValue(type, KnownTypes.ContentPropertyAttribute);
         }
 
-        public void Generate(UIFramework uiFramework)
+        public void Generate(UIFramework uiFramework, ISet<string>? noAutoGenerationProperties = null)
         {
             if (IsThisType(KnownTypes.IUIElement))
             {
@@ -126,6 +128,12 @@ namespace Microsoft.StandardUI.SourceGenerator
                 return;
             }
             else if (IsThisType(KnownTypes.IUIObject))
+                return;
+
+            // Code is only generated for the interface types below
+            if (Purpose != InterfacePurpose.StandardControl &&
+                Purpose != InterfacePurpose.StandardPanel &&
+                Purpose != InterfacePurpose.UIObject)
                 return;
 
             string generatedFrom = $"{Name}.cs";
@@ -147,7 +155,7 @@ namespace Microsoft.StandardUI.SourceGenerator
 
             // Add the property descriptors and accessors
             var properties = new List<Property>();
-            GenerateTypeProperties(this, uiFramework, properties, mainClassSource);
+            GenerateTypeProperties(this, uiFramework, noAutoGenerationProperties, properties, mainClassSource);
 
             // If the interface has multiple parent interfaces, the generated superclass will implement the properties
             // for the first interface (that's the typical case), but if there are any additional interfaces, properties
@@ -166,7 +174,7 @@ namespace Microsoft.StandardUI.SourceGenerator
                 }
 
                 var additionalInterface = new Interface(Context, additionalInterfaceType);
-                GenerateTypeProperties(additionalInterface, uiFramework, properties, mainClassSource);
+                GenerateTypeProperties(additionalInterface, uiFramework, noAutoGenerationProperties, properties, mainClassSource);
             }
 
             // If there are any attached properties, add the property descriptors and accessors for them
@@ -238,7 +246,8 @@ namespace Microsoft.StandardUI.SourceGenerator
             }
         }
 
-        public void GenerateNativeUIElementPartialClass(UIFramework uiFramework, TypeName className, string? derivedFrom)
+        public void GenerateNativeUIElementPartialClass(UIFramework uiFramework, ISet<string>? noAutoGenerationProperties,
+            TypeName className, string? derivedFrom)
         {
             var classSource = new ClassSource(Context,
                 namespaceName: className.Namespace,
@@ -249,7 +258,7 @@ namespace Microsoft.StandardUI.SourceGenerator
 
             // Add the property descriptors and accessors
             var properties = new List<Property>();
-            GenerateTypeProperties(this, uiFramework, properties, classSource);
+            GenerateTypeProperties(this, uiFramework, noAutoGenerationProperties, properties, classSource);
 
             classSource.NonstaticMethods.AddBlankLineIfNonempty();
             classSource.NonstaticMethods.AddLine("// IUIElement methods");
@@ -259,10 +268,14 @@ namespace Microsoft.StandardUI.SourceGenerator
             classSource.AddToOutput(uiFramework);
         }
 
-        private static void GenerateTypeProperties(Interface intface, UIFramework uiFramework, List<Property> properties, ClassSource classSource)
+        private static void GenerateTypeProperties(Interface intface, UIFramework uiFramework, ISet<string>? noAutoGenerationProperties,
+            List<Property> properties, ClassSource classSource)
         {
             foreach (IPropertySymbol propertySymbol in intface.Type.GetMembers().Where(member => member.Kind == SymbolKind.Property))
             {
+                if (noAutoGenerationProperties != null && noAutoGenerationProperties.Contains(propertySymbol.Name))
+                    continue;
+
                 var property = new Property(intface.Context, intface, propertySymbol);
                 properties.Add(property);
 

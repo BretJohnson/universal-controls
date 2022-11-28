@@ -1,5 +1,5 @@
-﻿using System.Collections.Immutable;
-using System.ComponentModel.Design;
+﻿using System.Collections.Generic;
+using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.StandardUI.SourceGenerator.UIFrameworks;
@@ -35,6 +35,26 @@ namespace Microsoft.StandardUI.SourceGenerator
             }
         }
 
+        private ISet<string> GetNoAutoGenerationProperties(SemanticModel semanticModel, ClassDeclarationSyntax classDeclarationSyntax)
+        {
+            var properties = new HashSet<string>();
+
+            foreach (AttributeListSyntax attributeListSyntax in classDeclarationSyntax.AttributeLists)
+            {
+                foreach (AttributeSyntax attributeSyntax in attributeListSyntax.Attributes)
+                {
+                    if (IsMatchingAttribute(semanticModel, attributeSyntax, KnownTypes.NoAutoPropertyGenerationAttribute))
+                    {
+                        string? propertyName = GetAttributeStringArgument(attributeSyntax, 0);
+                        if (propertyName != null)
+                            properties.Add(propertyName);
+                    }
+                }
+            }
+
+            return properties;
+        }
+
         protected override void Generate(Context context, ImmutableArray<ClassDeclarationSyntax> inputs)
         {
             foreach (ClassDeclarationSyntax classDeclarationSyntax in inputs)
@@ -53,7 +73,6 @@ namespace Microsoft.StandardUI.SourceGenerator
                     continue;
 
                 string classNamespace = GetNamespace(classDeclarationSyntax);
-
                 var className = new TypeName(classNamespace, classDeclarationSyntax.Identifier.Text);
 
                 // Get the parent classes/interfaces, removing the ":" prefix, so the partial class we
@@ -64,9 +83,11 @@ namespace Microsoft.StandardUI.SourceGenerator
                     derivedFrom = derivedFrom.Substring(1);
                     derivedFrom = derivedFrom.TrimStart(' ', '\t');
                 }
+                
+                ISet<string> noAutoGenerationProperties = GetNoAutoGenerationProperties(semanticModel, classDeclarationSyntax);
 
                 var intface = new Interface(context, interfaceType);
-                intface.GenerateNativeUIElementPartialClass(uiFramework, className, derivedFrom);
+                intface.GenerateNativeUIElementPartialClass(uiFramework, noAutoGenerationProperties, className, derivedFrom);
             }
         }
     }
