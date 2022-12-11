@@ -4,28 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:s="http://schemas.microsoft.com/standard-ui/2022"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:microcharts="clr-namespace:Microcharts.Wpf"
-        xmlns:aloha="clr-namespace:AlohaKit.StandardControls.Wpf"
         x:Class="WpfHost.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <s:VerticalStack HorizontalAlignment="Stretch">
-        <s:Grid>
-            <s:Grid.ColumnDefinitions>
-                <s:ColumnDefinition/>
-                <s:ColumnDefinition/>
-                <s:ColumnDefinition/>
-            </s:Grid.ColumnDefinitions>
-            <Label Content="Cell1" s:Grid.Row="0" s:Grid.Column="0"/>
-            <Label Content="Cell2" s:Grid.Row="0" s:Grid.Column="1"/>
-            <Label Content="Cell3" s:Grid.Row="0" s:Grid.Column="2"/>
-        </s:Grid>
-        
-        <Label Content=".NET Standard UI Controls"/>
+    <s:VerticalStack HorizontalAlignment="Stretch" Margin="20">
+        <Label Content=".NET Standard UI Control Examples" FontSize="24"/>
 
-        <aloha:ToggleSwitch BackgroundColor="Gray" ThumbColor="Red"/>
-
-        <microcharts:Chart x:Name="MyBarChart" ChartType="BarChart" LabelColor="Blue" Width="300" Height="300"/>
-        <microcharts:Chart x:Name="MyPointChart" ChartType="PointChart" Width="300" Height="300"/>
+        <Grid Name="Examples" HorizontalAlignment="Left" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        </Grid>
     </s:VerticalStack>
 </Window>
