@@ -12,5 +12,3 @@ using SimpleControls;
                                               // app, or any theme specific resource dictionaries)
 )]
 
-[assembly: ImportControlLibrary(typeof(SimpleControlsControlLibrary))]
-[assembly: ImportControlLibrary(typeof(MicrochartsControlLibrary))]
