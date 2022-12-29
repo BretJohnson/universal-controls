@@ -5,7 +5,7 @@ namespace Microsoft.StandardUI.Wpf
 {
     /// <summary>
     /// This class is for UI controls passed in from the host, for native WPF controls (not
-    /// Standard UI built in controls or StandardControl controls), which we wrap with an IUIElement here.
+    /// Standard UI built in controls or WpfStandardControl controls), which we wrap with an IUIElement here.
     /// </summary>
     public class WrappedNativeUIElement : IUIElement
     {

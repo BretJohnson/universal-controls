@@ -66,7 +66,7 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
         public override void GenerateBuiltInIUIElementPartialClasses()
         {
             GenerateBuiltInIUIElementPartialClass("BuiltInUIElement");
-            GenerateBuiltInIUIElementPartialClass("StandardControl");
+            GenerateBuiltInIUIElementPartialClass("WpfStandardControl");
         }
 
         private void GenerateBuiltInIUIElementPartialClass(string className)
