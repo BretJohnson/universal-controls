@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Media;
 using Microsoft.StandardUI.Controls;
 using Microsoft.StandardUI.Wpf.NativeVisualFramework;
 
@@ -42,19 +41,21 @@ namespace Microsoft.StandardUI.Wpf
             return arrangeSize;
         }
 
-        protected override int VisualChildrenCount => _buildContent != null ? 1 : 0;
-
         IUIElement? IStandardControlEnvironmentPeer.BuildContent => _buildContent;
 
-        protected override Visual GetVisualChild(int index)
+        int IUIElement.VisualChildrenCount => _buildContent != null ? 1 : 0;
+
+        IUIElement IUIElement.GetVisualChild(int index)
         {
             if (_buildContent == null)
                 throw new ArgumentOutOfRangeException("index", index, "Control returned null from build");
             if (index != 0)
                 throw new ArgumentOutOfRangeException("index", index, "Index out of range; control only has a single visual child.");
 
-            return _buildContent.ToWpfUIElement();
+            return _buildContent;
         }
+
+        public Rect Frame => throw new NotImplementedException();
 
         void ILogicalParent.AddLogicalChild(object child) => this.AddLogicalChild(child);
 

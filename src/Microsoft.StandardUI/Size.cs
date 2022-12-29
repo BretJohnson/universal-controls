@@ -1,26 +1,85 @@
-﻿namespace Microsoft.StandardUI
+﻿using System.ComponentModel;
+using System;
+using System.Globalization;
+
+namespace Microsoft.StandardUI
 {
     /// <summary>
     /// Represents number values that specify a height and width.
     /// </summary>
     public struct Size
     {
-        public static readonly Size Default = new Size(0, 0);
+        private double _width;
+        private double _height;
 
-        /// <summary>
-        /// Gets or sets the Width of this instance of Size.
-        /// </summary>
-        public double Width { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Height of this instance of Size.
-        /// </summary>
-        public double Height { get; set; }
+        public static readonly Size Zero;
+        public static readonly Size Default = Zero;
 
         public Size(double width, double height)
         {
-            Width = width;
-            Height = height;
+            if (double.IsNaN(width))
+                throw new ArgumentException("NaN is not a valid value for width");
+            if (double.IsNaN(height))
+                throw new ArgumentException("NaN is not a valid value for height");
+            _width = width;
+            _height = height;
+        }
+
+        public double Width
+        {
+            get => _width;
+            set
+            {
+                if (double.IsNaN(value))
+                    throw new ArgumentException("NaN is not a valid value for Width");
+                _width = value;
+            }
+        }
+
+        public double Height
+        {
+            get => _height;
+            set
+            {
+                if (double.IsNaN(value))
+                    throw new ArgumentException("NaN is not a valid value for Height");
+                _height = value;
+            }
+        }
+
+        public static bool operator ==(Size s1, Size s2)
+        {
+            return s1._width == s2._width && s1._height == s2._height;
+        }
+
+        public static bool operator !=(Size s1, Size s2)
+        {
+            return s1._width != s2._width || s1._height != s2._height;
+        }
+
+        public bool Equals(Size other)
+        {
+            return _width.Equals(other._width) && _height.Equals(other._height);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj))
+                return false;
+            return obj is Size && Equals((Size)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (_width.GetHashCode() * 397) ^ _height.GetHashCode();
+            }
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{{Width={0} Height={1}}}", _width.ToString(CultureInfo.InvariantCulture), _height.ToString(CultureInfo.InvariantCulture));
         }
     }
 }

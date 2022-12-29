@@ -1,5 +1,6 @@
 // This file is generated. Update the source to change its contents.
 
+using System.Windows.Media;
 using Visibility = System.Windows.Visibility;
 
 namespace Microsoft.StandardUI.Wpf
@@ -78,13 +79,19 @@ namespace Microsoft.StandardUI.Wpf
             get => MaxHeight;
             set => MaxHeight = value;
         }
-        
+
         double IUIElement.ActualWidth => ActualWidth;
         double IUIElement.ActualHeight => ActualHeight;
-        
+
         object? IUIObject.GetValue(IUIProperty property) => GetValue(((UIProperty)property).DependencyProperty);
         object? IUIObject.ReadLocalValue(IUIProperty property) => ReadLocalValue(((UIProperty)property).DependencyProperty);
         void IUIObject.SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).DependencyProperty, value);
         void IUIObject.ClearValue(IUIProperty property) => ClearValue(((UIProperty)property).DependencyProperty);
+
+        protected override int VisualChildrenCount =>
+            ((IUIElement)this).VisualChildrenCount;
+
+        protected override Visual GetVisualChild(int index) =>
+            ((IUIElement)this).GetVisualChild(index).ToWpfUIElement();
     }
 }

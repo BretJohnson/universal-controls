@@ -20,7 +20,8 @@ namespace Microsoft.StandardUI.SkiaVisualFramework
             }
         }
 
-        public abstract IVisualHostControl CreateHostControl(object? arg1 = null, object? arg2 = null, object? arg3 = null);
+        public abstract RenderLayer CreateRenderLayer(IUIElement rootElement,
+            object? arg1 = null, object? arg2 = null, object? arg3 = null);
 
         public Size MeasureTextBlock(ITextBlock textBlock)
         {

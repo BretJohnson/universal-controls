@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 
 namespace Microsoft.StandardUI
@@ -67,6 +68,11 @@ namespace Microsoft.StandardUI
         public FlowDirection FlowDirection { get; set; }
 
         /// <summary>
+        /// Gets the bounds of the UI element within its container.
+        /// </summary>
+        Rect Frame { get; }
+
+        /// <summary>
         /// Gets the size that this UIElement computed during the measure pass of the layout process.
         /// </summary>
         public Size DesiredSize { get; }
@@ -117,5 +123,9 @@ namespace Microsoft.StandardUI
         /// </summary>
         [DefaultValue(true)]
         public bool Visible { get; set; }
+
+        public int VisualChildrenCount { get; }
+
+        public IUIElement GetVisualChild(int index);
     }
 }

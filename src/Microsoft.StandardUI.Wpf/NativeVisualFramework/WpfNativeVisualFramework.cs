@@ -15,10 +15,8 @@ namespace Microsoft.StandardUI.Wpf.NativeVisualFramework
             throw new NotImplementedException();
         }
 
-        public IVisualHostControl CreateHostControl(object? arg1 = null, object? arg2 = null, object? arg3 = null)
-        {
+        public RenderLayer CreateRenderLayer(IUIElement rootElement, object? arg1 = null, object? arg2 = null, object? arg3 = null) =>
             throw new NotImplementedException();
-        }
 
         public Size MeasureTextBlock(ITextBlock textBlock)
         {

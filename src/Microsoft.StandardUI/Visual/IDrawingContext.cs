@@ -13,19 +13,20 @@ namespace Microsoft.StandardUI
     /// </summary>
     public interface IDrawingContext : IDisposable
     {
-        void DrawEllipse(IEllipse ellipse);
+        void DrawEllipse(IEllipse ellipse, double width, double height);
         void DrawLine(ILine line);
         void DrawPath(IPath path);
         void DrawPolygon(IPolygon polygon);
         void DrawPolyline(IPolyline polyline);
+        void DrawRectangle(IRectangle rectangle, double width, double height);
 
         void DrawRectangle(IBrush? brush, Pen? pen, Rect rect);
         void DrawRoundedRectangle(IBrush? brush, Pen? pen, Rect rect, double radiusX, double radiusY);
-        void DrawRectangle(IRectangle rectangle);
 
         void DrawTextBlock(ITextBlock textBlock);
 
         void PushRotateTransform(double angle, double centerX, double centerY);
+        void PushTranslateTransform(double offsetX, double offsetY);
         void PushTransform(ITransform transform);
         void Pop();
 

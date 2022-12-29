@@ -20,10 +20,6 @@ namespace Microsoft.StandardUI.Blazor.NativeVisualFramework
             _implementation = implementation;
         }
 
-        public override void Measure(Size constraint) => throw new NotImplementedException();
-
-        public override void Arrange(Rect finalRect) => throw new NotImplementedException();
-
         IUIElement? IStandardControlEnvironmentPeer.BuildContent => _buildContent;
 
         private void Rebuild()
