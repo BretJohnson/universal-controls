@@ -20,6 +20,11 @@ namespace Microsoft.StandardUI.SkiaVisualFramework
             _skCanvas = _skPictureRecorder.BeginRecording(skCullingRect);
         }
 
+        public SkiaDrawingContext(SKCanvas canvas)
+        {
+            _skCanvas = canvas;
+        }
+
         protected virtual void Dispose(bool disposing)
         {
             if (_skPictureRecorder != null)
@@ -40,7 +45,7 @@ namespace Microsoft.StandardUI.SkiaVisualFramework
         public void DrawEllipse(IEllipse ellipse)
         {
             SKPath skPath = new SKPath();
-            SKRect skRect = SKRect.Create(0, 0, (float)ellipse.Width, (float)ellipse.Height);
+            SKRect skRect = SKRect.Create(0, 0, (float)ellipse.ActualWidth, (float)ellipse.ActualHeight);
             skPath.AddOval(skRect);
 
             DrawShapePath(skPath, ellipse);
@@ -81,7 +86,7 @@ namespace Microsoft.StandardUI.SkiaVisualFramework
         public void DrawRectangle(IRectangle rectangle)
         {
             SKPath skPath = new SKPath();
-            SKRect skRect = SKRect.Create(0, 0, (float)rectangle.Width, (float)rectangle.Height);
+            SKRect skRect = SKRect.Create(0, 0, (float)rectangle.ActualWidth, (float)rectangle.ActualHeight);
             if (rectangle.RadiusX > 0 || rectangle.RadiusY > 0)
                 skPath.AddRoundRect(skRect, (float)rectangle.RadiusX, (float)rectangle.RadiusY);
             else
@@ -102,11 +107,13 @@ namespace Microsoft.StandardUI.SkiaVisualFramework
                     IsAntialias = true
                 };
 
-                InitSkiaPaintForBrush(paint, foreground, textBlock);
-
                 SKRect textBounds = new SKRect();
                 paint.MeasureText(textBlock.Text, ref textBounds);
                 float baseline = -textBounds.Top;
+
+                if (foreground is IGradientBrush foregroundGradientBrush)
+                    InitSkiaPaintForGradientBrush(paint, foregroundGradientBrush, textBounds.Size);
+                else InitSkiaPaintForNongradientBrush(paint, foreground);
 
                 _skCanvas.DrawText(textBlock.Text, 0, baseline, paint);
             }
@@ -130,7 +137,14 @@ namespace Microsoft.StandardUI.SkiaVisualFramework
             if (fill != null)
             {
                 using SKPaint paint = new SKPaint { Style = SKPaintStyle.Fill, IsAntialias = true };
-                InitSkiaPaintForBrush(paint, fill, shape);
+
+                if (fill is IGradientBrush fillGradientBrush)
+                {
+                    SKRect tightBounds = skPath.TightBounds;
+                    InitSkiaPaintForGradientBrush(paint, fillGradientBrush, tightBounds.Size);
+                }
+                else InitSkiaPaintForNongradientBrush(paint, fill);
+
                 _skCanvas.DrawPath(skPath, paint);
             }
         }
@@ -141,7 +155,14 @@ namespace Microsoft.StandardUI.SkiaVisualFramework
             if (stroke != null)
             {
                 using SKPaint paint = new SKPaint { Style = SKPaintStyle.Stroke, IsAntialias = true };
-                InitSkiaPaintForBrush(paint, stroke, shape);
+
+                if (stroke is IGradientBrush strokeGradientBrush)
+                {
+                    SKRect tightBounds = skPath.TightBounds;
+                    InitSkiaPaintForGradientBrush(paint, strokeGradientBrush, tightBounds.Size);
+                }
+                else InitSkiaPaintForNongradientBrush(paint, stroke);
+
                 paint.StrokeWidth = (int)shape.StrokeThickness;
                 paint.StrokeMiter = (float)shape.StrokeMiterLimit;
 
@@ -167,18 +188,23 @@ namespace Microsoft.StandardUI.SkiaVisualFramework
             }
         }
 
-        private static void InitSkiaPaintForBrush(SKPaint paint, IBrush brush, IUIElement uiElement)
+        private static void InitSkiaPaintForNongradientBrush(SKPaint paint, IBrush brush)
         {
             if (brush is ISolidColorBrush solidColorBrush)
                 paint.Color = ToSkiaColor(solidColorBrush.Color);
             else if (brush is IGradientBrush gradientBrush)
-                paint.Shader = ToSkiaShader(gradientBrush, uiElement);
-            else throw new InvalidOperationException($"Brush type {brush.GetType()} isn't currently supported");
+                throw new InvalidOperationException($"InitSkiaPaintForBrush: Use InitSkiaPaintForGradientBrush instead for gradient brush type {brush.GetType()}");
+            else throw new InvalidOperationException($"InitSkiaPaintForBrush: Brush type {brush.GetType()} isn't currently supported");
+        }
+
+        private static void InitSkiaPaintForGradientBrush(SKPaint paint, IGradientBrush gradientBrush, SKSize boundingBoxSize)
+        {
+            paint.Shader = ToSkiaShader(gradientBrush, boundingBoxSize);
         }
 
         public static SKColor ToSkiaColor(Color color) => new SKColor(color.R, color.G, color.B, color.A);
 
-        public static SKShader ToSkiaShader(IGradientBrush gradientBrush, IUIElement uiElement)
+        public static SKShader ToSkiaShader(IGradientBrush gradientBrush, SKSize boundingBoxSize)
         {
             SKShaderTileMode tileMode = gradientBrush.SpreadMethod switch
             {
@@ -198,27 +224,27 @@ namespace Microsoft.StandardUI.SkiaVisualFramework
 
             if (gradientBrush is ILinearGradientBrush linearGradientBrush)
             {
-                SKPoint skiaStartPoint = GradientBrushPointToSkiaPoint(linearGradientBrush.StartPoint, gradientBrush, uiElement);
-                SKPoint skiaEndPoint = GradientBrushPointToSkiaPoint(linearGradientBrush.EndPoint, gradientBrush, uiElement);
+                SKPoint skiaStartPoint = GradientBrushPointToSkiaPoint(linearGradientBrush.StartPoint, gradientBrush, boundingBoxSize);
+                SKPoint skiaEndPoint = GradientBrushPointToSkiaPoint(linearGradientBrush.EndPoint, gradientBrush, boundingBoxSize);
 
                 return SKShader.CreateLinearGradient(skiaStartPoint, skiaEndPoint, skColors.ToArray(), skiaColorPositions.ToArray(), tileMode);
             }
             else if (gradientBrush is IRadialGradientBrush radialGradientBrush)
             {
-                SKPoint skiaCenterPoint = GradientBrushPointToSkiaPoint(radialGradientBrush.Center, gradientBrush, uiElement);
+                SKPoint skiaCenterPoint = GradientBrushPointToSkiaPoint(radialGradientBrush.Center, gradientBrush, boundingBoxSize);
 
-                float radius = (float)(radialGradientBrush.RadiusX * uiElement.Width);
+                float radius = (float)(radialGradientBrush.RadiusX * boundingBoxSize.Width);
                 return SKShader.CreateRadialGradient(skiaCenterPoint, radius, skColors.ToArray(), skiaColorPositions.ToArray(), tileMode);
             }
             else throw new InvalidOperationException($"GradientBrush type {gradientBrush.GetType()} is unknown");
         }
 
-        public static SKPoint GradientBrushPointToSkiaPoint(Point point, IGradientBrush gradientBrush, IUIElement uiElement)
+        public static SKPoint GradientBrushPointToSkiaPoint(Point point, IGradientBrush gradientBrush, SKSize boundingBoxSize)
         {
             if (gradientBrush.MappingMode == BrushMappingMode.RelativeToBoundingBox)
                 return new SKPoint(
-                    (float)(point.X * uiElement.Width),
-                    (float)(point.Y * uiElement.Height));
+                    (float)(point.X * boundingBoxSize.Width),
+                    (float)(point.Y * boundingBoxSize.Height));
             else
                 return new SKPoint((float)point.X, (float)point.Y);
         }
@@ -258,6 +284,12 @@ namespace Microsoft.StandardUI.SkiaVisualFramework
             throw new NotImplementedException();
         }
 
+        public void PushTranslateTransform(double offsetX, double offsetY)
+        {
+            _skCanvas.Save();
+            _skCanvas.Translate((float) offsetX, (float)offsetY);
+        }
+
         public void PushTransform(ITransform transform)
         {
             throw new NotImplementedException();
@@ -265,7 +297,7 @@ namespace Microsoft.StandardUI.SkiaVisualFramework
 
         public void Pop()
         {
-            throw new NotImplementedException();
+            _skCanvas.Restore();
         }
     }
 }

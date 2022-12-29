@@ -1,14 +1,19 @@
 using System;
+using System.Collections;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
-using Microsoft.StandardUI.Blazor.Shapes;
 using Microsoft.StandardUI.DefaultImplementations;
 
 namespace Microsoft.StandardUI.Blazor
 {
-    public abstract class UIElement : ComponentBase, IUIElement
+    public abstract class UIElement : ComponentBase, IUIElement, IDisposable
     {
         private PropertyValues _properties = new(true);
+        private Rect _frame = new Rect(0, 0, -1, -1);
+        private bool _layoutInvalid = true;
+
+        public Size DesiredSize { get; protected set; }
 
         public static readonly UIProperty WidthProperty = new(nameof(WidthProperty), double.NaN);
         public static readonly UIProperty MinWidthProperty = new(nameof(MinWidthProperty), 0.0);
@@ -25,23 +30,20 @@ namespace Microsoft.StandardUI.Blazor
         public static readonly UIProperty FlowDirectionProperty = new(nameof(VerticalAlignment), FlowDirection.LeftToRight);
         public static readonly UIProperty VisibleProperty = new(nameof(Visible), true);
 
+        public static readonly UIProperty ParentingInfoProperty = new(nameof(ParentingInfo), null);
+        public static readonly UIProperty RenderLayerProperty = new(nameof(RenderLayer), null);
+
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
             base.BuildRenderTree(builder);
 
-            // TODO: Only create the host canvas if an outer component hasn't already created it
-            IVisualFramework visualFramework = HostEnvironment.VisualFramework;
-            IVisualHostControl hostCanvas = visualFramework.CreateHostControl(builder, 0);
-
-            // TODO: Hack for now, but replace this
-            if (this is Shape shape)
+            // Create layer for the root element
+            if (ParentingInfo == null)
             {
-                IDrawingContext drawingContext = HostEnvironment.VisualFramework.CreateDrawingContext(this);
-                shape.Draw(drawingContext);
-                IVisual? visual = drawingContext.Close();
+                IVisualFramework visualFramework = HostEnvironment.VisualFramework;
+                RenderLayer renderLayer = visualFramework.CreateRenderLayer(this, builder, 0);
 
-                if (visual != null)
-                    hostCanvas.Content = visual;
+                RenderLayer = renderLayer;
             }
         }
 
@@ -122,19 +124,149 @@ namespace Microsoft.StandardUI.Blazor
             set => SetValue(VisibleProperty, value);
         }
 
-        public abstract void Measure(Size availableSize);
+        [CascadingParameter(Name = "ParentingInfo")]
+        private IList? ParentingInfo
+        {
+            get => (IList?)GetValue(ParentingInfoProperty);
+            set
+            {
+                IList? oldValue = ParentingInfo;
 
-        public abstract void Arrange(Rect finalRect);
+                if (oldValue == value)
+                    return;
 
-        public Size DesiredSize => throw new NotImplementedException();
+                if (oldValue != null)
+                    oldValue.Remove(this);
+
+                if (value != null)
+                    value.Add(this);
+
+                SetValue(ParentingInfoProperty, value);
+            }
+        }
+
+        public Rect Frame => _frame;
+
+        protected RenderLayer? RenderLayer
+        {
+            get => (RenderLayer?) GetValue(RenderLayerProperty);
+            set => SetValue(RenderLayerProperty, value);
+        }
+
+        protected virtual Size MeasureOverride(double widthConstraint, double heightConstraint)
+        {
+            return new Size(0.0, 0.0);
+        }
+
+        private SizeRequest GetSizeRequest(double widthConstraint, double heightConstraint)
+        {
+            var constraintSize = new Size(widthConstraint, heightConstraint);
+
+            double widthRequest = Width;
+            double heightRequest = Height;
+            if (widthRequest >= 0)
+                widthConstraint = Math.Min(widthConstraint, widthRequest);
+            if (heightRequest >= 0)
+                heightConstraint = Math.Min(heightConstraint, heightRequest);
+
+            SizeRequest result = MeasureOverride(widthConstraint, heightConstraint);
+            bool hasMinimum = result.Minimum != result.Request;
+            Size request = result.Request;
+            Size minimum = result.Minimum;
+
+            if (heightRequest != -1 && !double.IsNaN(heightRequest))
+            {
+                request.Height = heightRequest;
+                if (!hasMinimum)
+                    minimum.Height = heightRequest;
+            }
+
+            if (widthRequest != -1 && !double.IsNaN(widthRequest))
+            {
+                request.Width = widthRequest;
+                if (!hasMinimum)
+                    minimum.Width = widthRequest;
+            }
+
+            double minimumHeightRequest = MinHeight;
+            double minimumWidthRequest = MinWidth;
+
+            if (minimumHeightRequest != -1)
+                minimum.Height = minimumHeightRequest;
+            if (minimumWidthRequest != -1)
+                minimum.Width = minimumWidthRequest;
+
+            minimum.Height = Math.Min(request.Height, minimum.Height);
+            minimum.Width = Math.Min(request.Width, minimum.Width);
+
+            var r = new SizeRequest(request, minimum);
+
+            return r;
+        }
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            if (ParentingInfo == null)
+            {
+                // The components were just created or changed, so layout again
+                Size availableSize = new Size(double.MaxValue, double.MaxValue);
+                Layout(availableSize);
+            }
+        }
+
+        internal void Layout(Size availableSize)
+        {
+            if (!_layoutInvalid)
+                return;
+
+            Measure(availableSize);
+
+            Rect finalSize = new Rect(0, 0, DesiredSize.Width, DesiredSize.Height);
+            Arrange(finalSize);
+
+            _layoutInvalid = false;
+        }
+
+        public void Measure(Size availableSize)
+        {
+            Measure(availableSize.Width, availableSize.Height);
+        }
+
+        public void Measure(double widthConstraint, double heightConstraint)
+        {
+            Thickness margin = Margin;
+            widthConstraint = Math.Max(0, widthConstraint - margin.HorizontalThickness);
+            heightConstraint = Math.Max(0, heightConstraint - margin.VerticalThickness);
+
+            SizeRequest result = GetSizeRequest(widthConstraint, heightConstraint);
+
+            if (!margin.IsEmpty)
+            {
+                result.Minimum = new Size(result.Minimum.Width + margin.HorizontalThickness, result.Minimum.Height + margin.VerticalThickness);
+                result.Request = new Size(result.Request.Width + margin.HorizontalThickness, result.Request.Height + margin.VerticalThickness);
+            }
+
+            DesiredSize = result.Request;
+        }
+
+        public void Arrange(Rect bounds)
+        {
+            Size size = ArrangeOverride(bounds);
+            _frame = new Rect(bounds.X, bounds.Y, size.Width, size.Height);
+        }
+
+        protected virtual Size ArrangeOverride(Rect bounds)
+        {
+            return bounds.Size;
+        }
 
         public double ActualX => throw new NotImplementedException();
 
         public double ActualY => throw new NotImplementedException();
 
-        public double ActualWidth => throw new NotImplementedException();
+        public double ActualWidth => _frame.Width;
 
-        public double ActualHeight => throw new NotImplementedException();
+        public double ActualHeight => _frame.Height;
 
         public object GetNonNullValue(UIProperty property) => _properties.GetNonNullValue(property);
         public object? GetValue(UIProperty property) => _properties.GetValue(property);
@@ -148,5 +280,28 @@ namespace Microsoft.StandardUI.Blazor
 
         public void ClearValue(UIProperty property) => _properties.ClearValue(property);
         void IUIObject.ClearValue(IUIProperty property) => _properties.ClearValue((UIProperty)property);
+
+        public virtual int VisualChildrenCount => 0;
+
+        public virtual IUIElement GetVisualChild(int index) => throw new IndexOutOfRangeException("UIElement has no children");
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                IList? parentingInfo = ParentingInfo;
+                if (parentingInfo != null)
+                {
+                    parentingInfo.Remove(this);
+                    ParentingInfo = null;
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
+        }
     }
 }

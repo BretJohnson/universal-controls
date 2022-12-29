@@ -16,5 +16,11 @@ namespace Microsoft.StandardUI.Blazor.Controls
             get => (Orientation) GetNonNullValue(OrientationProperty);
             set => SetValue(OrientationProperty, value);
         }
+        
+        protected override Size MeasureOverride(double widthConstraint, double heightConstraint) =>
+            StackLayoutManager.Instance.MeasureOverride(this, widthConstraint, heightConstraint);
+        
+        protected override Size ArrangeOverride(Rect bounds) =>
+            StackLayoutManager.Instance.ArrangeOverride(this, bounds.Size);
     }
 }

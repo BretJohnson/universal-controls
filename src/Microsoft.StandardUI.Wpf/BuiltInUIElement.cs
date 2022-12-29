@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Media;
 
 namespace Microsoft.StandardUI.Wpf
@@ -44,7 +45,14 @@ namespace Microsoft.StandardUI.Wpf
         {
         }
 
+        public Rect Frame => throw new NotImplementedException();
+
         void ILogicalParent.AddLogicalChild(object child) => AddLogicalChild(child);
         void ILogicalParent.RemoveLogicalChild(object child) => RemoveLogicalChild(child);
+
+        int IUIElement.VisualChildrenCount => 0;
+
+        IUIElement IUIElement.GetVisualChild(int index) =>
+            throw new IndexOutOfRangeException("UIElement has no children");
     }
 }

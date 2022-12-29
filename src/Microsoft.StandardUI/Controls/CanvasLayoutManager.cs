@@ -4,7 +4,7 @@
     {
         public static CanvasLayoutManager Instance = new CanvasLayoutManager();
 
-        public override Size MeasureOverride(ICanvas canvas, Size constraint)
+        public override Size MeasureOverride(ICanvas canvas, double widthConstraint, double heightConstraint)
         {
             Size childConstraint = new Size(double.PositiveInfinity, double.PositiveInfinity);
 

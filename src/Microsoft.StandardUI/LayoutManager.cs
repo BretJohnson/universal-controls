@@ -4,7 +4,7 @@ namespace Microsoft.StandardUI.Controls
 {
     public abstract class LayoutManager<TContainerUIElement> where TContainerUIElement : IUIElement
     {
-        public abstract Size MeasureOverride(TContainerUIElement panel, Size constraint);
+        public abstract Size MeasureOverride(TContainerUIElement panel, double widthConstraint, double heightConstraint);
 
         public abstract Size ArrangeOverride(TContainerUIElement panel, Size finalSize);
 

@@ -5,30 +5,20 @@ namespace Microsoft.StandardUI.Blazor.NativeVisualFramework
 {
     public class BlazorNativeVisualFramework : IVisualFramework
     {
-        public BlazorNativeVisualFramework()
-        {
+        public BlazorNativeVisualFramework() =>
             throw new NotImplementedException("Eventually this will use the JavaScript bridge, but it's currently not supported. Use the Skia based Blazor VisualFramework instead.");
-        }
 
         public IDrawingContext CreateDrawingContext(IUIElement uiElement)
-        {
-            throw new NotImplementedException();
-        }
+            => throw new NotImplementedException();
 
-        public IVisualHostControl CreateHostControl(object? arg1 = null, object? arg2 = null, object? arg3 = null)
-        {
+        public RenderLayer CreateRenderLayer(IUIElement rootElement, object? arg1 = null, object? arg2 = null, object? arg3 = null) =>
             throw new NotImplementedException();
-        }
 
-        public Size MeasureTextBlock(ITextBlock textBlock)
-        {
+        public Size MeasureTextBlock(ITextBlock textBlock) =>
             throw new NotImplementedException();
-        }
 
-        public void RenderToBuffer(IVisual visual, IntPtr pixels, int width, int height, int rowBytes)
-        {
+        public void RenderToBuffer(IVisual visual, IntPtr pixels, int width, int height, int rowBytes) =>
             throw new NotImplementedException();
-        }
 
 #if LATER
         private Canvas2DContext context;

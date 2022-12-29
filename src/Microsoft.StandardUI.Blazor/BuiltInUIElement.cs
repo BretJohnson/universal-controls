@@ -8,9 +8,5 @@ namespace Microsoft.StandardUI.Blazor
         public virtual void Draw(IDrawingContext visualizer)
         {
         }
-
-        public override void Measure(Size availableSize) => throw new System.NotImplementedException();
-
-        public override void Arrange(Rect finalRect) => throw new System.NotImplementedException();
     }
 }

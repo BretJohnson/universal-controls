@@ -15,5 +15,11 @@ namespace Microsoft.StandardUI.WinForms.Controls
         
         public static double GetTop(System.Windows.Forms.Control element) => (double) AttachedPropertiesValues.GetValue(element, TopProperty);
         public static void SetTop(System.Windows.Forms.Control element, double value) => AttachedPropertiesValues.SetValue(element, TopProperty, value);
+        
+        protected override Size MeasureOverride(double widthConstraint, double heightConstraint) =>
+            CanvasLayoutManager.Instance.MeasureOverride(this, widthConstraint, heightConstraint);
+        
+        protected override Size ArrangeOverride(Rect bounds) =>
+            CanvasLayoutManager.Instance.ArrangeOverride(this, bounds.Size);
     }
 }

@@ -54,5 +54,11 @@ namespace Microsoft.StandardUI.WinForms.Controls
             get => (double) GetNonNullValue(RowSpacingProperty);
             set => SetValue(RowSpacingProperty, value);
         }
+        
+        protected override Size MeasureOverride(double widthConstraint, double heightConstraint) =>
+            GridLayoutManager.Instance.MeasureOverride(this, widthConstraint, heightConstraint);
+        
+        protected override Size ArrangeOverride(Rect bounds) =>
+            GridLayoutManager.Instance.ArrangeOverride(this, bounds.Size);
     }
 }

@@ -43,5 +43,41 @@
         public double HorizontalThickness => Left + Right;
 
         public double VerticalThickness => Top + Bottom;
+
+        public bool IsEmpty => Left == 0 && Top == 0 && Right == 0 && Bottom == 0;
+
+        private bool Equals(Thickness other)
+        {
+            return Left.Equals(other.Left) && Top.Equals(other.Top) && Right.Equals(other.Right) && Bottom.Equals(other.Bottom);
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (ReferenceEquals(null, obj))
+                return false;
+            return obj is Thickness && Equals((Thickness)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hashCode = Left.GetHashCode();
+                hashCode = (hashCode * 397) ^ Top.GetHashCode();
+                hashCode = (hashCode * 397) ^ Right.GetHashCode();
+                hashCode = (hashCode * 397) ^ Bottom.GetHashCode();
+                return hashCode;
+            }
+        }
+
+        public static bool operator ==(Thickness left, Thickness right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Thickness left, Thickness right)
+        {
+            return !left.Equals(right);
+        }
     }
 }

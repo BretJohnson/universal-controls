@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Immutable;
+using System.Drawing;
 using System.Globalization;
 using Microsoft.CodeAnalysis;
 
@@ -33,7 +34,6 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
         public abstract void GenerateProperty(Property property, ClassSource classSource);
         public abstract void GenerateAttachedProperty(AttachedProperty attachedProperty, ClassSource mainClassSource, ClassSource attachedClassSource);
 
-        public virtual void GenerateStandardPanelLayoutMethods(string layoutManagerTypeName, Source methods) { }
         public virtual void GeneratePanelMethods(Source methods) { }
 
         public virtual void GenerateDrawableObjectMethods(Interface intface, Source methods)
@@ -273,5 +273,24 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
         protected abstract string FontFamilyDefaultValue { get; }
 
         public virtual void GenerateBuiltInIUIElementPartialClasses() { }
+
+        public virtual void GenerateStandardPanelLayoutMethods(string layoutManagerTypeName, Source methods)
+        {
+            methods.AddBlankLineIfNonempty();
+            methods.AddLine($"protected override Size MeasureOverride(double widthConstraint, double heightConstraint) =>");
+            using (methods.Indent())
+            {
+                methods.AddLine(
+                    $"{layoutManagerTypeName}.Instance.MeasureOverride(this, widthConstraint, heightConstraint);");
+            }
+
+            methods.AddBlankLine();
+            methods.AddLine($"protected override Size ArrangeOverride(Rect bounds) =>");
+            using (methods.Indent())
+            {
+                methods.AddLine(
+                    $"{layoutManagerTypeName}.Instance.ArrangeOverride(this, bounds.Size);");
+            }
+        }
     }
 }

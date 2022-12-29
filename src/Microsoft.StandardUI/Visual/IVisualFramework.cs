@@ -13,7 +13,7 @@ namespace Microsoft.StandardUI
     /// 
     /// 2. Multiple IVisuals may be combined together, to do compositing. 
     /// 
-    /// 3. An IVisual can be rendered to the screen by hosting it in an IVisualHostControl
+    /// 3. An IVisual can be rendered to the screen by hosting it in an RenderLayer
     /// (which for example hosts OpenGL content for a Skia based visual environment).
     /// For best performance, IVisuals can be composited together when possible to minimize the
     /// number of host controls. An IVisual can also be rendered to a bitmap with RenderToBuffer.
@@ -40,7 +40,8 @@ namespace Microsoft.StandardUI
         /// <param name="arg2">environment/platform specific argument</param>
         /// <param name="arg3">environment/platform specific argument</param>
         /// <returns>visual host control</returns>
-        public IVisualHostControl CreateHostControl(object? arg1 = null, object? arg2 = null, object? arg3 = null);
+        public RenderLayer CreateRenderLayer(IUIElement rootElement,
+            object? arg1 = null, object? arg2 = null, object? arg3 = null);
 
         public Size MeasureTextBlock(ITextBlock textBlock);
     }

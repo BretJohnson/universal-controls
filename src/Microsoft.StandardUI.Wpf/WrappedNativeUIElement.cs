@@ -5,7 +5,7 @@ namespace Microsoft.StandardUI.Wpf
 {
     /// <summary>
     /// This class is for UI controls passed in from the host, for native WPF controls (not
-    /// Standard UI built in controls or StandardControl controls), which we wrap with an IUIElement here.
+    /// Standard UI built in controls or WpfStandardControl controls), which we wrap with an IUIElement here.
     /// </summary>
     public class WrappedNativeUIElement : IUIElement
     {
@@ -109,5 +109,12 @@ namespace Microsoft.StandardUI.Wpf
         object? IUIObject.ReadLocalValue(IUIProperty property) => _frameworkElement.ReadLocalValue(((UIProperty)property).DependencyProperty);
         void IUIObject.SetValue(IUIProperty property, object? value) => _frameworkElement.SetValue(((UIProperty)property).DependencyProperty, value);
         void IUIObject.ClearValue(IUIProperty property) => _frameworkElement.ClearValue(((UIProperty)property).DependencyProperty);
+
+        int IUIElement.VisualChildrenCount => 0;
+
+        public Rect Frame => throw new NotImplementedException();
+
+        IUIElement IUIElement.GetVisualChild(int index) =>
+            throw new IndexOutOfRangeException("UIElement has no children");
     }
 }

@@ -21,7 +21,7 @@ namespace Microsoft.StandardUI.Wpf.Shapes
             get => (double) GetValue(RadiusYProperty);
             set => SetValue(RadiusYProperty, value);
         }
-        
+
         public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawRectangle(this);
     }
 }

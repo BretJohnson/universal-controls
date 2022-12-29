@@ -46,8 +46,8 @@ namespace Microsoft.StandardUI.Wpf.NativeVisualFramework
             Brush? wpfBrush = ellipse.Fill.ToWpfBrush();
             System.Windows.Media.Pen? wpfPen = ToWpfNativePen(ellipse);
 
-            double radiusX = ellipse.Width / 2;
-            double radiusY = ellipse.Height / 2;
+            double radiusX = ellipse.ActualWidth / 2;
+            double radiusY = ellipse.ActualHeight / 2;
             var center = new System.Windows.Point(radiusX, radiusY);
 
             _drawingContext!.DrawEllipse(wpfBrush, wpfPen, center, radiusX, radiusY);
@@ -111,7 +111,7 @@ namespace Microsoft.StandardUI.Wpf.NativeVisualFramework
 
         public void DrawRectangle(IRectangle rectangle)
         {
-            System.Windows.Rect wpfRect = new System.Windows.Rect(0, 0, rectangle.Width, rectangle.Height);
+            System.Windows.Rect wpfRect = new System.Windows.Rect(0, 0, rectangle.ActualWidth, rectangle.ActualHeight);
 
             Brush? wpfBurush = rectangle.Fill.ToWpfBrush();
             System.Windows.Media.Pen? wpfPen = ToWpfNativePen(rectangle);
@@ -152,6 +152,12 @@ namespace Microsoft.StandardUI.Wpf.NativeVisualFramework
                 angle: angle,
                 centerX: centerX,
                 centerY: centerY);
+            _drawingContext!.PushTransform(transform);
+        }
+
+        public void PushTranslateTransform(double offsetX, double offsetY)
+        {
+            var transform = new TranslateTransform(offsetX, offsetY);
             _drawingContext!.PushTransform(transform);
         }
 
