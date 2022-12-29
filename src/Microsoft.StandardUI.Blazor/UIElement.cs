@@ -209,7 +209,7 @@ namespace Microsoft.StandardUI.Blazor
             if (ParentingInfo == null)
             {
                 // The components were just created or changed, so layout again
-                Size availableSize = new Size(0, double.MaxValue);
+                Size availableSize = new Size(double.MaxValue, double.MaxValue);
                 Layout(availableSize);
             }
         }
@@ -264,9 +264,9 @@ namespace Microsoft.StandardUI.Blazor
 
         public double ActualY => throw new NotImplementedException();
 
-        public double ActualWidth => throw new NotImplementedException();
+        public double ActualWidth => _frame.Width;
 
-        public double ActualHeight => throw new NotImplementedException();
+        public double ActualHeight => _frame.Height;
 
         public object GetNonNullValue(UIProperty property) => _properties.GetNonNullValue(property);
         public object? GetValue(UIProperty property) => _properties.GetValue(property);
