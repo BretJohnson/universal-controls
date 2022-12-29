@@ -4,11 +4,11 @@
     {
         public static StackLayoutManager Instance = new StackLayoutManager();
 
-        public override Size MeasureOverride(IStack stack, Size constraint)
+        public override Size MeasureOverride(IStack stack, double widthConstraint, double heightConstraint)
         {
             return stack.Orientation == Orientation.Horizontal ?
-                MeasureOverrideHorizontal(stack, constraint) :
-                MeasureOverrideVertical(stack, constraint);
+                MeasureOverrideHorizontal(stack, widthConstraint, heightConstraint) :
+                MeasureOverrideVertical(stack, widthConstraint, heightConstraint);
         }
 
         public override Size ArrangeOverride(IStack stack, Size finalSize)

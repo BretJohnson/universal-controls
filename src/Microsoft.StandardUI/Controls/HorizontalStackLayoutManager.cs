@@ -4,9 +4,9 @@
     {
         public static HorizontalStackLayoutManager Instance = new HorizontalStackLayoutManager();
 
-        public override Size MeasureOverride(IHorizontalStack stack, Size constraint)
+        public override Size MeasureOverride(IHorizontalStack stack, double widthConstraint, double heightConstraint)
         {
-            return MeasureOverrideHorizontal(stack, constraint);
+            return MeasureOverrideHorizontal(stack, widthConstraint, heightConstraint);
         }
 
         public override Size ArrangeOverride(IHorizontalStack stack, Size finalSize)

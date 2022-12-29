@@ -9,9 +9,9 @@ namespace StandardUI.Controls
     {
         abstract internal GridInfo CreateGridInfo(TGridBase grid, double widthConstraint, double heightConstraint);
 
-        public override Size MeasureOverride(TGridBase grid, Size constraint)
+        public override Size MeasureOverride(TGridBase grid, double widthConstraint, double heightConstraint)
         {
-            GridInfo gridInfo = CreateGridInfo(grid, constraint.Width, constraint.Height);
+            GridInfo gridInfo = CreateGridInfo(grid, widthConstraint, heightConstraint);
 
             double measuredWidth = gridInfo.MeasuredGridWidth();
             double measuredHeight = gridInfo.MeasuredGridHeight();

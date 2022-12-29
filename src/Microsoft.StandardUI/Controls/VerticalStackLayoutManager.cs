@@ -4,9 +4,9 @@
     {
         public static VerticalStackLayoutManager Instance = new VerticalStackLayoutManager();
 
-        public override Size MeasureOverride(IVerticalStack stack, Size constraint)
+        public override Size MeasureOverride(IVerticalStack stack, double widthConstraint, double heightConstraint)
         {
-            return MeasureOverrideVertical(stack, constraint);
+            return MeasureOverrideVertical(stack, widthConstraint, heightConstraint);
         }
 
         public override Size ArrangeOverride(IVerticalStack stack, Size finalSize)

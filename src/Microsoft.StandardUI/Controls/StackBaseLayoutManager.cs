@@ -4,7 +4,7 @@ namespace Microsoft.StandardUI.Controls
 {
     public abstract class StackBaseLayoutManager<TStack> : LayoutManager<TStack> where TStack : IStackBase
     {
-        public Size MeasureOverrideHorizontal(IStackBase stack, Size constraint)
+        public Size MeasureOverrideHorizontal(IStackBase stack, double widthConstraint, double heightConstraint)
         {
             //var padding = panelStack.Padding;
 
@@ -21,7 +21,7 @@ namespace Microsoft.StandardUI.Controls
                     continue;
                 }
 
-                child.Measure(new Size(double.PositiveInfinity, constraint.Height));
+                child.Measure(new Size(double.PositiveInfinity, heightConstraint));
                 var desiredSize = child.DesiredSize;
                 measuredWidth += desiredSize.Width;
                 measuredHeight = Math.Max(measuredHeight, desiredSize.Height);
@@ -31,13 +31,13 @@ namespace Microsoft.StandardUI.Controls
             //measuredWidth += padding.HorizontalThickness;
             //measuredHeight += padding.VerticalThickness;
 
-            var finalWidth = ResolveWidthConstraints(stack, constraint.Width, measuredWidth);
-            var finalHeight = ResolveHeightConstraints(stack, constraint.Height, measuredHeight);
+            var finalWidth = ResolveWidthConstraints(stack, widthConstraint, measuredWidth);
+            var finalHeight = ResolveHeightConstraints(stack, heightConstraint, measuredHeight);
 
             return new Size(finalWidth, finalHeight);
         }
 
-        public Size MeasureOverrideVertical(IStackBase stack, Size constraint)
+        public Size MeasureOverrideVertical(IStackBase stack, double widthConstraint, double heightConstraint)
         {
             //var padding = panelStack.Padding;
 
@@ -54,7 +54,7 @@ namespace Microsoft.StandardUI.Controls
                     continue;
                 }
 
-                child.Measure(new Size(constraint.Width, double.PositiveInfinity));
+                child.Measure(new Size(widthConstraint, double.PositiveInfinity));
                 var desiredSize = child.DesiredSize;
                 measuredHeight += desiredSize.Height;
                 measuredWidth = Math.Max(measuredWidth, desiredSize.Width);
@@ -64,8 +64,8 @@ namespace Microsoft.StandardUI.Controls
             //measuredWidth += padding.HorizontalThickness;
             //measuredHeight += padding.VerticalThickness;
 
-            var finalHeight = ResolveHeightConstraints(stack, constraint.Height, measuredHeight);
-            var finalWidth = ResolveWidthConstraints(stack, constraint.Width, measuredWidth);
+            var finalHeight = ResolveHeightConstraints(stack, heightConstraint, measuredHeight);
+            var finalWidth = ResolveWidthConstraints(stack, widthConstraint, measuredWidth);
 
             return new Size(finalWidth, finalHeight);
         }
