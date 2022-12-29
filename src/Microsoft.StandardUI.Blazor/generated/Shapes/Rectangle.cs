@@ -25,6 +25,6 @@ namespace Microsoft.StandardUI.Blazor.Shapes
             set => SetValue(RadiusYProperty, value);
         }
 
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawRectangle(this, Width, Height);
+        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawRectangle(this);
     }
 }

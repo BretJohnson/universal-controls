@@ -86,5 +86,10 @@ namespace Microsoft.StandardUI.Wpf
         object? IUIObject.ReadLocalValue(IUIProperty property) => ReadLocalValue(((UIProperty)property).DependencyProperty);
         void IUIObject.SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).DependencyProperty, value);
         void IUIObject.ClearValue(IUIProperty property) => ClearValue(((UIProperty)property).DependencyProperty);
+        
+        protected override int VisualChildrenCount =>
+            ((IUIElement)this).VisualChildrenCount;
+        protected override System.Windows.Media.Visual GetVisualChild(int index) =>
+            ((IUIElement)this).GetVisualChild(index).ToWpfUIElement();
     }
 }

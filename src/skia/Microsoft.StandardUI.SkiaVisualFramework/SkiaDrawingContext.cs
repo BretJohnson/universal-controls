@@ -42,10 +42,10 @@ namespace Microsoft.StandardUI.SkiaVisualFramework
             GC.SuppressFinalize(this);
         }
 
-        public void DrawEllipse(IEllipse ellipse, double width, double height)
+        public void DrawEllipse(IEllipse ellipse)
         {
             SKPath skPath = new SKPath();
-            SKRect skRect = SKRect.Create(0, 0, (float)width, (float)height);
+            SKRect skRect = SKRect.Create(0, 0, (float)ellipse.ActualWidth, (float)ellipse.ActualHeight);
             skPath.AddOval(skRect);
 
             DrawShapePath(skPath, ellipse);
@@ -83,10 +83,10 @@ namespace Microsoft.StandardUI.SkiaVisualFramework
             DrawShapePath(skPath, polyline);
         }
 
-        public void DrawRectangle(IRectangle rectangle, double width, double height)
+        public void DrawRectangle(IRectangle rectangle)
         {
             SKPath skPath = new SKPath();
-            SKRect skRect = SKRect.Create(0, 0, (float)width, (float)height);
+            SKRect skRect = SKRect.Create(0, 0, (float)rectangle.ActualWidth, (float)rectangle.ActualHeight);
             if (rectangle.RadiusX > 0 || rectangle.RadiusY > 0)
                 skPath.AddRoundRect(skRect, (float)rectangle.RadiusX, (float)rectangle.RadiusY);
             else

@@ -9,15 +9,15 @@ namespace Microsoft.StandardUI.Wpf.Controls
     {
         public static readonly DependencyProperty LeftProperty = PropertyUtils.RegisterAttached("Left", typeof(double), typeof(System.Windows.UIElement), 0.0);
         public static readonly DependencyProperty TopProperty = PropertyUtils.RegisterAttached("Top", typeof(double), typeof(System.Windows.UIElement), 0.0);
-
+        
         public static double GetLeft(System.Windows.UIElement element) => (double) element.GetValue(LeftProperty);
         public static void SetLeft(System.Windows.UIElement element, double value) => element.SetValue(LeftProperty, value);
-
+        
         public static double GetTop(System.Windows.UIElement element) => (double) element.GetValue(TopProperty);
         public static void SetTop(System.Windows.UIElement element, double value) => element.SetValue(TopProperty, value);
-
+        
         protected override System.Windows.Size MeasureOverride(System.Windows.Size constraint) =>
-            CanvasLayoutManager.Instance.MeasureOverride(this, constraint.ToStandardUISize()).ToWpfSize();
+            CanvasLayoutManager.Instance.MeasureOverride(this, constraint.Width, constraint.Height).ToWpfSize();
         
         protected override System.Windows.Size ArrangeOverride(System.Windows.Size arrangeSize) =>
             CanvasLayoutManager.Instance.ArrangeOverride(this, arrangeSize.ToStandardUISize()).ToWpfSize();

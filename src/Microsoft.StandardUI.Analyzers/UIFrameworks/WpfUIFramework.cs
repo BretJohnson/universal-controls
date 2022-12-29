@@ -24,7 +24,7 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
             using (methods.Indent())
             {
                 methods.AddLine(
-                    $"{layoutManagerTypeName}.Instance.MeasureOverride(this, constraint.ToStandardUISize()).ToWpfSize();");
+                    $"{layoutManagerTypeName}.Instance.MeasureOverride(this, constraint.Width, constraint.Height).ToWpfSize();");
             }
 
             methods.AddBlankLine();
@@ -127,6 +127,13 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
                 "object? IUIObject.ReadLocalValue(IUIProperty property) => ReadLocalValue(((UIProperty)property).DependencyProperty);",
                 "void IUIObject.SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).DependencyProperty, value);",
                 "void IUIObject.ClearValue(IUIProperty property) => ClearValue(((UIProperty)property).DependencyProperty);");
+            methods.AddBlankLine();
+            methods.AddLines(
+                "protected override int VisualChildrenCount =>",
+                "    ((IUIElement)this).VisualChildrenCount;");
+            methods.AddLines(
+                "protected override System.Windows.Media.Visual GetVisualChild(int index) =>",
+                "    ((IUIElement)this).GetVisualChild(index).ToWpfUIElement();");
         }
     }
 }

@@ -6,6 +6,6 @@ namespace Microsoft.StandardUI.Wpf.Shapes
 {
     public class Ellipse : Shape, IEllipse
     {
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawEllipse(this, Width, Height);
+        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawEllipse(this);
     }
 }
