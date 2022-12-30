@@ -36,7 +36,7 @@ namespace Microcharts
                         .TextAlignment(horizontalAlignment);
 
 
-                    labelTextBlock.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+                    labelTextBlock.Measure(double.PositiveInfinity, double.PositiveInfinity);
                     Size labelSize = labelTextBlock.DesiredSize;
 
                     //var bounds = new Rect();
@@ -61,7 +61,7 @@ namespace Microcharts
                         .Foreground(SolidColorBrush().Color(valueColor))
                         .TextAlignment(horizontalAlignment);
 
-                    valueTextBlock.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+                    valueTextBlock.Measure(double.PositiveInfinity, double.PositiveInfinity);
                     Size valueSize = valueTextBlock.DesiredSize;
 
                     //var bounds = new Rect();

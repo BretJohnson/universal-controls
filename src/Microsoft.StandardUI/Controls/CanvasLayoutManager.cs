@@ -6,13 +6,11 @@
 
         public override Size MeasureOverride(ICanvas canvas, double widthConstraint, double heightConstraint)
         {
-            Size childConstraint = new Size(double.PositiveInfinity, double.PositiveInfinity);
-
             foreach (IUIElement child in canvas.Children)
             {
                 if (child == null)
                     continue;
-                child.Measure(childConstraint);
+                child.Measure(double.PositiveInfinity, double.PositiveInfinity);
             }
 
             return new Size();

@@ -228,7 +228,7 @@ namespace StandardUI.Controls
 
                     if (cell.IsColumnSpanAuto || cell.IsRowSpanAuto || cell.MeasureStarAsAuto)
                     {
-                        child.Measure(new Size(availableWidth, availableHeight));
+                        child.Measure(availableWidth, availableHeight);
                         var measure = child.DesiredSize;
 
                         if (cell.IsColumnSpanAuto)
@@ -461,7 +461,7 @@ namespace StandardUI.Controls
                         width += _columns[n].Size;
                     }
 
-                    cell.Child.Measure(new Size(width, height));
+                    cell.Child.Measure(width, height);
                 }
             }
 
