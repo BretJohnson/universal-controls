@@ -36,7 +36,7 @@ namespace Microsoft.StandardUI.Controls
 
         public void Measure(Size availableSize)
         {
-            Size desiredSize = MeasureOverride(availableSize);
+            Size desiredSize = MeasureOverride(availableSize.Width, availableSize.Height);
 
             //enforce that MeasureCore can not return PositiveInfinity size even if given Infinte availabel size.
             //Note: NegativeInfinity can not be returned by definition of Size structure.
@@ -55,14 +55,14 @@ namespace Microsoft.StandardUI.Controls
             ArrangeOverride(new Size(finalRect.Width, finalRect.Height));
         }
 
-        protected virtual Size MeasureOverride(Size availableSize)
+        protected virtual Size MeasureOverride(double widthConstraint, double heightConstraint)
         {
             IUIElement? buildContent = _environmentPeer.BuildContent;
 
             // By default, return the size of the content
             if (buildContent != null)
             {
-                buildContent.Measure(availableSize);
+                buildContent.Measure(widthConstraint, heightConstraint);
                 return buildContent.DesiredSize;
             }
 

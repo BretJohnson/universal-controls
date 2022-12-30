@@ -21,7 +21,7 @@ namespace Microsoft.StandardUI.Controls
                     continue;
                 }
 
-                child.Measure(new Size(double.PositiveInfinity, heightConstraint));
+                child.Measure(double.PositiveInfinity, heightConstraint);
                 var desiredSize = child.DesiredSize;
                 measuredWidth += desiredSize.Width;
                 measuredHeight = Math.Max(measuredHeight, desiredSize.Height);
@@ -54,7 +54,7 @@ namespace Microsoft.StandardUI.Controls
                     continue;
                 }
 
-                child.Measure(new Size(widthConstraint, double.PositiveInfinity));
+                child.Measure(widthConstraint, double.PositiveInfinity);
                 var desiredSize = child.DesiredSize;
                 measuredHeight += desiredSize.Height;
                 measuredWidth = Math.Max(measuredWidth, desiredSize.Width);

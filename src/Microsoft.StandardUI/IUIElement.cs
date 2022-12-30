@@ -81,10 +81,9 @@ namespace Microsoft.StandardUI
         /// Updates the DesiredSize of a UIElement. Typically, objects that implement custom layout for their layout children call this method from
         /// their own MeasureOverride implementations to form a recursive layout update.
         /// </summary>
-        /// <param name="availableSize">The available space that a parent can allocate to a child object. A child object can request a larger space
-        /// than what is available; the provided size might be accommodated if scrolling or other resize behavior is possible in that particular container.
-        /// </param>
-        public void Measure(Size availableSize);
+        /// <param name="widthConstraint">The suggested maximum width for the element to render.</param>
+        /// <param name="heightConstraint">The suggested maximum height for the element to render.</param>
+        public void Measure(double widthConstraint, double heightConstraint);
 
         /// <summary>
         /// Positions child objects and determines a size for a UIElement. Parent objects that implement custom layout for their child elements should

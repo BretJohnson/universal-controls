@@ -18,9 +18,9 @@ namespace Microsoft.StandardUI.Wpf
 
         public FrameworkElement FrameworkElement => _frameworkElement;
 
-        void IUIElement.Measure(Size availableSize)
+        void IUIElement.Measure(double widthConstraint, double heightConstraint)
         {
-            _frameworkElement.Measure(availableSize.ToWpfSize());
+            _frameworkElement.Measure(new System.Windows.Size(widthConstraint, heightConstraint));
         }
 
         void IUIElement.Arrange(Rect finalRect)

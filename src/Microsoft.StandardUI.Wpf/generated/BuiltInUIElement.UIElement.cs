@@ -6,7 +6,8 @@ namespace Microsoft.StandardUI.Wpf
 {
     public partial class BuiltInUIElement
     {
-        void IUIElement.Measure(Size availableSize) => Measure(availableSize.ToWpfSize());
+        void IUIElement.Measure(double widthConstraint, double heightConstraint) =>
+            Measure(new System.Windows.Size(widthConstraint, heightConstraint));
         void IUIElement.Arrange(Rect finalRect) => Arrange(finalRect.ToWpfRect());
         Size IUIElement.DesiredSize => DesiredSize.ToStandardUISize();
         
