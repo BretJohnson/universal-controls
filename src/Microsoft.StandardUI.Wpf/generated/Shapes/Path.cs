@@ -7,7 +7,7 @@ using DependencyProperty = System.Windows.DependencyProperty;
 
 namespace Microsoft.StandardUI.Wpf.Shapes
 {
-    public class Path : Shape, IPath
+    public class Path : Shape, IPath, IDrawable
     {
         public static readonly DependencyProperty DataProperty = PropertyUtils.Register(nameof(Data), typeof(Geometry), typeof(Path), null);
         
@@ -22,6 +22,6 @@ namespace Microsoft.StandardUI.Wpf.Shapes
             set => Data = (Geometry) value;
         }
         
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawPath(this);
+        public void Draw(IDrawingContext drawingContext) => drawingContext.DrawPath(this);
     }
 }

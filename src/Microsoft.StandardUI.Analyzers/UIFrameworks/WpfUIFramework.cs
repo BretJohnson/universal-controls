@@ -86,6 +86,7 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
             Source methods = classSource.NonstaticMethods;
 
             classSource.Usings.AddTypeAlias("Visibility = System.Windows.Visibility");
+            classSource.Usings.AddNamespace("Microsoft.Maui.Graphics");
 
             // TODO: Error if appropriate when set to Visibility.Hidden
 

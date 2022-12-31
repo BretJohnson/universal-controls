@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Maui.Graphics;
 using static Microsoft.StandardUI.Dimension;
 
 namespace Microsoft.StandardUI

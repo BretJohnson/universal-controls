@@ -7,7 +7,7 @@ using Microsoft.StandardUI.Shapes;
 
 namespace Microsoft.StandardUI.WinForms.Shapes
 {
-    public class Path : Shape, IPath
+    public class Path : Shape, IPath, IDrawable
     {
         public static readonly UIProperty DataProperty = new UIProperty(nameof(Data), null);
         
@@ -17,6 +17,6 @@ namespace Microsoft.StandardUI.WinForms.Shapes
             set => SetValue(DataProperty, value);
         }
         
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawPath(this);
+        public void Draw(IDrawingContext drawingContext) => drawingContext.DrawPath(this);
     }
 }

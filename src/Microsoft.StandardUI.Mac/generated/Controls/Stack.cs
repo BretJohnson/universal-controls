@@ -2,6 +2,7 @@
 
 using Microsoft.StandardUI.DefaultImplementations;
 using Microsoft.StandardUI.Controls;
+using Microsoft.Maui.Graphics;
 
 namespace Microsoft.StandardUI.Mac.Controls
 {

@@ -1,6 +1,7 @@
 // This file is generated from IStack.cs. Update the source file to change its contents.
 
 using Microsoft.StandardUI.Controls;
+using Microsoft.Maui.Graphics;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace Microsoft.StandardUI.Maui.Controls

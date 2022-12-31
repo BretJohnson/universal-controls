@@ -3,6 +3,7 @@ using System.Collections;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.DefaultImplementations;
 
 namespace Microsoft.StandardUI.Blazor

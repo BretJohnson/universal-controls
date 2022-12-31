@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Media;
+using Microsoft.Maui.Graphics;
 
 namespace Microsoft.StandardUI.Wpf
 {
     /// <summary>
     /// This is the base for predefined Standard UI controls.
     /// </summary>
-    public partial class BuiltInUIElement : FrameworkElement, IUIElement, ILogicalParent
+    public partial class BuiltInUIElement : System.Windows.FrameworkElement, IUIElement, ILogicalParent
     {
         private StandardUIFrameworkElementHelper _helper = new();
 
@@ -15,34 +15,30 @@ namespace Microsoft.StandardUI.Wpf
         {
             base.OnRender(drawingContextWpf);
 
-            if (Visibility != Visibility.Visible)
+            if (Visibility != System.Windows.Visibility.Visible)
+                return;
+
+            if (this is not IDrawable drawable)
                 return;
 
             IVisualFramework visualFramework = HostEnvironment.VisualFramework;
 
-            Rect cullingRect = new Rect(0, 0, 200, 200);
-
-            IVisual? visual;
             using (IDrawingContext drawingContext = visualFramework.CreateDrawingContext(this))
             {
-                Draw(drawingContext);
-                visual = drawingContext.Close();
-            }
+                drawable.Draw(drawingContext);
+                IVisual? visual = drawingContext.Close();
 
-            if (visual != null)
-            {
-                _helper.OnRender(visual, Width, Height, drawingContextWpf);
+                if (visual != null)
+                {
+                    _helper.OnRender(visual, Width, Height, drawingContextWpf);
+                }
             }
         }
 
-        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        protected override void OnRenderSizeChanged(System.Windows.SizeChangedInfo sizeInfo)
         {
             base.OnRenderSizeChanged(sizeInfo);
             InvalidateVisual();
-        }
-
-        public virtual void Draw(IDrawingContext visualizer)
-        {
         }
 
         public Rect Frame => throw new NotImplementedException();

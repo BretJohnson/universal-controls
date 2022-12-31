@@ -1,6 +1,7 @@
 // This file is generated from IPathFigure.cs. Update the source file to change its contents.
 
 using Microsoft.StandardUI.DefaultImplementations;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Media;
 
 namespace Microsoft.StandardUI.Mac.Media
@@ -8,7 +9,7 @@ namespace Microsoft.StandardUI.Mac.Media
     public class PathFigure : StandardUIObject, IPathFigure
     {
         public static readonly UIProperty SegmentsProperty = new UIProperty(nameof(Segments), null, readOnly:true);
-        public static readonly UIProperty StartPointProperty = new UIProperty(nameof(StartPoint), Point.Default);
+        public static readonly UIProperty StartPointProperty = new UIProperty(nameof(StartPoint), default(Point));
         public static readonly UIProperty IsClosedProperty = new UIProperty(nameof(IsClosed), false);
         public static readonly UIProperty IsFilledProperty = new UIProperty(nameof(IsFilled), true);
         

@@ -10,6 +10,8 @@
         public const string ITextBlock = "Microsoft.StandardUI.Controls.ITextBlock";
         public const string IShape = "Microsoft.StandardUI.Shapes.IShape";
 
+        public const string Color = "Microsoft.Maui.Graphics.Color";
+
         public const string UIModelAttribute = "Microsoft.StandardUI.UIModelObjectAttribute";
         public const string UIObjectAttribute = "Microsoft.StandardUI.UIObjectAttribute";
         public const string StandardPanelAttribute = "Microsoft.StandardUI.StandardPanelAttribute";

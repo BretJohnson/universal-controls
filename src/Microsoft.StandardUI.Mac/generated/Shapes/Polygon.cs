@@ -6,7 +6,7 @@ using Microsoft.StandardUI.Shapes;
 
 namespace Microsoft.StandardUI.Mac.Shapes
 {
-    public class Polygon : Shape, IPolygon
+    public class Polygon : Shape, IPolygon, IDrawable
     {
         public static readonly UIProperty FillRuleProperty = new UIProperty(nameof(FillRule), FillRule.EvenOdd);
         public static readonly UIProperty PointsProperty = new UIProperty(nameof(Points), Points.Default);
@@ -23,6 +23,6 @@ namespace Microsoft.StandardUI.Mac.Shapes
             set => SetValue(PointsProperty, value);
         }
         
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawPolygon(this);
+        public void Draw(IDrawingContext drawingContext) => drawingContext.DrawPolygon(this);
     }
 }

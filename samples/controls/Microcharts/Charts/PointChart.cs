@@ -5,11 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI;
 using Microsoft.StandardUI.Controls;
 using Microsoft.StandardUI.Media;
 using Microsoft.StandardUI.Shapes;
 using static Microsoft.StandardUI.StandardUIStatics;
+using ICanvas = Microsoft.StandardUI.Controls.ICanvas;
 
 namespace Microcharts
 {
@@ -145,7 +147,7 @@ namespace Microcharts
                             labels,
                             points.Select(p => new Point(p.X, headerHeight - Margin)).ToArray(),
                             labelSizes,
-                            Entries.Select(x => x.Color.WithA((byte)(255 * AnimationProgress))).ToArray(),
+                            Entries.Select(x => x.Color.WithAlpha((byte)(255 * AnimationProgress))).ToArray(),
                             ValueLabelOrientation,
                             true,
                             itemSize,

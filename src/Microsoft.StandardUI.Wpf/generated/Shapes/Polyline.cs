@@ -6,7 +6,7 @@ using DependencyProperty = System.Windows.DependencyProperty;
 
 namespace Microsoft.StandardUI.Wpf.Shapes
 {
-    public class Polyline : Shape, IPolyline
+    public class Polyline : Shape, IPolyline, IDrawable
     {
         public static readonly DependencyProperty FillRuleProperty = PropertyUtils.Register(nameof(FillRule), typeof(FillRule), typeof(Polyline), FillRule.EvenOdd);
         public static readonly DependencyProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(PointsWpf), typeof(Polyline), PointsWpf.Default);
@@ -28,6 +28,6 @@ namespace Microsoft.StandardUI.Wpf.Shapes
             set => Points = new PointsWpf(value);
         }
         
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawPolyline(this);
+        public void Draw(IDrawingContext drawingContext) => drawingContext.DrawPolyline(this);
     }
 }

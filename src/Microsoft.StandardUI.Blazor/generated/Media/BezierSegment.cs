@@ -1,6 +1,7 @@
 // This file is generated from IBezierSegment.cs. Update the source file to change its contents.
 
 using Microsoft.StandardUI.DefaultImplementations;
+using Microsoft.Maui.Graphics;
 using Microsoft.AspNetCore.Components;
 using Microsoft.StandardUI.Media;
 
@@ -8,9 +9,9 @@ namespace Microsoft.StandardUI.Blazor.Media
 {
     public class BezierSegment : PathSegment, IBezierSegment
     {
-        public static readonly UIProperty Point1Property = new UIProperty(nameof(Point1), Point.Default);
-        public static readonly UIProperty Point2Property = new UIProperty(nameof(Point2), Point.Default);
-        public static readonly UIProperty Point3Property = new UIProperty(nameof(Point3), Point.Default);
+        public static readonly UIProperty Point1Property = new UIProperty(nameof(Point1), default(Point));
+        public static readonly UIProperty Point2Property = new UIProperty(nameof(Point2), default(Point));
+        public static readonly UIProperty Point3Property = new UIProperty(nameof(Point3), default(Point));
         
         [Parameter]
         public Point Point1

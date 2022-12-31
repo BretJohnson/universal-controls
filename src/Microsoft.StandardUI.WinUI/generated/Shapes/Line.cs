@@ -5,7 +5,7 @@ using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
 namespace Microsoft.StandardUI.WinUI.Shapes
 {
-    public class Line : Shape, ILine
+    public class Line : Shape, ILine, IDrawable
     {
         public static readonly DependencyProperty X1Property = PropertyUtils.Register(nameof(X1), typeof(double), typeof(Line), 0.0);
         public static readonly DependencyProperty Y1Property = PropertyUtils.Register(nameof(Y1), typeof(double), typeof(Line), 0.0);
@@ -36,6 +36,6 @@ namespace Microsoft.StandardUI.WinUI.Shapes
             set => SetValue(Y2Property, value);
         }
         
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawLine(this);
+        public void Draw(IDrawingContext drawingContext) => drawingContext.DrawLine(this);
     }
 }

@@ -9,7 +9,7 @@ using DependencyProperty = System.Windows.DependencyProperty;
 
 namespace Microsoft.StandardUI.Wpf.Controls
 {
-    public class TextBlock : BuiltInUIElement, ITextBlock
+    public class TextBlock : BuiltInUIElement, ITextBlock, IDrawable
     {
         public static readonly DependencyProperty ForegroundProperty = PropertyUtils.Register(nameof(Foreground), typeof(Brush), typeof(TextBlock), null);
         public static readonly DependencyProperty TextProperty = PropertyUtils.Register(nameof(Text), typeof(string), typeof(TextBlock), "");
@@ -78,7 +78,7 @@ namespace Microsoft.StandardUI.Wpf.Controls
             set => SetValue(TextAlignmentProperty, value);
         }
         
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawTextBlock(this);
+        public void Draw(IDrawingContext drawingContext) => drawingContext.DrawTextBlock(this);
         protected override System.Windows.Size MeasureOverride(System.Windows.Size constraint) =>
             HostEnvironment.VisualFramework.MeasureTextBlock(this).ToWpfSize();
     }

@@ -22,13 +22,17 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
 
         public override void GeneratePanelMethods(Source methods)
         {
+            methods.Usings.AddNamespace("Microsoft.AspNetCore.Components");
+            methods.Usings.AddNamespace("Microsoft.AspNetCore.Components.Rendering");
+            methods.Usings.AddNamespace("System.Collections");
+
             methods.AddBlankLineIfNonempty();
 
             methods.AddLines(
-                "protected override int VisualChildrenCount => _children.Count;");
+                "public override int VisualChildrenCount => _children.Count;");
             methods.AddBlankLine();
             methods.AddLine(
-                "public override IUIElement GetVisualChild(int index) => _children[index]");
+                "public override IUIElement GetVisualChild(int index) => _children[index];");
 
             methods.AddBlankLine();
             methods.AddLines(

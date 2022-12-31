@@ -1,6 +1,7 @@
 using System;
 using System.Globalization;
 using System.Windows.Media;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Controls;
 using Microsoft.StandardUI.Wpf.Text;
 

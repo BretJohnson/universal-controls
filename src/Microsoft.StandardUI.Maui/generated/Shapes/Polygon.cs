@@ -6,7 +6,7 @@ using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace Microsoft.StandardUI.Maui.Shapes
 {
-    public class Polygon : Shape, IPolygon
+    public class Polygon : Shape, IPolygon, IDrawable
     {
         public static readonly BindableProperty FillRuleProperty = PropertyUtils.Register(nameof(FillRule), typeof(FillRule), typeof(Polygon), FillRule.EvenOdd);
         public static readonly BindableProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(PointsMaui), typeof(Polygon), PointsMaui.Default);
@@ -28,6 +28,6 @@ namespace Microsoft.StandardUI.Maui.Shapes
             set => Points = new PointsMaui(value);
         }
         
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawPolygon(this);
+        public void Draw(IDrawingContext drawingContext) => drawingContext.DrawPolygon(this);
     }
 }

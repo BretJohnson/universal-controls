@@ -1,5 +1,6 @@
 // This file is generated from IBezierSegment.cs. Update the source file to change its contents.
 
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
@@ -7,9 +8,9 @@ namespace Microsoft.StandardUI.Maui.Media
 {
     public class BezierSegment : PathSegment, IBezierSegment
     {
-        public static readonly BindableProperty Point1Property = PropertyUtils.Register(nameof(Point1), typeof(PointMaui), typeof(BezierSegment), PointMaui.Default);
-        public static readonly BindableProperty Point2Property = PropertyUtils.Register(nameof(Point2), typeof(PointMaui), typeof(BezierSegment), PointMaui.Default);
-        public static readonly BindableProperty Point3Property = PropertyUtils.Register(nameof(Point3), typeof(PointMaui), typeof(BezierSegment), PointMaui.Default);
+        public static readonly BindableProperty Point1Property = PropertyUtils.Register(nameof(Point1), typeof(PointMaui), typeof(BezierSegment), default(Point));
+        public static readonly BindableProperty Point2Property = PropertyUtils.Register(nameof(Point2), typeof(PointMaui), typeof(BezierSegment), default(Point));
+        public static readonly BindableProperty Point3Property = PropertyUtils.Register(nameof(Point3), typeof(PointMaui), typeof(BezierSegment), default(Point));
         
         public PointMaui Point1
         {

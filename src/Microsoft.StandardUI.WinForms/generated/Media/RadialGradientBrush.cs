@@ -1,14 +1,15 @@
 // This file is generated from IRadialGradientBrush.cs. Update the source file to change its contents.
 
 using Microsoft.StandardUI.DefaultImplementations;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Media;
 
 namespace Microsoft.StandardUI.WinForms.Media
 {
     public class RadialGradientBrush : GradientBrush, IRadialGradientBrush
     {
-        public static readonly UIProperty CenterProperty = new UIProperty(nameof(Center), Point.CenterDefault);
-        public static readonly UIProperty GradientOriginProperty = new UIProperty(nameof(GradientOrigin), Point.CenterDefault);
+        public static readonly UIProperty CenterProperty = new UIProperty(nameof(Center), new Point(0.5, 0.5));
+        public static readonly UIProperty GradientOriginProperty = new UIProperty(nameof(GradientOrigin), new Point(0.5, 0.5));
         public static readonly UIProperty RadiusXProperty = new UIProperty(nameof(RadiusX), 0.5);
         
         public Point Center

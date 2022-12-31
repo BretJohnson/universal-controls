@@ -3,11 +3,13 @@
 
 using System;
 using System.Linq;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI;
 using Microsoft.StandardUI.Controls;
 using Microsoft.StandardUI.Media;
 using Microsoft.StandardUI.Shapes;
 using static Microsoft.StandardUI.StandardUIStatics;
+using ICanvas = Microsoft.StandardUI.Controls.ICanvas;
 
 namespace Microcharts
 {
@@ -38,7 +40,7 @@ namespace Microcharts
         /// Gets or sets the color of the border line.
         /// </summary>
         /// <value>The color of the border line.</value>
-        public Color BorderLineColor { get; set; } = Colors.LightGray.WithA(110);
+        public Color BorderLineColor { get; set; } = Colors.LightGray.WithAlpha(110 / 256);
 
         /// <summary>
         /// Gets or sets the size of the border line.
@@ -136,11 +138,11 @@ namespace Microcharts
 
                     var amount = Math.Abs(entry.Value - AbsoluteMinimum) / ValueRange;
                     var diameter = radius * amount * 2;
-                    var circleColor = entry.Color.WithA((byte)(entry.Color.A * 0.75f * AnimationProgress));
+                    var circleColor = entry.Color.WithAlpha(entry.Color.Alpha * 0.75f * AnimationProgress);
                     var circle = Ellipse().Width(diameter).Height(diameter).Stroke(SolidColorBrush().Color(circleColor)).StrokeThickness(BorderLineSize);
                     canvas.Add(center.X - diameter / 2, center.Y - diameter / 2, circle);
 
-                    canvas.DrawGradientLine(center, entry.Color.WithA(0), point, entry.Color.WithA((byte)(entry.Color.A * 0.75f)), LineSize);
+                    canvas.DrawGradientLine(center, entry.Color.WithAlpha(0), point, entry.Color.WithAlpha(entry.Color.Alpha * 0.75f), LineSize);
                     canvas.DrawGradientLine(point, entry.Color, nextPoint, nextEntry.Color, LineSize);
                     canvas.DrawPoint(point, entry.Color, (float)PointSize, PointMode);
                 }
@@ -165,7 +167,7 @@ namespace Microcharts
                     alignment = SKTextAlign.Right;
                 }
 
-                canvas.DrawCaptionLabels(entry.Label, entry.TextColor, UnicodeMode, UnicodeLanguage, entry.ValueLabel, entry.Color.WithA((byte)(255 * AnimationProgress)), LabelTextSize, labelPoint, alignment, base.Typeface, out var _);
+                canvas.DrawCaptionLabels(entry.Label, entry.TextColor, UnicodeMode, UnicodeLanguage, entry.ValueLabel, entry.Color.WithAlpha((byte)(255 * AnimationProgress)), LabelTextSize, labelPoint, alignment, base.Typeface, out var _);
 #endif
             }
         }

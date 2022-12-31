@@ -4,8 +4,8 @@ using Microsoft.StandardUI.Shapes;
 
 namespace Microsoft.StandardUI.Blazor.Shapes
 {
-    public class Ellipse : Shape, IEllipse
+    public class Ellipse : Shape, IEllipse, IDrawable
     {
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawEllipse(this);
+        public void Draw(IDrawingContext drawingContext) => drawingContext.DrawEllipse(this);
     }
 }

@@ -3,6 +3,7 @@
 using Microsoft.StandardUI.DefaultImplementations;
 using Microsoft.StandardUI.Controls;
 using Microsoft.AspNetCore.Components;
+using Microsoft.Maui.Graphics;
 
 namespace Microsoft.StandardUI.Blazor.Controls
 {

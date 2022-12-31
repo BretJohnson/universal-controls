@@ -5,7 +5,7 @@ using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace Microsoft.StandardUI.Maui.Shapes
 {
-    public class Rectangle : Shape, IRectangle
+    public class Rectangle : Shape, IRectangle, IDrawable
     {
         public static readonly BindableProperty RadiusXProperty = PropertyUtils.Register(nameof(RadiusX), typeof(double), typeof(Rectangle), 0.0);
         public static readonly BindableProperty RadiusYProperty = PropertyUtils.Register(nameof(RadiusY), typeof(double), typeof(Rectangle), 0.0);
@@ -22,6 +22,6 @@ namespace Microsoft.StandardUI.Maui.Shapes
             set => SetValue(RadiusYProperty, value);
         }
         
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawRectangle(this);
+        public void Draw(IDrawingContext drawingContext) => drawingContext.DrawRectangle(this);
     }
 }

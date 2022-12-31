@@ -3,7 +3,7 @@
 namespace SimpleControls
 {
     [ControlLibrary]
-    public static class SimpleControlsControlLibrary
+    public static class SimpleControlsControlLibrary 
     {
     }
 }

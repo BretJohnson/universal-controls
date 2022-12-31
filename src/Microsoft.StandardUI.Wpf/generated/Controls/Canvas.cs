@@ -1,6 +1,7 @@
 // This file is generated from ICanvas.cs. Update the source file to change its contents.
 
 using Microsoft.StandardUI.Controls;
+using ICanvas = Microsoft.StandardUI.Controls.ICanvas;
 using DependencyProperty = System.Windows.DependencyProperty;
 
 namespace Microsoft.StandardUI.Wpf.Controls

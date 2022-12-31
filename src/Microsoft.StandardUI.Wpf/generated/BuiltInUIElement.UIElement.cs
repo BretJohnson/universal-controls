@@ -1,5 +1,6 @@
 // This file is generated. Update the source to change its contents.
 
+using Microsoft.Maui.Graphics;
 using Visibility = System.Windows.Visibility;
 
 namespace Microsoft.StandardUI.Wpf

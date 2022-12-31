@@ -1,5 +1,7 @@
 // This file is generated from IGradientStop.cs. Update the source file to change its contents.
 
+using Microsoft.Maui.Graphics;
+
 namespace Microsoft.StandardUI.Media
 {
     public static class GradientStopExtensions

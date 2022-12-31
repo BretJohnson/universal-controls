@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Aloïs DENIEL. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI;
 using Microsoft.StandardUI.Controls;
 using Microsoft.StandardUI.Media;
@@ -8,6 +9,8 @@ using Microsoft.StandardUI.Shapes;
 using Microsoft.StandardUI.Text;
 using SkiaSharp;
 using static Microsoft.StandardUI.StandardUIStatics;
+using FontWeights = Microsoft.StandardUI.Text.FontWeights;
+using ICanvas = Microsoft.StandardUI.Controls.ICanvas;
 
 namespace Microcharts
 {
@@ -94,7 +97,7 @@ namespace Microcharts
         /// <param name="color">The fill color.</param>
         /// <param name="size">The point size.</param>
         /// <param name="mode">The point mode.</param>
-        public static void DrawPoint(this ICanvas canvas, Point point, Color color, float size, PointMode mode)
+        public static void DrawPoint(this Microsoft.StandardUI.Controls.ICanvas canvas, Point point, Color color, float size, PointMode mode)
         {
             IShape shape;
             if (mode == PointMode.Square)

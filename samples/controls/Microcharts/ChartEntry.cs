@@ -3,6 +3,7 @@
 
 namespace Microcharts
 {
+    using Microsoft.Maui.Graphics;
     using Microsoft.StandardUI;
 
     /// <summary>

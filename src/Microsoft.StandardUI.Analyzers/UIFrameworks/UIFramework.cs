@@ -40,16 +40,21 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
         {
             methods.AddBlankLineIfNonempty();
             methods.AddLine(
-                $"public override void Draw(IDrawingContext drawingContext) => drawingContext.Draw{intface.FrameworkClassName}(this);");
+                $"public void Draw(IDrawingContext drawingContext) => drawingContext.Draw{intface.FrameworkClassName}(this);");
         }
 
         public virtual void GenerateIUIElementMethods(ClassSource classSource) { }
 
         public string ToFrameworkNamespaceName(INamespaceSymbol namespc)
         {
+            string namespaceName = Utils.GetNamespaceFullName(namespc);
+
+            if (namespaceName == "Microsoft.Maui.Graphics")
+                return namespaceName;
+
+            // TODO: Check if should update the code to match what the comment actually says here (and not add suffix)
             // For controls outside the StandardUI namespace - user provided, not built in -
             // just keep with a the original namespace, not using a child namespace per platform
-            string namespaceName = Utils.GetNamespaceFullName(namespc);
             if (!namespaceName.StartsWith(Utils.StandardUIRootNamespace))
                 return $"{namespaceName}.{NamespaceSuffix}";
 
@@ -140,15 +145,29 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
                     return "null";
                 }
 
-                var kind = specifiedDefaultValue.Kind;
+                TypedConstantKind kind = specifiedDefaultValue.Kind;
                 object value = specifiedDefaultValue.Value!;
+
+                // Color types have special handling, allowing a ColorDefaults enum value
+                // to be specified for named colors. Since attributes can only take a compile
+                // time constant as an argument and Colors.<colorName> isn't a compile time constant,
+                // this conversion provide an alternative.
+                if (typeFullName == KnownTypes.Color)
+                {
+                    if (kind == TypedConstantKind.Enum)
+                    {
+                        string? enumMemberName = GetEnumMemberNameForValue(specifiedDefaultValue.Type!, value);
+                        if (enumMemberName != null)
+                            return $"Colors.{enumMemberName}";
+                    }
+                }
 
                 if (kind == TypedConstantKind.Primitive)
                 {
                     if (value is string stringArgumentValue)
                     {
-                        if (typeFullName == "Microsoft.StandardUI.Point" && stringArgumentValue == "0.5,0.5")
-                            return $"{OutputTypeName(propertyType)}.CenterDefault";
+                        if (typeFullName == "Microsoft.Maui.Graphics.Point" && stringArgumentValue == "0.5,0.5")
+                            return $"new {OutputTypeName(propertyType)}(0.5, 0.5)";
                         else if (stringArgumentValue == "")
                             return "\"\"";
                         else new UserViewableException($"Unknown string literal based default value: {stringArgumentValue}");
@@ -178,9 +197,7 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
                 }
                 else if (kind == TypedConstantKind.Enum)
                 {
-                    object enumValue = value;
                     ITypeSymbol type = specifiedDefaultValue.Type!;
-                    ImmutableArray<ISymbol> enumMembers = type.GetMembers();
 
                     // For enums, use the fully qualified type name by default, to avoid conflicts.
                     // But for known Standard UI types, use the short type name in most cases to be
@@ -194,14 +211,11 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
                             typeName = type.Name;
                     }
 
-                    foreach (IFieldSymbol enumFieldMember in enumMembers)
-                    {
-                        object? enumFieldValue = enumFieldMember.ConstantValue;
-                        if (enumFieldValue != null && enumFieldValue.Equals(value))
-                            return $"{typeName}.{enumFieldMember.Name}";
-                    }
+                    string? enumMemberName = GetEnumMemberNameForValue(type, value);
+                    if (enumMemberName != null)
+                        return $"{typeName}.{enumMemberName}";
 
-                    throw new UserViewableException($"No symbol found in enum {type.Name} for value {enumValue}");
+                    throw new UserViewableException($"No symbol found in enum {type.Name} for value {value}");
                 }
 
                 // TODO: add explicit checks for different expression types
@@ -215,10 +229,11 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
             if (Utils.IsUICollectionType(Context, propertyType))
                 return "null";
 
-            if (typeFullName == "Microsoft.StandardUI.Color" ||
-                typeFullName == "Microsoft.StandardUI.Point" ||
-                typeFullName == "Microsoft.StandardUI.Points" ||
-                typeFullName == "Microsoft.StandardUI.Size" ||
+            if (typeFullName == "Microsoft.Maui.Graphics.Point")
+                return "default(Point)";
+            else if (typeFullName == "Microsoft.Maui.Graphics.Size")
+                return "default(Size)";
+            else if (typeFullName == "Microsoft.StandardUI.Points" ||
                 typeFullName == "Microsoft.StandardUI.Thickness" ||
                 typeFullName == "Microsoft.StandardUI.CornerRadius" ||
                 typeFullName == "Microsoft.StandardUI.Text.FontWeight" ||
@@ -257,7 +272,7 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
             if (propertyType is INamedTypeSymbol namedTypeSymbol &&
                 namedTypeSymbol.Name is string typeName &&
                 (typeName == "Microsoft.StandardUI.Color" ||
-                typeName == "Microsoft.StandardUI.Point" ||
+                typeName == "Microsoft.Maui.Graphics.Point" ||
                 typeName == "Microsoft.StandardUI.Points" ||
                 typeName == "Microsoft.StandardUI.Size" ||
                 typeName == "Microsoft.StandardUI.Thickness" ||
@@ -270,12 +285,32 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
             return null;
         }
 
+        /// <summary>
+        /// Given an enum type and value for an enum member, get the name for that member or
+        /// null if there's no match for the value;
+        /// </summary>
+        private string? GetEnumMemberNameForValue(ITypeSymbol enumType, object enumValue)
+        {
+            ImmutableArray<ISymbol> enumMembers = enumType.GetMembers();
+
+            foreach (IFieldSymbol enumFieldMember in enumMembers)
+            {
+                object? enumFieldValue = enumFieldMember.ConstantValue;
+                if (enumFieldValue != null && enumFieldValue.Equals(enumValue))
+                    return enumFieldMember.Name;
+            }
+
+            return null;
+        }
+
         protected abstract string FontFamilyDefaultValue { get; }
 
         public virtual void GenerateBuiltInIUIElementPartialClasses() { }
 
         public virtual void GenerateStandardPanelLayoutMethods(string layoutManagerTypeName, Source methods)
         {
+            methods.Usings.AddNamespace("Microsoft.Maui.Graphics");
+
             methods.AddBlankLineIfNonempty();
             methods.AddLine($"protected override Size MeasureOverride(double widthConstraint, double heightConstraint) =>");
             using (methods.Indent())

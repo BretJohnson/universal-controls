@@ -1,6 +1,8 @@
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Controls;
 using Microsoft.StandardUI.Media;
 using Microsoft.StandardUI.Shapes;
+using ICanvas = Microsoft.StandardUI.Controls.ICanvas;
 
 namespace Microsoft.StandardUI
 {
