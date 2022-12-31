@@ -8,7 +8,7 @@ using Microsoft.StandardUI.Shapes;
 
 namespace Microsoft.StandardUI.Blazor.Shapes
 {
-    public class Shape : BuiltInUIElement, IShape, IDrawable
+    public class Shape : BuiltInUIElement, IShape
     {
         public static readonly UIProperty FillProperty = new UIProperty(nameof(Fill), null);
         public static readonly UIProperty StrokeProperty = new UIProperty(nameof(Stroke), null);

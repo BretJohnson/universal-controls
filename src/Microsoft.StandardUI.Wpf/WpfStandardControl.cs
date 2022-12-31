@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Controls;
 using Microsoft.StandardUI.Wpf.NativeVisualFramework;
 

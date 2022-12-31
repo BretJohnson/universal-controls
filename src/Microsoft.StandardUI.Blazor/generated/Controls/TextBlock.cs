@@ -9,7 +9,7 @@ using Microsoft.StandardUI.Controls;
 
 namespace Microsoft.StandardUI.Blazor.Controls
 {
-    public class TextBlock : BuiltInUIElement, ITextBlock
+    public class TextBlock : BuiltInUIElement, ITextBlock, IDrawable
     {
         public static readonly UIProperty ForegroundProperty = new UIProperty(nameof(Foreground), null);
         public static readonly UIProperty TextProperty = new UIProperty(nameof(Text), "");
@@ -76,6 +76,6 @@ namespace Microsoft.StandardUI.Blazor.Controls
             set => SetValue(TextAlignmentProperty, value);
         }
         
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawTextBlock(this);
+        public void Draw(IDrawingContext drawingContext) => drawingContext.DrawTextBlock(this);
     }
 }

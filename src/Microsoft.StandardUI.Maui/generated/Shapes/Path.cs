@@ -7,7 +7,7 @@ using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace Microsoft.StandardUI.Maui.Shapes
 {
-    public class Path : Shape, IPath
+    public class Path : Shape, IPath, IDrawable
     {
         public static readonly BindableProperty DataProperty = PropertyUtils.Register(nameof(Data), typeof(Geometry), typeof(Path), null);
         
@@ -22,6 +22,6 @@ namespace Microsoft.StandardUI.Maui.Shapes
             set => Data = (Geometry) value;
         }
         
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawPath(this);
+        public void Draw(IDrawingContext drawingContext) => drawingContext.DrawPath(this);
     }
 }

@@ -1,5 +1,6 @@
 // This file is generated from IArcSegment.cs. Update the source file to change its contents.
 
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 using SweepDirection = Microsoft.StandardUI.Media.SweepDirection;
@@ -8,8 +9,8 @@ namespace Microsoft.StandardUI.Maui.Media
 {
     public class ArcSegment : PathSegment, IArcSegment
     {
-        public static readonly BindableProperty PointProperty = PropertyUtils.Register(nameof(Point), typeof(PointMaui), typeof(ArcSegment), PointMaui.Default);
-        public static readonly BindableProperty SizeProperty = PropertyUtils.Register(nameof(Size), typeof(SizeMaui), typeof(ArcSegment), SizeMaui.Default);
+        public static readonly BindableProperty PointProperty = PropertyUtils.Register(nameof(Point), typeof(PointMaui), typeof(ArcSegment), default(Point));
+        public static readonly BindableProperty SizeProperty = PropertyUtils.Register(nameof(Size), typeof(SizeMaui), typeof(ArcSegment), default(Size));
         public static readonly BindableProperty RotationAngleProperty = PropertyUtils.Register(nameof(RotationAngle), typeof(double), typeof(ArcSegment), 0.0);
         public static readonly BindableProperty IsLargeArcProperty = PropertyUtils.Register(nameof(IsLargeArc), typeof(bool), typeof(ArcSegment), false);
         public static readonly BindableProperty SweepDirectionProperty = PropertyUtils.Register(nameof(SweepDirection), typeof(SweepDirection), typeof(ArcSegment), SweepDirection.Counterclockwise);

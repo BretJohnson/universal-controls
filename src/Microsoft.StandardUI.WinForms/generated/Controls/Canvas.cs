@@ -1,7 +1,9 @@
 // This file is generated from ICanvas.cs. Update the source file to change its contents.
 
 using Microsoft.StandardUI.DefaultImplementations;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Controls;
+using ICanvas = Microsoft.StandardUI.Controls.ICanvas;
 
 namespace Microsoft.StandardUI.WinForms.Controls
 {

@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using System.Globalization;
-using Microsoft.StandardUI.Converters;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Wpf.Media;
 
 namespace Microsoft.StandardUI.Wpf.Converters
@@ -11,7 +11,7 @@ namespace Microsoft.StandardUI.Wpf.Converters
         {
             return new SolidColorBrush
             {
-                Color = new ColorWpf(ColorConverter.ConvertFromString(GetValueAsString(valueObject)))
+                Color = Color.Parse(GetValueAsString(valueObject))
             };
         }
     }

@@ -1,5 +1,6 @@
 // This file is generated from IPathFigure.cs. Update the source file to change its contents.
 
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
@@ -8,7 +9,7 @@ namespace Microsoft.StandardUI.Maui.Media
     public class PathFigure : StandardUIObject, IPathFigure
     {
         public static readonly BindableProperty SegmentsProperty = PropertyUtils.Register(nameof(Segments), typeof(UICollection<IPathSegment>), typeof(PathFigure), null);
-        public static readonly BindableProperty StartPointProperty = PropertyUtils.Register(nameof(StartPoint), typeof(PointMaui), typeof(PathFigure), PointMaui.Default);
+        public static readonly BindableProperty StartPointProperty = PropertyUtils.Register(nameof(StartPoint), typeof(PointMaui), typeof(PathFigure), default(Point));
         public static readonly BindableProperty IsClosedProperty = PropertyUtils.Register(nameof(IsClosed), typeof(bool), typeof(PathFigure), false);
         public static readonly BindableProperty IsFilledProperty = PropertyUtils.Register(nameof(IsFilled), typeof(bool), typeof(PathFigure), true);
         

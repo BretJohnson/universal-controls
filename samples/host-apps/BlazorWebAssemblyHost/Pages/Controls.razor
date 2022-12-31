@@ -1,20 +1,13 @@
 ﻿@page "/controls"
+@using Microsoft.StandardUI.Blazor.Controls
+@using Microsoft.Maui.Graphics
+@using Microsoft.StandardUI.Media
+@using static Microsoft.StandardUI.StandardUIStatics
 
 <PageTitle>Controls</PageTitle>
 
-<h1>Controls AA</h1>
+<VerticalStack Width="400" Height="400">
+    <Ellipse Width="50" Height="50" Stroke="@(SolidColorBrush().Color(Colors.Blue))" StrokeThickness="4" />
+    <Ellipse Width="100" Height="100" Stroke="@(SolidColorBrush().Color(Colors.Green))" />
+</VerticalStack>
 
-<p role="status">Current count: @currentCount</p>
-
-<Rectangle @ref="myRect" RadiusX="8" RadiusY="8" Width="150" Height="100" Stroke="@(SolidColorBrush().Color(Colors.Green))"/>
-
-@code {
-    Rectangle? myRect;
-
-    private int currentCount = 0;
-
-    private void IncrementCount()
-    {
-        currentCount++;
-    }
-}

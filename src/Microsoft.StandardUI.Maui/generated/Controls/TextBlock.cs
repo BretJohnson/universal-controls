@@ -10,7 +10,7 @@ using Brush = Microsoft.StandardUI.Maui.Media.Brush;
 
 namespace Microsoft.StandardUI.Maui.Controls
 {
-    public class TextBlock : BuiltInUIElement, ITextBlock
+    public class TextBlock : BuiltInUIElement, ITextBlock, IDrawable
     {
         public static readonly BindableProperty ForegroundProperty = PropertyUtils.Register(nameof(Foreground), typeof(Brush), typeof(TextBlock), null);
         public static readonly BindableProperty TextProperty = PropertyUtils.Register(nameof(Text), typeof(string), typeof(TextBlock), "");
@@ -79,6 +79,6 @@ namespace Microsoft.StandardUI.Maui.Controls
             set => SetValue(TextAlignmentProperty, value);
         }
         
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawTextBlock(this);
+        public void Draw(IDrawingContext drawingContext) => drawingContext.DrawTextBlock(this);
     }
 }

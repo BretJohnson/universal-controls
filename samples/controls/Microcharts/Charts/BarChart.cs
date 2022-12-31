@@ -3,11 +3,13 @@
 
 using System;
 using System.Linq;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI;
 using Microsoft.StandardUI.Controls;
 using Microsoft.StandardUI.Media;
 using Microsoft.StandardUI.Shapes;
 using static Microsoft.StandardUI.StandardUIStatics;
+using ICanvas = Microsoft.StandardUI.Controls.ICanvas;
 
 namespace Microcharts
 {
@@ -54,7 +56,7 @@ namespace Microcharts
                 var valueLabelSizes = MeasureLabels(valueLabels);
                 var headerHeight = CalculateFooterHeaderHeight(valueLabelSizes, ValueLabelOrientation);
 
-                var itemSize = CalculateItemSize(width, height, footerHeight, headerHeight);
+                Size itemSize = CalculateItemSize(width, height, footerHeight, headerHeight);
                 var origin = CalculateYOrigin((float)itemSize.Height, headerHeight);
                 var points = CalculatePoints(itemSize, origin, headerHeight);
 
@@ -120,7 +122,7 @@ namespace Microcharts
                     var entry = Entries.ElementAt(i);
                     var point = points[i];
 
-                    var color = entry.Color.WithA((byte)(this.BarAreaAlpha * this.AnimationProgress));
+                    var color = entry.Color.WithAlpha((byte)(this.BarAreaAlpha * this.AnimationProgress));
                     var brush = SolidColorBrush().Color(color);
 
                     var max = entry.Value > 0 ? headerHeight : headerHeight + itemSize.Height;

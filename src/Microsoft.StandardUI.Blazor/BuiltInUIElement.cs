@@ -5,8 +5,5 @@ namespace Microsoft.StandardUI.Blazor
     /// </summary>
     public partial class BuiltInUIElement : UIElement
     {
-        public virtual void Draw(IDrawingContext visualizer)
-        {
-        }
     }
 }

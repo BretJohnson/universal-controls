@@ -1,3 +1,5 @@
+using Microsoft.Maui.Graphics;
+
 namespace Microsoft.StandardUI.Wpf
 {
     public static class RectExtensions

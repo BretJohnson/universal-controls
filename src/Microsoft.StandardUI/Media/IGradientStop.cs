@@ -1,10 +1,12 @@
 using System.ComponentModel;
+using Microsoft.Maui.Graphics;
 
 namespace Microsoft.StandardUI.Media
 {
     [UIModelObject]
     public interface IGradientStop : IUIObject
     {
+        [DefaultValue(null)]
         // The default is Transparent
         Color Color { get; set; }
 

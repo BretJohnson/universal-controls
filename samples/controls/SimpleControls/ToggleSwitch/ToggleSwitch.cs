@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI;
 using Microsoft.StandardUI.Controls;
 using Microsoft.StandardUI.Media;
@@ -10,8 +11,10 @@ namespace AlohaKit.StandardControls
     [StandardControl]
     public interface IToggleSwitch : IStandardControl
     {
+        [DefaultValue(DefaultColor.White)]
         public Color BackgroundColor { get; set; }
 
+        [DefaultValue(DefaultColor.Black)]
         public Color ThumbColor { get; set; }
 
         [DefaultValue(false)]

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Controls;
 using Microsoft.StandardUI.Media;
 using Microsoft.StandardUI.Shapes;
@@ -202,7 +203,15 @@ namespace Microsoft.StandardUI.SkiaVisualFramework
             paint.Shader = ToSkiaShader(gradientBrush, boundingBoxSize);
         }
 
-        public static SKColor ToSkiaColor(Color color) => new SKColor(color.R, color.G, color.B, color.A);
+        public static SKColor ToSkiaColor(Color color)
+        {
+            var r = (byte)(color.Red * 255f);
+            var g = (byte)(color.Green * 255f);
+            var b = (byte)(color.Blue * 255f);
+            var a = (byte)(color.Alpha * 255f);
+
+            return new SKColor(r, g, b, a);
+        }
 
         public static SKShader ToSkiaShader(IGradientBrush gradientBrush, SKSize boundingBoxSize)
         {

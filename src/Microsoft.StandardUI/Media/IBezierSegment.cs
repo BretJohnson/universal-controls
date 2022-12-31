@@ -1,4 +1,6 @@
-﻿namespace Microsoft.StandardUI.Media
+﻿using Microsoft.Maui.Graphics;
+
+namespace Microsoft.StandardUI.Media
 {
     [UIModelObject]
     public interface IBezierSegment : IPathSegment

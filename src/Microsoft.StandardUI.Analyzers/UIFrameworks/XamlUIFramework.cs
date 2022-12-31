@@ -188,7 +188,7 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
         public override bool IsWrappedType(ITypeSymbol type)
         {
             string typeName = type.Name;
-            return typeName == "Color" || typeName == "Point" || typeName == "Points" || typeName == "Size" || typeName == "DataSource" || typeName == "FontWeight";
+            return typeName == "Point" || typeName == "Points" || typeName == "Size" || typeName == "DataSource" || typeName == "FontWeight";
         }
     }
 }

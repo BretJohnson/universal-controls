@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using System.Globalization;
-using Microsoft.StandardUI.Converters;
+using Microsoft.Maui.Graphics;
 
 namespace Microsoft.StandardUI.Wpf.Converters
 {
@@ -8,7 +8,7 @@ namespace Microsoft.StandardUI.Wpf.Converters
     {
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object valueObject)
         {
-            return new ColorWpf(ColorConverter.ConvertFromString(GetValueAsString(valueObject)));
+            return new ColorWpf(Color.Parse(GetValueAsString(valueObject)));
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Media;
 
 namespace Microsoft.StandardUI.Controls

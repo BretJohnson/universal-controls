@@ -5,7 +5,7 @@ using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace Microsoft.StandardUI.Maui.Shapes
 {
-    public class Line : Shape, ILine
+    public class Line : Shape, ILine, IDrawable
     {
         public static readonly BindableProperty X1Property = PropertyUtils.Register(nameof(X1), typeof(double), typeof(Line), 0.0);
         public static readonly BindableProperty Y1Property = PropertyUtils.Register(nameof(Y1), typeof(double), typeof(Line), 0.0);
@@ -36,6 +36,6 @@ namespace Microsoft.StandardUI.Maui.Shapes
             set => SetValue(Y2Property, value);
         }
         
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawLine(this);
+        public void Draw(IDrawingContext drawingContext) => drawingContext.DrawLine(this);
     }
 }

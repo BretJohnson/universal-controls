@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI;
 using Microsoft.StandardUI.Controls;
 
@@ -22,11 +23,13 @@ namespace Microcharts
         /// <summary>
         /// Color used for chart background
         /// </summary>
+        [DefaultValue(DefaultColor.White)]
         Color BackgroundColor { get; set; }
 
         /// <summary>
         /// Color used for chart labels
         /// </summary>
+        [DefaultValue(DefaultColor.Gray)]
         Color LabelColor { get; set; }
     }
 

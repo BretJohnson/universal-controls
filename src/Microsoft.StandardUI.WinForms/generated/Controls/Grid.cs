@@ -1,6 +1,7 @@
 // This file is generated from IGrid.cs. Update the source file to change its contents.
 
 using Microsoft.StandardUI.DefaultImplementations;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Controls;
 
 namespace Microsoft.StandardUI.WinForms.Controls

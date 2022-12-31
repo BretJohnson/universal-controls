@@ -5,7 +5,7 @@ using Microsoft.StandardUI.Shapes;
 
 namespace Microsoft.StandardUI.Mac.Shapes
 {
-    public class Line : Shape, ILine
+    public class Line : Shape, ILine, IDrawable
     {
         public static readonly UIProperty X1Property = new UIProperty(nameof(X1), 0.0);
         public static readonly UIProperty Y1Property = new UIProperty(nameof(Y1), 0.0);
@@ -36,6 +36,6 @@ namespace Microsoft.StandardUI.Mac.Shapes
             set => SetValue(Y2Property, value);
         }
         
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawLine(this);
+        public void Draw(IDrawingContext drawingContext) => drawingContext.DrawLine(this);
     }
 }

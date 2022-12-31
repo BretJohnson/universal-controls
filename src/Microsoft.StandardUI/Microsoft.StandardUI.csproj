@@ -11,6 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Maui.Graphics" Version="7.0.52" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\component-model-ex\src\Microsoft.ComponentModelEx\Microsoft.ComponentModelEx.csproj" />
   </ItemGroup>
 

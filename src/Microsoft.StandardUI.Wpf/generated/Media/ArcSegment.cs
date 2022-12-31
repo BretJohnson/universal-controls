@@ -1,5 +1,6 @@
 // This file is generated from IArcSegment.cs. Update the source file to change its contents.
 
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Media;
 using DependencyProperty = System.Windows.DependencyProperty;
 
@@ -7,8 +8,8 @@ namespace Microsoft.StandardUI.Wpf.Media
 {
     public class ArcSegment : PathSegment, IArcSegment
     {
-        public static readonly DependencyProperty PointProperty = PropertyUtils.Register(nameof(Point), typeof(PointWpf), typeof(ArcSegment), PointWpf.Default);
-        public static readonly DependencyProperty SizeProperty = PropertyUtils.Register(nameof(Size), typeof(SizeWpf), typeof(ArcSegment), SizeWpf.Default);
+        public static readonly DependencyProperty PointProperty = PropertyUtils.Register(nameof(Point), typeof(PointWpf), typeof(ArcSegment), default(Point));
+        public static readonly DependencyProperty SizeProperty = PropertyUtils.Register(nameof(Size), typeof(SizeWpf), typeof(ArcSegment), default(Size));
         public static readonly DependencyProperty RotationAngleProperty = PropertyUtils.Register(nameof(RotationAngle), typeof(double), typeof(ArcSegment), 0.0);
         public static readonly DependencyProperty IsLargeArcProperty = PropertyUtils.Register(nameof(IsLargeArc), typeof(bool), typeof(ArcSegment), false);
         public static readonly DependencyProperty SweepDirectionProperty = PropertyUtils.Register(nameof(SweepDirection), typeof(SweepDirection), typeof(ArcSegment), SweepDirection.Counterclockwise);

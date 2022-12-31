@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Windows;
+using Microsoft.Maui.Graphics;
 
 namespace Microsoft.StandardUI.Wpf
 {
@@ -9,14 +9,14 @@ namespace Microsoft.StandardUI.Wpf
     /// </summary>
     public class WrappedNativeUIElement : IUIElement
     {
-        private readonly FrameworkElement _frameworkElement;
+        private readonly System.Windows.FrameworkElement _frameworkElement;
 
-        public WrappedNativeUIElement(FrameworkElement frameworkElement)
+        public WrappedNativeUIElement(System.Windows.FrameworkElement frameworkElement)
         {
             _frameworkElement = frameworkElement;
         }
 
-        public FrameworkElement FrameworkElement => _frameworkElement;
+        public System.Windows.FrameworkElement FrameworkElement => _frameworkElement;
 
         void IUIElement.Measure(double widthConstraint, double heightConstraint)
         {
@@ -61,8 +61,8 @@ namespace Microsoft.StandardUI.Wpf
         // TODO: Error if appropriate when set to Visibility.Hidden
         bool IUIElement.Visible
         {
-            get => _frameworkElement.Visibility != Visibility.Collapsed;
-            set => _frameworkElement.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
+            get => _frameworkElement.Visibility != System.Windows.Visibility.Collapsed;
+            set => _frameworkElement.Visibility = value ? System.Windows.Visibility.Visible : System.Windows.Visibility.Collapsed;
         }
 
         double IUIElement.Width

@@ -133,6 +133,7 @@ namespace Microsoft.StandardUI.SourceGenerator
             // Code is only generated for the interface types below
             if (Purpose != InterfacePurpose.StandardControl &&
                 Purpose != InterfacePurpose.StandardPanel &&
+                Purpose != InterfacePurpose.StandardUIObject &&
                 Purpose != InterfacePurpose.UIObject)
                 return;
 
@@ -150,6 +151,9 @@ namespace Microsoft.StandardUI.SourceGenerator
                 mainClassSource.DerivedFrom = Name;
             else
                 mainClassSource.DerivedFrom = $"{destinationBaseClass}, {Name}";
+
+            if (IsDrawableObject)
+                mainClassSource.DerivedFrom += ", IDrawable";
 
             uiFramework.GenerateAttributes(this, mainClassSource);
 
@@ -271,6 +275,11 @@ namespace Microsoft.StandardUI.SourceGenerator
         private static void GenerateTypeProperties(Interface intface, UIFramework uiFramework, ISet<string>? noAutoGenerationProperties,
             List<Property> properties, ClassSource classSource)
         {
+            if (intface.IsThisType("Microsoft.StandardUI.Controls.ICanvas"))
+            {
+                classSource.Usings.AddTypeAlias("ICanvas = Microsoft.StandardUI.Controls.ICanvas");
+            }
+
             foreach (IPropertySymbol propertySymbol in intface.Type.GetMembers().Where(member => member.Kind == SymbolKind.Property))
             {
                 if (noAutoGenerationProperties != null && noAutoGenerationProperties.Contains(propertySymbol.Name))

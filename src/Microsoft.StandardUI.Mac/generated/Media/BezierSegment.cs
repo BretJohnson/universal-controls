@@ -1,15 +1,16 @@
 // This file is generated from IBezierSegment.cs. Update the source file to change its contents.
 
 using Microsoft.StandardUI.DefaultImplementations;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Media;
 
 namespace Microsoft.StandardUI.Mac.Media
 {
     public class BezierSegment : PathSegment, IBezierSegment
     {
-        public static readonly UIProperty Point1Property = new UIProperty(nameof(Point1), Point.Default);
-        public static readonly UIProperty Point2Property = new UIProperty(nameof(Point2), Point.Default);
-        public static readonly UIProperty Point3Property = new UIProperty(nameof(Point3), Point.Default);
+        public static readonly UIProperty Point1Property = new UIProperty(nameof(Point1), default(Point));
+        public static readonly UIProperty Point2Property = new UIProperty(nameof(Point2), default(Point));
+        public static readonly UIProperty Point3Property = new UIProperty(nameof(Point3), default(Point));
         
         public Point Point1
         {

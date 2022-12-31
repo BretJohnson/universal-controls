@@ -6,7 +6,7 @@ using DependencyProperty = System.Windows.DependencyProperty;
 
 namespace Microsoft.StandardUI.Wpf.Shapes
 {
-    public class Polygon : Shape, IPolygon
+    public class Polygon : Shape, IPolygon, IDrawable
     {
         public static readonly DependencyProperty FillRuleProperty = PropertyUtils.Register(nameof(FillRule), typeof(FillRule), typeof(Polygon), FillRule.EvenOdd);
         public static readonly DependencyProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(PointsWpf), typeof(Polygon), PointsWpf.Default);
@@ -28,6 +28,6 @@ namespace Microsoft.StandardUI.Wpf.Shapes
             set => Points = new PointsWpf(value);
         }
         
-        public override void Draw(IDrawingContext drawingContext) => drawingContext.DrawPolygon(this);
+        public void Draw(IDrawingContext drawingContext) => drawingContext.DrawPolygon(this);
     }
 }

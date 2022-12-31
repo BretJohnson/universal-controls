@@ -1,5 +1,6 @@
 // This file is generated from IBezierSegment.cs. Update the source file to change its contents.
 
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Media;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
@@ -7,9 +8,9 @@ namespace Microsoft.StandardUI.WinUI.Media
 {
     public class BezierSegment : PathSegment, IBezierSegment
     {
-        public static readonly DependencyProperty Point1Property = PropertyUtils.Register(nameof(Point1), typeof(PointWinUI), typeof(BezierSegment), PointWinUI.Default);
-        public static readonly DependencyProperty Point2Property = PropertyUtils.Register(nameof(Point2), typeof(PointWinUI), typeof(BezierSegment), PointWinUI.Default);
-        public static readonly DependencyProperty Point3Property = PropertyUtils.Register(nameof(Point3), typeof(PointWinUI), typeof(BezierSegment), PointWinUI.Default);
+        public static readonly DependencyProperty Point1Property = PropertyUtils.Register(nameof(Point1), typeof(PointWinUI), typeof(BezierSegment), default(Point));
+        public static readonly DependencyProperty Point2Property = PropertyUtils.Register(nameof(Point2), typeof(PointWinUI), typeof(BezierSegment), default(Point));
+        public static readonly DependencyProperty Point3Property = PropertyUtils.Register(nameof(Point3), typeof(PointWinUI), typeof(BezierSegment), default(Point));
         
         public PointWinUI Point1
         {

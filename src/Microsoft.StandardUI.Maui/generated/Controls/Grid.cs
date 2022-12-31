@@ -1,5 +1,6 @@
 // This file is generated from IGrid.cs. Update the source file to change its contents.
 
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Controls;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 

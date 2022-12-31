@@ -1,5 +1,6 @@
 // This file is generated from IRadialGradientBrush.cs. Update the source file to change its contents.
 
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
@@ -7,8 +8,8 @@ namespace Microsoft.StandardUI.Maui.Media
 {
     public class RadialGradientBrush : GradientBrush, IRadialGradientBrush
     {
-        public static readonly BindableProperty CenterProperty = PropertyUtils.Register(nameof(Center), typeof(PointMaui), typeof(RadialGradientBrush), PointMaui.CenterDefault);
-        public static readonly BindableProperty GradientOriginProperty = PropertyUtils.Register(nameof(GradientOrigin), typeof(PointMaui), typeof(RadialGradientBrush), PointMaui.CenterDefault);
+        public static readonly BindableProperty CenterProperty = PropertyUtils.Register(nameof(Center), typeof(PointMaui), typeof(RadialGradientBrush), new PointMaui(0.5, 0.5));
+        public static readonly BindableProperty GradientOriginProperty = PropertyUtils.Register(nameof(GradientOrigin), typeof(PointMaui), typeof(RadialGradientBrush), new PointMaui(0.5, 0.5));
         public static readonly BindableProperty RadiusXProperty = PropertyUtils.Register(nameof(RadiusX), typeof(double), typeof(RadialGradientBrush), 0.5);
         
         public PointMaui Center

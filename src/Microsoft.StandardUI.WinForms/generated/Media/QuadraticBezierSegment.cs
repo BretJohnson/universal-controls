@@ -1,14 +1,15 @@
 // This file is generated from IQuadraticBezierSegment.cs. Update the source file to change its contents.
 
 using Microsoft.StandardUI.DefaultImplementations;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Media;
 
 namespace Microsoft.StandardUI.WinForms.Media
 {
     public class QuadraticBezierSegment : PathSegment, IQuadraticBezierSegment
     {
-        public static readonly UIProperty Point1Property = new UIProperty(nameof(Point1), Point.Default);
-        public static readonly UIProperty Point2Property = new UIProperty(nameof(Point2), Point.Default);
+        public static readonly UIProperty Point1Property = new UIProperty(nameof(Point1), default(Point));
+        public static readonly UIProperty Point2Property = new UIProperty(nameof(Point2), default(Point));
         
         public Point Point1
         {

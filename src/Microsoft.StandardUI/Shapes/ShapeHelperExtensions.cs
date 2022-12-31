@@ -1,3 +1,4 @@
+using Microsoft.Maui.Graphics;
 using static Microsoft.StandardUI.StandardUIStatics;
 
 namespace Microsoft.StandardUI.Shapes

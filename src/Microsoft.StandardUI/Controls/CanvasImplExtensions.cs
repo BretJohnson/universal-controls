@@ -1,4 +1,6 @@
-﻿namespace Microsoft.StandardUI.Controls
+﻿using Microsoft.Maui.Graphics;
+
+namespace Microsoft.StandardUI.Controls
 {
     public static class CanvasImplExtensions
     {

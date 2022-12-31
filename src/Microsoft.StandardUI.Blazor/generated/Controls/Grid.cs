@@ -2,6 +2,7 @@
 
 using Microsoft.StandardUI.DefaultImplementations;
 using Microsoft.AspNetCore.Components;
+using Microsoft.Maui.Graphics;
 using Microsoft.StandardUI.Controls;
 
 namespace Microsoft.StandardUI.Blazor.Controls
