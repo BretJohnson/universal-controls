@@ -1,6 +1,6 @@
 using System;
 
-namespace Microsoft.StandardUI.Wpf
+namespace AnywhereControls.Wpf
 {
     public static class UIElementExtensions
     {

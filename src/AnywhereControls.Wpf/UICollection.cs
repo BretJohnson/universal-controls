@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace Microsoft.StandardUI.Wpf
+namespace AnywhereControls.Wpf
 {
     public sealed class UICollection<T> : BasicUICollection<T>
     {

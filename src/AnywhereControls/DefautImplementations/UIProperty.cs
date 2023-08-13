@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.DefaultImplementations
+namespace AnywhereControls.DefaultImplementations
 {
     public class UIProperty : IUIProperty
     {

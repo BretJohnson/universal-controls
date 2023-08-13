@@ -1,6 +1,6 @@
 using System;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     public static class HostEnvironment
     {

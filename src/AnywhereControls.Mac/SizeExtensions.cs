@@ -1,6 +1,6 @@
 using CoreGraphics;
 
-namespace Microsoft.StandardUI.Mac
+namespace AnywhereControls.Mac
 {
     public static class SizeExtensions
     {

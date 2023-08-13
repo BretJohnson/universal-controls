@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls;
+using AnywhereControls.Controls;
 
 namespace Microcharts
 {

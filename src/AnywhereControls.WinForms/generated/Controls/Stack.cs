@@ -1,10 +1,10 @@
 // This file is generated from IStack.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.DefaultImplementations;
+using AnywhereControls.Controls;
 using Microsoft.Maui.Graphics;
 
-namespace Microsoft.StandardUI.WinForms.Controls
+namespace AnywhereControls.WinForms.Controls
 {
     public class Stack : StackBase, IStack
     {

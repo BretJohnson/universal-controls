@@ -1,8 +1,8 @@
 using System;
 using System.Windows;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 
-namespace Microsoft.StandardUI.Wpf.Text
+namespace AnywhereControls.Wpf.Text
 {
     public static class FontFamilyExtensions
     {

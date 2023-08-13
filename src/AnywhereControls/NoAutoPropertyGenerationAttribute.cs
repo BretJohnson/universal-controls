@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     /// <summary>
     /// This attribute, when set on a native control class (e.g. a WPF control

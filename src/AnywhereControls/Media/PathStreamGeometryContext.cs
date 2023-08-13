@@ -11,10 +11,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.Maui.Graphics;
-using static Microsoft.StandardUI.StandardUIStatics;
+using static AnywhereControls.StandardUIStatics;
 
 
-namespace Microsoft.StandardUI.Media
+namespace AnywhereControls.Media
 {
     public class PathStreamGeometryContext : StreamGeometryContext
     {

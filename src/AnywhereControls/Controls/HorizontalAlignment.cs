@@ -1,4 +1,4 @@
-﻿namespace Microsoft.StandardUI.Controls
+﻿namespace AnywhereControls.Controls
 {
     /// <summary>
     /// The different orientations that a control or layout can have.

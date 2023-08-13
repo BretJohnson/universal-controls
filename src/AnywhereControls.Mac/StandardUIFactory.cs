@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Shapes;
-using Microsoft.StandardUI.Mac.Controls;
-using Microsoft.StandardUI.Mac.Media;
-using Microsoft.StandardUI.Mac.Shapes;
+using AnywhereControls.Controls;
+using AnywhereControls.Media;
+using AnywhereControls.Shapes;
+using AnywhereControls.Mac.Controls;
+using AnywhereControls.Mac.Media;
+using AnywhereControls.Mac.Shapes;
 
-namespace Microsoft.StandardUI.Mac
+namespace AnywhereControls.Mac
 {
     public class StandardUIFactory : IStandardUIFactory
     {

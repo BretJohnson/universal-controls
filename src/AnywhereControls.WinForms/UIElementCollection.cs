@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.WinForms
+namespace AnywhereControls.WinForms
 {
     public sealed class UIElementCollection<TUIElement> : BasicUICollection<TUIElement>
         where TUIElement : IUIElement

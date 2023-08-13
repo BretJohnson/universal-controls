@@ -1,6 +1,6 @@
-using Microsoft.StandardUI.Text;
+using AnywhereControls.Text;
 
-namespace Microsoft.StandardUI.Maui.Text
+namespace AnywhereControls.Maui.Text
 {
     public struct FontWeightMaui
     {

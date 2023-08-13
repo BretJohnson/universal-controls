@@ -2,7 +2,7 @@
 
 using System;
 
-namespace Microsoft.StandardUI.Controls
+namespace AnywhereControls.Controls
 {
     public static class GridExtensions
     {

@@ -4,9 +4,9 @@ using Microcharts;
 using Microcharts.Wpf;
 using Microsoft.ComponentModelEx.Tooling;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI;
-using Microsoft.StandardUI.Wpf;
-using Microsoft.StandardUI.Wpf.NativeVisualFramework;
+using AnywhereControls;
+using AnywhereControls.Wpf;
+using AnywhereControls.Wpf.NativeVisualFramework;
 using SimpleControls;
 using SimpleControls.Wpf;
 

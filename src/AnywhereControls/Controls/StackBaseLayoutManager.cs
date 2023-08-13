@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Maui.Graphics;
 
-namespace Microsoft.StandardUI.Controls
+namespace AnywhereControls.Controls
 {
     public abstract class StackBaseLayoutManager<TStack> : LayoutManager<TStack> where TStack : IStackBase
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Microsoft.StandardUI.WinUI
+namespace AnywhereControls.WinUI
 {
     public static class HorizontalAlignmentExtensions
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     /// <summary>
     /// Represents a measurement for control logic that explicitly supports Star (*) sizing and Auto sizing.

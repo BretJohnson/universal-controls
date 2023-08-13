@@ -1,10 +1,10 @@
 // This file is generated from IRectangle.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 using Microsoft.AspNetCore.Components;
-using Microsoft.StandardUI.Shapes;
+using AnywhereControls.Shapes;
 
-namespace Microsoft.StandardUI.Blazor.Shapes
+namespace AnywhereControls.Blazor.Shapes
 {
     public class Rectangle : Shape, IRectangle, IDrawable
     {

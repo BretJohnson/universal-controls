@@ -4,8 +4,8 @@
 #if LATER
 
 using System.Linq;
-using Microsoft.StandardUI;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls;
+using AnywhereControls.Controls;
 using SkiaSharp;
 
 namespace Microcharts

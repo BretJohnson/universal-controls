@@ -1,9 +1,9 @@
 // This file is generated from IStack.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace Microsoft.StandardUI.Wpf.Controls
+namespace AnywhereControls.Wpf.Controls
 {
     public class Stack : StackBase, IStack
     {

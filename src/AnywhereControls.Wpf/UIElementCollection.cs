@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Media;
 
-namespace Microsoft.StandardUI.Wpf
+namespace AnywhereControls.Wpf
 {
     /// <summary>
     /// A UIElementCollection is a ordered collection of UIElements. This code was copied/adapted

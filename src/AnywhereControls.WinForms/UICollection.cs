@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.WinForms
+namespace AnywhereControls.WinForms
 {
     public sealed class UICollection<T> : BasicUICollection<T>
     {

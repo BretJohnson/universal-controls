@@ -2,7 +2,7 @@
 
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
-namespace Microsoft.StandardUI.WinUI
+namespace AnywhereControls.WinUI
 {
     public class VisualStateGroup : StandardUIObject, IVisualStateGroup
     {

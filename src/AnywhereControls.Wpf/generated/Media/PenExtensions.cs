@@ -1,6 +1,6 @@
-using Microsoft.StandardUI.Wpf;
+using AnywhereControls.Wpf;
 
-namespace Microsoft.StandardUI.Media.Wpf
+namespace AnywhereControls.Media.Wpf
 {
     public static class PenExtensions
     {

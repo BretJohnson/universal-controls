@@ -2,7 +2,7 @@ using SkiaSharp;
 using SkiaSharp.Views.Blazor;
 using Microsoft.AspNetCore.Components.Rendering;
 
-namespace Microsoft.StandardUI.SkiaVisualFramework
+namespace AnywhereControls.SkiaVisualFramework
 {
     public class BlazorSkiaRenderLayer : SkiaRenderLayer
     {

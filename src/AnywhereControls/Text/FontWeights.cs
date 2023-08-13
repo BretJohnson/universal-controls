@@ -1,4 +1,4 @@
-﻿namespace Microsoft.StandardUI.Text
+﻿namespace AnywhereControls.Text
 {
     /// <summary>
     /// Provides a set of predefined font weights as static property values.

@@ -1,11 +1,11 @@
 // This file is generated from ICanvas.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 using ICanvas = Microsoft.StandardUI.Controls.ICanvas;
 
-namespace Microsoft.StandardUI.WinForms.Controls
+namespace AnywhereControls.WinForms.Controls
 {
     public class Canvas : Panel, ICanvas
     {

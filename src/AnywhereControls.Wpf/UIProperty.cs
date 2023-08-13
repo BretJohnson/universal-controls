@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace Microsoft.StandardUI.Wpf
+namespace AnywhereControls.Wpf
 {
     public class UIProperty : IUIProperty
     {

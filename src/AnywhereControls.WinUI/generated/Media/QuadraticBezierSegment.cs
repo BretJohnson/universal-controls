@@ -1,10 +1,10 @@
 // This file is generated from IQuadraticBezierSegment.cs. Update the source file to change its contents.
 
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
-namespace Microsoft.StandardUI.WinUI.Media
+namespace AnywhereControls.WinUI.Media
 {
     public class QuadraticBezierSegment : PathSegment, IQuadraticBezierSegment
     {

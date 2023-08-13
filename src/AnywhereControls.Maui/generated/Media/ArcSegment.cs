@@ -1,11 +1,11 @@
 // This file is generated from IArcSegment.cs. Update the source file to change its contents.
 
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 using SweepDirection = Microsoft.StandardUI.Media.SweepDirection;
 
-namespace Microsoft.StandardUI.Maui.Media
+namespace AnywhereControls.Maui.Media
 {
     public class ArcSegment : PathSegment, IArcSegment
     {

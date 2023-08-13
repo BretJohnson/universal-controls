@@ -3,13 +3,13 @@ using System.Collections.Immutable;
 using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.StandardUI.SourceGenerator.UIFrameworks;
+using AnywhereControls.SourceGenerator.UIFrameworks;
 
-namespace Microsoft.StandardUI.SourceGenerator
+namespace AnywhereControls.SourceGenerator
 {
     public static class Utils
     {
-        public const string StandardUIRootNamespace = "Microsoft.StandardUI";
+        public const string StandardUIRootNamespace = "AnywhereControls";
         public static readonly SymbolDisplayFormat TypeFullNameSymbolDisplayFormat =
             new SymbolDisplayFormat(typeQualificationStyle: SymbolDisplayTypeQualificationStyle.NameAndContainingTypesAndNamespaces);
 

@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.Maui.Graphics;
-using static Microsoft.StandardUI.Dimension;
+using static AnywhereControls.Dimension;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     public static class LayoutExtensions
     {

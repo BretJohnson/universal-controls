@@ -1,6 +1,6 @@
 using Microsoft.ComponentModelEx;
 
-namespace Microsoft.StandardUI.Controls
+namespace AnywhereControls.Controls
 {
     [UIModelObject]
     [ContentProperty(nameof(Children))]

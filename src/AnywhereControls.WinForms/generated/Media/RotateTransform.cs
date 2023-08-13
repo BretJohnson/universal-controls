@@ -1,9 +1,9 @@
 // This file is generated from IRotateTransform.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.DefaultImplementations;
+using AnywhereControls.Media;
 
-namespace Microsoft.StandardUI.WinForms.Media
+namespace AnywhereControls.WinForms.Media
 {
     public class RotateTransform : Transform, IRotateTransform
     {

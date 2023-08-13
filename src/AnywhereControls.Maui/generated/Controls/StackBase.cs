@@ -1,9 +1,9 @@
 // This file is generated from IStackBase.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace Microsoft.StandardUI.Maui.Controls
+namespace AnywhereControls.Maui.Controls
 {
     public class StackBase : Panel, IStackBase
     {

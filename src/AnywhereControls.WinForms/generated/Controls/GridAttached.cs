@@ -1,8 +1,8 @@
 // This file is generated from IGrid.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI.WinForms.Controls
+namespace AnywhereControls.WinForms.Controls
 {
     public class GridAttached : IGridAttached
     {

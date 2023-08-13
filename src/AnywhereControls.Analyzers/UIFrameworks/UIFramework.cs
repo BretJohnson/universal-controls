@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Globalization;
 using Microsoft.CodeAnalysis;
 
-namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
+namespace AnywhereControls.SourceGenerator.UIFrameworks
 {
     public abstract class UIFramework
     {
@@ -17,8 +17,8 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
 
         public abstract string Name { get; }
         public virtual string NamespaceSuffix => Name;
-        public virtual string ProjectBaseDirectory => $"Microsoft.StandardUI.{Name}";
-        public string RootNamespace => $"Microsoft.StandardUI.{NamespaceSuffix}";
+        public virtual string ProjectBaseDirectory => $"AnywhereControls.{Name}";
+        public string RootNamespace => $"AnywhereControls.{NamespaceSuffix}";
         public abstract string FrameworkTypeForUIElementAttachedTarget { get; }
         public abstract string NativeUIElementType { get; }
         public virtual TypeName BuiltInUIElementBaseClassType => new(RootNamespace, "BuiltInUIElement");
@@ -58,8 +58,8 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
             if (!namespaceName.StartsWith(Utils.StandardUIRootNamespace))
                 return $"{namespaceName}.{NamespaceSuffix}";
 
-            // Map e.g. Microsoft.StandardUI.Media source namespace => Microsoft.StandardUI.Wpf.Media destination namespace
-            // If the source namespace is just Microsoft.StandardUI, don't change anything here
+            // Map e.g. AnywhereControls.Media source namespace => AnywhereControls.Wpf.Media destination namespace
+            // If the source namespace is just AnywhereControls, don't change anything here
             string? childNamespaceName = Utils.GetChildNamespaceName(namespaceName);
             if (childNamespaceName == null)
                 return RootNamespace;
@@ -205,9 +205,9 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
                     // with UI framework type names.
                     string fullTypeName = Utils.GetTypeFullName(type);
                     string typeName = fullTypeName;
-                    if (fullTypeName.StartsWith("Microsoft.StandardUI"))
+                    if (fullTypeName.StartsWith("AnywhereControls"))
                     {
-                        if (fullTypeName != "Microsoft.StandardUI.TextWrapping")
+                        if (fullTypeName != "AnywhereControls.TextWrapping")
                             typeName = type.Name;
                     }
 
@@ -233,16 +233,16 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
                 return "default(Point)";
             else if (typeFullName == "Microsoft.Maui.Graphics.Size")
                 return "default(Size)";
-            else if (typeFullName == "Microsoft.StandardUI.Points" ||
-                typeFullName == "Microsoft.StandardUI.Thickness" ||
-                typeFullName == "Microsoft.StandardUI.CornerRadius" ||
-                typeFullName == "Microsoft.StandardUI.Text.FontWeight" ||
-                typeFullName == "Microsoft.StandardUI.GridLength")
+            else if (typeFullName == "AnywhereControls.Points" ||
+                typeFullName == "AnywhereControls.Thickness" ||
+                typeFullName == "AnywhereControls.CornerRadius" ||
+                typeFullName == "AnywhereControls.Text.FontWeight" ||
+                typeFullName == "AnywhereControls.GridLength")
             {
                 return $"{GetTypeNameWrapIfNeeded(propertyType)}.Default";
             }
 
-            if (typeFullName == "Microsoft.StandardUI.Media.FontFamily")
+            if (typeFullName == "AnywhereControls.Media.FontFamily")
                 return FontFamilyDefaultValue;
 
             // TODO: Implement this
@@ -271,13 +271,13 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
 
             if (propertyType is INamedTypeSymbol namedTypeSymbol &&
                 namedTypeSymbol.Name is string typeName &&
-                (typeName == "Microsoft.StandardUI.Color" ||
+                (typeName == "AnywhereControls.Color" ||
                 typeName == "Microsoft.Maui.Graphics.Point" ||
-                typeName == "Microsoft.StandardUI.Points" ||
-                typeName == "Microsoft.StandardUI.Size" ||
-                typeName == "Microsoft.StandardUI.Thickness" ||
-                typeName == "Microsoft.StandardUI.CornerRadius" ||
-                typeName == "Microsoft.StandardUI.FontWeight"))
+                typeName == "AnywhereControls.Points" ||
+                typeName == "AnywhereControls.Size" ||
+                typeName == "AnywhereControls.Thickness" ||
+                typeName == "AnywhereControls.CornerRadius" ||
+                typeName == "AnywhereControls.FontWeight"))
             {
                 return $"{GetTypeNameWrapIfNeeded(propertyType)}.Default";
             }

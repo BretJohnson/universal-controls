@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.Maui.Graphics;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     [DebuggerDisplay("Request={Request.Width}x{Request.Height}, Minimum={Minimum.Width}x{Minimum.Height}")]
     public struct SizeRequest

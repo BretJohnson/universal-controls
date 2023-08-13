@@ -1,9 +1,9 @@
 // This file is generated from ISetter.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 using Microsoft.AspNetCore.Components;
 
-namespace Microsoft.StandardUI.Blazor
+namespace AnywhereControls.Blazor
 {
     public class Setter : StandardUIObject, ISetter
     {

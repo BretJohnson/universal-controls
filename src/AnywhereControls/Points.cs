@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Maui.Graphics;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     public struct Points
     {

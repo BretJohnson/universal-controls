@@ -1,6 +1,6 @@
 using Foundation;
 
-namespace Microsoft.StandardUI.Mac
+namespace AnywhereControls.Mac
 {
     public class StandardUIObject : NSObject, IUIObject
     {

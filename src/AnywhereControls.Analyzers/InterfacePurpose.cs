@@ -1,4 +1,4 @@
-﻿namespace Microsoft.StandardUI.SourceGenerator
+﻿namespace AnywhereControls.SourceGenerator
 {
     public enum InterfacePurpose
     {

@@ -1,8 +1,8 @@
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 using System;
 
-namespace Microsoft.StandardUI.Blazor.NativeVisualFramework
+namespace AnywhereControls.Blazor.NativeVisualFramework
 {
     public class BlazorNativeVisualFramework : IVisualFramework
     {

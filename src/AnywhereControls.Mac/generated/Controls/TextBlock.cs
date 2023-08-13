@@ -1,12 +1,12 @@
 // This file is generated from ITextBlock.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Mac.Media;
-using Microsoft.StandardUI.Text;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.DefaultImplementations;
+using AnywhereControls.Media;
+using AnywhereControls.Mac.Media;
+using AnywhereControls.Text;
+using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI.Mac.Controls
+namespace AnywhereControls.Mac.Controls
 {
     public class TextBlock : BuiltInUIElement, ITextBlock, IDrawable
     {

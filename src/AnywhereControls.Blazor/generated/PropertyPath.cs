@@ -1,8 +1,8 @@
 // This file is generated from IPropertyPath.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 
-namespace Microsoft.StandardUI.Blazor
+namespace AnywhereControls.Blazor
 {
     public class PropertyPath : StandardUIObject, IPropertyPath
     {

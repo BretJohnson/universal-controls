@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
-using Microsoft.StandardUI.SourceGenerator.UIFrameworks;
+using AnywhereControls.SourceGenerator.UIFrameworks;
 
-namespace Microsoft.StandardUI.SourceGenerator
+namespace AnywhereControls.SourceGenerator
 {
     public class ControlLibrary
     {
@@ -63,7 +63,7 @@ namespace Microsoft.StandardUI.SourceGenerator
             Source members = factoryClassSource.StaticMethods;
 
             usings.AddNamespace("System");
-            usings.AddNamespace("Microsoft.StandardUI");
+            usings.AddNamespace("AnywhereControls");
 
             members.AddLines(
                 "private static Func<T> UninitializedCreator<T>() =>");

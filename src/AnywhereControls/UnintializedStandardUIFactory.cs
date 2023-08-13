@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Shapes;
+using AnywhereControls.Controls;
+using AnywhereControls.Media;
+using AnywhereControls.Shapes;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     public class UnintializedStandardUIFactory : IStandardUIFactory
     {

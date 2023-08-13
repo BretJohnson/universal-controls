@@ -1,12 +1,12 @@
 // This file is generated from IShape.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Blazor.Media;
+using AnywhereControls.DefaultImplementations;
+using AnywhereControls.Media;
+using AnywhereControls.Blazor.Media;
 using Microsoft.AspNetCore.Components;
-using Microsoft.StandardUI.Shapes;
+using AnywhereControls.Shapes;
 
-namespace Microsoft.StandardUI.Blazor.Shapes
+namespace AnywhereControls.Blazor.Shapes
 {
     public class Shape : BuiltInUIElement, IShape
     {

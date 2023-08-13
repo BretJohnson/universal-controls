@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 
-namespace Microsoft.StandardUI.Blazor
+namespace AnywhereControls.Blazor
 {
     public abstract class UIElement : ComponentBase, IUIElement, IDisposable
     {

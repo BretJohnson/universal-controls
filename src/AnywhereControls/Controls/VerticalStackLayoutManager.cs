@@ -1,6 +1,6 @@
 ﻿using Microsoft.Maui.Graphics;
 
-namespace Microsoft.StandardUI.Controls
+namespace AnywhereControls.Controls
 {
     public class VerticalStackLayoutManager : StackBaseLayoutManager<IVerticalStack>
     {

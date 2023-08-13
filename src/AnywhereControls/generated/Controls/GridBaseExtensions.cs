@@ -1,6 +1,6 @@
 // This file is generated from IGridBase.cs. Update the source file to change its contents.
 
-namespace Microsoft.StandardUI.Controls
+namespace AnywhereControls.Controls
 {
     public static class GridBaseExtensions
     {

@@ -1,6 +1,6 @@
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 
-namespace Microsoft.StandardUI.WinForms
+namespace AnywhereControls.WinForms
 {
     public class StandardUIObject : IUIObject
     {

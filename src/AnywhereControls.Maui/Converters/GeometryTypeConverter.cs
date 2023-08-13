@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Globalization;
 
-namespace Microsoft.StandardUI.Maui.Converters
+namespace AnywhereControls.Maui.Converters
 {
     public class GeometryTypeConverter : TypeConverterBase
     {

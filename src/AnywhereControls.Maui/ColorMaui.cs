@@ -1,7 +1,7 @@
 using System.ComponentModel;
-using Microsoft.StandardUI.Maui.Converters;
+using AnywhereControls.Maui.Converters;
 
-namespace Microsoft.StandardUI.Maui
+namespace AnywhereControls.Maui
 {
     [TypeConverter(typeof(ColorTypeConverter))]
     public struct ColorMaui

@@ -1,6 +1,6 @@
-using Microsoft.StandardUI.Text;
+using AnywhereControls.Text;
 
-namespace Microsoft.StandardUI.Wpf.Text
+namespace AnywhereControls.Wpf.Text
 {
     public struct FontWeightWpf
     {

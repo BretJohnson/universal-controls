@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.Controls
+namespace AnywhereControls.Controls
 {
     /// <summary>
     /// Defines constants that specify how far an element's background extends in relation to the element's border.

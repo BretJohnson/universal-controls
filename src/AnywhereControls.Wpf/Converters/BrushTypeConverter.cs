@@ -1,9 +1,9 @@
 using System.ComponentModel;
 using System.Globalization;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Wpf.Media;
+using AnywhereControls.Wpf.Media;
 
-namespace Microsoft.StandardUI.Wpf.Converters
+namespace AnywhereControls.Wpf.Converters
 {
     public class BrushTypeConverter : TypeConverterBase
     {

@@ -1,10 +1,10 @@
 // This file is generated from IGrid.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI.Mac.Controls
+namespace AnywhereControls.Mac.Controls
 {
     public class Grid : Panel, IGrid
     {

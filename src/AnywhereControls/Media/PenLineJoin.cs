@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.Media
+namespace AnywhereControls.Media
 {
     /// <summary>
     /// Describes the shape that joins two lines or segments.

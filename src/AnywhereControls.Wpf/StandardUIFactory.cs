@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Shapes;
-using Microsoft.StandardUI.Wpf.Controls;
-using Microsoft.StandardUI.Wpf.Media;
-using Microsoft.StandardUI.Wpf.Shapes;
+using AnywhereControls.Controls;
+using AnywhereControls.Media;
+using AnywhereControls.Shapes;
+using AnywhereControls.Wpf.Controls;
+using AnywhereControls.Wpf.Media;
+using AnywhereControls.Wpf.Shapes;
 
-namespace Microsoft.StandardUI.Wpf
+namespace AnywhereControls.Wpf
 {
     public class StandardUIFactory : IStandardUIFactory
     {

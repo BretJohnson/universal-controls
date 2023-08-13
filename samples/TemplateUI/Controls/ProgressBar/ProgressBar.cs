@@ -1,7 +1,7 @@
-﻿using Microsoft.StandardUI;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Media;
-using static Microsoft.StandardUI.FactoryStatics;
+﻿using AnywhereControls;
+using AnywhereControls.Controls;
+using AnywhereControls.Media;
+using static AnywhereControls.FactoryStatics;
 
 namespace TemplateStandardUI.Controls
 {

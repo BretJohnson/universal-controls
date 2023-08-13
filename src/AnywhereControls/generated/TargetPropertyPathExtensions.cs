@@ -1,6 +1,6 @@
 // This file is generated from ITargetPropertyPath.cs. Update the source file to change its contents.
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     public static class TargetPropertyPathExtensions
     {

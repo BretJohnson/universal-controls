@@ -1,9 +1,9 @@
 // This file is generated from IPolyBezierSegment.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.DefaultImplementations;
+using AnywhereControls.Media;
 
-namespace Microsoft.StandardUI.Mac.Media
+namespace AnywhereControls.Mac.Media
 {
     public class PolyBezierSegment : PathSegment, IPolyBezierSegment
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     /// <summary>
     /// Designate interface as a Standard UI Element, triggering source generation

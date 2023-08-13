@@ -1,8 +1,8 @@
 // This file is generated from ICanvas.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI.Wpf.Controls
+namespace AnywhereControls.Wpf.Controls
 {
     public class CanvasAttached : ICanvasAttached
     {

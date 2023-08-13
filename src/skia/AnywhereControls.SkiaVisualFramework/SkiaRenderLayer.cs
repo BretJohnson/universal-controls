@@ -1,6 +1,6 @@
 using SkiaSharp;
 
-namespace Microsoft.StandardUI.SkiaVisualFramework
+namespace AnywhereControls.SkiaVisualFramework
 {
     public class SkiaRenderLayer : RenderLayer
     {

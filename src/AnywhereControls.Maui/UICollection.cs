@@ -1,6 +1,6 @@
 using Microsoft.Maui.Controls;
 
-namespace Microsoft.StandardUI.Maui
+namespace AnywhereControls.Maui
 {
     public sealed class UICollection<T> : BasicUICollection<T>
     {

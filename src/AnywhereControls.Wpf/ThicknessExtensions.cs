@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.Wpf
+namespace AnywhereControls.Wpf
 {
     public static class ThicknessExtensions
     {

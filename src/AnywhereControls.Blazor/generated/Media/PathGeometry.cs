@@ -1,10 +1,10 @@
 // This file is generated from IPathGeometry.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.DefaultImplementations;
+using AnywhereControls.Media;
 using Microsoft.AspNetCore.Components;
 
-namespace Microsoft.StandardUI.Blazor.Media
+namespace AnywhereControls.Blazor.Media
 {
     public class PathGeometry : Geometry, IPathGeometry
     {

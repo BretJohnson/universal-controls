@@ -39,7 +39,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using Microsoft.Maui.Controls;
 
-namespace Microsoft.StandardUI.Maui
+namespace AnywhereControls.Maui
 {
     public class UIElementCollection<TNativeUIElment, TStandardUIElement> : IList<TNativeUIElment>
         where TNativeUIElment : View where TStandardUIElement : IUIElement

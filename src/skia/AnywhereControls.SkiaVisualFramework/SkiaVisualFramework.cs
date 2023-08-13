@@ -1,9 +1,9 @@
 using System;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 using SkiaSharp;
 
-namespace Microsoft.StandardUI.SkiaVisualFramework
+namespace AnywhereControls.SkiaVisualFramework
 {
     public abstract class SkiaVisualFramework : IVisualFramework
     {

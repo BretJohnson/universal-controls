@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     /// <summary>
     /// Designate the interface as a .NET Standard Control. There should be a matching

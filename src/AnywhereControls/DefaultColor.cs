@@ -1,4 +1,4 @@
-﻿namespace Microsoft.StandardUI
+﻿namespace AnywhereControls
 {
     /// <summary>
     /// These names must match the Microsoft.Maui.Graphics.Colors statics.

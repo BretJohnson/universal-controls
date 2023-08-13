@@ -1,7 +1,7 @@
 using System;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI.WinUI.NativeVisualFramework
+namespace AnywhereControls.WinUI.NativeVisualFramework
 {
     public class WinUINativeVisualFramework : IVisualFramework
     {

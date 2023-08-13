@@ -1,13 +1,13 @@
 // This file is generated from ITextBlock.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.WinUI.Media;
-using Microsoft.StandardUI.Text;
-using Microsoft.StandardUI.WinUI.Text;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Media;
+using AnywhereControls.WinUI.Media;
+using AnywhereControls.Text;
+using AnywhereControls.WinUI.Text;
+using AnywhereControls.Controls;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
-namespace Microsoft.StandardUI.WinUI.Controls
+namespace AnywhereControls.WinUI.Controls
 {
     public class TextBlock : BuiltInUIElement, ITextBlock, IDrawable
     {

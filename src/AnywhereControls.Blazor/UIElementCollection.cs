@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.Blazor
+namespace AnywhereControls.Blazor
 {
     public sealed class UIElementCollection<TUIElement> : BasicUICollection<TUIElement>
         where TUIElement : IUIElement

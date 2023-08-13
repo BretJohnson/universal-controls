@@ -3,7 +3,7 @@ using System.Collections;
 using System.Linq;
 using Microsoft.UI.Xaml;
 
-namespace Microsoft.StandardUI.WinUI
+namespace AnywhereControls.WinUI
 {
     public static class PropertyUtils
     {

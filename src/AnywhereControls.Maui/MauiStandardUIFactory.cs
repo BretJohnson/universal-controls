@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Maui.Controls;
-using Microsoft.StandardUI.Maui.Media;
-using Microsoft.StandardUI.Maui.Shapes;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Shapes;
+using AnywhereControls.Controls;
+using AnywhereControls.Maui.Controls;
+using AnywhereControls.Maui.Media;
+using AnywhereControls.Maui.Shapes;
+using AnywhereControls.Media;
+using AnywhereControls.Shapes;
 
-namespace Microsoft.StandardUI.Maui
+namespace AnywhereControls.Maui
 {
     internal class StandardUIFactory : IStandardUIFactory
     {

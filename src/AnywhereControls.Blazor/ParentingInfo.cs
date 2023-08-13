@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.Blazor
+namespace AnywhereControls.Blazor
 {
     internal sealed class ParentingInfo<TUIElement>
         where TUIElement : IUIElement

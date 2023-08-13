@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Wpf.NativeVisualFramework;
+using AnywhereControls.Controls;
+using AnywhereControls.Wpf.NativeVisualFramework;
 
-namespace Microsoft.StandardUI.Wpf
+namespace AnywhereControls.Wpf
 {
     public partial class WpfStandardControl : System.Windows.Controls.Control, IStandardControl, IStandardControlEnvironmentPeer, ILogicalParent
     {

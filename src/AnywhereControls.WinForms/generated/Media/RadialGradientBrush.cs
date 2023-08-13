@@ -1,10 +1,10 @@
 // This file is generated from IRadialGradientBrush.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 
-namespace Microsoft.StandardUI.WinForms.Media
+namespace AnywhereControls.WinForms.Media
 {
     public class RadialGradientBrush : GradientBrush, IRadialGradientBrush
     {

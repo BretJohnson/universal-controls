@@ -11,7 +11,7 @@
 using System.Collections.Generic;
 using Microsoft.Maui.Graphics;
 
-namespace Microsoft.StandardUI.Media
+namespace AnywhereControls.Media
 {
     public abstract class StreamGeometryContext
     {

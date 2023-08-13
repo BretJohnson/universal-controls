@@ -1,4 +1,4 @@
-﻿namespace Microsoft.StandardUI
+﻿namespace AnywhereControls
 {
     /// <summary>
     /// Describes the characteristics of a rounded corner, such as can be applied to a Border.

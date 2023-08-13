@@ -1,4 +1,4 @@
-﻿namespace Microsoft.StandardUI
+﻿namespace AnywhereControls
 {
     [UIModelObject]
     public interface IVisualStateManager

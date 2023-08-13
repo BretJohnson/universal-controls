@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
+namespace AnywhereControls.SourceGenerator.UIFrameworks
 {
     public abstract class NonXamlUIFramework : UIFramework
     {
@@ -10,7 +10,7 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
 
         public override void GenerateProperty(Property property, ClassSource classSource)
         {
-            classSource.Usings.AddNamespace("Microsoft.StandardUI.DefaultImplementations");
+            classSource.Usings.AddNamespace("AnywhereControls.DefaultImplementations");
 
             // Add the property descriptor
             string readOnlyParam = property.IsReadOnly ? ", readOnly:true" : "";
@@ -116,7 +116,7 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
         public override void GenerateAttachedProperty(AttachedProperty attachedProperty, ClassSource mainClassSource, ClassSource attachedClassSource)
         {
             // Add using for AttachedUIProperty
-            mainClassSource.Usings.AddNamespace("Microsoft.StandardUI.DefaultImplementations");
+            mainClassSource.Usings.AddNamespace("AnywhereControls.DefaultImplementations");
 
             string descriptorName = PropertyDescriptorName(attachedProperty);
             string targetOutputTypeName = AttachedTargetOutputTypeName(attachedProperty);

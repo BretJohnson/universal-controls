@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     public interface IUICollection<T> : IList<T>
     {

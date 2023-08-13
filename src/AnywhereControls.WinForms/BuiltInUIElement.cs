@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Microsoft.StandardUI.WinForms
+namespace AnywhereControls.WinForms
 {
     /// <summary>
     /// This is the base for predefined Standard UI controls. 

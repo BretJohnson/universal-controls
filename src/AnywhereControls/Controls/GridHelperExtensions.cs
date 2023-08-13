@@ -1,6 +1,6 @@
-﻿using static Microsoft.StandardUI.StandardUIStatics;
+﻿using static AnywhereControls.StandardUIStatics;
 
-namespace Microsoft.StandardUI.Controls
+namespace AnywhereControls.Controls
 {
     public static class GridHelperExtensions
     {

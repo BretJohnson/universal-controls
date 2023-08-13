@@ -1,4 +1,4 @@
-﻿namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
+﻿namespace AnywhereControls.SourceGenerator.UIFrameworks
 {
     public class MauiUIFramework : XamlUIFramework
     {
@@ -21,9 +21,9 @@
         {
             // These types are also defined in Maui, so add aliases to prefer the Standard UI type
             if (destinationTypeName == "Brush" || destinationTypeName == "Brush?")
-                usings.AddTypeAlias("Brush = Microsoft.StandardUI.Maui.Media.Brush");
+                usings.AddTypeAlias("Brush = AnywhereControls.Maui.Media.Brush");
             else if (destinationTypeName == "SweepDirection")
-                usings.AddTypeAlias("SweepDirection = Microsoft.StandardUI.Media.SweepDirection");
+                usings.AddTypeAlias("SweepDirection = AnywhereControls.Media.SweepDirection");
         }
     }
 }

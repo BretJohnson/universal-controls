@@ -1,7 +1,7 @@
 using Microsoft.Maui.Graphics;
-using static Microsoft.StandardUI.StandardUIStatics;
+using static AnywhereControls.StandardUIStatics;
 
-namespace Microsoft.StandardUI.Shapes
+namespace AnywhereControls.Shapes
 {
     public static class ShapeHelperExtensions
     {

@@ -1,7 +1,7 @@
 ﻿using System.IO;
-using Microsoft.StandardUI.SourceGenerator.UIFrameworks;
+using AnywhereControls.SourceGenerator.UIFrameworks;
 
-namespace Microsoft.StandardUI.SourceGenerator
+namespace AnywhereControls.SourceGenerator
 {
     public class DirectoryOutput : Output
     {
@@ -16,7 +16,7 @@ namespace Microsoft.StandardUI.SourceGenerator
         {
             string outputDirectory = uiFramework != null
                 ? Path.Combine(RootDirectory, "src", uiFramework.ProjectBaseDirectory, "generated")
-                : Path.Combine(RootDirectory, "src", "Microsoft.StandardUI", "generated");
+                : Path.Combine(RootDirectory, "src", "AnywhereControls", "generated");
 
             if (namespaceName != null)
             {

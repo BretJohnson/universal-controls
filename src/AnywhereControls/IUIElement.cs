@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 using Microsoft.Maui.Graphics;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     [UIModelObject]
     public interface IUIElement : IUIObject

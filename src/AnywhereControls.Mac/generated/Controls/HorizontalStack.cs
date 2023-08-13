@@ -1,9 +1,9 @@
 // This file is generated from IHorizontalStack.cs. Update the source file to change its contents.
 
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI.Mac.Controls
+namespace AnywhereControls.Mac.Controls
 {
     public class HorizontalStack : StackBase, IHorizontalStack
     {

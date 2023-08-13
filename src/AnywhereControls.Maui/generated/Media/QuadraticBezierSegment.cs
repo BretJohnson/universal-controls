@@ -1,10 +1,10 @@
 // This file is generated from IQuadraticBezierSegment.cs. Update the source file to change its contents.
 
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace Microsoft.StandardUI.Maui.Media
+namespace AnywhereControls.Maui.Media
 {
     public class QuadraticBezierSegment : PathSegment, IQuadraticBezierSegment
     {

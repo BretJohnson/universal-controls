@@ -1,10 +1,10 @@
 // This file is generated from IGeometry.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 using Microsoft.AspNetCore.Components;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 
-namespace Microsoft.StandardUI.Blazor.Media
+namespace AnywhereControls.Blazor.Media
 {
     public class Geometry : StandardUIObject, IGeometry
     {

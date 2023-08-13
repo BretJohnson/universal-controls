@@ -1,10 +1,10 @@
 // This file is generated from ITransformGroup.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 using System.Collections.Generic;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 
-namespace Microsoft.StandardUI.Mac.Media
+namespace AnywhereControls.Mac.Media
 {
     public class TransformGroup : Transform, ITransformGroup
     {

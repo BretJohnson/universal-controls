@@ -1,8 +1,8 @@
 // This file is generated from IVisualState.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 
-namespace Microsoft.StandardUI.WinForms
+namespace AnywhereControls.WinForms
 {
     public class VisualState : StandardUIObject, IVisualState
     {

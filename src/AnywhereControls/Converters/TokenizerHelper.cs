@@ -11,7 +11,7 @@ using System;
 using System.Diagnostics;
 using System.Globalization;
 
-namespace Microsoft.StandardUI.Converters
+namespace AnywhereControls.Converters
 {
     internal class TokenizerHelper
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     /// <summary>
     /// Designate the interface as Standard Panel - a special type of .NET Standard

@@ -1,10 +1,10 @@
 // This file is generated from IPolygon.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Shapes;
+using AnywhereControls.Media;
+using AnywhereControls.Shapes;
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace Microsoft.StandardUI.Wpf.Shapes
+namespace AnywhereControls.Wpf.Shapes
 {
     public class Polygon : Shape, IPolygon, IDrawable
     {

@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Microsoft.StandardUI.Shapes
+namespace AnywhereControls.Shapes
 {
     [UIModelObject]
     public interface ILine : IShape

@@ -1,6 +1,6 @@
-//using Microsoft.StandardUI.WinUI.Converters;
+//using AnywhereControls.WinUI.Converters;
 
-namespace Microsoft.StandardUI.WinUI
+namespace AnywhereControls.WinUI
 {
     //[TypeConverter(typeof(PointTypeConverter))]
     public struct PointWinUI

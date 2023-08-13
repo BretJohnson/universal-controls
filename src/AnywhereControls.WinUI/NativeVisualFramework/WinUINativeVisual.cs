@@ -1,6 +1,6 @@
 using Microsoft.UI.Composition;
 
-namespace Microsoft.StandardUI.WinUI.NativeVisualFramework
+namespace AnywhereControls.WinUI.NativeVisualFramework
 {
     public class WinUINativeVisual : IVisual
     {

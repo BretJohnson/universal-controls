@@ -1,10 +1,10 @@
 // This file is generated from IGrid.cs. Update the source file to change its contents.
 
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace Microsoft.StandardUI.Maui.Controls
+namespace AnywhereControls.Maui.Controls
 {
     public class Grid : Panel, IGrid
     {

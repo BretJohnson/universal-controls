@@ -1,6 +1,6 @@
 using System;
 
-namespace Microsoft.StandardUI.Media.Wpf
+namespace AnywhereControls.Media.Wpf
 {
     public static class PenLineJoinExtensions
     {

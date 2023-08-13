@@ -2,50 +2,50 @@
 /* Unmerged change from project 'Microsoft.StandardUI.Maui (net6.0-android)'
 Before:
 using Microsoft.Maui.Controls;
-using Microsoft.StandardUI.Maui;
+using AnywhereControls.Maui;
 using System;
 After:
 using System;
 using Microsoft.Maui.Controls;
-using Microsoft.StandardUI.Maui;
+using AnywhereControls.Maui;
 */
 
 /* Unmerged change from project 'Microsoft.StandardUI.Maui (net6.0-ios)'
 Before:
 using Microsoft.Maui.Controls;
-using Microsoft.StandardUI.Maui;
+using AnywhereControls.Maui;
 using System;
 After:
 using System;
 using Microsoft.Maui.Controls;
-using Microsoft.StandardUI.Maui;
+using AnywhereControls.Maui;
 */
 
 /* Unmerged change from project 'Microsoft.StandardUI.Maui (net6.0-maccatalyst)'
 Before:
 using Microsoft.Maui.Controls;
-using Microsoft.StandardUI.Maui;
+using AnywhereControls.Maui;
 using System;
 After:
 using System;
 using Microsoft.Maui.Controls;
-using Microsoft.StandardUI.Maui;
+using AnywhereControls.Maui;
 */
 
 /* Unmerged change from project 'Microsoft.StandardUI.Maui (net6.0-windows10.0.19041.0)'
 Before:
 using Microsoft.Maui.Controls;
-using Microsoft.StandardUI.Maui;
+using AnywhereControls.Maui;
 using System;
 After:
 using System;
 using Microsoft.Maui.Controls;
-using Microsoft.StandardUI.Maui;
+using AnywhereControls.Maui;
 */
 using System;
 using Microsoft.Maui.Controls;
 
-namespace Microsoft.StandardUI.Maui
+namespace AnywhereControls.Maui
 {
     /// <summary>
     /// This is the base for predefined Standard UI controls. 

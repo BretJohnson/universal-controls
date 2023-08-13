@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 
-namespace Microsoft.StandardUI.Shapes
+namespace AnywhereControls.Shapes
 {
     [UIModelObject]
     public interface IShape : IUIElement

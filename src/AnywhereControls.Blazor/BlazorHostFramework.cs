@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.Blazor
+namespace AnywhereControls.Blazor
 {
     public class BlazorHostFramework : IHostFramework
     {

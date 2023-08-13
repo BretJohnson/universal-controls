@@ -1,12 +1,12 @@
 // This file is generated from IBorder.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Blazor.Media;
+using AnywhereControls.DefaultImplementations;
+using AnywhereControls.Media;
+using AnywhereControls.Blazor.Media;
 using Microsoft.AspNetCore.Components;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI.Blazor.Controls
+namespace AnywhereControls.Blazor.Controls
 {
     public class Border : BuiltInUIElement, IBorder
     {

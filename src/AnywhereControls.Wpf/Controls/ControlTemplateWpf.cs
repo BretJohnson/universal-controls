@@ -1,6 +1,6 @@
-﻿using Microsoft.StandardUI.Controls;
+﻿using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI.Wpf
+namespace AnywhereControls.Wpf
 {
     public class ControlTemplateWpf : IControlTemplate
     {

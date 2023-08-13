@@ -1,8 +1,8 @@
 // This file is generated from ITransform.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 
-namespace Microsoft.StandardUI.WinForms.Media
+namespace AnywhereControls.WinForms.Media
 {
     public class Transform : StandardUIObject, ITransform
     {

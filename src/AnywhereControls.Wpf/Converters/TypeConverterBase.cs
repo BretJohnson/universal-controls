@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Globalization;
 
-namespace Microsoft.StandardUI.Wpf.Converters
+namespace AnywhereControls.Wpf.Converters
 {
     public class TypeConverterBase : TypeConverter
     {

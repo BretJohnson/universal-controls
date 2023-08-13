@@ -1,6 +1,6 @@
 using System.Windows;
 using Microcharts;
-using Microsoft.StandardUI;
+using AnywhereControls;
 using SimpleControls;
 
 [assembly: ThemeInfo(

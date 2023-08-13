@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Microsoft.StandardUI.Controls
+namespace AnywhereControls.Controls
 {
     [UIModelObject]
     public interface IGridAttached

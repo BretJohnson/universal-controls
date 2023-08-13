@@ -1,10 +1,10 @@
 using System;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Shapes;
+using AnywhereControls.Controls;
+using AnywhereControls.Media;
+using AnywhereControls.Shapes;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     /// <summary>
     /// A IDrawingContext turns cross platform vector graphics into an IVisual, a platform specific representation those graphics.

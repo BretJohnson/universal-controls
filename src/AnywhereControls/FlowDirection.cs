@@ -1,4 +1,4 @@
-﻿namespace Microsoft.StandardUI
+﻿namespace AnywhereControls
 {
     /// <summary>
     /// Specifies the direction in which text and other UI elements flow

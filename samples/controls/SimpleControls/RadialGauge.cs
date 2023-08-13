@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Shapes;
-using static Microsoft.StandardUI.StandardUIStatics;
+using AnywhereControls;
+using AnywhereControls.Controls;
+using AnywhereControls.Media;
+using AnywhereControls.Shapes;
+using static AnywhereControls.StandardUIStatics;
 
 namespace SimpleControls
 {

@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Maui.Controls;
 
-namespace Microsoft.StandardUI.Maui
+namespace AnywhereControls.Maui
 {
     public static class PropertyUtils
     {

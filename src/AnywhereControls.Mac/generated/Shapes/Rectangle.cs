@@ -1,9 +1,9 @@
 // This file is generated from IRectangle.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
-using Microsoft.StandardUI.Shapes;
+using AnywhereControls.DefaultImplementations;
+using AnywhereControls.Shapes;
 
-namespace Microsoft.StandardUI.Mac.Shapes
+namespace AnywhereControls.Mac.Shapes
 {
     public class Rectangle : Shape, IRectangle, IDrawable
     {

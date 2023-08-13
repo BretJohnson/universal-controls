@@ -1,4 +1,4 @@
-﻿namespace Microsoft.StandardUI.Text
+﻿namespace AnywhereControls.Text
 {
     /// <summary>
     /// Represents the style of a font face (for example, normal or italic).

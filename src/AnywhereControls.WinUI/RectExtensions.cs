@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.WinUI
+namespace AnywhereControls.WinUI
 {
     public static class RectExtensions
     {

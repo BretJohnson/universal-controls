@@ -1,10 +1,10 @@
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Shapes;
-using ICanvas = Microsoft.StandardUI.Controls.ICanvas;
+using AnywhereControls.Controls;
+using AnywhereControls.Media;
+using AnywhereControls.Shapes;
+using ICanvas = AnywhereControls.Controls.ICanvas;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     public static class StandardUIStatics
     {

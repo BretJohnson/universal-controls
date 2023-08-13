@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.Maui
+namespace AnywhereControls.Maui
 {
     public static class SizeExtensions
     {

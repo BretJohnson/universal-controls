@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Microsoft.StandardUI.Media
+namespace AnywhereControls.Media
 {
     [UIModelObject]
     public interface IGeometry : IUIObject

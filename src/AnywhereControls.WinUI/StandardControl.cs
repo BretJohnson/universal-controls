@@ -1,10 +1,10 @@
 using System;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.WinUI.NativeVisualFramework;
+using AnywhereControls.Controls;
+using AnywhereControls.WinUI.NativeVisualFramework;
 using Microsoft.UI.Xaml;
 using Visibility = Microsoft.UI.Xaml.Visibility;
 
-namespace Microsoft.StandardUI.WinUI
+namespace AnywhereControls.WinUI
 {
     public class StandardControl : Microsoft.UI.Xaml.Controls.Control, IStandardControl, IStandardControlEnvironmentPeer
     {

@@ -1,7 +1,7 @@
 using System;
 using Microsoft.UI.Xaml;
 
-namespace Microsoft.StandardUI.WinUI
+namespace AnywhereControls.WinUI
 {
     public sealed class UIElementCollection<TNativeUIElment, TStandardUIElement> : BasicUICollection<TNativeUIElment>
         where TNativeUIElment : FrameworkElement where TStandardUIElement : IUIElement

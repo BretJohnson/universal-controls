@@ -1,10 +1,10 @@
 // This file is generated from IPolyline.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Shapes;
+using AnywhereControls.DefaultImplementations;
+using AnywhereControls.Media;
+using AnywhereControls.Shapes;
 
-namespace Microsoft.StandardUI.WinForms.Shapes
+namespace AnywhereControls.WinForms.Shapes
 {
     public class Polyline : Shape, IPolyline, IDrawable
     {

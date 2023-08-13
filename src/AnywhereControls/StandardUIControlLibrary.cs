@@ -1,4 +1,4 @@
-﻿namespace Microsoft.StandardUI
+﻿namespace AnywhereControls
 {
     [ControlLibrary]
     public static class StandardUIControlLibrary

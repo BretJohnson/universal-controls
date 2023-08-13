@@ -1,8 +1,8 @@
 using System.ComponentModel;
 using System.Globalization;
-using Microsoft.StandardUI.Converters;
+using AnywhereControls.Converters;
 
-namespace Microsoft.StandardUI.Wpf.Converters
+namespace AnywhereControls.Wpf.Converters
 {
     public class SizeTypeConverter : TypeConverterBase
     {

@@ -1,8 +1,8 @@
 using System.ComponentModel;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 
-namespace Microsoft.StandardUI.Controls
+namespace AnywhereControls.Controls
 {
     [UIModelObject]
     public interface IBorder : IUIElement

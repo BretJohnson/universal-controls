@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     [UIModelObject]
     public interface ISetter : IUIObject

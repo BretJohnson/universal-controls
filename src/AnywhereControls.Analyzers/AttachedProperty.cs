@@ -1,7 +1,7 @@
 using System.Linq;
 using Microsoft.CodeAnalysis;
 
-namespace Microsoft.StandardUI.SourceGenerator
+namespace AnywhereControls.SourceGenerator
 {
     public class AttachedProperty : PropertyBase
     {

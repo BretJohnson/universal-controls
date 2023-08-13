@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Microsoft.StandardUI.DefaultImplementations
+namespace AnywhereControls.DefaultImplementations
 {
     public struct PropertyValues
     {

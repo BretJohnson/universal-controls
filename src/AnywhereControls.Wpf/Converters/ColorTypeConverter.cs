@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.Globalization;
 using Microsoft.Maui.Graphics;
 
-namespace Microsoft.StandardUI.Wpf.Converters
+namespace AnywhereControls.Wpf.Converters
 {
     public class ColorTypeConverter : TypeConverterBase
     {

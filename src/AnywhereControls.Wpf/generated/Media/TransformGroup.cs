@@ -1,10 +1,10 @@
 // This file is generated from ITransformGroup.cs. Update the source file to change its contents.
 
 using System.Collections.Generic;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace Microsoft.StandardUI.Wpf.Media
+namespace AnywhereControls.Wpf.Media
 {
     public class TransformGroup : Transform, ITransformGroup
     {

@@ -1,8 +1,8 @@
 using System;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 using Microsoft.UI.Composition;
 
-namespace Microsoft.StandardUI.WinUI
+namespace AnywhereControls.WinUI
 {
     public static class BrushExtensions
     {

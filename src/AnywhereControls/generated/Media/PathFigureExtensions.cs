@@ -2,7 +2,7 @@
 
 using Microsoft.Maui.Graphics;
 
-namespace Microsoft.StandardUI.Media
+namespace AnywhereControls.Media
 {
     public static class PathFigureExtensions
     {

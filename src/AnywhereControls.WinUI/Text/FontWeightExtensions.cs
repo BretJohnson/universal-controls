@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.WinUI.Text
+namespace AnywhereControls.WinUI.Text
 {
     public static class FontWeightExtensions
     {

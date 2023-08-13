@@ -1,7 +1,7 @@
 ﻿using System.Text;
-using Microsoft.StandardUI.SourceGenerator.UIFrameworks;
+using AnywhereControls.SourceGenerator.UIFrameworks;
 
-namespace Microsoft.StandardUI.SourceGenerator
+namespace AnywhereControls.SourceGenerator
 {
     public class ClassSource
     {

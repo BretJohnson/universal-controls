@@ -1,7 +1,7 @@
 //using Blazor.Extensions.Canvas.Canvas2D;
 //using Microcharts;
 
-namespace Microsoft.StandardUI.Blazor.NativeVisualFramework
+namespace AnywhereControls.Blazor.NativeVisualFramework
 {
 #if LATER
     public class BlazorDrawingContext : IDrawingContext

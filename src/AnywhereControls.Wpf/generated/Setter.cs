@@ -2,7 +2,7 @@
 
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace Microsoft.StandardUI.Wpf
+namespace AnywhereControls.Wpf
 {
     public class Setter : StandardUIObject, ISetter
     {

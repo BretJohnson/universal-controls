@@ -1,11 +1,11 @@
 // This file is generated from IPolyline.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.DefaultImplementations;
+using AnywhereControls.Media;
 using Microsoft.AspNetCore.Components;
-using Microsoft.StandardUI.Shapes;
+using AnywhereControls.Shapes;
 
-namespace Microsoft.StandardUI.Blazor.Shapes
+namespace AnywhereControls.Blazor.Shapes
 {
     public class Polyline : Shape, IPolyline, IDrawable
     {

@@ -1,9 +1,9 @@
 // This file is generated from IColumnDefinition.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
-namespace Microsoft.StandardUI.WinUI.Controls
+namespace AnywhereControls.WinUI.Controls
 {
     public class ColumnDefinition : StandardUIObject, IColumnDefinition
     {

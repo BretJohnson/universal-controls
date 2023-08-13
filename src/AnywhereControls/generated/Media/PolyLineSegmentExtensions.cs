@@ -1,6 +1,6 @@
 // This file is generated from IPolyLineSegment.cs. Update the source file to change its contents.
 
-namespace Microsoft.StandardUI.Media
+namespace AnywhereControls.Media
 {
     public static class PolyLineSegmentExtensions
     {

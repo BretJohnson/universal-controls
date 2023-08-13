@@ -1,5 +1,5 @@
 ﻿
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     /// <summary>
     /// Describes the kind of value that a GridLength object is holding.

@@ -24,7 +24,7 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleControls", "samples\controls\SimpleControls\SimpleControls.csproj", "{CFF4EEBA-0EA7-49D1-B4F2-17DF640F2174}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.Blazor", "src\AnywhereControls.Blazor\AnywhereControls.Blazor.csproj", "{620002CD-1FD2-4E08-8C89-AF58DCF899F4}"
-EndProject
+EndProjectF
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1D9AD821-E4C9-44C5-9807-DC296C17A38B}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig

@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     public interface IHostFramework
     {

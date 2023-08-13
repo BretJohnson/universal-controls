@@ -1,11 +1,11 @@
 // This file is generated from IQuadraticBezierSegment.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 using Microsoft.Maui.Graphics;
 using Microsoft.AspNetCore.Components;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 
-namespace Microsoft.StandardUI.Blazor.Media
+namespace AnywhereControls.Blazor.Media
 {
     public class QuadraticBezierSegment : PathSegment, IQuadraticBezierSegment
     {

@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.Mac
+namespace AnywhereControls.Mac
 {
     public sealed class UIElementCollection<TStandardUIElement> : BasicUICollection<TStandardUIElement>
         where TStandardUIElement : IUIElement

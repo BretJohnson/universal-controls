@@ -1,8 +1,8 @@
 // This file is generated from ISetter.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 
-namespace Microsoft.StandardUI.Mac
+namespace AnywhereControls.Mac
 {
     public class Setter : StandardUIObject, ISetter
     {

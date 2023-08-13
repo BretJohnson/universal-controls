@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     [AttributeUsage(AttributeTargets.Interface)]
     public class UIModelObjectAttribute : Attribute

@@ -1,9 +1,9 @@
 // This file is generated from IStackBase.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.DefaultImplementations;
+using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI.Mac.Controls
+namespace AnywhereControls.Mac.Controls
 {
     public class StackBase : Panel, IStackBase
     {

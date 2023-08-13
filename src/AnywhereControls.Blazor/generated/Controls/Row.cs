@@ -1,10 +1,10 @@
 // This file is generated from IRow.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 using Microsoft.AspNetCore.Components;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI.Blazor.Controls
+namespace AnywhereControls.Blazor.Controls
 {
     public class Row : Panel, IRow
     {

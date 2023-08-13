@@ -1,9 +1,9 @@
 // This file is generated from IVerticalStack.cs. Update the source file to change its contents.
 
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI.Maui.Controls
+namespace AnywhereControls.Maui.Controls
 {
     public class VerticalStack : StackBase, IVerticalStack
     {

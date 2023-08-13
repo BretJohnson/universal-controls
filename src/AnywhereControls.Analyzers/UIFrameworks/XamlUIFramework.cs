@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
+namespace AnywhereControls.SourceGenerator.UIFrameworks
 {
     public abstract class XamlUIFramework : UIFramework
     {
@@ -26,7 +26,7 @@ namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
         public override void GenerateProperty(Property property, ClassSource classSource)
         {
             classSource.Usings.AddType(DependencyPropertyType);
-            classSource.Usings.AddNamespace("Microsoft.StandardUI");
+            classSource.Usings.AddNamespace("AnywhereControls");
             classSource.Usings.AddNamespace(RootNamespace);
 
             // Generate the property descriptor

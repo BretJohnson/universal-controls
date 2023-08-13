@@ -1,8 +1,8 @@
 using System.ComponentModel;
 using System.Globalization;
-using Microsoft.StandardUI.Converters;
+using AnywhereControls.Converters;
 
-namespace Microsoft.StandardUI.Maui.Converters
+namespace AnywhereControls.Maui.Converters
 {
     public class ColorTypeConverter : TypeConverterBase
     {

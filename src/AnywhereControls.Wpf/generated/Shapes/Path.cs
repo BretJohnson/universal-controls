@@ -1,11 +1,11 @@
 // This file is generated from IPath.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Wpf.Media;
-using Microsoft.StandardUI.Shapes;
+using AnywhereControls.Media;
+using AnywhereControls.Wpf.Media;
+using AnywhereControls.Shapes;
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace Microsoft.StandardUI.Wpf.Shapes
+namespace AnywhereControls.Wpf.Shapes
 {
     public class Path : Shape, IPath, IDrawable
     {

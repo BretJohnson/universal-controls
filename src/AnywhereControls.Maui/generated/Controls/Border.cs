@@ -1,12 +1,12 @@
 // This file is generated from IBorder.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Maui.Media;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Media;
+using AnywhereControls.Maui.Media;
+using AnywhereControls.Controls;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 using Brush = Microsoft.StandardUI.Maui.Media.Brush;
 
-namespace Microsoft.StandardUI.Maui.Controls
+namespace AnywhereControls.Maui.Controls
 {
     public class Border : BuiltInUIElement, IBorder
     {

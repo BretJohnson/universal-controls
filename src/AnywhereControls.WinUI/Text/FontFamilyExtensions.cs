@@ -1,7 +1,7 @@
 using System;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 
-namespace Microsoft.StandardUI.WinUI.Text
+namespace AnywhereControls.WinUI.Text
 {
     public static class FontFamilyExtensions
     {

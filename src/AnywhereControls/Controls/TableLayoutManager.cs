@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.Controls
+namespace AnywhereControls.Controls
 {
 #if false
     public class TableLayoutManager : GridBaseLayoutManager<ITable>

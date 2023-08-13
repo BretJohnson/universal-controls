@@ -1,5 +1,5 @@
-using Microsoft.StandardUI.SkiaVisualFramework;
-using Microsoft.StandardUI.WinForms;
+using AnywhereControls.SkiaVisualFramework;
+using AnywhereControls.WinForms;
 
 [assembly: ImportStandardControl("SimpleControls.IRadialGauge")]
 [assembly: ImportStandardControl("Microcharts.IChart")]

@@ -1,7 +1,7 @@
 ﻿using Microsoft.ComponentModelEx;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls;
+using AnywhereControls.Controls;
 using static SimpleControls.SimpleControlsStatics;
 
 namespace AlohaKit.StandardControls

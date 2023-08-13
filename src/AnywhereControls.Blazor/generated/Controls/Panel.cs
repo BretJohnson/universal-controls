@@ -1,22 +1,22 @@
 // This file is generated from IPanel.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using System.Collections;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI.Blazor.Controls
+namespace AnywhereControls.Blazor.Controls
 {
     public class Panel : BuiltInUIElement, IPanel
     {
         public static readonly UIProperty ChildrenProperty = new UIProperty(nameof(Children), null, readOnly:true);
         
-        private UIElementCollection<Microsoft.StandardUI.IUIElement> _children;
+        private UIElementCollection<AnywhereControls.IUIElement> _children;
         
         public Panel()
         {
-            _children = new UIElementCollection<Microsoft.StandardUI.IUIElement>(this);
+            _children = new UIElementCollection<AnywhereControls.IUIElement>(this);
             SetValue(ChildrenProperty, _children);
         }
         

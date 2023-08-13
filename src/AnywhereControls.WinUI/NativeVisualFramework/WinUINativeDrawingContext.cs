@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Numerics;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Shapes;
+using AnywhereControls.Controls;
+using AnywhereControls.Media;
+using AnywhereControls.Shapes;
 using Microsoft.UI.Composition;
 using Microsoft.UI.Xaml.Hosting;
 using PenLineCap = Microsoft.StandardUI.Media.PenLineCap;
 using PenLineJoin = Microsoft.StandardUI.Media.PenLineJoin;
 
-namespace Microsoft.StandardUI.WinUI.NativeVisualFramework
+namespace AnywhereControls.WinUI.NativeVisualFramework
 {
     public class WinUINativeDrawingContext : IDrawingContext
     {

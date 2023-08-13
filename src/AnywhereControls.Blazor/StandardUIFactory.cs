@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.StandardUI.Blazor.Controls;
-using Microsoft.StandardUI.Blazor.Media;
-using Microsoft.StandardUI.Blazor.Shapes;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Shapes;
+using AnywhereControls.Blazor.Controls;
+using AnywhereControls.Blazor.Media;
+using AnywhereControls.Blazor.Shapes;
+using AnywhereControls.Controls;
+using AnywhereControls.Media;
+using AnywhereControls.Shapes;
 
-namespace Microsoft.StandardUI.Blazor
+namespace AnywhereControls.Blazor
 {
     public class StandardUIFactory : IStandardUIFactory
     {

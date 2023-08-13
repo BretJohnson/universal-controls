@@ -2,7 +2,7 @@ using System;
 using System.Globalization;
 using Microsoft.Maui.Graphics;
 
-namespace Microsoft.StandardUI.Converters
+namespace AnywhereControls.Converters
 {
     public static class SizeConverter
     {

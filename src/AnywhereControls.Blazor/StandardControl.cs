@@ -1,11 +1,11 @@
 using System;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI.Blazor.NativeVisualFramework
+namespace AnywhereControls.Blazor.NativeVisualFramework
 {
     public partial class StandardControl : UIElement, IStandardControl, IStandardControlEnvironmentPeer
     {
-        private StandardUI.Controls.StandardControl? _implementation;
+        private AnywhereControls.Controls.StandardControl? _implementation;
         private IUIElement? _buildContent;
         private bool _invalid = true;
 
@@ -15,7 +15,7 @@ namespace Microsoft.StandardUI.Blazor.NativeVisualFramework
                 BlazorHostFramework.Init(new BlazorNativeVisualFramework());
         }
 
-        protected void InitImplementation(StandardUI.Controls.StandardControl implementation)
+        protected void InitImplementation(AnywhereControls.Controls.StandardControl implementation)
         {
             _implementation = implementation;
         }

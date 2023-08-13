@@ -1,8 +1,8 @@
 using System;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI
+namespace AnywhereControls
 {
     /// <summary>
     /// The visual environment is responsible for drawing things on the screen, or to a bitmap,

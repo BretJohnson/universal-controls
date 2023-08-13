@@ -3,7 +3,7 @@
 using Microsoft.Maui.Graphics;
 using Visibility = System.Windows.Visibility;
 
-namespace Microsoft.StandardUI.Wpf
+namespace AnywhereControls.Wpf
 {
     public partial class BuiltInUIElement
     {

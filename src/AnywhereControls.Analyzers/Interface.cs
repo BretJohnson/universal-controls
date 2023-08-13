@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.CodeAnalysis;
-using Microsoft.StandardUI.SourceGenerator.UIFrameworks;
+using AnywhereControls.SourceGenerator.UIFrameworks;
 
-namespace Microsoft.StandardUI.SourceGenerator
+namespace AnywhereControls.SourceGenerator
 {
     public class Interface
     {
@@ -275,9 +275,9 @@ namespace Microsoft.StandardUI.SourceGenerator
         private static void GenerateTypeProperties(Interface intface, UIFramework uiFramework, ISet<string>? noAutoGenerationProperties,
             List<Property> properties, ClassSource classSource)
         {
-            if (intface.IsThisType("Microsoft.StandardUI.Controls.ICanvas"))
+            if (intface.IsThisType("AnywhereControls.Controls.ICanvas"))
             {
-                classSource.Usings.AddTypeAlias("ICanvas = Microsoft.StandardUI.Controls.ICanvas");
+                classSource.Usings.AddTypeAlias("ICanvas = AnywhereControls.Controls.ICanvas");
             }
 
             foreach (IPropertySymbol propertySymbol in intface.Type.GetMembers().Where(member => member.Kind == SymbolKind.Property))

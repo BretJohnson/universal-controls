@@ -1,4 +1,4 @@
-﻿namespace Microsoft.StandardUI.Controls
+﻿namespace AnywhereControls.Controls
 {
     public interface IStandardControl : IUIElement
     {

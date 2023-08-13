@@ -1,8 +1,8 @@
 // This file is generated from IGrid.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI.Mac.Controls
+namespace AnywhereControls.Mac.Controls
 {
     public class GridAttached : IGridAttached
     {

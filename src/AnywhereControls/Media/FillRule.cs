@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.Media
+namespace AnywhereControls.Media
 {
     public enum FillRule
     {

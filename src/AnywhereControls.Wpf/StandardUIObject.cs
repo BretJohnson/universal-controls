@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace Microsoft.StandardUI.Wpf
+namespace AnywhereControls.Wpf
 {
     /// <summary>
     /// This is the base for predefined dependency objects

@@ -1,7 +1,7 @@
 using System;
 using StandardUI.Controls;
 
-namespace Microsoft.StandardUI.Controls
+namespace AnywhereControls.Controls
 {
     public class GridLayoutManager : GridBaseLayoutManager<IGrid>
     {

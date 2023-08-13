@@ -1,6 +1,6 @@
-using Microsoft.StandardUI.DefaultImplementations;
+using AnywhereControls.DefaultImplementations;
 
-namespace Microsoft.StandardUI.Blazor
+namespace AnywhereControls.Blazor
 {
     /// <summary>
     /// This is the base for predefined UI objects (aka DependencyObjects in XAML frameworks)

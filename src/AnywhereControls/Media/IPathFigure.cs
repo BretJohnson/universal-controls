@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using Microsoft.Maui.Graphics;
 
-namespace Microsoft.StandardUI.Media
+namespace AnywhereControls.Media
 {
     [UIModelObject]
     public interface IPathFigure : IUIObject

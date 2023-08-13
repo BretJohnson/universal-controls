@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.Mac
+namespace AnywhereControls.Mac
 {
     public class MacStandardUIEnvironment : IStandardUIEnvironment
     {

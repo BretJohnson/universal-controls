@@ -1,8 +1,8 @@
 // This file is generated from IPathSegment.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 
-namespace Microsoft.StandardUI.Mac.Media
+namespace AnywhereControls.Mac.Media
 {
     public class PathSegment : StandardUIObject, IPathSegment
     {

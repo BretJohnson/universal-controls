@@ -10,13 +10,13 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Shapes;
+using AnywhereControls;
+using AnywhereControls.Controls;
+using AnywhereControls.Media;
+using AnywhereControls.Shapes;
 using SkiaSharp;
-using static Microsoft.StandardUI.StandardUIStatics;
-using ICanvas = Microsoft.StandardUI.Controls.ICanvas;
+using static AnywhereControls.StandardUIStatics;
+using ICanvas = AnywhereControls.Controls.ICanvas;
 
 namespace Microcharts
 {

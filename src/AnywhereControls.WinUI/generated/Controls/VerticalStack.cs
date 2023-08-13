@@ -1,8 +1,8 @@
 // This file is generated from IVerticalStack.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.Controls;
+using AnywhereControls.Controls;
 
-namespace Microsoft.StandardUI.WinUI.Controls
+namespace AnywhereControls.WinUI.Controls
 {
     public class VerticalStack : StackBase, IVerticalStack
     {

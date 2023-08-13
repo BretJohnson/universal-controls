@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.WinUI
+namespace AnywhereControls.WinUI
 {
     //[TypeConverter(typeof(ColorTypeConverter))]
     public struct ColorWinUI

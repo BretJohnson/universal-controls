@@ -1,9 +1,9 @@
 // This file is generated from ILine.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.Shapes;
+using AnywhereControls.Shapes;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
-namespace Microsoft.StandardUI.WinUI.Shapes
+namespace AnywhereControls.WinUI.Shapes
 {
     public class Line : Shape, ILine, IDrawable
     {

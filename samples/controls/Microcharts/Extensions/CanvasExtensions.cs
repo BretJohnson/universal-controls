@@ -2,15 +2,15 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Shapes;
-using Microsoft.StandardUI.Text;
+using AnywhereControls;
+using AnywhereControls.Controls;
+using AnywhereControls.Media;
+using AnywhereControls.Shapes;
+using AnywhereControls.Text;
 using SkiaSharp;
-using static Microsoft.StandardUI.StandardUIStatics;
-using FontWeights = Microsoft.StandardUI.Text.FontWeights;
-using ICanvas = Microsoft.StandardUI.Controls.ICanvas;
+using static AnywhereControls.StandardUIStatics;
+using FontWeights = AnywhereControls.Text.FontWeights;
+using ICanvas = AnywhereControls.Controls.ICanvas;
 
 namespace Microcharts
 {
@@ -97,7 +97,7 @@ namespace Microcharts
         /// <param name="color">The fill color.</param>
         /// <param name="size">The point size.</param>
         /// <param name="mode">The point mode.</param>
-        public static void DrawPoint(this Microsoft.StandardUI.Controls.ICanvas canvas, Point point, Color color, float size, PointMode mode)
+        public static void DrawPoint(this AnywhereControls.Controls.ICanvas canvas, Point point, Color color, float size, PointMode mode)
         {
             IShape shape;
             if (mode == PointMode.Square)

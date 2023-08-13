@@ -2,14 +2,14 @@
 using System.Globalization;
 using System.Windows.Media;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Media.Wpf;
-using Microsoft.StandardUI.Shapes;
-using Microsoft.StandardUI.Wpf.Text;
-using Pen = Microsoft.StandardUI.Media.Pen;
+using AnywhereControls.Controls;
+using AnywhereControls.Media;
+using AnywhereControls.Media.Wpf;
+using AnywhereControls.Shapes;
+using AnywhereControls.Wpf.Text;
+using Pen = AnywhereControls.Media.Pen;
 
-namespace Microsoft.StandardUI.Wpf.NativeVisualFramework
+namespace AnywhereControls.Wpf.NativeVisualFramework
 {
     public class WpfNativeDrawingContext : IDrawingContext
     {

@@ -1,4 +1,4 @@
-namespace Microsoft.StandardUI.Blazor
+namespace AnywhereControls.Blazor
 {
     /// <summary>
     /// This is the base for predefined Standard UI controls.

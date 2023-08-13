@@ -1,7 +1,7 @@
 using System;
 using AppKit;
 
-namespace Microsoft.StandardUI.Mac
+namespace AnywhereControls.Mac
 {
     /// <summary>
     /// This is the base for predefined Standard UI controls. 

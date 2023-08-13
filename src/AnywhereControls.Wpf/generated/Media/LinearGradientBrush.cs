@@ -1,10 +1,10 @@
 // This file is generated from ILinearGradientBrush.cs. Update the source file to change its contents.
 
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace Microsoft.StandardUI.Wpf.Media
+namespace AnywhereControls.Wpf.Media
 {
     public class LinearGradientBrush : GradientBrush, ILinearGradientBrush
     {

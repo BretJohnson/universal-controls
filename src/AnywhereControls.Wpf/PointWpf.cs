@@ -1,8 +1,8 @@
 using System.ComponentModel;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Wpf.Converters;
+using AnywhereControls.Wpf.Converters;
 
-namespace Microsoft.StandardUI.Wpf
+namespace AnywhereControls.Wpf
 {
     [TypeConverter(typeof(PointTypeConverter))]
     public struct PointWpf

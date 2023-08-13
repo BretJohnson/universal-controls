@@ -1,6 +1,6 @@
 using Microsoft.UI.Xaml;
 
-namespace Microsoft.StandardUI.WinUI
+namespace AnywhereControls.WinUI
 {
     /// <summary>
     /// This is the base for predefined dependency objects

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components.Rendering;
 
-namespace Microsoft.StandardUI.SkiaVisualFramework.Blazor
+namespace AnywhereControls.SkiaVisualFramework.Blazor
 {
     public class BlazorSkiaVisualFramework : SkiaVisualFramework
     {

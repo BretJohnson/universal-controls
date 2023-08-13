@@ -2,10 +2,10 @@ using System;
 using System.Globalization;
 using System.Windows.Media;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Wpf.Text;
+using AnywhereControls.Controls;
+using AnywhereControls.Wpf.Text;
 
-namespace Microsoft.StandardUI.Wpf.NativeVisualFramework
+namespace AnywhereControls.Wpf.NativeVisualFramework
 {
     public class WpfNativeVisualFramework : IVisualFramework
     {

@@ -1,4 +1,4 @@
-﻿namespace Microsoft.StandardUI.SourceGenerator.UIFrameworks
+﻿namespace AnywhereControls.SourceGenerator.UIFrameworks
 {
     public class MacUIFramework : NonXamlUIFramework
     {

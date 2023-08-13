@@ -1,8 +1,8 @@
 // This file is generated from IBrush.cs. Update the source file to change its contents.
 
-using Microsoft.StandardUI.Media;
+using AnywhereControls.Media;
 
-namespace Microsoft.StandardUI.WinUI.Media
+namespace AnywhereControls.WinUI.Media
 {
     public class Brush : StandardUIObject, IBrush
     {

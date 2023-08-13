@@ -1,4 +1,4 @@
-﻿namespace Microsoft.StandardUI.Text
+﻿namespace AnywhereControls.Text
 {
     /// <summary>
     /// Expresses the density of a typeface, in terms of the lightness or heaviness of the strokes.

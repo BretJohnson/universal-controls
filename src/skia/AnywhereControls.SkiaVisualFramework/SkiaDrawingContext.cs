@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Maui.Graphics;
-using Microsoft.StandardUI.Controls;
-using Microsoft.StandardUI.Media;
-using Microsoft.StandardUI.Shapes;
+using AnywhereControls.Controls;
+using AnywhereControls.Media;
+using AnywhereControls.Shapes;
 using SkiaSharp;
 
-namespace Microsoft.StandardUI.SkiaVisualFramework
+namespace AnywhereControls.SkiaVisualFramework
 {
     public class SkiaDrawingContext : IDrawingContext
     {
