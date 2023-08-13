@@ -1,5 +1,5 @@
 using Microsoft.Maui.Graphics;
-using static AnywhereControls.StandardUIStatics;
+using static AnywhereControls.AnywhereControlsStatics;
 
 namespace AnywhereControls.Shapes
 {

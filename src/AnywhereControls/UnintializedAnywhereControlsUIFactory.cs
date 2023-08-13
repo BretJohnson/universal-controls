@@ -6,9 +6,9 @@ using AnywhereControls.Shapes;
 
 namespace AnywhereControls
 {
-    public class UnintializedStandardUIFactory : IStandardUIFactory
+    public class UnintializedAnywhereControlsUIFactory : IAnywhereControlsUIFactory
     {
-        public static UnintializedStandardUIFactory Instance = new UnintializedStandardUIFactory();
+        public static UnintializedAnywhereControlsUIFactory Instance = new UnintializedAnywhereControlsUIFactory();
 
         /*** UI Elements ***/
 

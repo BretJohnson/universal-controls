@@ -5,7 +5,7 @@ using AnywhereControls.Shapes;
 
 namespace AnywhereControls
 {
-    public interface IStandardUIFactory
+    public interface IAnywhereControlsUIFactory
     {
         /*** UI Elements ***/
 

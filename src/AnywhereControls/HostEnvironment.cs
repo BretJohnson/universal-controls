@@ -24,6 +24,6 @@ namespace AnywhereControls
         /// <summary>
         /// Cache the factory here as that's slightly more efficient than always fetching it on demand.
         /// </summary>
-        public static IStandardUIFactory Factory { get; private set; } = new UnintializedStandardUIFactory();
+        public static IAnywhereControlsUIFactory Factory { get; private set; } = new UnintializedAnywhereControlsUIFactory();
     }
 }

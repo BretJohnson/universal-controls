@@ -1,5 +1,4 @@
 using System;
-using StandardUI.Controls;
 
 namespace AnywhereControls.Controls
 {

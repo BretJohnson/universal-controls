@@ -8,6 +8,6 @@ namespace AnywhereControls
 
         public IVisualFramework VisualFramework => throw new InvalidOperationException("The Standard UI host framework hasn't been initialized");
 
-        public IStandardUIFactory Factory => throw new InvalidOperationException("The Standard UI host framework hasn't been initialized");
+        public IAnywhereControlsUIFactory Factory => throw new InvalidOperationException("The Standard UI host framework hasn't been initialized");
     }
 }

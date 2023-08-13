@@ -11,7 +11,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.Maui.Graphics;
-using static AnywhereControls.StandardUIStatics;
+using static AnywhereControls.AnywhereControlsStatics;
 
 
 namespace AnywhereControls.Media

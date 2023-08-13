@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Maui.Graphics;
-using AnywhereControls;
-using AnywhereControls.Controls;
 
-namespace StandardUI.Controls
+namespace AnywhereControls.Controls
 {
     public abstract class GridBaseLayoutManager<TGridBase> : LayoutManager<TGridBase> where TGridBase : IGrid
     {

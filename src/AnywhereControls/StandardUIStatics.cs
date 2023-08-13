@@ -6,7 +6,7 @@ using ICanvas = AnywhereControls.Controls.ICanvas;
 
 namespace AnywhereControls
 {
-    public static class StandardUIStatics
+    public static class AnywhereControlsStatics
     {
         /*** UI Elements ***/
 
@@ -47,6 +47,6 @@ namespace AnywhereControls
 
         public static GridLength Star => GridLength.Default;
 
-        internal static IStandardUIFactory Factory => HostEnvironment.Factory;
+        internal static IAnywhereControlsUIFactory Factory => HostEnvironment.Factory;
     }
 }

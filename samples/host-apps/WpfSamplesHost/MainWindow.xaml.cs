@@ -12,7 +12,7 @@ using SimpleControls.Wpf;
 
 // Import our sample controls. This triggers source generation, turning them into WPF controls.
 // To see the generated source, in Solution Explorer look under
-// Dependencies / Analyzers / Microwsoft.StandardUI.Analyzers / ImportControlLibraryGenerator
+// Dependencies / Analyzers / AnywhereControls.Analyzers / ImportControlLibraryGenerator
 [assembly: ImportControlLibrary(typeof(SimpleControlsControlLibrary))]
 [assembly: ImportControlLibrary(typeof(MicrochartsControlLibrary))]
 

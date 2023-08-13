@@ -17,6 +17,6 @@ namespace AnywhereControls.Wpf
 
         public IVisualFramework VisualFramework => _visualFramework;
 
-        public IStandardUIFactory Factory => _uiElementFactory;
+        public IAnywhereControlsUIFactory Factory => _uiElementFactory;
     }
 }

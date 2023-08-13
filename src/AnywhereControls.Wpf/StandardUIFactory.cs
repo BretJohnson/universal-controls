@@ -9,7 +9,7 @@ using AnywhereControls.Wpf.Shapes;
 
 namespace AnywhereControls.Wpf
 {
-    public class StandardUIFactory : IStandardUIFactory
+    public class StandardUIFactory : IAnywhereControlsUIFactory
     {
         /*** UI Elements ***/
 

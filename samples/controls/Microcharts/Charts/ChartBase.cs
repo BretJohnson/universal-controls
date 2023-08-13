@@ -15,7 +15,7 @@ using AnywhereControls.Controls;
 using AnywhereControls.Media;
 using AnywhereControls.Shapes;
 using SkiaSharp;
-using static AnywhereControls.StandardUIStatics;
+using static AnywhereControls.AnywhereControlsStatics;
 using ICanvas = AnywhereControls.Controls.ICanvas;
 
 namespace Microcharts

@@ -9,7 +9,7 @@ using AnywhereControls.Shapes;
 
 namespace AnywhereControls.Blazor
 {
-    public class StandardUIFactory : IStandardUIFactory
+    public class StandardUIFactory : IAnywhereControlsUIFactory
     {
         /*** UI Elements ***/
 

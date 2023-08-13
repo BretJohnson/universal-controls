@@ -8,7 +8,7 @@ using AnywhereControls.Media;
 using AnywhereControls.Shapes;
 using AnywhereControls.Text;
 using SkiaSharp;
-using static AnywhereControls.StandardUIStatics;
+using static AnywhereControls.AnywhereControlsStatics;
 using FontWeights = AnywhereControls.Text.FontWeights;
 using ICanvas = AnywhereControls.Controls.ICanvas;
 

@@ -4,6 +4,6 @@ namespace AnywhereControls
     {
         IVisualFramework VisualFramework { get; }
 
-        IStandardUIFactory Factory { get; }
+        IAnywhereControlsUIFactory Factory { get; }
     }
 }
