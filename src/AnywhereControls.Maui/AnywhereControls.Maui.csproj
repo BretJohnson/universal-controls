@@ -11,7 +11,7 @@
 
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
-    <RootNamespace>Microsoft.StandardUI.Maui</RootNamespace>
+    <RootNamespace>AnywhereControls.Maui</RootNamespace>
 
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
@@ -21,11 +21,11 @@
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\Microsoft.StandardUI.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\AnywhereControls.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microsoft.StandardUI\Microsoft.StandardUI.csproj" />
+    <ProjectReference Include="..\AnywhereControls\AnywhereControls.csproj" />
   </ItemGroup>
 
   <ItemGroup>

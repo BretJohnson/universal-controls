@@ -7,7 +7,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\Microsoft.StandardUI.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\AnywhereControls.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>

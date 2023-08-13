@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
 
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\..\Microsoft.StandardUI.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\..\AnywhereControls.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Microsoft.StandardUI\Microsoft.StandardUI.csproj" />
-    <ProjectReference Include="..\Microsoft.StandardUI.SkiaVisualFramework\Microsoft.StandardUI.SkiaVisualFramework.csproj" />
+    <ProjectReference Include="..\..\AnywhereControls\AnywhereControls.csproj" />
+    <ProjectReference Include="..\AnywhereControls.SkiaVisualFramework\AnywhereControls.SkiaVisualFramework.csproj" />
   </ItemGroup>
 
 </Project>

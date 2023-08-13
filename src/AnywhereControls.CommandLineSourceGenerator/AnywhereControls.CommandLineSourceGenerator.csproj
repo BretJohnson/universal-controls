@@ -19,7 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Microsoft.StandardUI.Analyzers\Microsoft.StandardUI.Analyzers.csproj" />
+		<ProjectReference Include="..\AnywhereControls.Analyzers\AnywhereControls.Analyzers.csproj" />
 	</ItemGroup>
 
 </Project>

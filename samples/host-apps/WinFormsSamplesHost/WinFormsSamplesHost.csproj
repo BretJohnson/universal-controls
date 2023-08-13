@@ -9,9 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Microsoft.StandardUI.Analyzers\MicrosMicrosoft.StandardUI.Analyzersj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    <ProjectReference Include="..\..\..\src\Microsoft.StandardUI.SkiaVisualFramework\Microsoft.StandardUI.SkiaVisualFramework.csproj" />
-    <ProjectReference Include="..\..\..\src\Microsoft.StandardUI.WinForms\Microsoft.StandardUI.WinForms.csproj" />
+    <ProjectReference Include="..\..\..\src\AnywhereControls.Analyzers\MicrosAnywhereControls.Analyzersj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\..\..\src\AnywhereControls.SkiaVisualFramework\AnywhereControls.SkiaVisualFramework.csproj" />
+    <ProjectReference Include="..\..\..\src\AnywhereControls.WinForms\AnywhereControls.WinForms.csproj" />
   </ItemGroup>
 
 </Project>

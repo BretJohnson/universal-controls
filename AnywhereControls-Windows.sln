@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31813.321
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.StandardUI", "src\Microsoft.StandardUI\Microsoft.StandardUI.csproj", "{752F4208-8318-4C57-9868-9921FF743AA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls", "src\AnywhereControls\AnywhereControls.csproj", "{752F4208-8318-4C57-9868-9921FF743AA9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.StandardUI.CommandLineSourceGenerator", "src\Microsoft.StandardUI.CommandLineSourceGenerator\Microsoft.StandardUI.CommandLineSourceGenerator.csproj", "{740943F5-2E99-4ED4-9022-BC14F480C3F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.CommandLineSourceGenerator", "src\AnywhereControls.CommandLineSourceGenerator\AnywhereControls.CommandLineSourceGenerator.csproj", "{740943F5-2E99-4ED4-9022-BC14F480C3F8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.StandardUI.Wpf", "src\Microsoft.StandardUI.Wpf\Microsoft.StandardUI.Wpf.csproj", "{4C2D11BC-2E5C-4761-BBD1-0038BC8D6613}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.Wpf", "src\AnywhereControls.Wpf\AnywhereControls.Wpf.csproj", "{4C2D11BC-2E5C-4761-BBD1-0038BC8D6613}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{9B71283D-A4A6-480E-9A9B-AD446F08CCC5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.StandardUI.Analyzers", "src\Microsoft.StandardUI.Analyzers\Microsoft.StandardUI.Analyzers.csproj", "{26E564DA-4315-44EF-B287-A9B3BC87BF1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.Analyzers", "src\AnywhereControls.Analyzers\AnywhereControls.Analyzers.csproj", "{26E564DA-4315-44EF-B287-A9B3BC87BF1C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "controls", "controls", "{9FA8F699-79F5-48DB-A2D9-717CE875C5F0}"
 EndProject
@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfSamplesHost", "samples\h
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleControls", "samples\controls\SimpleControls\SimpleControls.csproj", "{CFF4EEBA-0EA7-49D1-B4F2-17DF640F2174}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.StandardUI.Blazor", "src\Microsoft.StandardUI.Blazor\Microsoft.StandardUI.Blazor.csproj", "{620002CD-1FD2-4E08-8C89-AF58DCF899F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.Blazor", "src\AnywhereControls.Blazor\AnywhereControls.Blazor.csproj", "{620002CD-1FD2-4E08-8C89-AF58DCF899F4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1D9AD821-E4C9-44C5-9807-DC296C17A38B}"
 	ProjectSection(SolutionItems) = preProject
@@ -31,11 +31,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.StandardUI.SkiaVisualFramework.Blazor", "src\skia\Microsoft.StandardUI.SkiaVisualFramework.Blazor\Microsoft.StandardUI.SkiaVisualFramework.Blazor.csproj", "{D3A2A5DB-8EBE-47FB-936A-8A66CAEDA9A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.SkiaVisualFramework.Blazor", "src\skia\AnywhereControls.SkiaVisualFramework.Blazor\AnywhereControls.SkiaVisualFramework.Blazor.csproj", "{D3A2A5DB-8EBE-47FB-936A-8A66CAEDA9A8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "skia", "skia", "{705D949C-2C10-46AD-9007-37E62BC8FA7A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.StandardUI.SkiaVisualFramework", "src\skia\Microsoft.StandardUI.SkiaVisualFramework\Microsoft.StandardUI.SkiaVisualFramework.csproj", "{66AC78D8-0A73-41FC-925C-E2840EA2639F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.SkiaVisualFramework", "src\skia\AnywhereControls.SkiaVisualFramework\AnywhereControls.SkiaVisualFramework.csproj", "{66AC78D8-0A73-41FC-925C-E2840EA2639F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "component-model-ex", "component-model-ex", "{E3C556B6-A9DB-4772-A7CA-74B4E4CBD362}"
 EndProject

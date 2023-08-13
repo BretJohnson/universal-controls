@@ -5,10 +5,10 @@
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
     <IsRoslynComponent>true</IsRoslynComponent>
-    <RootNamespace>Microsoft.StandardUI.SourceGenerator</RootNamespace>
+    <RootNamespace>AnywhereControls.SourceGenerator</RootNamespace>
     
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\Microsoft.StandardUI.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\AnywhereControls.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>

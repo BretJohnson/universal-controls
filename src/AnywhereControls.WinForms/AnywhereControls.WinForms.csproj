@@ -5,11 +5,11 @@
     <UseWindowsForms>true</UseWindowsForms>
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
-    <RootNamespace>Microsoft.StandardUI.WinForms</RootNamespace>
+    <RootNamespace>AnywhereControls.WinForms</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microsoft.StandardUI\Microsoft.StandardUI.csproj" />
+    <ProjectReference Include="..\AnywhereControls\AnywhereControls.csproj" />
   </ItemGroup>
 
 </Project>

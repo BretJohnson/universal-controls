@@ -225,11 +225,11 @@ namespace Microsoft.StandardUI.SourceGenerator
             {
                 string assemblyName = referencedAssembly.Name;
 
-                if (assemblyName == "Microsoft.StandardUI.Wpf")
+                if (assemblyName == "AnywhereControls.Wpf")
                     return new WpfUIFramework(context);
-                else if (assemblyName == "Microsoft.StandardUI.WinForms")
+                else if (assemblyName == "AnywhereControls.WinForms")
                     return new WinFormsUIFramework(context);
-                else if (assemblyName == "Microsoft.StandardUI.Blazor")
+                else if (assemblyName == "AnywhereControls.Blazor")
                     return new BlazorUIFramework(context);
             }
 

@@ -4,15 +4,15 @@
     <TargetFramework>net6.0</TargetFramework>
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
-    <RootNamespace>Microsoft.StandardUI.Blazor</RootNamespace>
+    <RootNamespace>AnywhereControls.Blazor</RootNamespace>
 
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\Microsoft.StandardUI.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\AnywhereControls.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microsoft.StandardUI.Analyzers\Microsoft.StandardUI.Analyzers.csproj" />
-    <ProjectReference Include="..\Microsoft.StandardUI\Microsoft.StandardUI.csproj" />
+    <ProjectReference Include="..\AnywhereControls.Analyzers\AnywhereControls.Analyzers.csproj" />
+    <ProjectReference Include="..\AnywhereControls\AnywhereControls.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -8,7 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
-    <ProjectReference Include="..\..\..\..\src\Microsoft.StandardUI.Analyzers\MicrosMicrosoft.StandardUI.Analyzersj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    <ProjectReference Include="..\..\..\..\src\Microsoft.StandardUI.XamarinForms\Microsoft.StandardUI.XamarinForms.csproj" />
+    <ProjectReference Include="..\..\..\..\src\AnywhereControls.Analyzers\MicrosAnywhereControls.Analyzersj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\..\..\..\src\AnywhereControls.XamarinForms\AnywhereControls.XamarinForms.csproj" />
   </ItemGroup>
 </Project>

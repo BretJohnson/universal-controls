@@ -7,7 +7,7 @@ namespace Microsoft.StandardUI.SourceGenerator
     public static class UserVisibleErrors
     {
         public static UserViewableException CouldNotIdentifyUIFramework() =>
-            CreateError(1, message: "No reference to StandardUI platform assembly found");
+            CreateError(1, message: "No reference to AnywhereControls platform assembly found");
 
         public static UserViewableException AttachedTypeMethodMustStartWithGetOrSet(string className, string methodName) =>
             CreateError(2, message: $"Attached type method '{className}.{methodName}' doesn't start with Get or Set");
