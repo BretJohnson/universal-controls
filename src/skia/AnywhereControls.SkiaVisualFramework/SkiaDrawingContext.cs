@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.Maui.Graphics;
+using CommonUI;
 using AnywhereControls.Controls;
 using AnywhereControls.Media;
 using AnywhereControls.Shapes;
@@ -205,10 +205,10 @@ namespace AnywhereControls.SkiaVisualFramework
 
         public static SKColor ToSkiaColor(Color color)
         {
-            var r = (byte)(color.Red * 255f);
-            var g = (byte)(color.Green * 255f);
-            var b = (byte)(color.Blue * 255f);
-            var a = (byte)(color.Alpha * 255f);
+            var r = (byte)(color.R * 255f);
+            var g = (byte)(color.G * 255f);
+            var b = (byte)(color.B * 255f);
+            var a = (byte)(color.A * 255f);
 
             return new SKColor(r, g, b, a);
         }

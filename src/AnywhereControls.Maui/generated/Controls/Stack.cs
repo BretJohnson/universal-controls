@@ -1,7 +1,7 @@
 // This file is generated from IStack.cs. Update the source file to change its contents.
 
 using AnywhereControls.Controls;
-using Microsoft.Maui.Graphics;
+using CommonUI;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace AnywhereControls.Maui.Controls

@@ -1,6 +1,6 @@
 // This file is generated from IBezierSegment.cs. Update the source file to change its contents.
 
-using Microsoft.Maui.Graphics;
+using CommonUI;
 using AnywhereControls.Media;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 

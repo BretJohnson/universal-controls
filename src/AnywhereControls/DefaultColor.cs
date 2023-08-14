@@ -1,13 +1,14 @@
 ﻿namespace AnywhereControls
 {
     /// <summary>
-    /// These names must match the Microsoft.Maui.Graphics.Colors statics.
+    /// These names must match the CommonUI.Colors statics.
     /// They are normally only used to specify a value for the [DefaultValue]
     /// attribute (as that needs to be a compile time constant, so specifying
     /// e.g. Colors.AliceBlue there directly won't work).
     /// </summary>
     public enum DefaultColor
     {
+        Transparent,
         AliceBlue,
         AntiqueWhite,
         Aqua,
@@ -34,7 +35,6 @@
         DarkGoldenrod,
         DarkGray,
         DarkGreen,
-        DarkGrey = DarkGray,
         DarkKhaki,
         DarkMagenta,
         DarkOliveGreen,
@@ -45,13 +45,11 @@
         DarkSeaGreen,
         DarkSlateBlue,
         DarkSlateGray,
-        DarkSlateGrey = DarkSlateGray,
         DarkTurquoise,
         DarkViolet,
         DeepPink,
         DeepSkyBlue,
         DimGray,
-        DimGrey = DimGray,
         DodgerBlue,
         Firebrick,
         FloralWhite,
@@ -64,7 +62,6 @@
         Gray,
         Green,
         GreenYellow,
-        Grey = Gray,
         Honeydew,
         HotPink,
         IndianRed,
@@ -81,13 +78,11 @@
         LightGoldenrodYellow,
         LightGray,
         LightGreen,
-        LightGrey = LightGray,
         LightPink,
         LightSalmon,
         LightSeaGreen,
         LightSkyBlue,
         LightSlateGray,
-        LightSlateGrey = LightSlateGray,
         LightSteelBlue,
         LightYellow,
         Lime,
@@ -140,7 +135,6 @@
         SkyBlue,
         SlateBlue,
         SlateGray,
-        SlateGrey,
         Snow,
         SpringGreen,
         SteelBlue,
@@ -148,7 +142,6 @@
         Teal,
         Thistle,
         Tomato,
-        Transparent,
         Turquoise,
         Violet,
         Wheat,

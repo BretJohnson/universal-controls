@@ -1,6 +1,6 @@
 // This file is generated from IHorizontalStack.cs. Update the source file to change its contents.
 
-using Microsoft.Maui.Graphics;
+using CommonUI;
 using AnywhereControls.Controls;
 
 namespace AnywhereControls.Blazor.Controls

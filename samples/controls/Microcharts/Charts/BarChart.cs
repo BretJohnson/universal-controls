@@ -3,11 +3,11 @@
 
 using System;
 using System.Linq;
-using Microsoft.Maui.Graphics;
 using AnywhereControls;
 using AnywhereControls.Controls;
 using AnywhereControls.Media;
 using AnywhereControls.Shapes;
+using CommonUI;
 using static AnywhereControls.AnywhereControlsStatics;
 using ICanvas = AnywhereControls.Controls.ICanvas;
 
@@ -122,7 +122,7 @@ namespace Microcharts
                     var entry = Entries.ElementAt(i);
                     var point = points[i];
 
-                    var color = entry.Color.WithAlpha((byte)(this.BarAreaAlpha * this.AnimationProgress));
+                    var color = entry.Color.WithA((byte)(this.BarAreaAlpha * this.AnimationProgress));
                     var brush = SolidColorBrush().Color(color);
 
                     var max = entry.Value > 0 ? headerHeight : headerHeight + itemSize.Height;

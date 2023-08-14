@@ -1,5 +1,4 @@
 using System.ComponentModel;
-using Microsoft.Maui.Graphics;
 using AnywhereControls.Media;
 
 namespace AnywhereControls.Controls

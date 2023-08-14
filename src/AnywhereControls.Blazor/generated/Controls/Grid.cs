@@ -2,7 +2,7 @@
 
 using AnywhereControls.DefaultImplementations;
 using Microsoft.AspNetCore.Components;
-using Microsoft.Maui.Graphics;
+using CommonUI;
 using AnywhereControls.Controls;
 
 namespace AnywhereControls.Blazor.Controls

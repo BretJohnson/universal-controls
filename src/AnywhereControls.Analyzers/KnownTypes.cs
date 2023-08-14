@@ -10,7 +10,7 @@
         public const string ITextBlock = "AnywhereControls.Controls.ITextBlock";
         public const string IShape = "AnywhereControls.Shapes.IShape";
 
-        public const string Color = "Microsoft.Maui.Graphics.Color";
+        public const string Color = "CommonUI.Color";
 
         public const string UIModelAttribute = "AnywhereControls.UIModelObjectAttribute";
         public const string UIObjectAttribute = "AnywhereControls.UIObjectAttribute";

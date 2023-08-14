@@ -49,7 +49,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
         {
             string namespaceName = Utils.GetNamespaceFullName(namespc);
 
-            if (namespaceName == "Microsoft.Maui.Graphics")
+            if (namespaceName == "CommonUI")
                 return namespaceName;
 
             // TODO: Check if should update the code to match what the comment actually says here (and not add suffix)
@@ -166,7 +166,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                 {
                     if (value is string stringArgumentValue)
                     {
-                        if (typeFullName == "Microsoft.Maui.Graphics.Point" && stringArgumentValue == "0.5,0.5")
+                        if (typeFullName == "CommonUI.Point" && stringArgumentValue == "0.5,0.5")
                             return $"new {OutputTypeName(propertyType)}(0.5, 0.5)";
                         else if (stringArgumentValue == "")
                             return "\"\"";
@@ -229,9 +229,9 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             if (Utils.IsUICollectionType(Context, propertyType))
                 return "null";
 
-            if (typeFullName == "Microsoft.Maui.Graphics.Point")
+            if (typeFullName == "CommonUI.Point")
                 return "default(Point)";
-            else if (typeFullName == "Microsoft.Maui.Graphics.Size")
+            else if (typeFullName == "CommonUI.Size")
                 return "default(Size)";
             else if (typeFullName == "AnywhereControls.Points" ||
                 typeFullName == "AnywhereControls.Thickness" ||
@@ -272,7 +272,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             if (propertyType is INamedTypeSymbol namedTypeSymbol &&
                 namedTypeSymbol.Name is string typeName &&
                 (typeName == "AnywhereControls.Color" ||
-                typeName == "Microsoft.Maui.Graphics.Point" ||
+                typeName == "CommonUI.Point" ||
                 typeName == "AnywhereControls.Points" ||
                 typeName == "AnywhereControls.Size" ||
                 typeName == "AnywhereControls.Thickness" ||
@@ -309,7 +309,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
         public virtual void GenerateStandardPanelLayoutMethods(string layoutManagerTypeName, Source methods)
         {
-            methods.Usings.AddNamespace("Microsoft.Maui.Graphics");
+            methods.Usings.AddNamespace("CommonUI");
 
             methods.AddBlankLineIfNonempty();
             methods.AddLine($"protected override Size MeasureOverride(double widthConstraint, double heightConstraint) =>");

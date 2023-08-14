@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using Microsoft.Maui.Graphics;
+using CommonUI;
 using AnywhereControls;
 using AnywhereControls.Controls;
 using AnywhereControls.Media;
@@ -147,7 +147,7 @@ namespace Microcharts
                             labels,
                             points.Select(p => new Point(p.X, headerHeight - Margin)).ToArray(),
                             labelSizes,
-                            Entries.Select(x => x.Color.WithAlpha((byte)(255 * AnimationProgress))).ToArray(),
+                            Entries.Select(x => x.Color.WithA((byte)(255 * AnimationProgress))).ToArray(),
                             ValueLabelOrientation,
                             true,
                             itemSize,

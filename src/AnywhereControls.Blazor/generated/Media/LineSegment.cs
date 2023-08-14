@@ -1,7 +1,7 @@
 // This file is generated from ILineSegment.cs. Update the source file to change its contents.
 
 using AnywhereControls.DefaultImplementations;
-using Microsoft.Maui.Graphics;
+using CommonUI;
 using Microsoft.AspNetCore.Components;
 using AnywhereControls.Media;
 

@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Globalization;
-using Microsoft.Maui.Graphics;
 using AnywhereControls.Wpf.Media;
+using AnywhereControls.Converters;
 
 namespace AnywhereControls.Wpf.Converters
 {
@@ -11,7 +11,7 @@ namespace AnywhereControls.Wpf.Converters
         {
             return new SolidColorBrush
             {
-                Color = Color.Parse(GetValueAsString(valueObject))
+                Color = ColorConverter.ConvertFromString(GetValueAsString(valueObject))
             };
         }
     }

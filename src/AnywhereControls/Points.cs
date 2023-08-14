@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.Maui.Graphics;
+using CommonUI;
 
 namespace AnywhereControls
 {
-    public struct Points
+    public readonly struct Points
     {
         private readonly Point[] _points;
 
@@ -20,8 +20,8 @@ namespace AnywhereControls
             _points = points.ToArray();
         }
 
-        public int Length => _points.Length;
+        public readonly int Length => _points.Length;
 
-        public Point this[int index] => _points[index];
+        public readonly Point this[int index] => _points[index];
     }
 }

@@ -86,7 +86,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             Source methods = classSource.NonstaticMethods;
 
             classSource.Usings.AddTypeAlias("Visibility = System.Windows.Visibility");
-            classSource.Usings.AddNamespace("Microsoft.Maui.Graphics");
+            classSource.Usings.AddNamespace("CommonUI");
 
             // TODO: Error if appropriate when set to Visibility.Hidden
 

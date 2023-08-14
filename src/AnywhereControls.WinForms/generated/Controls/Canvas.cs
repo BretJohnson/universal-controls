@@ -1,7 +1,7 @@
 // This file is generated from ICanvas.cs. Update the source file to change its contents.
 
 using AnywhereControls.DefaultImplementations;
-using Microsoft.Maui.Graphics;
+using CommonUI;
 using AnywhereControls.Controls;
 using ICanvas = Microsoft.StandardUI.Controls.ICanvas;
 

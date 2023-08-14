@@ -9,7 +9,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Maui.Graphics;
+using CommonUI;
 using AnywhereControls;
 using AnywhereControls.Controls;
 using AnywhereControls.Media;
@@ -305,8 +305,8 @@ namespace Microcharts
                 {
                     var captionMargin = LabelTextSize * 0.60f;
                     var captionX = isLeft ? Margin : width - Margin - LabelTextSize;
-                    var valueColor = entry.Color.WithAlpha(entry.Color.Alpha * AnimationProgress);
-                    var lblColor = entry.TextColor.WithAlpha(entry.TextColor.Alpha * AnimationProgress);
+                    var valueColor = entry.Color.WithA((byte)(entry.Color.A * AnimationProgress));
+                    var lblColor = entry.TextColor.WithA((byte)(entry.TextColor.A * AnimationProgress));
                     var rect = new Rect(captionX, y, LabelTextSize, LabelTextSize);
 
                     var rectangle = Rectangle()

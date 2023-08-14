@@ -1,6 +1,6 @@
 // This file is generated from IBezierSegment.cs. Update the source file to change its contents.
 
-using Microsoft.Maui.Graphics;
+using CommonUI;
 
 namespace AnywhereControls.Media
 {

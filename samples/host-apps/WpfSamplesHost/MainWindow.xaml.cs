@@ -3,12 +3,12 @@ using System.Windows.Controls;
 using Microcharts;
 using Microcharts.Wpf;
 using Microsoft.ComponentModelEx.Tooling;
-using Microsoft.Maui.Graphics;
 using AnywhereControls;
 using AnywhereControls.Wpf;
 using AnywhereControls.Wpf.NativeVisualFramework;
 using SimpleControls;
 using SimpleControls.Wpf;
+using CommonUI;
 
 // Import our sample controls. This triggers source generation, turning them into WPF controls.
 // To see the generated source, in Solution Explorer look under
@@ -86,19 +86,19 @@ namespace WpfHost
                 {
                         Label = "January",
                         ValueLabel = "200",
-                        Color = Color.FromArgb("#266489")
+                        Color = Color.FromHex("#266489")
                 },
                 new ChartEntry(400)
                 {
                         Label = "February",
                         ValueLabel = "400",
-                        Color = Color.FromArgb("#68B9C0"),
+                        Color = Color.FromHex("#68B9C0"),
                 },
                 new ChartEntry(100)
                 {
                         Label = "March",
                         ValueLabel = "100",
-                        Color = Color.FromArgb("#90D585"),
+                        Color = Color.FromHex("#90D585"),
                 },
             };
         }

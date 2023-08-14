@@ -1,6 +1,6 @@
 // This file is generated from IArcSegment.cs. Update the source file to change its contents.
 
-using Microsoft.Maui.Graphics;
+using CommonUI;
 using AnywhereControls.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 using SweepDirection = Microsoft.StandardUI.Media.SweepDirection;
