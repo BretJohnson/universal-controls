@@ -9,7 +9,7 @@ namespace AnywhereControls.WinUI.Shapes
     public class Polyline : Shape, IPolyline, IDrawable
     {
         public static readonly DependencyProperty FillRuleProperty = PropertyUtils.Register(nameof(FillRule), typeof(FillRule), typeof(Polyline), FillRule.EvenOdd);
-        public static readonly DependencyProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(PointsWinUI), typeof(Polyline), PointsWinUI.Default);
+        public static readonly DependencyProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(Points), typeof(Polyline), Points.Default);
         
         public FillRule FillRule
         {
@@ -17,15 +17,10 @@ namespace AnywhereControls.WinUI.Shapes
             set => SetValue(FillRuleProperty, value);
         }
         
-        public PointsWinUI Points
+        public Points Points
         {
-            get => (PointsWinUI) GetValue(PointsProperty);
+            get => (Points) GetValue(PointsProperty);
             set => SetValue(PointsProperty, value);
-        }
-        Points IPolyline.Points
-        {
-            get => Points.Points;
-            set => Points = new PointsWinUI(value);
         }
         
         public void Draw(IDrawingContext drawingContext) => drawingContext.DrawPolyline(this);

@@ -8,17 +8,12 @@ namespace AnywhereControls.Maui.Media
 {
     public class LineSegment : PathSegment, ILineSegment
     {
-        public static readonly BindableProperty PointProperty = PropertyUtils.Register(nameof(Point), typeof(PointMaui), typeof(LineSegment), default(Point));
+        public static readonly BindableProperty PointProperty = PropertyUtils.Register(nameof(Point), typeof(Point), typeof(LineSegment), default(Point));
         
-        public PointMaui Point
+        public Point Point
         {
-            get => (PointMaui) GetValue(PointProperty);
+            get => (Point) GetValue(PointProperty);
             set => SetValue(PointProperty, value);
-        }
-        Point ILineSegment.Point
-        {
-            get => Point.Point;
-            set => Point = new PointMaui(value);
         }
     }
 }

@@ -3,7 +3,7 @@
 using AnywhereControls.DefaultImplementations;
 using CommonUI;
 using AnywhereControls.Controls;
-using ICanvas = Microsoft.StandardUI.Controls.ICanvas;
+using ICanvas = AnywhereControls.Controls.ICanvas;
 
 namespace AnywhereControls.WinForms.Controls
 {

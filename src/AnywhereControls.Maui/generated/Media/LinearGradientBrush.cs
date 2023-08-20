@@ -8,29 +8,19 @@ namespace AnywhereControls.Maui.Media
 {
     public class LinearGradientBrush : GradientBrush, ILinearGradientBrush
     {
-        public static readonly BindableProperty StartPointProperty = PropertyUtils.Register(nameof(StartPoint), typeof(PointMaui), typeof(LinearGradientBrush), default(Point));
-        public static readonly BindableProperty EndPointProperty = PropertyUtils.Register(nameof(EndPoint), typeof(PointMaui), typeof(LinearGradientBrush), default(Point));
+        public static readonly BindableProperty StartPointProperty = PropertyUtils.Register(nameof(StartPoint), typeof(Point), typeof(LinearGradientBrush), default(Point));
+        public static readonly BindableProperty EndPointProperty = PropertyUtils.Register(nameof(EndPoint), typeof(Point), typeof(LinearGradientBrush), default(Point));
         
-        public PointMaui StartPoint
+        public Point StartPoint
         {
-            get => (PointMaui) GetValue(StartPointProperty);
+            get => (Point) GetValue(StartPointProperty);
             set => SetValue(StartPointProperty, value);
         }
-        Point ILinearGradientBrush.StartPoint
-        {
-            get => StartPoint.Point;
-            set => StartPoint = new PointMaui(value);
-        }
         
-        public PointMaui EndPoint
+        public Point EndPoint
         {
-            get => (PointMaui) GetValue(EndPointProperty);
+            get => (Point) GetValue(EndPointProperty);
             set => SetValue(EndPointProperty, value);
-        }
-        Point ILinearGradientBrush.EndPoint
-        {
-            get => EndPoint.Point;
-            set => EndPoint = new PointMaui(value);
         }
     }
 }

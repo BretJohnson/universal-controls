@@ -7,17 +7,12 @@ namespace AnywhereControls.WinUI.Media
 {
     public class PolyLineSegment : PathSegment, IPolyLineSegment
     {
-        public static readonly DependencyProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(PointsWinUI), typeof(PolyLineSegment), PointsWinUI.Default);
+        public static readonly DependencyProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(Points), typeof(PolyLineSegment), Points.Default);
         
-        public PointsWinUI Points
+        public Points Points
         {
-            get => (PointsWinUI) GetValue(PointsProperty);
+            get => (Points) GetValue(PointsProperty);
             set => SetValue(PointsProperty, value);
-        }
-        Points IPolyLineSegment.Points
-        {
-            get => Points.Points;
-            set => Points = new PointsWinUI(value);
         }
     }
 }

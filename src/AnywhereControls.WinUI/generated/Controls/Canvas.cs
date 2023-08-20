@@ -1,7 +1,7 @@
 // This file is generated from ICanvas.cs. Update the source file to change its contents.
 
 using AnywhereControls.Controls;
-using ICanvas = Microsoft.StandardUI.Controls.ICanvas;
+using ICanvas = AnywhereControls.Controls.ICanvas;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
 namespace AnywhereControls.WinUI.Controls

@@ -9,11 +9,11 @@ namespace AnywhereControls.Mac.Controls
     {
         public static readonly UIProperty ChildrenProperty = new UIProperty(nameof(Children), null, readOnly:true);
         
-        private UIElementCollection<Microsoft.StandardUI.IUIElement> _children;
+        private UIElementCollection<AnywhereControls.IUIElement> _children;
         
         public Panel()
         {
-            _children = new UIElementCollection<Microsoft.StandardUI.IUIElement>(this);
+            _children = new UIElementCollection<AnywhereControls.IUIElement>(this);
             SetValue(ChildrenProperty, _children);
         }
         

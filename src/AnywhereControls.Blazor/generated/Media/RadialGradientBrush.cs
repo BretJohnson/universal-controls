@@ -9,8 +9,8 @@ namespace AnywhereControls.Blazor.Media
 {
     public class RadialGradientBrush : GradientBrush, IRadialGradientBrush
     {
-        public static readonly UIProperty CenterProperty = new UIProperty(nameof(Center), new Point(0.5, 0.5));
-        public static readonly UIProperty GradientOriginProperty = new UIProperty(nameof(GradientOrigin), new Point(0.5, 0.5));
+        public static readonly UIProperty CenterProperty = new UIProperty(nameof(Center), Point.CenterDefault);
+        public static readonly UIProperty GradientOriginProperty = new UIProperty(nameof(GradientOrigin), Point.CenterDefault);
         public static readonly UIProperty RadiusXProperty = new UIProperty(nameof(RadiusX), 0.5);
         
         [Parameter]

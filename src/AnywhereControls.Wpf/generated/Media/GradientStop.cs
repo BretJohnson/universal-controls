@@ -8,7 +8,7 @@ namespace AnywhereControls.Wpf.Media
 {
     public class GradientStop : StandardUIObject, IGradientStop
     {
-        public static readonly DependencyProperty ColorProperty = PropertyUtils.Register(nameof(Color), typeof(Color), typeof(GradientStop), null);
+        public static readonly DependencyProperty ColorProperty = PropertyUtils.Register(nameof(Color), typeof(Color), typeof(GradientStop), Colors.Transparent);
         public static readonly DependencyProperty OffsetProperty = PropertyUtils.Register(nameof(Offset), typeof(double), typeof(GradientStop), 0.0);
         
         public Color Color

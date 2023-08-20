@@ -4,7 +4,7 @@ using AnywhereControls.Media;
 using AnywhereControls.Maui.Media;
 using AnywhereControls.Shapes;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
-using Brush = Microsoft.StandardUI.Maui.Media.Brush;
+using Brush = AnywhereControls.Maui.Media.Brush;
 
 namespace AnywhereControls.Maui.Shapes
 {

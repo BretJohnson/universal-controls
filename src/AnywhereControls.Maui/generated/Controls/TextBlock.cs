@@ -6,7 +6,7 @@ using AnywhereControls.Text;
 using AnywhereControls.Maui.Text;
 using AnywhereControls.Controls;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
-using Brush = Microsoft.StandardUI.Maui.Media.Brush;
+using Brush = AnywhereControls.Maui.Media.Brush;
 
 namespace AnywhereControls.Maui.Controls
 {

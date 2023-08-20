@@ -8,7 +8,7 @@ namespace AnywhereControls.Mac.Media
 {
     public class GradientStop : StandardUIObject, IGradientStop
     {
-        public static readonly UIProperty ColorProperty = new UIProperty(nameof(Color), null);
+        public static readonly UIProperty ColorProperty = new UIProperty(nameof(Color), Colors.Transparent);
         public static readonly UIProperty OffsetProperty = new UIProperty(nameof(Offset), 0.0);
         
         public Color Color

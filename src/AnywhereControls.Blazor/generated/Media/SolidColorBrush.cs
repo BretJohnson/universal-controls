@@ -9,7 +9,7 @@ namespace AnywhereControls.Blazor.Media
 {
     public class SolidColorBrush : Brush, ISolidColorBrush
     {
-        public static readonly UIProperty ColorProperty = new UIProperty(nameof(Color), null);
+        public static readonly UIProperty ColorProperty = new UIProperty(nameof(Color), Colors.Transparent);
         
         [Parameter]
         public Color Color

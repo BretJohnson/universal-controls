@@ -7,17 +7,12 @@ namespace AnywhereControls.Wpf.Media
 {
     public class PolyQuadraticBezierSegment : PathSegment, IPolyQuadraticBezierSegment
     {
-        public static readonly DependencyProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(PointsWpf), typeof(PolyQuadraticBezierSegment), PointsWpf.Default);
+        public static readonly DependencyProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(Points), typeof(PolyQuadraticBezierSegment), Points.Default);
         
-        public PointsWpf Points
+        public Points Points
         {
-            get => (PointsWpf) GetValue(PointsProperty);
+            get => (Points) GetValue(PointsProperty);
             set => SetValue(PointsProperty, value);
-        }
-        Points IPolyQuadraticBezierSegment.Points
-        {
-            get => Points.Points;
-            set => Points = new PointsWpf(value);
         }
     }
 }

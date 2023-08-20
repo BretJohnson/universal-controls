@@ -8,7 +8,7 @@ namespace AnywhereControls.WinForms.Media
 {
     public class SolidColorBrush : Brush, ISolidColorBrush
     {
-        public static readonly UIProperty ColorProperty = new UIProperty(nameof(Color), null);
+        public static readonly UIProperty ColorProperty = new UIProperty(nameof(Color), Colors.Transparent);
         
         public Color Color
         {

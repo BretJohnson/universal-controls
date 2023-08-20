@@ -8,30 +8,20 @@ namespace AnywhereControls.WinUI.Media
 {
     public class RadialGradientBrush : GradientBrush, IRadialGradientBrush
     {
-        public static readonly DependencyProperty CenterProperty = PropertyUtils.Register(nameof(Center), typeof(PointWinUI), typeof(RadialGradientBrush), new PointWinUI(0.5, 0.5));
-        public static readonly DependencyProperty GradientOriginProperty = PropertyUtils.Register(nameof(GradientOrigin), typeof(PointWinUI), typeof(RadialGradientBrush), new PointWinUI(0.5, 0.5));
+        public static readonly DependencyProperty CenterProperty = PropertyUtils.Register(nameof(Center), typeof(Point), typeof(RadialGradientBrush), Point.CenterDefault);
+        public static readonly DependencyProperty GradientOriginProperty = PropertyUtils.Register(nameof(GradientOrigin), typeof(Point), typeof(RadialGradientBrush), Point.CenterDefault);
         public static readonly DependencyProperty RadiusXProperty = PropertyUtils.Register(nameof(RadiusX), typeof(double), typeof(RadialGradientBrush), 0.5);
         
-        public PointWinUI Center
+        public Point Center
         {
-            get => (PointWinUI) GetValue(CenterProperty);
+            get => (Point) GetValue(CenterProperty);
             set => SetValue(CenterProperty, value);
         }
-        Point IRadialGradientBrush.Center
-        {
-            get => Center.Point;
-            set => Center = new PointWinUI(value);
-        }
         
-        public PointWinUI GradientOrigin
+        public Point GradientOrigin
         {
-            get => (PointWinUI) GetValue(GradientOriginProperty);
+            get => (Point) GetValue(GradientOriginProperty);
             set => SetValue(GradientOriginProperty, value);
-        }
-        Point IRadialGradientBrush.GradientOrigin
-        {
-            get => GradientOrigin.Point;
-            set => GradientOrigin = new PointWinUI(value);
         }
         
         public double RadiusX

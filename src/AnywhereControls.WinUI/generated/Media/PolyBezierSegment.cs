@@ -7,17 +7,12 @@ namespace AnywhereControls.WinUI.Media
 {
     public class PolyBezierSegment : PathSegment, IPolyBezierSegment
     {
-        public static readonly DependencyProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(PointsWinUI), typeof(PolyBezierSegment), PointsWinUI.Default);
+        public static readonly DependencyProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(Points), typeof(PolyBezierSegment), Points.Default);
         
-        public PointsWinUI Points
+        public Points Points
         {
-            get => (PointsWinUI) GetValue(PointsProperty);
+            get => (Points) GetValue(PointsProperty);
             set => SetValue(PointsProperty, value);
-        }
-        Points IPolyBezierSegment.Points
-        {
-            get => Points.Points;
-            set => Points = new PointsWinUI(value);
         }
     }
 }

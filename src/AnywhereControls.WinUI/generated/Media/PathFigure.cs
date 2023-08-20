@@ -9,7 +9,7 @@ namespace AnywhereControls.WinUI.Media
     public class PathFigure : StandardUIObject, IPathFigure
     {
         public static readonly DependencyProperty SegmentsProperty = PropertyUtils.Register(nameof(Segments), typeof(UICollection<IPathSegment>), typeof(PathFigure), null);
-        public static readonly DependencyProperty StartPointProperty = PropertyUtils.Register(nameof(StartPoint), typeof(PointWinUI), typeof(PathFigure), default(Point));
+        public static readonly DependencyProperty StartPointProperty = PropertyUtils.Register(nameof(StartPoint), typeof(Point), typeof(PathFigure), default(Point));
         public static readonly DependencyProperty IsClosedProperty = PropertyUtils.Register(nameof(IsClosed), typeof(bool), typeof(PathFigure), false);
         public static readonly DependencyProperty IsFilledProperty = PropertyUtils.Register(nameof(IsFilled), typeof(bool), typeof(PathFigure), true);
         
@@ -24,15 +24,10 @@ namespace AnywhereControls.WinUI.Media
         public UICollection<IPathSegment> Segments => _segments;
         IUICollection<IPathSegment> IPathFigure.Segments => Segments;
         
-        public PointWinUI StartPoint
+        public Point StartPoint
         {
-            get => (PointWinUI) GetValue(StartPointProperty);
+            get => (Point) GetValue(StartPointProperty);
             set => SetValue(StartPointProperty, value);
-        }
-        Point IPathFigure.StartPoint
-        {
-            get => StartPoint.Point;
-            set => StartPoint = new PointWinUI(value);
         }
         
         public bool IsClosed

@@ -8,17 +8,12 @@ namespace AnywhereControls.WinUI.Media
 {
     public class LineSegment : PathSegment, ILineSegment
     {
-        public static readonly DependencyProperty PointProperty = PropertyUtils.Register(nameof(Point), typeof(PointWinUI), typeof(LineSegment), default(Point));
+        public static readonly DependencyProperty PointProperty = PropertyUtils.Register(nameof(Point), typeof(Point), typeof(LineSegment), default(Point));
         
-        public PointWinUI Point
+        public Point Point
         {
-            get => (PointWinUI) GetValue(PointProperty);
+            get => (Point) GetValue(PointProperty);
             set => SetValue(PointProperty, value);
-        }
-        Point ILineSegment.Point
-        {
-            get => Point.Point;
-            set => Point = new PointWinUI(value);
         }
     }
 }

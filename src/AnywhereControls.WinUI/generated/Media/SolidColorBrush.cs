@@ -8,7 +8,7 @@ namespace AnywhereControls.WinUI.Media
 {
     public class SolidColorBrush : Brush, ISolidColorBrush
     {
-        public static readonly DependencyProperty ColorProperty = PropertyUtils.Register(nameof(Color), typeof(Color), typeof(SolidColorBrush), null);
+        public static readonly DependencyProperty ColorProperty = PropertyUtils.Register(nameof(Color), typeof(Color), typeof(SolidColorBrush), Colors.Transparent);
         
         public Color Color
         {

@@ -8,29 +8,19 @@ namespace AnywhereControls.WinUI.Media
 {
     public class LinearGradientBrush : GradientBrush, ILinearGradientBrush
     {
-        public static readonly DependencyProperty StartPointProperty = PropertyUtils.Register(nameof(StartPoint), typeof(PointWinUI), typeof(LinearGradientBrush), default(Point));
-        public static readonly DependencyProperty EndPointProperty = PropertyUtils.Register(nameof(EndPoint), typeof(PointWinUI), typeof(LinearGradientBrush), default(Point));
+        public static readonly DependencyProperty StartPointProperty = PropertyUtils.Register(nameof(StartPoint), typeof(Point), typeof(LinearGradientBrush), default(Point));
+        public static readonly DependencyProperty EndPointProperty = PropertyUtils.Register(nameof(EndPoint), typeof(Point), typeof(LinearGradientBrush), default(Point));
         
-        public PointWinUI StartPoint
+        public Point StartPoint
         {
-            get => (PointWinUI) GetValue(StartPointProperty);
+            get => (Point) GetValue(StartPointProperty);
             set => SetValue(StartPointProperty, value);
         }
-        Point ILinearGradientBrush.StartPoint
-        {
-            get => StartPoint.Point;
-            set => StartPoint = new PointWinUI(value);
-        }
         
-        public PointWinUI EndPoint
+        public Point EndPoint
         {
-            get => (PointWinUI) GetValue(EndPointProperty);
+            get => (Point) GetValue(EndPointProperty);
             set => SetValue(EndPointProperty, value);
-        }
-        Point ILinearGradientBrush.EndPoint
-        {
-            get => EndPoint.Point;
-            set => EndPoint = new PointWinUI(value);
         }
     }
 }

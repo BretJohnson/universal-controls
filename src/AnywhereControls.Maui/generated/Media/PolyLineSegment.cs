@@ -7,17 +7,12 @@ namespace AnywhereControls.Maui.Media
 {
     public class PolyLineSegment : PathSegment, IPolyLineSegment
     {
-        public static readonly BindableProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(PointsMaui), typeof(PolyLineSegment), PointsMaui.Default);
+        public static readonly BindableProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(Points), typeof(PolyLineSegment), Points.Default);
         
-        public PointsMaui Points
+        public Points Points
         {
-            get => (PointsMaui) GetValue(PointsProperty);
+            get => (Points) GetValue(PointsProperty);
             set => SetValue(PointsProperty, value);
-        }
-        Points IPolyLineSegment.Points
-        {
-            get => Points.Points;
-            set => Points = new PointsMaui(value);
         }
     }
 }

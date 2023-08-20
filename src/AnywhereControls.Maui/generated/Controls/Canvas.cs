@@ -2,7 +2,7 @@
 
 using CommonUI;
 using AnywhereControls.Controls;
-using ICanvas = Microsoft.StandardUI.Controls.ICanvas;
+using ICanvas = AnywhereControls.Controls.ICanvas;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace AnywhereControls.Maui.Controls

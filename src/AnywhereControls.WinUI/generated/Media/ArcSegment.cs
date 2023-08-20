@@ -8,32 +8,22 @@ namespace AnywhereControls.WinUI.Media
 {
     public class ArcSegment : PathSegment, IArcSegment
     {
-        public static readonly DependencyProperty PointProperty = PropertyUtils.Register(nameof(Point), typeof(PointWinUI), typeof(ArcSegment), default(Point));
-        public static readonly DependencyProperty SizeProperty = PropertyUtils.Register(nameof(Size), typeof(SizeWinUI), typeof(ArcSegment), default(Size));
+        public static readonly DependencyProperty PointProperty = PropertyUtils.Register(nameof(Point), typeof(Point), typeof(ArcSegment), default(Point));
+        public static readonly DependencyProperty SizeProperty = PropertyUtils.Register(nameof(Size), typeof(Size), typeof(ArcSegment), default(Size));
         public static readonly DependencyProperty RotationAngleProperty = PropertyUtils.Register(nameof(RotationAngle), typeof(double), typeof(ArcSegment), 0.0);
         public static readonly DependencyProperty IsLargeArcProperty = PropertyUtils.Register(nameof(IsLargeArc), typeof(bool), typeof(ArcSegment), false);
         public static readonly DependencyProperty SweepDirectionProperty = PropertyUtils.Register(nameof(SweepDirection), typeof(SweepDirection), typeof(ArcSegment), SweepDirection.Counterclockwise);
         
-        public PointWinUI Point
+        public Point Point
         {
-            get => (PointWinUI) GetValue(PointProperty);
+            get => (Point) GetValue(PointProperty);
             set => SetValue(PointProperty, value);
         }
-        Point IArcSegment.Point
-        {
-            get => Point.Point;
-            set => Point = new PointWinUI(value);
-        }
         
-        public SizeWinUI Size
+        public Size Size
         {
-            get => (SizeWinUI) GetValue(SizeProperty);
+            get => (Size) GetValue(SizeProperty);
             set => SetValue(SizeProperty, value);
-        }
-        Size IArcSegment.Size
-        {
-            get => Size.Size;
-            set => Size = new SizeWinUI(value);
         }
         
         public double RotationAngle

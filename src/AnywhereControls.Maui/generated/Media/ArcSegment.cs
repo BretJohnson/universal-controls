@@ -3,38 +3,28 @@
 using CommonUI;
 using AnywhereControls.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
-using SweepDirection = Microsoft.StandardUI.Media.SweepDirection;
+using SweepDirection = AnywhereControls.Media.SweepDirection;
 
 namespace AnywhereControls.Maui.Media
 {
     public class ArcSegment : PathSegment, IArcSegment
     {
-        public static readonly BindableProperty PointProperty = PropertyUtils.Register(nameof(Point), typeof(PointMaui), typeof(ArcSegment), default(Point));
-        public static readonly BindableProperty SizeProperty = PropertyUtils.Register(nameof(Size), typeof(SizeMaui), typeof(ArcSegment), default(Size));
+        public static readonly BindableProperty PointProperty = PropertyUtils.Register(nameof(Point), typeof(Point), typeof(ArcSegment), default(Point));
+        public static readonly BindableProperty SizeProperty = PropertyUtils.Register(nameof(Size), typeof(Size), typeof(ArcSegment), default(Size));
         public static readonly BindableProperty RotationAngleProperty = PropertyUtils.Register(nameof(RotationAngle), typeof(double), typeof(ArcSegment), 0.0);
         public static readonly BindableProperty IsLargeArcProperty = PropertyUtils.Register(nameof(IsLargeArc), typeof(bool), typeof(ArcSegment), false);
         public static readonly BindableProperty SweepDirectionProperty = PropertyUtils.Register(nameof(SweepDirection), typeof(SweepDirection), typeof(ArcSegment), SweepDirection.Counterclockwise);
         
-        public PointMaui Point
+        public Point Point
         {
-            get => (PointMaui) GetValue(PointProperty);
+            get => (Point) GetValue(PointProperty);
             set => SetValue(PointProperty, value);
         }
-        Point IArcSegment.Point
-        {
-            get => Point.Point;
-            set => Point = new PointMaui(value);
-        }
         
-        public SizeMaui Size
+        public Size Size
         {
-            get => (SizeMaui) GetValue(SizeProperty);
+            get => (Size) GetValue(SizeProperty);
             set => SetValue(SizeProperty, value);
-        }
-        Size IArcSegment.Size
-        {
-            get => Size.Size;
-            set => Size = new SizeMaui(value);
         }
         
         public double RotationAngle

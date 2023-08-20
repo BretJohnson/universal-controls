@@ -9,7 +9,7 @@ namespace AnywhereControls.WinUI.Shapes
     public class Polygon : Shape, IPolygon, IDrawable
     {
         public static readonly DependencyProperty FillRuleProperty = PropertyUtils.Register(nameof(FillRule), typeof(FillRule), typeof(Polygon), FillRule.EvenOdd);
-        public static readonly DependencyProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(PointsWinUI), typeof(Polygon), PointsWinUI.Default);
+        public static readonly DependencyProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(Points), typeof(Polygon), Points.Default);
         
         public FillRule FillRule
         {
@@ -17,15 +17,10 @@ namespace AnywhereControls.WinUI.Shapes
             set => SetValue(FillRuleProperty, value);
         }
         
-        public PointsWinUI Points
+        public Points Points
         {
-            get => (PointsWinUI) GetValue(PointsProperty);
+            get => (Points) GetValue(PointsProperty);
             set => SetValue(PointsProperty, value);
-        }
-        Points IPolygon.Points
-        {
-            get => Points.Points;
-            set => Points = new PointsWinUI(value);
         }
         
         public void Draw(IDrawingContext drawingContext) => drawingContext.DrawPolygon(this);

@@ -9,7 +9,7 @@ namespace AnywhereControls.Maui.Shapes
     public class Polyline : Shape, IPolyline, IDrawable
     {
         public static readonly BindableProperty FillRuleProperty = PropertyUtils.Register(nameof(FillRule), typeof(FillRule), typeof(Polyline), FillRule.EvenOdd);
-        public static readonly BindableProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(PointsMaui), typeof(Polyline), PointsMaui.Default);
+        public static readonly BindableProperty PointsProperty = PropertyUtils.Register(nameof(Points), typeof(Points), typeof(Polyline), Points.Default);
         
         public FillRule FillRule
         {
@@ -17,15 +17,10 @@ namespace AnywhereControls.Maui.Shapes
             set => SetValue(FillRuleProperty, value);
         }
         
-        public PointsMaui Points
+        public Points Points
         {
-            get => (PointsMaui) GetValue(PointsProperty);
+            get => (Points) GetValue(PointsProperty);
             set => SetValue(PointsProperty, value);
-        }
-        Points IPolyline.Points
-        {
-            get => Points.Points;
-            set => Points = new PointsMaui(value);
         }
         
         public void Draw(IDrawingContext drawingContext) => drawingContext.DrawPolyline(this);
