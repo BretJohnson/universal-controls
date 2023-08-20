@@ -167,7 +167,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                     if (value is string stringArgumentValue)
                     {
                         if (typeFullName == "CommonUI.Point" && stringArgumentValue == "0.5,0.5")
-                            return $"new {OutputTypeName(propertyType)}(0.5, 0.5)";
+                            return $"{OutputTypeName(propertyType)}.CenterDefault";
                         else if (stringArgumentValue == "")
                             return "\"\"";
                         else new UserViewableException($"Unknown string literal based default value: {stringArgumentValue}");
@@ -271,7 +271,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
             if (propertyType is INamedTypeSymbol namedTypeSymbol &&
                 namedTypeSymbol.Name is string typeName &&
-                (typeName == "AnywhereControls.Color" ||
+                (typeName == "CommonUI.Color" ||
                 typeName == "CommonUI.Point" ||
                 typeName == "AnywhereControls.Points" ||
                 typeName == "AnywhereControls.Size" ||

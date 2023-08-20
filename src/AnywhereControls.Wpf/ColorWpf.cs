@@ -7,6 +7,7 @@ namespace AnywhereControls.Wpf
     [TypeConverter(typeof(ColorTypeConverter))]
     public struct ColorWpf
     {
+        public static readonly ColorWpf Default = new ColorWpf(CommonUI.Color.Default);
         public static readonly ColorWpf Transparent = new ColorWpf(Colors.Transparent);
 
         public static ColorWpf FromColor(Color color) => new ColorWpf(color);
