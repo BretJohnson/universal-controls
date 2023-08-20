@@ -6,7 +6,7 @@ namespace AnywhereControls.Media
     [UIModelObject]
     public interface ISolidColorBrush : IBrush
     {
-        [DefaultValue(null)]
+        [DefaultValue(DefaultColor.Transparent)]
         Color Color { get; set; }
     }
 }
