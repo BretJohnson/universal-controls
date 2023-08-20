@@ -1,6 +1,6 @@
 ﻿namespace AnywhereControls.Controls
 {
-    public interface IStandardControl : IUIElement
+    public interface IAnywhereControl : IUIElement
     {
     }
 }

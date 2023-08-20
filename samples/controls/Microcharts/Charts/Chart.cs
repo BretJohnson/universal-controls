@@ -6,8 +6,8 @@ using AnywhereControls.Controls;
 
 namespace Microcharts
 {
-    [StandardControl]
-    public interface IChart : IStandardControl
+    [AnywhereControl]
+    public interface IChart : IAnywhereControl
     {
         /// <summary>
         /// The type of chart (bar chart, pie chart, etc.)
@@ -33,7 +33,7 @@ namespace Microcharts
         Color LabelColor { get; set; }
     }
 
-    public class Chart : StandardControl<IChart>
+    public class Chart : AnywhereControl<IChart>
     {
         private ChartBase _chart;
 

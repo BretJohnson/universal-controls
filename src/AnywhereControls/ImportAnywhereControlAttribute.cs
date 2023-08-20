@@ -3,11 +3,11 @@ using System;
 namespace AnywhereControls
 {
     [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
-    public sealed class ImportStandardControlAttribute : Attribute
+    public sealed class ImportAnywhereControlAttribute : Attribute
     {
         public Type InterfaceType { get; }
 
-        public ImportStandardControlAttribute(Type interfaceType)
+        public ImportAnywhereControlAttribute(Type interfaceType)
         {
             InterfaceType = interfaceType;
         }

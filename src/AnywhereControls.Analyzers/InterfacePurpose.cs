@@ -5,7 +5,7 @@
         UIObject,
         StandardUIObject,
         StandardUIElement,
-        StandardControl,
+        AnywhereControl,
         StandardPanel,
         UISingleton,
         Unspecified

@@ -81,7 +81,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                 destinationTypeName = BuiltInUIElementBaseClassType.Name;
                 usings?.AddNamespace(BuiltInUIElementBaseClassType);
             }
-            else if (Utils.IsThisType(type, KnownTypes.IStandardControl))
+            else if (Utils.IsThisType(type, KnownTypes.IAnywhereControl))
             {
                 destinationTypeName = StandardControlBaseClassType.Name;
                 usings?.AddNamespace(StandardControlBaseClassType);

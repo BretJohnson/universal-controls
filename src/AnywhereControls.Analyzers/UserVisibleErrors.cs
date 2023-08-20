@@ -21,8 +21,8 @@ namespace AnywhereControls.SourceGenerator
         public static UserViewableException NoLayoutManagerClassFound(string layoutManagerName, string interfaceName) =>
             CreateError(5, message: $"No class '{layoutManagerName}' found for StandardPanel interface '{interfaceName}'");
 
-        public static UserViewableException NoStandardControlImplementationClassFound(ISymbol symbol, string standardControlImplementationName, string interfaceName) =>
-            CreateError(5, message: $"No implementation class '{standardControlImplementationName}' found for StandardControl interface '{interfaceName}'",
+        public static UserViewableException NoAnywhereControlImplementationClassFound(ISymbol symbol, string anywhereControlImplementationName, string interfaceName) =>
+            CreateError(5, message: $"No implementation class '{anywhereControlImplementationName}' found for AnywhereControl interface '{interfaceName}'",
                 locationSymbol: symbol);
 
         public static UserViewableException PropertyHasNoDefaultValue(ISymbol symbol, string fullPropertyName) =>

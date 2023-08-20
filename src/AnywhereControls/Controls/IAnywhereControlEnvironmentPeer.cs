@@ -1,6 +1,6 @@
 namespace AnywhereControls.Controls
 {
-    public interface IStandardControlEnvironmentPeer
+    public interface IAnywhereControlEnvironmentPeer
     {
         public IUIElement? BuildContent { get; }
     }

@@ -3,9 +3,9 @@ using AnywhereControls.Controls;
 
 namespace AnywhereControls.Blazor.NativeVisualFramework
 {
-    public partial class StandardControl : UIElement, IStandardControl, IStandardControlEnvironmentPeer
+    public partial class StandardControl : UIElement, IAnywhereControl, IAnywhereControlEnvironmentPeer
     {
-        private AnywhereControls.Controls.StandardControl? _implementation;
+        private AnywhereControls.Controls.AnywhereControl? _implementation;
         private IUIElement? _buildContent;
         private bool _invalid = true;
 
@@ -15,12 +15,12 @@ namespace AnywhereControls.Blazor.NativeVisualFramework
                 BlazorHostFramework.Init(new BlazorNativeVisualFramework());
         }
 
-        protected void InitImplementation(AnywhereControls.Controls.StandardControl implementation)
+        protected void InitImplementation(AnywhereControls.Controls.AnywhereControl implementation)
         {
             _implementation = implementation;
         }
 
-        IUIElement? IStandardControlEnvironmentPeer.BuildContent => _buildContent;
+        IUIElement? IAnywhereControlEnvironmentPeer.BuildContent => _buildContent;
 
         private void Rebuild()
         {

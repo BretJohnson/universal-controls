@@ -3,11 +3,11 @@ using CommonUI;
 
 namespace AnywhereControls.Controls
 {
-    public abstract class StandardControl
+    public abstract class AnywhereControl
     {
-        IStandardControlEnvironmentPeer _environmentPeer;
+        IAnywhereControlEnvironmentPeer _environmentPeer;
 
-        public StandardControl(IStandardControlEnvironmentPeer environmentPeer)
+        public AnywhereControl(IAnywhereControlEnvironmentPeer environmentPeer)
         {
             _environmentPeer = environmentPeer;
         }
@@ -85,11 +85,11 @@ namespace AnywhereControls.Controls
         }
     }
 
-    public abstract class StandardControl<T> : StandardControl where T : IStandardControl
+    public abstract class AnywhereControl<T> : AnywhereControl where T : IAnywhereControl
     {
         public T Control { get; }
 
-        public StandardControl(T control) : base((IStandardControlEnvironmentPeer)control)
+        public AnywhereControl(T control) : base((IAnywhereControlEnvironmentPeer)control)
         {
             Control = control;
         }

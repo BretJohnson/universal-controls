@@ -8,14 +8,14 @@ using static AnywhereControls.AnywhereControlsStatics;
 
 namespace SimpleControls
 {
-    [StandardControl]
-    public interface IRadialGauge : IStandardControl
+    [AnywhereControl]
+    public interface IRadialGauge : IAnywhereControl
     {
         [DefaultValue(null)]
         IBrush? Fill { get; set; }
     }
 
-    public class RadialGauge : StandardControl<IRadialGauge>
+    public class RadialGauge : AnywhereControl<IRadialGauge>
     {
         public RadialGauge(IRadialGauge control) : base(control)
         { }

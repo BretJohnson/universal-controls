@@ -8,8 +8,8 @@ using static AnywhereControls.AnywhereControlsStatics;
 
 namespace AlohaKit.StandardControls
 {
-    [StandardControl]
-    public interface IToggleSwitch : IStandardControl
+    [AnywhereControl]
+    public interface IToggleSwitch : IAnywhereControl
     {
         [DefaultValue(DefaultColor.White)]
         public Color BackgroundColor { get; set; }
@@ -24,7 +24,7 @@ namespace AlohaKit.StandardControls
         public bool HasShadow { get; set; }
     }
 
-    public class ToggleSwitch : StandardControl<IToggleSwitch>
+    public class ToggleSwitch : AnywhereControl<IToggleSwitch>
     {
         public ToggleSwitch(IToggleSwitch control) : base(control)
         {

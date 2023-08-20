@@ -17,7 +17,7 @@ namespace AnywhereControls.SourceGenerator
             Context = context;
 
             // Get all the interfaces with attributes indicating that they should generate source
-            // (e.g. [StandardControl], [UIElement], etc.). Also get the control library class.
+            // (e.g. [AnywhereControl], [UIElement], etc.). Also get the control library class.
             var gatherTypesVisitor = new GatherTypesVisitor(context);
             gatherTypesVisitor.Visit(assembly.GlobalNamespace);
             //assembly.Accept(gatherTypesVisitor);

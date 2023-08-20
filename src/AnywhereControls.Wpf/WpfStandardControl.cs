@@ -5,9 +5,9 @@ using AnywhereControls.Wpf.NativeVisualFramework;
 
 namespace AnywhereControls.Wpf
 {
-    public partial class WpfStandardControl : System.Windows.Controls.Control, IStandardControl, IStandardControlEnvironmentPeer, ILogicalParent
+    public partial class WpfStandardControl : System.Windows.Controls.Control, IAnywhereControl, IAnywhereControlEnvironmentPeer, ILogicalParent
     {
-        private StandardControl? _standardControl;
+        private AnywhereControl? _standardControl;
         private IUIElement? _buildContent;
         private bool _invalid = true;
 
@@ -19,7 +19,7 @@ namespace AnywhereControls.Wpf
             }
         }
 
-        protected void InitImplementation(StandardControl standardControl)
+        protected void InitImplementation(AnywhereControl standardControl)
         {
             _standardControl = standardControl;
         }
@@ -42,7 +42,7 @@ namespace AnywhereControls.Wpf
             return arrangeSize;
         }
 
-        IUIElement? IStandardControlEnvironmentPeer.BuildContent => _buildContent;
+        IUIElement? IAnywhereControlEnvironmentPeer.BuildContent => _buildContent;
 
         int IUIElement.VisualChildrenCount => _buildContent != null ? 1 : 0;
 

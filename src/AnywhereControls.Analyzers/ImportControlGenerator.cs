@@ -25,7 +25,7 @@ namespace AnywhereControls.SourceGenerator
             var attributeSyntax = (AttributeSyntax)node;
 
             string? fullName = GetAttributeFullTypeName(semanticModel, attributeSyntax);
-            if (fullName != KnownTypes.ImportStandardControlAttribute)
+            if (fullName != KnownTypes.ImportAnywhereControlAttribute)
                 return null;
 
             return attributeSyntax;
@@ -54,7 +54,7 @@ namespace AnywhereControls.SourceGenerator
                 {
                     string ancestorFullTypeName = Utils.GetTypeFullName(ancestorType);
 
-                    if (ancestorFullTypeName == KnownTypes.IStandardControl || generatedInterfaces.Contains(ancestorFullTypeName))
+                    if (ancestorFullTypeName == KnownTypes.IAnywhereControl || generatedInterfaces.Contains(ancestorFullTypeName))
                         break;
 
                     GenerateSourceFile(context, ancestorType);

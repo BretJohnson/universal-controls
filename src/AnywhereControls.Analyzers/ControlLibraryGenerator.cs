@@ -24,7 +24,7 @@ namespace AnywhereControls.SourceGenerator
         protected override SyntaxNode? Transform(SemanticModel semanticModel, SyntaxNode node)
         {
             if (node is InterfaceDeclarationSyntax interfaceDeclarationSyntax &&
-                GetTypeAttribute(semanticModel, interfaceDeclarationSyntax, KnownTypes.StandardControlAttribute,
+                GetTypeAttribute(semanticModel, interfaceDeclarationSyntax, KnownTypes.AnywhereControlAttribute,
                     KnownTypes.StandardUIElementAttribute, KnownTypes.StandardUISingletonAttribute) != null)
             {
                 return interfaceDeclarationSyntax;

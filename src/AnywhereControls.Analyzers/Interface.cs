@@ -19,7 +19,7 @@ namespace AnywhereControls.SourceGenerator
         public string Name { get; }
         public string VariableName { get; }
         public INamedTypeSymbol? LayoutManagerType { get; }
-        public INamedTypeSymbol? StandardControlImpelementationType { get; }
+        public INamedTypeSymbol? AnywhereControlImpelementationType { get; }
         public string? ContentPropertyName { get; }
 
         public bool IsThisType(string typeName) => Utils.IsThisType(Type, typeName);
@@ -68,8 +68,8 @@ namespace AnywhereControls.SourceGenerator
                     return InterfacePurpose.StandardUIElement;
                 else if (attributeTypeFullName == KnownTypes.StandardPanelAttribute)
                     return InterfacePurpose.StandardPanel;
-                else if (attributeTypeFullName == KnownTypes.StandardControlAttribute)
-                    return InterfacePurpose.StandardControl;
+                else if (attributeTypeFullName == KnownTypes.AnywhereControlAttribute)
+                    return InterfacePurpose.AnywhereControl;
                 else continue;
             }
 
@@ -107,13 +107,13 @@ namespace AnywhereControls.SourceGenerator
                 if (LayoutManagerType == null)
                     throw UserVisibleErrors.NoLayoutManagerClassFound(layoutManagerFullName, Name);
             }
-            else if (Purpose == InterfacePurpose.StandardControl)
+            else if (Purpose == InterfacePurpose.AnywhereControl)
             {
                 string standardControlImplementationFullName = $"{NamespaceName}.{Name.Substring(1)}";
-                StandardControlImpelementationType = Context.Compilation.GetTypeByMetadataName(standardControlImplementationFullName);
+                AnywhereControlImpelementationType = Context.Compilation.GetTypeByMetadataName(standardControlImplementationFullName);
 
-                if (StandardControlImpelementationType == null)
-                    throw UserVisibleErrors.NoStandardControlImplementationClassFound(type, standardControlImplementationFullName, Name);
+                if (AnywhereControlImpelementationType == null)
+                    throw UserVisibleErrors.NoAnywhereControlImplementationClassFound(type, standardControlImplementationFullName, Name);
             }
 
             // Get content property name or null
@@ -131,7 +131,7 @@ namespace AnywhereControls.SourceGenerator
                 return;
 
             // Code is only generated for the interface types below
-            if (Purpose != InterfacePurpose.StandardControl &&
+            if (Purpose != InterfacePurpose.AnywhereControl &&
                 Purpose != InterfacePurpose.StandardPanel &&
                 Purpose != InterfacePurpose.StandardUIObject &&
                 Purpose != InterfacePurpose.UIObject)
@@ -168,7 +168,7 @@ namespace AnywhereControls.SourceGenerator
             foreach (INamedTypeSymbol additionalInterfaceType in Type.Interfaces)
             {
                 // TODO: Remove this once Roslyn source generator issue is tracked down so it's not needed.
-                if (Purpose == InterfacePurpose.StandardControl)
+                if (Purpose == InterfacePurpose.AnywhereControl)
                     continue;
 
                 if (first)
@@ -230,9 +230,9 @@ namespace AnywhereControls.SourceGenerator
 
 #pragma warning disable CS8604 // Possible null reference argument.
 
-            if (Purpose == InterfacePurpose.StandardControl)
+            if (Purpose == InterfacePurpose.AnywhereControl)
             {
-                string implementationFullTypeName = Utils.GetTypeFullName(StandardControlImpelementationType);
+                string implementationFullTypeName = Utils.GetTypeFullName(AnywhereControlImpelementationType);
                 mainClassSource.DefaultConstructorBody.AddLine(
                     $"InitImplementation(new {implementationFullTypeName}(this));");
             }

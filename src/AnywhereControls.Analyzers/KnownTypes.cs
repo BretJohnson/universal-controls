@@ -6,7 +6,7 @@
         public const string IUIElement = "AnywhereControls.IUIElement";
         public const string IUICollection = "AnywhereControls.IUICollection";
         public const string IPanel = "AnywhereControls.Controls.IPanel";
-        public const string IStandardControl = "AnywhereControls.Controls.IStandardControl";
+        public const string IAnywhereControl = "AnywhereControls.Controls.IAnywhereControl";
         public const string ITextBlock = "AnywhereControls.Controls.ITextBlock";
         public const string IShape = "AnywhereControls.Shapes.IShape";
 
@@ -15,11 +15,11 @@
         public const string UIModelAttribute = "AnywhereControls.UIModelObjectAttribute";
         public const string UIObjectAttribute = "AnywhereControls.UIObjectAttribute";
         public const string StandardPanelAttribute = "AnywhereControls.StandardPanelAttribute";
-        public const string StandardControlAttribute = "AnywhereControls.StandardControlAttribute";
+        public const string AnywhereControlAttribute = "AnywhereControls.AnywhereControlAttribute";
         public const string StandardUIElementAttribute = "AnywhereControls.StandardUIElementAttribute";
         public const string StandardUISingletonAttribute = "AnywhereControls.StandardUISingletonAttribute";
 
-        public const string ImportStandardControlAttribute = "AnywhereControls.ImportStandardControlAttribute";
+        public const string ImportAnywhereControlAttribute = "AnywhereControls.ImportAnywhereControlAttribute";
         public const string ImportControlLibraryAttribute = "AnywhereControls.ImportControlLibraryAttribute";
 
         public const string WpfStandardUIElementAttribute = "AnywhereControls.Wpf.WpfStandardUIElementAttribute";
