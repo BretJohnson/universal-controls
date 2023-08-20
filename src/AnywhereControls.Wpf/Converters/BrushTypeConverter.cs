@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Globalization;
 using AnywhereControls.Wpf.Media;
-using AnywhereControls.Converters;
+using CommonUI.Converters;
 
 namespace AnywhereControls.Wpf.Converters
 {

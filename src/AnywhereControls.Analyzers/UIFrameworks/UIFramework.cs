@@ -265,26 +265,6 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             throw UserVisibleErrors.PropertyHasNoDefaultValue(property.Symbol, property.FullPropertyName);
         }
 
-        protected virtual string? PropertyTypeDefaultValue(INamedTypeSymbol propertyType)
-        {
-            string typeFullName = Utils.GetTypeFullName(propertyType);
-
-            if (propertyType is INamedTypeSymbol namedTypeSymbol &&
-                namedTypeSymbol.Name is string typeName &&
-                (typeName == "CommonUI.Color" ||
-                typeName == "CommonUI.Point" ||
-                typeName == "AnywhereControls.Points" ||
-                typeName == "AnywhereControls.Size" ||
-                typeName == "AnywhereControls.Thickness" ||
-                typeName == "AnywhereControls.CornerRadius" ||
-                typeName == "AnywhereControls.FontWeight"))
-            {
-                return $"{GetTypeNameWrapIfNeeded(propertyType)}.Default";
-            }
-
-            return null;
-        }
-
         /// <summary>
         /// Given an enum type and value for an enum member, get the name for that member or
         /// null if there's no match for the value;

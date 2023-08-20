@@ -7,7 +7,7 @@ using AnywhereControls.SourceGenerator.UIFrameworks;
 namespace AnywhereControls.SourceGenerator
 {
     /// <summary>
-    /// Generates framework-specific implementations of StandardUI control interfaces. The
+    /// Generates framework-specific implementations of Anywhere Controls control interfaces. The
     /// consuming app specifies the control interfaces that it consumes via StandardUIControl
     /// assembly attributes.
     /// </summary>

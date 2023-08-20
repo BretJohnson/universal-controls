@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using CommonUI;
-using AnywhereControls.Wpf.Converters;
+using CommonUI.Converters;
 
 namespace AnywhereControls.Wpf
 {

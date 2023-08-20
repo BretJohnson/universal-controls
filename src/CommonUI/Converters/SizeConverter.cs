@@ -1,8 +1,7 @@
 using System;
 using System.Globalization;
-using CommonUI;
 
-namespace AnywhereControls.Converters
+namespace CommonUI.Converters
 {
     public static class SizeConverter
     {

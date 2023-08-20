@@ -1,11 +1,14 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Globalization;
+using CommonUI.Converters;
 
 namespace CommonUI
 {
     /// <summary>
     /// Represents number values that specify a height and width.
     /// </summary>
+    [TypeConverter(typeof(SizeTypeConverter))]
     public struct Size
     {
         private double _width;

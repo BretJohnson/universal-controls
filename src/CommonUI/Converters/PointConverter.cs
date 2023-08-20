@@ -1,9 +1,8 @@
 using System;
 using System.Globalization;
 using System.Text;
-using CommonUI;
 
-namespace AnywhereControls.Converters
+namespace CommonUI.Converters
 {
     public static class PointConverter
     {
