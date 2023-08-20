@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Microsoft.StandardUI.CommandLineSourceGenerator": {
+    "AnywhereControls.CommandLineSourceGenerator": {
       "commandName": "Project",
       "commandLineArgs": " \" $(SolutionDir) \""
     }

@@ -15,7 +15,7 @@ namespace AnywhereControls.CommandLineSourceGenerator
         {
             if (args.Length != 1)
             {
-                Console.WriteLine($"Usage: StandardUI.CodelGenerator.exe <path-to-repo-root>");
+                Console.WriteLine($"Usage: AnywhereControls.CodelGenerator.exe <path-to-repo-root>");
                 Environment.Exit(1);
             }
 
@@ -27,7 +27,7 @@ namespace AnywhereControls.CommandLineSourceGenerator
             // Print message for WorkspaceFailed event to help diagnosing project load failures.
             workspace.WorkspaceFailed += (o, e) => Console.WriteLine(e.Diagnostic.Message);
 
-            string standardUIProjectPath = Path.Combine(rootDirectory, "src", "Microsoft.StandardUI", "Microsoft.StandardUI.csproj");
+            string standardUIProjectPath = Path.Combine(rootDirectory, "src", "AnywhereControls", "AnywhereControls.csproj");
             Console.WriteLine($"Loading project '{standardUIProjectPath}'");
 
             // Attach progress reporter so we print projects as they are loaded.
