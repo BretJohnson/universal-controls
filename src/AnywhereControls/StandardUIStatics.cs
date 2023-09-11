@@ -1,7 +1,6 @@
 using AnywhereControls.Controls;
 using AnywhereControls.Media;
 using AnywhereControls.Shapes;
-using CommonUI;
 using ICanvas = AnywhereControls.Controls.ICanvas;
 
 namespace AnywhereControls

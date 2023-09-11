@@ -1,5 +1,5 @@
 ﻿using System;
-using CommonUI;
+using FrameworkElement = System.Windows.FrameworkElement;
 
 namespace AnywhereControls.Wpf
 {
@@ -9,18 +9,18 @@ namespace AnywhereControls.Wpf
     /// </summary>
     public class WrappedNativeUIElement : IUIElement
     {
-        private readonly System.Windows.FrameworkElement _frameworkElement;
+        private readonly FrameworkElement _frameworkElement;
 
-        public WrappedNativeUIElement(System.Windows.FrameworkElement frameworkElement)
+        public WrappedNativeUIElement(FrameworkElement frameworkElement)
         {
             _frameworkElement = frameworkElement;
         }
 
-        public System.Windows.FrameworkElement FrameworkElement => _frameworkElement;
+        public FrameworkElement FrameworkElement => _frameworkElement;
 
-        void IUIElement.Measure(double widthConstraint, double heightConstraint)
+        void IUIElement.Measure(Size availableSize)
         {
-            _frameworkElement.Measure(new System.Windows.Size(widthConstraint, heightConstraint));
+            _frameworkElement.Measure(availableSize.ToWpfSize());
         }
 
         void IUIElement.Arrange(Rect finalRect)
@@ -28,7 +28,7 @@ namespace AnywhereControls.Wpf
             _frameworkElement.Arrange(finalRect.ToWpfRect());
         }
 
-        Size IUIElement.DesiredSize => _frameworkElement.DesiredSize.ToStandardUISize();
+        Size IUIElement.DesiredSize => _frameworkElement.DesiredSize.ToAnywhereControlsSize();
 
         double IUIElement.ActualX => throw new NotImplementedException();
 

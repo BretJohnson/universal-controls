@@ -1,7 +1,4 @@
 using System.Windows;
-using Microcharts;
-using AnywhereControls;
-using SimpleControls;
 
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located

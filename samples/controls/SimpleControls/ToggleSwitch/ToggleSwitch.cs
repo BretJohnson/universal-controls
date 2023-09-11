@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using CommonUI;
 using AnywhereControls;
 using AnywhereControls.Controls;
 using AnywhereControls.Media;
@@ -24,29 +23,35 @@ namespace AlohaKit.StandardControls
         public bool HasShadow { get; set; }
     }
 
-    public class ToggleSwitch : AnywhereControl<IToggleSwitch>
+    public abstract class ToggleSwitch : AnywhereControl, IToggleSwitch
     {
-        public ToggleSwitch(IToggleSwitch control) : base(control)
+        public ToggleSwitch()
         {
-            Control.Width = 40;
-            Control.Height = 30;
+            UIElement.Width = 40;
+            UIElement.Height = 30;
         }
 
-        public override IUIElement? Build() =>
-            Canvas()._(
+        public abstract Color BackgroundColor { get; set; }
+        public abstract Color ThumbColor { get; set; }
+        public abstract bool IsOn { get; set; }
+        public abstract bool HasShadow { get; set; }
+
+        protected override IUIElement? Build() =>
+            Canvas()._
+            (
                 Rectangle()
-                    .Width(Control.Width)
-                    .Height(Control.Height)
+                    .Width(UIElement.Width)
+                    .Height(UIElement.Height)
                     .RadiusX(16)
                     .RadiusY(16)
-                    .Fill(SolidColorBrush(Control.BackgroundColor)),
+                    .Fill(SolidColorBrush(BackgroundColor)),
 
                 Ellipse()
-                    .CanvasLeft(Control.IsOn ? 35 : 15)
+                    .CanvasLeft(IsOn ? 35 : 15)
                     .CanvasTop(3)
                     .Width(24)
                     .Height(24)
-                    .Fill(SolidColorBrush(Control.ThumbColor))
+                    .Fill(SolidColorBrush(ThumbColor))
             );
     }
 }

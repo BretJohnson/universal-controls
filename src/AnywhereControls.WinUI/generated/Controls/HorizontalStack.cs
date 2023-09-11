@@ -7,9 +7,9 @@ namespace AnywhereControls.WinUI.Controls
     public class HorizontalStack : StackBase, IHorizontalStack
     {
         protected override global::Windows.Foundation.Size MeasureOverride(global::Windows.Foundation.Size constraint) =>
-            HorizontalStackLayoutManager.Instance.MeasureOverride(this, constraint.ToStandardUISize()).ToWindowsFoundationSize();
+            HorizontalStackLayoutManager.Instance.MeasureOverride(this, constraint.ToAnywhereControlsSize()).ToWindowsFoundationSize();
         
         protected override global::Windows.Foundation.Size ArrangeOverride(global::Windows.Foundation.Size arrangeSize) =>
-            HorizontalStackLayoutManager.Instance.ArrangeOverride(this, arrangeSize.ToStandardUISize()).ToWindowsFoundationSize();
+            HorizontalStackLayoutManager.Instance.ArrangeOverride(this, arrangeSize.ToAnywhereControlsSize()).ToWindowsFoundationSize();
     }
 }

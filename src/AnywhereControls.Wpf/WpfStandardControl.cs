@@ -1,17 +1,13 @@
-﻿using System;
-using CommonUI;
-using AnywhereControls.Controls;
-using AnywhereControls.Wpf.NativeVisualFramework;
-
-namespace AnywhereControls.Wpf
+﻿namespace AnywhereControls.Wpf
 {
-    public partial class WpfStandardControl : System.Windows.Controls.Control, IAnywhereControl, IAnywhereControlEnvironmentPeer, ILogicalParent
+#if false
+    public partial class WpfAnywhereControl : System.Windows.Controls.Control, IAnywhereControl, IAnywhereControlEnvironmentPeer, ILogicalParent
     {
-        private AnywhereControl? _standardControl;
+        private AnywhereControl? _anywhereControl;
         private IUIElement? _buildContent;
         private bool _invalid = true;
 
-        public WpfStandardControl()
+        public WpfAnywhereControl()
         {
             if (!HostEnvironment.IsInitialized)
             {
@@ -19,9 +15,9 @@ namespace AnywhereControls.Wpf
             }
         }
 
-        protected void InitImplementation(AnywhereControl standardControl)
+        protected void InitImplementation(AnywhereControl anywhereControl)
         {
-            _standardControl = standardControl;
+            _anywhereControl = anywhereControl;
         }
 
         protected override System.Windows.Size MeasureOverride(System.Windows.Size constraint)
@@ -32,13 +28,13 @@ namespace AnywhereControls.Wpf
                 _invalid = false;
             }
 
-            _standardControl!.Measure(new Size(constraint.Width, constraint.Height));
-            return _standardControl.DesiredSize.ToWpfSize();
+            _anywhereControl!.Measure(new Size(constraint.Width, constraint.Height));
+            return _anywhereControl.DesiredSize.ToWpfSize();
         }
 
         protected override System.Windows.Size ArrangeOverride(System.Windows.Size arrangeSize)
         {
-            _standardControl!.Arrange(new Rect(0, 0, arrangeSize.Width, arrangeSize.Height));
+            _anywhereControl!.Arrange(new Rect(0, 0, arrangeSize.Width, arrangeSize.Height));
             return arrangeSize;
         }
 
@@ -72,7 +68,7 @@ namespace AnywhereControls.Wpf
                 _buildContent = null;
             }
 
-            _buildContent = _standardControl!.Build();
+            _buildContent = _anywhereControl!.Build();
 
             if (_buildContent != null)
             {
@@ -82,4 +78,5 @@ namespace AnywhereControls.Wpf
             }
         }
     }
+#endif
 }

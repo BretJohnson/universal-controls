@@ -1,8 +1,8 @@
 // This file is generated from IGrid.cs. Update the source file to change its contents.
 
 using AnywhereControls.DefaultImplementations;
-using CommonUI;
 using AnywhereControls.Controls;
+using CommonUI;
 
 namespace AnywhereControls.WinForms.Controls
 {

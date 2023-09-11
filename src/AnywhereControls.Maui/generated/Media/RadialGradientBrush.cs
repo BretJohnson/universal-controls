@@ -1,6 +1,5 @@
 // This file is generated from IRadialGradientBrush.cs. Update the source file to change its contents.
 
-using CommonUI;
 using AnywhereControls.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 

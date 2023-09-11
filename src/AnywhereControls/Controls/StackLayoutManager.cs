@@ -1,6 +1,4 @@
-﻿using CommonUI;
-
-namespace AnywhereControls.Controls
+﻿namespace AnywhereControls.Controls
 {
     public class StackLayoutManager : StackBaseLayoutManager<IStack>
     {

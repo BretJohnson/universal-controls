@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-using CommonUI;
-using AnywhereControls;
+﻿using AnywhereControls;
 using AnywhereControls.Controls;
 using AnywhereControls.Media;
 using AnywhereControls.Shapes;
@@ -11,19 +9,16 @@ namespace SimpleControls
     [AnywhereControl]
     public interface IRadialGauge : IAnywhereControl
     {
-        [DefaultValue(null)]
-        IBrush? Fill { get; set; }
+        //[DefaultValue(null)]
+        //IBrush? Fill { get; set; }
     }
 
-    public class RadialGauge : AnywhereControl<IRadialGauge>
+    public abstract class RadialGauge : AnywhereControl, IRadialGauge
     {
-        public RadialGauge(IRadialGauge control) : base(control)
-        { }
-
-        public override IUIElement? Build()
+        protected override IUIElement? Build()
         {
             var blueBrush = SolidColorBrush().Color(Colors.Blue);
-            return Rectangle().Width(50).Height(50).Stroke(blueBrush).Fill(Control.Fill);
+            return Rectangle().Width(50).Height(50).Stroke(blueBrush).Fill(Colors.Red);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace AnywhereControls.SourceGenerator
         public string Name { get; }
         public string VariableName { get; }
         public INamedTypeSymbol? LayoutManagerType { get; }
-        public INamedTypeSymbol? AnywhereControlImpelementationType { get; }
+        public INamedTypeSymbol? AnywhereControlSharedClass { get; }
         public string? ContentPropertyName { get; }
 
         public bool IsThisType(string typeName) => Utils.IsThisType(Type, typeName);
@@ -46,6 +46,10 @@ namespace AnywhereControls.SourceGenerator
 
         public static InterfacePurpose IdentifyPurpose(INamedTypeSymbol type)
         {
+            // Hardcode the purpose for CommonUI.IUIElement
+            if (Utils.IsThisType(type, KnownTypes.IUIElement))
+                return InterfacePurpose.StandardUIElement;
+
             // Skip ...Attached interfaces, processing them when their paired main interface is processed instead
             if (type.Name.EndsWith("Attached"))
                 return InterfacePurpose.Unspecified;
@@ -109,11 +113,11 @@ namespace AnywhereControls.SourceGenerator
             }
             else if (Purpose == InterfacePurpose.AnywhereControl)
             {
-                string standardControlImplementationFullName = $"{NamespaceName}.{Name.Substring(1)}";
-                AnywhereControlImpelementationType = Context.Compilation.GetTypeByMetadataName(standardControlImplementationFullName);
+                string anywhereControlSharedTypeFullName = $"{NamespaceName}.{Name.Substring(1)}";
+                AnywhereControlSharedClass = Context.Compilation.GetTypeByMetadataName(anywhereControlSharedTypeFullName);
 
-                if (AnywhereControlImpelementationType == null)
-                    throw UserVisibleErrors.NoAnywhereControlImplementationClassFound(type, standardControlImplementationFullName, Name);
+                if (AnywhereControlSharedClass == null)
+                    throw UserVisibleErrors.NoAnywhereControlImplementationClassFound(type, anywhereControlSharedTypeFullName, Name);
             }
 
             // Get content property name or null
@@ -122,12 +126,8 @@ namespace AnywhereControls.SourceGenerator
 
         public void Generate(UIFramework uiFramework, ISet<string>? noAutoGenerationProperties = null)
         {
-            if (IsThisType(KnownTypes.IUIElement))
-            {
-                uiFramework.GenerateBuiltInIUIElementPartialClasses();
-                return;
-            }
-            else if (IsThisType(KnownTypes.IUIObject))
+            // These two types have hand-written implementations, so we don't generate anything for them
+            if (IsThisType(KnownTypes.IUIElement) || IsThisType(KnownTypes.IUIObject))
                 return;
 
             // Code is only generated for the interface types below
@@ -146,11 +146,19 @@ namespace AnywhereControls.SourceGenerator
                 namespaceName: frameworkNamespaceName,
                 className: FrameworkClassName);
 
-            string? destinationBaseClass = GetOutputBaseClass(uiFramework, mainClassSource.Usings);
-            if (destinationBaseClass == null)
-                mainClassSource.DerivedFrom = Name;
+            if (Purpose == InterfacePurpose.AnywhereControl)
+            {
+                string baseClass = Utils.GetTypeFullName(AnywhereControlSharedClass!);
+                mainClassSource.DerivedFrom = $"{baseClass}, {Name}";
+            }
             else
-                mainClassSource.DerivedFrom = $"{destinationBaseClass}, {Name}";
+            {
+                string? destinationBaseClass = GetOutputBaseClass(uiFramework, mainClassSource.Usings);
+                if (destinationBaseClass == null)
+                    mainClassSource.DerivedFrom = Name;
+                else
+                    mainClassSource.DerivedFrom = $"{destinationBaseClass}, {Name}";
+            }
 
             if (IsDrawableObject)
                 mainClassSource.DerivedFrom += ", IDrawable";
@@ -232,9 +240,11 @@ namespace AnywhereControls.SourceGenerator
 
             if (Purpose == InterfacePurpose.AnywhereControl)
             {
-                string implementationFullTypeName = Utils.GetTypeFullName(AnywhereControlImpelementationType);
+                /*
+                string implementationFullTypeName = Utils.GetTypeFullName(AnywhereControlSharedType);
                 mainClassSource.DefaultConstructorBody.AddLine(
                     $"InitImplementation(new {implementationFullTypeName}(this));");
+                */
             }
 
 #pragma warning restore CS8604

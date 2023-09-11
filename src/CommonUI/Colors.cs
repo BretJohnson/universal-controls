@@ -1,4 +1,4 @@
-﻿namespace CommonUI
+﻿namespace AnywhereControls
 {
     public class Colors
     {

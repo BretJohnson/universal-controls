@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using CommonUI;
-using AnywhereControls.Controls;
-using AnywhereControls.Media;
-using AnywhereControls.Shapes;
+using Microsoft.Maui.Graphics;
+using Microsoft.StandardUI.Controls;
+using Microsoft.StandardUI.Media;
+using Microsoft.StandardUI.Shapes;
 using SkiaSharp;
 
 namespace AnywhereControls.SkiaVisualFramework

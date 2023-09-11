@@ -6,6 +6,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.MSBuild;
 using AnywhereControls.SourceGenerator;
 using AnywhereControls.SourceGenerator.UIFrameworks;
+using System.Linq;
 
 namespace AnywhereControls.CommandLineSourceGenerator
 {
@@ -13,30 +14,36 @@ namespace AnywhereControls.CommandLineSourceGenerator
     {
         public static async Task Main(string[] args)
         {
-            if (args.Length != 1)
-            {
-                Console.WriteLine($"Usage: AnywhereControls.CodelGenerator.exe <path-to-repo-root>");
-                Environment.Exit(1);
-            }
-
-            string rootDirectory = NormalizePath(args[0]);
-
-            MSBuildLocator.RegisterDefaults();
-
-            using MSBuildWorkspace workspace = MSBuildWorkspace.Create();
-            // Print message for WorkspaceFailed event to help diagnosing project load failures.
-            workspace.WorkspaceFailed += (o, e) => Console.WriteLine(e.Diagnostic.Message);
-
-            string standardUIProjectPath = Path.Combine(rootDirectory, "src", "AnywhereControls", "AnywhereControls.csproj");
-            Console.WriteLine($"Loading project '{standardUIProjectPath}'");
-
-            // Attach progress reporter so we print projects as they are loaded.
-            Project project = await workspace.OpenProjectAsync(standardUIProjectPath, new ConsoleProgressReporter());
-            Console.WriteLine($"Finished loading project '{standardUIProjectPath}'");
-
             try
             {
-                GenerateClasses(rootDirectory, project);
+                if (args.Length != 1)
+                {
+                    throw new UserViewableException($"Usage: AnywhereControls.CommandLineSourceGenerator.exe <path-to-repo-root>");
+                }
+
+                string rootDirectory = NormalizePath(args[0]);
+
+                MSBuildLocator.RegisterDefaults();
+
+                using MSBuildWorkspace workspace = MSBuildWorkspace.Create();
+                workspace.WorkspaceFailed += (o, e) => Console.WriteLine(e.Diagnostic.Message);
+
+                string anywhereControlsProjectPath = Path.Combine(rootDirectory, "src", "AnywhereControls", "AnywhereControls.csproj");
+                Console.WriteLine($"Loading project '{anywhereControlsProjectPath}'");
+                Project anywhereControlsProject = await workspace.OpenProjectAsync(anywhereControlsProjectPath, new ConsoleProgressReporter());
+
+                await GenerateClassesForProject(anywhereControlsProject, rootDirectory);
+
+                Project? anywhereControlsCommonTypesProject = anywhereControlsProject.ProjectReferences
+                    .Select(projectRef => workspace.CurrentSolution.GetProject(projectRef.ProjectId))
+                    .First(referencedProj => referencedProj?.Name == "AnywhereControls.CommonTypes");
+
+                if (anywhereControlsCommonTypesProject == null)
+                {
+                    throw new UserViewableException("Couldn't find referenced CommonUI project");
+                }
+
+                await GenerateClassesForProject(anywhereControlsCommonTypesProject, rootDirectory);
             }
             catch (UserViewableException e)
             {
@@ -50,9 +57,9 @@ namespace AnywhereControls.CommandLineSourceGenerator
             }
         }
 
-        private static void GenerateClasses(string rootDirectory, Project project)
+        private static async Task GenerateClassesForProject(Project project, string rootDirectory)
         {
-            Compilation? compilation = project.GetCompilationAsync().Result;
+            Compilation? compilation = await project.GetCompilationAsync();
             if (compilation == null)
                 return;
 

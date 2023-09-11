@@ -21,6 +21,6 @@ namespace AnywhereControls.Wpf.Controls
             CanvasLayoutManager.Instance.MeasureOverride(this, constraint.Width, constraint.Height).ToWpfSize();
         
         protected override System.Windows.Size ArrangeOverride(System.Windows.Size arrangeSize) =>
-            CanvasLayoutManager.Instance.ArrangeOverride(this, arrangeSize.ToStandardUISize()).ToWpfSize();
+            CanvasLayoutManager.Instance.ArrangeOverride(this, arrangeSize.ToAnywhereControlsSize()).ToWpfSize();
     }
 }

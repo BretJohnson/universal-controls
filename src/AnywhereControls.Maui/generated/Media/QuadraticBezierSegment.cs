@@ -1,6 +1,5 @@
 // This file is generated from IQuadraticBezierSegment.cs. Update the source file to change its contents.
 
-using CommonUI;
 using AnywhereControls.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 

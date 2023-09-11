@@ -32,7 +32,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             using (methods.Indent())
             {
                 methods.AddLine(
-                    $"{layoutManagerTypeName}.Instance.ArrangeOverride(this, arrangeSize.ToStandardUISize()).ToWpfSize();");
+                    $"{layoutManagerTypeName}.Instance.ArrangeOverride(this, arrangeSize.ToAnywhereControlsSize()).ToWpfSize();");
             }
         }
 
@@ -63,30 +63,11 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             }
         }
 
-        public override void GenerateBuiltInIUIElementPartialClasses()
-        {
-            GenerateBuiltInIUIElementPartialClass("BuiltInUIElement");
-            GenerateBuiltInIUIElementPartialClass("WpfStandardControl");
-        }
-
-        private void GenerateBuiltInIUIElementPartialClass(string className)
-        {
-            var classSource = new ClassSource(Context,
-                namespaceName: RootNamespace,
-                isPartial: true,
-                className: className,
-                fileNameOverride: className + ".UIElement");
-
-            GenerateIUIElementMethods(classSource);
-            classSource.AddToOutput(this);
-        }
-
         public override void GenerateIUIElementMethods(ClassSource classSource)
         {
             Source methods = classSource.NonstaticMethods;
 
             classSource.Usings.AddTypeAlias("Visibility = System.Windows.Visibility");
-            classSource.Usings.AddNamespace("CommonUI");
 
             // TODO: Error if appropriate when set to Visibility.Hidden
 
@@ -94,7 +75,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                 "void IUIElement.Measure(double widthConstraint, double heightConstraint) =>",
                 "    Measure(new System.Windows.Size(widthConstraint, heightConstraint));",
                 "void IUIElement.Arrange(Rect finalRect) => Arrange(finalRect.ToWpfRect());",
-                "Size IUIElement.DesiredSize => DesiredSize.ToStandardUISize();",
+                "Size IUIElement.DesiredSize => DesiredSize.ToAnywhereControlsSize();",
                 "",
                 "double IUIElement.ActualX => throw new System.NotImplementedException();",
                 "double IUIElement.ActualY => throw new System.NotImplementedException();",

@@ -1,7 +1,6 @@
 // This file is generated from IRadialGradientBrush.cs. Update the source file to change its contents.
 
 using AnywhereControls.DefaultImplementations;
-using CommonUI;
 using AnywhereControls.Media;
 
 namespace AnywhereControls.Mac.Media

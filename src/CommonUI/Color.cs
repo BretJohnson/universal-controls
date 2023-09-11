@@ -1,8 +1,8 @@
 ﻿using System;
-using CommonUI.Converters;
+using AnywhereControls.Converters;
 using System.ComponentModel;
 
-namespace CommonUI;
+namespace AnywhereControls;
 
 /// <summary>
 /// Describes a color in terms of alpha, red, green, and blue channels.

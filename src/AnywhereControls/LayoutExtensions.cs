@@ -1,5 +1,4 @@
 ﻿using System;
-using CommonUI;
 using static AnywhereControls.Dimension;
 
 namespace AnywhereControls
@@ -106,17 +105,20 @@ namespace AnywhereControls
 
         public static Size AdjustForFill(this Size size, Rect bounds, IUIElement view)
         {
+            double newWidth = size.Width;
+            double newHeight = size.Height;
+
             if (view.HorizontalAlignment == HorizontalAlignment.Stretch)
             {
-                size.Width = Math.Max(bounds.Width, size.Width);
+                newWidth = Math.Max(bounds.Width, newWidth);
             }
 
             if (view.VerticalAlignment == VerticalAlignment.Stretch)
             {
-                size.Height = Math.Max(bounds.Height, size.Height);
+                newHeight = Math.Max(bounds.Height, newHeight);
             }
 
-            return size;
+            return new Size(newWidth, newHeight);
         }
     }
 }

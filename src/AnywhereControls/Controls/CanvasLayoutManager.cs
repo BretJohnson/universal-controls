@@ -1,6 +1,4 @@
-﻿using CommonUI;
-
-namespace AnywhereControls.Controls
+﻿namespace AnywhereControls.Controls
 {
     public class CanvasLayoutManager : LayoutManager<ICanvas>
     {
@@ -12,7 +10,7 @@ namespace AnywhereControls.Controls
             {
                 if (child == null)
                     continue;
-                child.Measure(double.PositiveInfinity, double.PositiveInfinity);
+                child.Measure(Size.Infinity);
             }
 
             return new Size();

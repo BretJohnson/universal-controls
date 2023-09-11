@@ -83,7 +83,7 @@ namespace AnywhereControls.SourceGenerator
                     derivedFrom = derivedFrom.Substring(1);
                     derivedFrom = derivedFrom.TrimStart(' ', '\t');
                 }
-                
+
                 ISet<string> noAutoGenerationProperties = GetNoAutoGenerationProperties(semanticModel, classDeclarationSyntax);
 
                 var intface = new Interface(context, interfaceType);

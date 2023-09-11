@@ -1,17 +1,20 @@
-﻿namespace CommonUI
+﻿namespace AnywhereControls
 {
-    public struct Point
+    public readonly struct Point
     {
         public static readonly Point Default = new Point(0, 0);
         public static readonly Point CenterDefault = new Point(0.5, 0.5);
 
-        public double X { get; set; }
-        public double Y { get; set; }
+        private readonly double _x;
+        private readonly double _y;
+
+        public double X => _x;
+        public double Y => _y;
 
         public Point(double x, double y)
         {
-            X = x;
-            Y = y;
+            _x = x;
+            _y = y;
         }
 
         public Point WithX(double x) => new Point(x, Y);
