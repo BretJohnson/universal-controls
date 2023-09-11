@@ -1,6 +1,5 @@
 // This file is generated from ILinearGradientBrush.cs. Update the source file to change its contents.
 
-using CommonUI;
 using AnywhereControls.Media;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 

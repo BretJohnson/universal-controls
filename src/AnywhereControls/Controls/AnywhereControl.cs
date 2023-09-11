@@ -1,22 +1,14 @@
 using System;
-using CommonUI;
 
 namespace AnywhereControls.Controls
 {
-    public abstract class AnywhereControl
+    public abstract class AnywhereControl : HostFrameworkAnywhereControl, IUIElement
     {
-        IAnywhereControlEnvironmentPeer _environmentPeer;
+        private Size _desiredSize;
 
-        public AnywhereControl(IAnywhereControlEnvironmentPeer environmentPeer)
+        public AnywhereControl()
         {
-            _environmentPeer = environmentPeer;
         }
-
-        /// <summary>
-        /// Create the contents of the control.
-        /// </summary>
-        /// <returns>control contents, or null if all content is drawn via Render</returns>
-        public virtual IUIElement? Build() => null;
 
         /// <summary>
         /// This method can be overridden to add further graphical elements (not previously defined in a logical tree) to a control.
@@ -33,11 +25,13 @@ namespace AnywhereControls.Controls
         /// <param name="drawingContext">drawing context that should draw to</param>
         public virtual void Render(IDrawingContext drawingContext) { }
 
-        public Size DesiredSize { get; private set; }
+        public IUIElement UIElement => (IUIElement)this;
 
-        public void Measure(Size availableSize)
+        Size IUIElement.DesiredSize => _desiredSize;
+
+        void IUIElement.Measure(Size availableSize)
         {
-            Size desiredSize = MeasureOverride(availableSize.Width, availableSize.Height);
+            Size desiredSize = MeasureOverride(availableSize);
 
             //enforce that MeasureCore can not return PositiveInfinity size even if given Infinte availabel size.
             //Note: NegativeInfinity can not be returned by definition of Size structure.
@@ -48,22 +42,22 @@ namespace AnywhereControls.Controls
             if (double.IsNaN(desiredSize.Width) || double.IsNaN(desiredSize.Height))
                 throw new InvalidOperationException($"Layout measurement override of element '{GetType().FullName}' should not return NaN values as its DesiredSize.");
 
-            DesiredSize = desiredSize;
+            _desiredSize = desiredSize;
         }
 
-        public void Arrange(Rect finalRect)
+        void IUIElement.Arrange(Rect finalRect)
         {
             ArrangeOverride(new Size(finalRect.Width, finalRect.Height));
         }
 
-        protected virtual Size MeasureOverride(double widthConstraint, double heightConstraint)
+        protected virtual Size MeasureOverride(Size availableSize)
         {
-            IUIElement? buildContent = _environmentPeer.BuildContent;
+            IUIElement? buildContent = BuildContent;
 
             // By default, return the size of the content
             if (buildContent != null)
             {
-                buildContent.Measure(widthConstraint, heightConstraint);
+                buildContent.Measure(availableSize);
                 return buildContent.DesiredSize;
             }
 
@@ -72,7 +66,7 @@ namespace AnywhereControls.Controls
 
         protected virtual Size ArrangeOverride(Size finalSize)
         {
-            IUIElement? buildContent = _environmentPeer.BuildContent;
+            IUIElement? buildContent = BuildContent;
 
             // By default, give all the space to the content
             if (buildContent != null)
@@ -85,13 +79,10 @@ namespace AnywhereControls.Controls
         }
     }
 
-    public abstract class AnywhereControl<T> : AnywhereControl where T : IAnywhereControl
+    /*
+    public abstract class AnywhereControl<T> : AnywhereControl where T : class
     {
-        public T Control { get; }
-
-        public AnywhereControl(T control) : base((IAnywhereControlEnvironmentPeer)control)
-        {
-            Control = control;
-        }
+        public virtual T Properties => throw new NotImplementedException();
     }
+    */
 }

@@ -49,13 +49,10 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
         {
             string namespaceName = Utils.GetNamespaceFullName(namespc);
 
-            if (namespaceName == "CommonUI")
-                return namespaceName;
-
             // TODO: Check if should update the code to match what the comment actually says here (and not add suffix)
             // For controls outside the StandardUI namespace - user provided, not built in -
             // just keep with a the original namespace, not using a child namespace per platform
-            if (!namespaceName.StartsWith(Utils.StandardUIRootNamespace))
+            if (!namespaceName.StartsWith(Utils.AnywhereControlsRootNamespace))
                 return $"{namespaceName}.{NamespaceSuffix}";
 
             // Map e.g. AnywhereControls.Media source namespace => AnywhereControls.Wpf.Media destination namespace
@@ -166,7 +163,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                 {
                     if (value is string stringArgumentValue)
                     {
-                        if (typeFullName == "CommonUI.Point" && stringArgumentValue == "0.5,0.5")
+                        if (typeFullName == "AnywhereControls.Point" && stringArgumentValue == "0.5,0.5")
                             return $"{OutputTypeName(propertyType)}.CenterDefault";
                         else if (stringArgumentValue == "")
                             return "\"\"";
@@ -229,9 +226,9 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             if (Utils.IsUICollectionType(Context, propertyType))
                 return "null";
 
-            if (typeFullName == "CommonUI.Point")
+            if (typeFullName == "AnywhereControls.Point")
                 return "default(Point)";
-            else if (typeFullName == "CommonUI.Size")
+            else if (typeFullName == "AnywhereControls.Size")
                 return "default(Size)";
             else if (typeFullName == "AnywhereControls.Points" ||
                 typeFullName == "AnywhereControls.Thickness" ||
@@ -284,8 +281,6 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
         }
 
         protected abstract string FontFamilyDefaultValue { get; }
-
-        public virtual void GenerateBuiltInIUIElementPartialClasses() { }
 
         public virtual void GenerateStandardPanelLayoutMethods(string layoutManagerTypeName, Source methods)
         {

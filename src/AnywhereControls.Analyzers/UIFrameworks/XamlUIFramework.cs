@@ -56,6 +56,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
         {
             var usings = source.Usings;
             string propertyOutputTypeName = PropertyOutputTypeName(property);
+            InterfacePurpose purpose = property.Interface.Purpose;
 
             // Add the type - for interface type and the framework type (if different)
             usings.AddTypeNamespace(property.Type);
@@ -87,12 +88,18 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             else
                 getterValue = $"({propertyOutputTypeName}) GetValue({descriptorName})";
 
+            string modifiers = "public";
+            if (purpose == InterfacePurpose.AnywhereControl)
+            {
+                modifiers += " override";
+            }
+
             if (property.IsReadOnly)
-                source.AddLine($"public {propertyOutputTypeName} {property.Name} => {getterValue};");
+                source.AddLine($"{modifiers} {propertyOutputTypeName} {property.Name} => {getterValue};");
             else
             {
                 source.AddLines(
-                    $"public {propertyOutputTypeName} {property.Name}",
+                    $"{modifiers} {propertyOutputTypeName} {property.Name}",
                     "{");
                 using (source.Indent())
                 {
@@ -160,6 +167,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
         public override void GenerateAttachedProperty(AttachedProperty attachedProperty, ClassSource mainClassSource, ClassSource attachedClassSource)
         {
             mainClassSource.Usings.AddType(DependencyPropertyType);
+            attachedClassSource.Usings.AddTypeNamespace(attachedProperty.TargetType);
 
             string parameterAsAttachedTargetType = Utils.IsThisType(attachedProperty.TargetType, KnownTypes.IUIElement) ?
                 $"{attachedProperty.TargetParameterName}.{ToFrameworkTypeForUIElementAttachedTarget}()" :

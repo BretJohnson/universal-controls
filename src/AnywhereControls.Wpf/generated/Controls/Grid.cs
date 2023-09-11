@@ -61,6 +61,6 @@ namespace AnywhereControls.Wpf.Controls
             GridLayoutManager.Instance.MeasureOverride(this, constraint.Width, constraint.Height).ToWpfSize();
         
         protected override System.Windows.Size ArrangeOverride(System.Windows.Size arrangeSize) =>
-            GridLayoutManager.Instance.ArrangeOverride(this, arrangeSize.ToStandardUISize()).ToWpfSize();
+            GridLayoutManager.Instance.ArrangeOverride(this, arrangeSize.ToAnywhereControlsSize()).ToWpfSize();
     }
 }

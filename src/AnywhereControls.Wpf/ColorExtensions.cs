@@ -1,5 +1,3 @@
-using CommonUI;
-
 namespace AnywhereControls.Wpf
 {
     public static class ColorExtensions

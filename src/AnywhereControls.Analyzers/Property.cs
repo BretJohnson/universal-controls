@@ -13,6 +13,8 @@ namespace AnywhereControls.SourceGenerator
             SpecifiedDefaultValue = GetSpecifiedDefaultValue(propertySymbol);
         }
 
+        public override string ToString() => Name;
+
         public void GenerateExtensionClassMethods(Source source)
         {
             if (IsReadOnly && !IsUICollection)

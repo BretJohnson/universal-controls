@@ -1,7 +1,6 @@
 // This file is generated from IGradientStop.cs. Update the source file to change its contents.
 
 using AnywhereControls.DefaultImplementations;
-using CommonUI;
 using Microsoft.AspNetCore.Components;
 using AnywhereControls.Media;
 

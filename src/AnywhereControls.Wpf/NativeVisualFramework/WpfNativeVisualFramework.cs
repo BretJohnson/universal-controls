@@ -1,7 +1,6 @@
 using System;
 using System.Globalization;
 using System.Windows.Media;
-using CommonUI;
 using AnywhereControls.Controls;
 using AnywhereControls.Wpf.Text;
 

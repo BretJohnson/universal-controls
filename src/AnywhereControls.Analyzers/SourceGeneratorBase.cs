@@ -58,13 +58,13 @@ namespace AnywhereControls.SourceGenerator
             catch (UserViewableException e)
             {
                 var diagnosticDescriptor = new DiagnosticDescriptor(e.Id, "StandardUI source generation failed",
-                    e.Message, Utils.StandardUIRootNamespace, DiagnosticSeverity.Error, isEnabledByDefault: true);
+                    e.Message, Utils.AnywhereControlsRootNamespace, DiagnosticSeverity.Error, isEnabledByDefault: true);
                 sourceProductionContext.ReportDiagnostic(Diagnostic.Create(diagnosticDescriptor, e.Location));
             }
             catch (Exception e)
             {
                 var diagnosticDescriptor = new DiagnosticDescriptor(UserVisibleErrors.InternalErrorId, "StandardUI source generation failed with internal error",
-                    e.ToString(), Utils.StandardUIRootNamespace, DiagnosticSeverity.Error, isEnabledByDefault: true);
+                    e.ToString(), Utils.AnywhereControlsRootNamespace, DiagnosticSeverity.Error, isEnabledByDefault: true);
                 sourceProductionContext.ReportDiagnostic(Diagnostic.Create(diagnosticDescriptor, null));
             }
         }

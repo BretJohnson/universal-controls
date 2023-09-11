@@ -1,20 +1,21 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Globalization;
-using CommonUI.Converters;
+using AnywhereControls.Converters;
 
-namespace CommonUI
+namespace AnywhereControls
 {
     /// <summary>
     /// Represents number values that specify a height and width.
     /// </summary>
     [TypeConverter(typeof(SizeTypeConverter))]
-    public struct Size
+    public readonly struct Size
     {
-        private double _width;
-        private double _height;
+        private readonly double _width;
+        private readonly double _height;
 
         public static readonly Size Zero;
+        public static readonly Size Infinity = new Size(double.PositiveInfinity, double.PositiveInfinity);
         public static readonly Size Default = Zero;
 
         public Size(double width, double height)
@@ -27,27 +28,8 @@ namespace CommonUI
             _height = height;
         }
 
-        public double Width
-        {
-            get => _width;
-            set
-            {
-                if (double.IsNaN(value))
-                    throw new ArgumentException("NaN is not a valid value for Width");
-                _width = value;
-            }
-        }
-
-        public double Height
-        {
-            get => _height;
-            set
-            {
-                if (double.IsNaN(value))
-                    throw new ArgumentException("NaN is not a valid value for Height");
-                _height = value;
-            }
-        }
+        public double Width => _width;
+        public double Height => _height;
 
         public static bool operator ==(Size s1, Size s2)
         {

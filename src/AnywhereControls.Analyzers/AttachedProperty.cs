@@ -35,8 +35,13 @@ namespace AnywhereControls.SourceGenerator
             }
         }
 
+        public override string ToString() => Name;
+
         public void GenerateExtensionClassMethods(Source source)
         {
+            source.Usings.AddTypeNamespace(Type);
+            source.Usings.AddTypeNamespace(TargetType);
+
             // Get the type base name, without the "I" nor "Attached" suffix
             string typeBaseName = Interface.Name.Substring(1);
 

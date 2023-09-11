@@ -1,4 +1,3 @@
-using CommonUI;
 using static AnywhereControls.AnywhereControlsStatics;
 
 namespace AnywhereControls.Shapes

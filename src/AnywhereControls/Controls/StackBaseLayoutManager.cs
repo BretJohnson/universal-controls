@@ -1,5 +1,4 @@
 using System;
-using CommonUI;
 
 namespace AnywhereControls.Controls
 {
@@ -22,7 +21,7 @@ namespace AnywhereControls.Controls
                     continue;
                 }
 
-                child.Measure(double.PositiveInfinity, heightConstraint);
+                child.Measure(new Size(double.PositiveInfinity, heightConstraint));
                 var desiredSize = child.DesiredSize;
                 measuredWidth += desiredSize.Width;
                 measuredHeight = Math.Max(measuredHeight, desiredSize.Height);
@@ -55,7 +54,7 @@ namespace AnywhereControls.Controls
                     continue;
                 }
 
-                child.Measure(widthConstraint, double.PositiveInfinity);
+                child.Measure(new Size(widthConstraint, double.PositiveInfinity));
                 var desiredSize = child.DesiredSize;
                 measuredHeight += desiredSize.Height;
                 measuredWidth = Math.Max(measuredWidth, desiredSize.Width);

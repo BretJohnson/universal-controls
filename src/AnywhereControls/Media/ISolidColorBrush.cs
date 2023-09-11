@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using CommonUI;
 
 namespace AnywhereControls.Media
 {

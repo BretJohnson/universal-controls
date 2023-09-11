@@ -1,7 +1,5 @@
 // This file is generated from IQuadraticBezierSegment.cs. Update the source file to change its contents.
 
-using CommonUI;
-
 namespace AnywhereControls.Media
 {
     public static class QuadraticBezierSegmentExtensions

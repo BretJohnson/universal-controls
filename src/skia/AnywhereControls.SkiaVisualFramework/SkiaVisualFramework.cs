@@ -1,6 +1,6 @@
 using System;
-using CommonUI;
-using AnywhereControls.Controls;
+using Microsoft.Maui.Graphics;
+using Microsoft.StandardUI.Controls;
 using SkiaSharp;
 
 namespace AnywhereControls.SkiaVisualFramework

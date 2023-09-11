@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 using AnywhereControls.SourceGenerator.UIFrameworks;
 
@@ -22,18 +21,27 @@ namespace AnywhereControls.SourceGenerator
             gatherTypesVisitor.Visit(assembly.GlobalNamespace);
             //assembly.Accept(gatherTypesVisitor);
 
-            INamedTypeSymbol controlLibraryClass = gatherTypesVisitor.ControlLibraryClass;
-            if (controlLibraryClass == null)
-                throw UserVisibleErrors.MissingControlLibraryClass();
+            if (assembly.Name == "AnywhereControls.CommonTypes")
+            {
+                LibraryName = "AnywhereControlsCommonTypes";
+                LibraryNamespace = "AnywhereControls";
+            }
+            else
+            {
+                INamedTypeSymbol controlLibraryClass = gatherTypesVisitor.ControlLibraryClass;
+                if (controlLibraryClass == null)
+                    throw UserVisibleErrors.MissingControlLibraryClass();
 
-            string typeName = controlLibraryClass.Name;
+                string typeName = controlLibraryClass.Name;
 
-            string requiredSuffix = "ControlLibrary";
-            if (!typeName.EndsWith(requiredSuffix))
-                throw UserVisibleErrors.ControlLibraryNameInvalid(controlLibraryClass);
+                string requiredSuffix = "ControlLibrary";
+                if (!typeName.EndsWith(requiredSuffix))
+                    throw UserVisibleErrors.ControlLibraryNameInvalid(controlLibraryClass);
 
-            LibraryName = typeName.Substring(0, typeName.Length - requiredSuffix.Length);
-            LibraryNamespace = Utils.GetNamespaceFullName(controlLibraryClass.ContainingNamespace);
+                LibraryName = typeName.Substring(0, typeName.Length - requiredSuffix.Length);
+                LibraryNamespace = Utils.GetNamespaceFullName(controlLibraryClass.ContainingNamespace);
+            }
+
             Interfaces = gatherTypesVisitor.Interfaces;
         }
 

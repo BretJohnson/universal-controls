@@ -9,7 +9,6 @@
 //
 
 using System.Collections.Generic;
-using CommonUI;
 
 namespace AnywhereControls.Media
 {

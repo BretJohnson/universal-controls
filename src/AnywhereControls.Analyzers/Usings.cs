@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 using Microsoft.CodeAnalysis;
 
 namespace AnywhereControls.SourceGenerator
@@ -25,6 +26,15 @@ namespace AnywhereControls.SourceGenerator
                 return;
 
             AddNamespace(Utils.GetNamespaceFullName(type.ContainingNamespace));
+
+            // For generic types, add the namespaces of the type arguments
+            if (type is INamedTypeSymbol namedType && namedType.IsGenericType)
+            {
+                foreach (ITypeSymbol typeArgument in namedType.TypeArguments)
+                {
+                    AddTypeNamespace(typeArgument);
+                }
+            }
         }
 
         public void AddNamespace(string namespaceName)

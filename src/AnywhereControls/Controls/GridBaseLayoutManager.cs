@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using CommonUI;
 
 namespace AnywhereControls.Controls
 {
@@ -220,14 +219,13 @@ namespace AnywhereControls.Controls
                         continue;
                     }
 
-                    double availableWidth = AvailableWidth(cell);
-                    double availableHeight = AvailableHeight(cell);
+                    Size availableSize = new Size(AvailableWidth(cell), AvailableHeight(cell));
 
                     IUIElement child = cell.Child;
 
                     if (cell.IsColumnSpanAuto || cell.IsRowSpanAuto || cell.MeasureStarAsAuto)
                     {
-                        child.Measure(availableWidth, availableHeight);
+                        child.Measure(availableSize);
                         var measure = child.DesiredSize;
 
                         if (cell.IsColumnSpanAuto)
@@ -460,7 +458,7 @@ namespace AnywhereControls.Controls
                         width += _columns[n].Size;
                     }
 
-                    cell.Child.Measure(width, height);
+                    cell.Child.Measure(new Size(width, height));
                 }
             }
 

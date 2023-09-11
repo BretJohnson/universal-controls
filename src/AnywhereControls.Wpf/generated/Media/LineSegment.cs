@@ -1,6 +1,5 @@
 // This file is generated from ILineSegment.cs. Update the source file to change its contents.
 
-using CommonUI;
 using AnywhereControls.Media;
 using DependencyProperty = System.Windows.DependencyProperty;
 

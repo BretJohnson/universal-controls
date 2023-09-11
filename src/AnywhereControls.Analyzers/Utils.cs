@@ -9,7 +9,8 @@ namespace AnywhereControls.SourceGenerator
 {
     public static class Utils
     {
-        public const string StandardUIRootNamespace = "AnywhereControls";
+        public const string AnywhereControlsRootNamespace = "AnywhereControls";
+
         public static readonly SymbolDisplayFormat TypeFullNameSymbolDisplayFormat =
             new SymbolDisplayFormat(typeQualificationStyle: SymbolDisplayTypeQualificationStyle.NameAndContainingTypesAndNamespaces);
 
@@ -148,7 +149,7 @@ namespace AnywhereControls.SourceGenerator
         public static bool IsSubtypeOf(INamedTypeSymbol type, string potentialAncestorType)
         {
             if (type.TypeKind != TypeKind.Interface)
-                throw new InvalidOperationException("Currently IsSubtypeOf can only be called on interface types");
+                throw new InvalidOperationException($"Currently IsSubtypeOf can only be called on interface types, not type {type} of kind {type.TypeKind}");
 
             foreach (INamedTypeSymbol intface in type.Interfaces)
             {
@@ -226,7 +227,7 @@ namespace AnywhereControls.SourceGenerator
             string rootNamespace;
             if (uiFramework != null && namespaceName.StartsWith(uiFramework.RootNamespace))
                 rootNamespace = uiFramework.RootNamespace;
-            else rootNamespace = StandardUIRootNamespace;
+            else rootNamespace = AnywhereControlsRootNamespace;
 
             if (namespaceName == rootNamespace)
                 return null;

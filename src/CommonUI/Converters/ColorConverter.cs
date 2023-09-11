@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CommonUI.Converters
+namespace AnywhereControls.Converters
 {
     public static class ColorConverter
     {

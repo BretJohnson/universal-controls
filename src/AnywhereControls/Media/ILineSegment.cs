@@ -1,6 +1,4 @@
-﻿using CommonUI;
-
-namespace AnywhereControls.Media
+﻿namespace AnywhereControls.Media
 {
     [UIModelObject]
     public interface ILineSegment : IPathSegment
