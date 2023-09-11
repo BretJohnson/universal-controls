@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.ComponentModel;
-using CommonUI;
 using AnywhereControls;
 using AnywhereControls.Controls;
 
@@ -33,31 +32,32 @@ namespace Microcharts
         Color LabelColor { get; set; }
     }
 
-    public class Chart : AnywhereControl<IChart>
+    public abstract class Chart : AnywhereControl, IChart
     {
         private ChartBase _chart;
 
-        public Chart(IChart control) : base(control)
-        {
-        }
+        public abstract ChartType ChartType { get; set; }
+        public abstract IEnumerable<ChartEntry> Entries { get; set; }
+        public abstract Color BackgroundColor { get; set; }
+        public abstract Color LabelColor { get; set; }
 
         /// <summary>
         /// Build the UI element hierarchy for the chart control, for the current chart type.
         /// </summary>
-        public override IUIElement Build()
+        protected override IUIElement Build()
         {
-            switch (Control.ChartType)
+            switch (ChartType)
             {
                 case ChartType.BarChart:
-                    _chart = new BarChart(Control);
+                    _chart = new BarChart(this);
                     break;
 
                 case ChartType.PointChart:
-                    _chart = new PointChart(Control);
+                    _chart = new PointChart(this);
                     break;
 
                 case ChartType.RadarChart:
-                    _chart = new RadarChart(Control);
+                    _chart = new RadarChart(this);
                     break;
             }
 

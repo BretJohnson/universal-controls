@@ -7,7 +7,6 @@ using AnywhereControls;
 using AnywhereControls.Controls;
 using AnywhereControls.Media;
 using AnywhereControls.Shapes;
-using CommonUI;
 using static AnywhereControls.AnywhereControlsStatics;
 using ICanvas = AnywhereControls.Controls.ICanvas;
 

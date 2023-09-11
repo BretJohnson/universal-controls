@@ -1,12 +1,10 @@
 ﻿// Copyright (c) Aloïs DENIEL. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using CommonUI;
 using AnywhereControls;
 using AnywhereControls.Controls;
 using AnywhereControls.Media;
 using AnywhereControls.Shapes;
-using AnywhereControls.Text;
 using SkiaSharp;
 using static AnywhereControls.AnywhereControlsStatics;
 using FontWeights = AnywhereControls.Text.FontWeights;
@@ -39,7 +37,7 @@ namespace Microcharts
                         .TextAlignment(horizontalAlignment);
 
 
-                    labelTextBlock.Measure(double.PositiveInfinity, double.PositiveInfinity);
+                    labelTextBlock.Measure(Size.Infinity);
                     Size labelSize = labelTextBlock.DesiredSize;
 
                     //var bounds = new Rect();
@@ -64,7 +62,7 @@ namespace Microcharts
                         .Foreground(SolidColorBrush().Color(valueColor))
                         .TextAlignment(horizontalAlignment);
 
-                    valueTextBlock.Measure(double.PositiveInfinity, double.PositiveInfinity);
+                    valueTextBlock.Measure(Size.Infinity);
                     Size valueSize = valueTextBlock.DesiredSize;
 
                     //var bounds = new Rect();

@@ -1,5 +1,4 @@
 ﻿using Microsoft.ComponentModelEx;
-using CommonUI;
 using AnywhereControls;
 using AnywhereControls.Controls;
 using static Microcharts.MicrochartsStatics;

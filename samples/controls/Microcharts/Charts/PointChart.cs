@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using CommonUI;
 using AnywhereControls;
 using AnywhereControls.Controls;
 using AnywhereControls.Media;

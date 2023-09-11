@@ -3,7 +3,6 @@
 
 using System;
 using System.Linq;
-using CommonUI;
 using AnywhereControls;
 using AnywhereControls.Controls;
 using AnywhereControls.Media;
