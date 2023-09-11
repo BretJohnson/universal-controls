@@ -13,7 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\component-model-ex\src\Microsoft.ComponentModelEx\Microsoft.ComponentModelEx.csproj" />
     <ProjectReference Include="..\CommonUI\AnywhereControls.CommonTypes.csproj" />
-    <ProjectReference Include="..\shared\AnywhereControls.FrameworkForwarder\AnywhereControls.FrameworkForwarder.csproj" />
+    <ProjectReference Include="..\shared\AnywhereControls.FrameworkForwarder\AnywhereControls.FrameworkForwarder.csproj" Private="False" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>

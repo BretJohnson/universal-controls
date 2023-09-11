@@ -8,7 +8,6 @@ using AnywhereControls.Wpf;
 using AnywhereControls.Wpf.NativeVisualFramework;
 using SimpleControls;
 using SimpleControls.Wpf;
-using CommonUI;
 
 // Import our sample controls. This triggers source generation, turning them into WPF controls.
 // To see the generated source, in Solution Explorer look under

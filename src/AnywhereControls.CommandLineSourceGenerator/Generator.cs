@@ -40,7 +40,7 @@ namespace AnywhereControls.CommandLineSourceGenerator
 
                 if (anywhereControlsCommonTypesProject == null)
                 {
-                    throw new UserViewableException("Couldn't find referenced CommonUI project");
+                    throw new UserViewableException("Couldn't find referenced AnywhereControls.CommonTypes project");
                 }
 
                 await GenerateClassesForProject(anywhereControlsCommonTypesProject, rootDirectory);

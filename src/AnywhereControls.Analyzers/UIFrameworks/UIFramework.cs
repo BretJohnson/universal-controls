@@ -284,8 +284,6 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
         public virtual void GenerateStandardPanelLayoutMethods(string layoutManagerTypeName, Source methods)
         {
-            methods.Usings.AddNamespace("CommonUI");
-
             methods.AddBlankLineIfNonempty();
             methods.AddLine($"protected override Size MeasureOverride(double widthConstraint, double heightConstraint) =>");
             using (methods.Indent())
