@@ -2,11 +2,12 @@
 
 namespace AnywhereControls.Controls;
 
-
 /// <summary>
 /// This class is only used at build time, not runtime. At runtime, the
-/// host framework assembly (AnywhereControls.Wpf, AnywhereControls.Maui, etc.)
-/// its own implementation of this class.
+/// host UI framework assembly (AnywhereControls.Wpf, AnywhereControls.Maui, etc.)
+/// provides its own implementation of this class, loaded by a matching
+/// AnywhereControls.FrameworkFordwarder.dll assembly that has a TypeForwardedTo
+/// to that implementation.
 /// </summary>
 public abstract class HostFrameworkAnywhereControl : IAnywhereControl
 {

@@ -9,7 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\AnywhereControls.Analyzers\AnywhereControls.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="False" />
     <ProjectReference Include="..\..\..\src\AnywhereControls\AnywhereControls.csproj" />
-    <ProjectReference Include="..\..\..\src\shared\AnywhereControls.FrameworkForwarder\AnywhereControls.FrameworkForwarder.csproj" Private="False" PrivateAssets="All"  />
+    <ProjectReference Include="..\..\..\src\AnywhereControls.FrameworkForwarderStub\AnywhereControls.FrameworkForwarderStub.csproj" Private="False" PrivateAssets="All"  />
   </ItemGroup>
 
 </Project>

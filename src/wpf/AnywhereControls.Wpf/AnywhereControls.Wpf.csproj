@@ -8,11 +8,11 @@
     <RootNamespace>AnywhereControls.Wpf</RootNamespace>
 
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\AnywhereControls.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\..\AnywhereControls.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AnywhereControls\AnywhereControls.csproj" />
+    <ProjectReference Include="..\..\AnywhereControls\AnywhereControls.csproj" />
   </ItemGroup>
 
 </Project>

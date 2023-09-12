@@ -3,11 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>11.0</LangVersion>
-    <PackageId>AnywhereControls.FrameworkForwarderStub</PackageId>
+    <Nullable>enable</Nullable>
+    <AssemblyName>AnywhereControls.FrameworkForwarder</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CommonUI\AnywhereControls.CommonTypes.csproj" />
+    <ProjectReference Include="..\AnywhereControls.CommonTypes\AnywhereControls.CommonTypes.csproj" />
   </ItemGroup>
 
 </Project>
