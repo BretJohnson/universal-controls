@@ -36,6 +36,7 @@ namespace AnywhereControls
         /// Create a platform specific control that can be used to render IVisual graphics. For example,
         /// for a Skia based visual environment, the control hosts OpenGL content.
         /// </summary>
+        /// <param name="rootElement">the visual root element</param>
         /// <param name="arg1">environment/platform specific argument</param>
         /// <param name="arg2">environment/platform specific argument</param>
         /// <param name="arg3">environment/platform specific argument</param>
