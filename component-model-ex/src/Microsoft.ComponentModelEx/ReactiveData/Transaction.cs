@@ -20,7 +20,7 @@ namespace Microsoft.ComponentModelEx.ReactiveData
         /// <summary>
         /// Finish a transaction, committing it and sending Changed notifications for everything that may have changed.
         ///
-        /// Note that ReactiveData doesn't provide support for aborting transactions & undoing changes already made.
+        /// Note that ReactiveData doesn't provide support for aborting transactions and undoing changes already made.
         /// If the client wants that functionality, they can implement it themselves, setting data back to its original
         /// value before calling End.
         /// </summary>
