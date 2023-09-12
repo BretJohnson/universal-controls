@@ -15,7 +15,7 @@ namespace SimpleControls
 
     public abstract class RadialGauge : AnywhereControl, IRadialGauge
     {
-        protected override IUIElement? Build()
+        protected override IUIElement Build()
         {
             var blueBrush = SolidColorBrush().Color(Colors.Blue);
             return Rectangle().Width(50).Height(50).Stroke(blueBrush).Fill(Colors.Red);

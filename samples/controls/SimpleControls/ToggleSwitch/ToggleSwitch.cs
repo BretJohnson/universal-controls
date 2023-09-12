@@ -36,7 +36,7 @@ namespace AlohaKit.StandardControls
         public abstract bool IsOn { get; set; }
         public abstract bool HasShadow { get; set; }
 
-        protected override IUIElement? Build() =>
+        protected override IUIElement Build() =>
             Canvas()._
             (
                 Rectangle()
