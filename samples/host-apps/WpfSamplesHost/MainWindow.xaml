@@ -8,8 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <s:VerticalStack HorizontalAlignment="Stretch" Margin="20">
-        <Label Content=".NET Standard UI Control Examples" FontSize="24"/>
-
+        <Label Content=".NET Anywhere Controls Examples" FontSize="24"/>
         <Grid Name="Examples" HorizontalAlignment="Left" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
