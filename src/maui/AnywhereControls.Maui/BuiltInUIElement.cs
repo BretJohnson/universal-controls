@@ -47,16 +47,35 @@ using Microsoft.Maui.Controls;
 
 namespace AnywhereControls.Maui
 {
+    public class BuiltInUIElementDrawable : Microsoft.Maui.Graphics.IDrawable
+    {
+        public Microsoft.Maui.Graphics.ICanvas? Canvas { get; set; }
+
+        public void Draw(Microsoft.Maui.Graphics.ICanvas canvas, Microsoft.Maui.Graphics.RectF dirtyRect)
+        {
+            Canvas = canvas;
+        }
+    }
+
     /// <summary>
     /// This is the base for predefined Standard UI controls. 
     /// </summary>
-    public class BuiltInUIElement : View, IUIElement
+    public class BuiltInUIElement : GraphicsView, IUIElement
     {
+        readonly BuiltInUIElementDrawable _drawable;
+
+        public BuiltInUIElement()
+        {
+            Drawable = _drawable = new BuiltInUIElementDrawable();
+        }
+
+        public BuiltInUIElementDrawable BuiltInUIElementDrawable => _drawable;
+
         void IUIElement.Measure(Size availableSize)
         {
-            Microsoft.Maui.SizeRequest sizeRequest = this.Measure(availableSize.Width, availableSize.Height, MeasureFlags.None);
+            Microsoft.Maui.SizeRequest sizeRequest = Measure(availableSize.Width, availableSize.Height, MeasureFlags.None);
 
-            this.HorizontalOptions = this.HorizontalOptions;
+            HorizontalOptions = HorizontalOptions;
         }
 
         void IUIElement.Arrange(Rect finalRect)
@@ -64,11 +83,11 @@ namespace AnywhereControls.Maui
             Arrange(finalRect.ToMauiRect());
         }
 
-        Size IUIElement.DesiredSize => SizeExtensions.ToStandardUISize(DesiredSize);
+        Size IUIElement.DesiredSize => SizeExtensions.ToAnywhereControlsSize(DesiredSize);
 
-        double IUIElement.ActualX => throw new NotImplementedException();
+        double IUIElement.ActualX => X;
 
-        double IUIElement.ActualY => throw new NotImplementedException();
+        double IUIElement.ActualY => Y;
 
         Thickness IUIElement.Margin
         {
@@ -141,6 +160,10 @@ namespace AnywhereControls.Maui
 
         double IUIElement.ActualHeight => Height;
 
+        Rect IUIElement.Frame => throw new NotImplementedException();
+
+        public int VisualChildrenCount => throw new NotImplementedException();
+
 #if TODO
         protected override void OnRender(DrawingContext drawingContextWpf)
         {
@@ -180,6 +203,11 @@ namespace AnywhereControls.Maui
         object? IUIObject.ReadLocalValue(IUIProperty property) => throw new NotSupportedException("ReadLocalValue isn't currently supported");   // ReadLocalValue(((UIProperty)property).BindableProperty);
         void IUIObject.SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).BindableProperty, value);
         void IUIObject.ClearValue(IUIProperty property) => ClearValue(((UIProperty)property).BindableProperty);
+
+        public IUIElement GetVisualChild(int index)
+        {
+            throw new NotImplementedException();
+        }
 
 #if TODO
         void ILogicalParent.AddLogicalChild(object child) => AddLogicalChild(child);

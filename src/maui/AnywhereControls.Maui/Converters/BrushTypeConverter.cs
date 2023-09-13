@@ -10,7 +10,7 @@ namespace AnywhereControls.Maui.Converters
         public override object ConvertFrom(ITypeDescriptorContext? context, CultureInfo? culture, object valueObject) =>
             new SolidColorBrush
             {
-                Color = new ColorMaui(ColorConverter.ConvertFromString(GetValueAsString(valueObject)))
+                Color = new ColorMaui(ColorConverter.ConvertFromString(GetValueAsString(valueObject))).Color
             };
     }
 }

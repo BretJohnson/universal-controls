@@ -45,6 +45,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.Wpf", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.FrameworkForwarderStub", "src\AnywhereControls.FrameworkForwarderStub\AnywhereControls.FrameworkForwarderStub.csproj", "{1DF10122-622E-4A4C-93C7-6172997D8332}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiSamplesHost", "MauiSamplesHost\MauiSamplesHost.csproj", "{5890241C-A3EF-4CEE-BA67-BA4EFD57E80C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "maui", "maui", "{3EF85AAC-0972-46C4-BABE-FF568E7A9BE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.Maui", "src\maui\AnywhereControls.Maui\AnywhereControls.Maui.csproj", "{069C0BDF-E992-443B-A1C0-216F18216BFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnywhereControls.FrameworkForwarder", "src\maui\AnywhereControls.FrameworkForwarder\AnywhereControls.FrameworkForwarder.csproj", "{73A019ED-4595-4E33-A95A-F502071E32D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +107,20 @@ Global
 		{1DF10122-622E-4A4C-93C7-6172997D8332}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DF10122-622E-4A4C-93C7-6172997D8332}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DF10122-622E-4A4C-93C7-6172997D8332}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5890241C-A3EF-4CEE-BA67-BA4EFD57E80C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5890241C-A3EF-4CEE-BA67-BA4EFD57E80C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5890241C-A3EF-4CEE-BA67-BA4EFD57E80C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5890241C-A3EF-4CEE-BA67-BA4EFD57E80C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5890241C-A3EF-4CEE-BA67-BA4EFD57E80C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5890241C-A3EF-4CEE-BA67-BA4EFD57E80C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{069C0BDF-E992-443B-A1C0-216F18216BFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{069C0BDF-E992-443B-A1C0-216F18216BFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{069C0BDF-E992-443B-A1C0-216F18216BFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{069C0BDF-E992-443B-A1C0-216F18216BFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73A019ED-4595-4E33-A95A-F502071E32D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73A019ED-4595-4E33-A95A-F502071E32D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73A019ED-4595-4E33-A95A-F502071E32D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73A019ED-4595-4E33-A95A-F502071E32D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -113,6 +135,9 @@ Global
 		{BAE8337E-9497-4790-B6F2-49FF9467D4EF} = {E3C556B6-A9DB-4772-A7CA-74B4E4CBD362}
 		{29322FD8-3BA2-47E3-A8D9-E9C918979670} = {53F78F6D-A2D0-41D5-8A81-7D71C5763249}
 		{E289961D-B4F4-4368-9402-A0057A009122} = {53F78F6D-A2D0-41D5-8A81-7D71C5763249}
+		{5890241C-A3EF-4CEE-BA67-BA4EFD57E80C} = {63D6491B-37EA-4F36-8B9D-2AD526F74BB8}
+		{069C0BDF-E992-443B-A1C0-216F18216BFE} = {3EF85AAC-0972-46C4-BABE-FF568E7A9BE7}
+		{73A019ED-4595-4E33-A95A-F502071E32D7} = {3EF85AAC-0972-46C4-BABE-FF568E7A9BE7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5981247F-FDA6-460F-8B83-6AFBEE114226}

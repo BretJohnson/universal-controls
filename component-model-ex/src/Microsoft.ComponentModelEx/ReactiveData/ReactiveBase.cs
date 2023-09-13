@@ -5,7 +5,7 @@ namespace Microsoft.ComponentModelEx.ReactiveData {
     {
         private List<IReactiveExpression>? _expressionsDependingOnMe;
 
-        public virtual event ChangedEventHandler Changed;
+        public virtual event ChangedEventHandler? Changed;
 
         public void NotifyChanged()
         {

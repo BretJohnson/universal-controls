@@ -25,5 +25,24 @@
             else if (destinationTypeName == "SweepDirection")
                 usings.AddTypeAlias("SweepDirection = AnywhereControls.Media.SweepDirection");
         }
+
+        public override void GenerateStandardPanelLayoutMethods(string layoutManagerTypeName, Source methods)
+        {
+            methods.AddBlankLineIfNonempty();
+            methods.AddLine($"protected override Microsoft.Maui.Graphics.Size MeasureOverride(double widthConstraint, double heightConstraint) =>");
+            using (methods.Indent())
+            {
+                methods.AddLine(
+                    $"{layoutManagerTypeName}.Instance.MeasureOverride(this, widthConstraint, heightConstraint).ToMauiSize();");
+            }
+
+            methods.AddBlankLine();
+            methods.AddLine($"protected override Microsoft.Maui.Graphics.Size ArrangeOverride(Microsoft.Maui.Graphics.Rect bounds) =>");
+            using (methods.Indent())
+            {
+                methods.AddLine(
+                    $"{layoutManagerTypeName}.Instance.ArrangeOverride(this, bounds.Size.ToAnywhereControlsSize()).ToMauiSize();");
+            }
+        }
     }
 }

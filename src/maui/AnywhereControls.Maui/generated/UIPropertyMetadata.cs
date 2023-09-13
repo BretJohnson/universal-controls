@@ -2,7 +2,7 @@
 
 namespace AnywhereControls.Maui
 {
-    public class UIPropertyMetadata : IUIPropertyMetadata
+    public class UIPropertyMetadata : IUIProperty
     {
     }
 }
