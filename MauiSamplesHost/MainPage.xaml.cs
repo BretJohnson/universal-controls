@@ -4,6 +4,8 @@
 using AnywhereControls;
 using Microcharts;
 using SimpleControls;
+using AnywhereControls.Maui;
+using AnywhereControls.Maui.NativeVisualFramework;
 
 [assembly: ImportControlLibrary(typeof(SimpleControlsControlLibrary))]
 [assembly: ImportControlLibrary(typeof(MicrochartsControlLibrary))]
@@ -14,10 +16,7 @@ namespace MauiHost
     {
         public MainPage()
         {
-            MauiHostFramework.Init(new MauiNativeVisualFramework());
-
-            SimpleControlsLibrary.Initialize();
-            MicrochartsLibrary.Initialize();
+            // TODO: Initialize MauiHostFramework
 
             InitializeComponent();
         }
@@ -28,66 +27,28 @@ namespace MauiHost
             {
                 new ChartEntry(200)
                 {
-                        Label = "January",
-                        ValueLabel = "200",
-                        Color = Color.FromHex("#266489")
+                    Label = "January",
+                    ValueLabel = "200",
+                    Color = AnywhereControls.Color.FromHex("#266489")
                 },
                 new ChartEntry(400)
                 {
-                        Label = "February",
-                        ValueLabel = "400",
-                        Color = Color.FromHex("#68B9C0"),
+                    Label = "February",
+                    ValueLabel = "400",
+                    Color = AnywhereControls.Color.FromHex("#68B9C0"),
                 },
                 new ChartEntry(100)
                 {
-                        Label = "March",
-                        ValueLabel = "100",
-                        Color = Color.FromHex("#90D585"),
+                    Label = "March",
+                    ValueLabel = "100",
+                    Color = AnywhereControls.Color.FromHex("#90D585"),
                 },
             };
         }
 
         void InitalizeExamples()
         {
-            UIExamples uiExamples = new UIExamples();
-
-            uiExamples.LoadFromAssembly(typeof(SimpleControlsControlLibrary).Assembly);
-            uiExamples.LoadFromAssembly(typeof(MicrochartsControlLibrary).Assembly);
-
-            int rowIndex = 0;
-            foreach (UIExample uiExample in uiExamples.Examples)
-            {
-                string? description = uiExample.Description;
-                object control = uiExample.Create();
-
-                if (control is not UIElement controlUIElement)
-                    continue;
-
-                var rowDefinition = new RowDefinition();
-                Examples.RowDefinitions.Add(rowDefinition);
-
-                var descriptionText = new Label()
-                {
-                    Text = uiExample.Description,
-                    Padding = new Microsoft.Maui.Thickness(10.0),
-                    VerticalOptions = LayoutOptions.Center
-                };
-                Grid.SetRow(descriptionText, rowIndex);
-                Grid.SetColumn(descriptionText, 0);
-                Examples.Children.Add(descriptionText);
-
-                Border controlBorder = new Border()
-                {
-                    Padding = new Microsoft.Maui.Thickness(10.0),
-                    Content = controlUIElement,
-                    VerticalOptions = LayoutOptions.Center,
-                };
-                Grid.SetRow(controlBorder, rowIndex);
-                Grid.SetColumn(controlBorder, 1);
-                Examples.Children.Add(controlBorder);
-
-                ++rowIndex;
-            }
+            // TODO: Create samples UI
         }
     }
 }

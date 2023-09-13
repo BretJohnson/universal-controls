@@ -14,8 +14,6 @@ namespace AnywhereControls.Maui
 
         public PointMaui(Point point)
         {
-            Label label;
-
             Point = point;
         }
     }

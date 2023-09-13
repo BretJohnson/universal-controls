@@ -56,6 +56,7 @@
 	  <ProjectReference Include="..\samples\controls\Microcharts\Microcharts.csproj" />
 	  <ProjectReference Include="..\samples\controls\SimpleControls\SimpleControls.csproj" />
 	  <ProjectReference Include="..\src\AnywhereControls.Analyzers\AnywhereControls.Analyzers.csproj" />
+	  <ProjectReference Include="..\src\maui\AnywhereControls.Maui\AnywhereControls.Maui.csproj" />
 	</ItemGroup>
 
 </Project>
