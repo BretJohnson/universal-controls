@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "host-apps", "host-apps", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfSamplesHost", "samples\host-apps\WpfSamplesHost\WpfSamplesHost.csproj", "{8E651CB1-4524-4A5B-A47C-C1A51C73C775}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiSamplesHost", "samples\host-apps\MauiSamplesHost\MauiSamplesHost.csproj", "{5890241C-A3EF-4CEE-BA67-BA4EFD57E80C}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleControls", "samples\controls\SimpleControls\SimpleControls.csproj", "{CFF4EEBA-0EA7-49D1-B4F2-17DF640F2174}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1D9AD821-E4C9-44C5-9807-DC296C17A38B}"
@@ -44,8 +46,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.Wpf", "src\wpf\AnywhereControls.Wpf\AnywhereControls.Wpf.csproj", "{E289961D-B4F4-4368-9402-A0057A009122}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.FrameworkForwarderStub", "src\AnywhereControls.FrameworkForwarderStub\AnywhereControls.FrameworkForwarderStub.csproj", "{1DF10122-622E-4A4C-93C7-6172997D8332}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiSamplesHost", "MauiSamplesHost\MauiSamplesHost.csproj", "{5890241C-A3EF-4CEE-BA67-BA4EFD57E80C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "maui", "maui", "{3EF85AAC-0972-46C4-BABE-FF568E7A9BE7}"
 EndProject
