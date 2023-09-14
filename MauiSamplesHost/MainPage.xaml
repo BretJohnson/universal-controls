@@ -2,15 +2,23 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:s="http://schemas.microsoft.com/anywhere-controls/2023"
-    x:Class="MauiHost.MainPage">
-    <s:VerticalStack HorizontalAlignment="Stretch" Margin="20">
-        <Label Text=".NET Anywhere Controls Examples" FontSize="24" />
-        <Grid x:Name="Examples" HorizontalOptions="Start" Margin="10">
+    xmlns:controls="clr-namespace:AnywhereControls.Maui.Controls;assembly=AnywhereControls.Maui"
+    x:Class="MauiHost.MainPage"
+    Title="Anywhere Controls">
+    <VerticalStackLayout
+        HorizontalOptions="Fill"
+        Margin="20">
+        <Label
+            Text=".NET Anywhere Controls Examples"
+            FontSize="24"/>
+        <Grid
+            x:Name="Examples"
+            HorizontalOptions="Start"
+            Margin="10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200" />
-                <ColumnDefinition />
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
         </Grid>
-    </s:VerticalStack>
+    </VerticalStackLayout>
 </ContentPage>

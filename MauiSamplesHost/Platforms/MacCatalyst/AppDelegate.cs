@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace MauiSamplesHost
+namespace MauiHost
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

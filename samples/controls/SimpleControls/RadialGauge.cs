@@ -9,8 +9,7 @@ namespace SimpleControls
     [AnywhereControl]
     public interface IRadialGauge : IAnywhereControl
     {
-        //[DefaultValue(null)]
-        //IBrush? Fill { get; set; }
+
     }
 
     public abstract class RadialGauge : AnywhereControl, IRadialGauge

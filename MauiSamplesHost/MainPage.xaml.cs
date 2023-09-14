@@ -19,6 +19,8 @@ namespace MauiHost
             // TODO: Initialize MauiHostFramework
 
             InitializeComponent();
+
+            InitalizeExamples();
         }
 
         public static ChartEntry[] CreateChartEntries()
