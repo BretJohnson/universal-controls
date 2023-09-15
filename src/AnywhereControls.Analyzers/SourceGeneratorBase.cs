@@ -57,13 +57,13 @@ namespace AnywhereControls.SourceGenerator
             }
             catch (UserViewableException e)
             {
-                var diagnosticDescriptor = new DiagnosticDescriptor(e.Id, "StandardUI source generation failed",
+                var diagnosticDescriptor = new DiagnosticDescriptor(e.Id, "Anywhere Controls source generation failed",
                     e.Message, Utils.AnywhereControlsRootNamespace, DiagnosticSeverity.Error, isEnabledByDefault: true);
                 sourceProductionContext.ReportDiagnostic(Diagnostic.Create(diagnosticDescriptor, e.Location));
             }
             catch (Exception e)
             {
-                var diagnosticDescriptor = new DiagnosticDescriptor(UserVisibleErrors.InternalErrorId, "StandardUI source generation failed with internal error",
+                var diagnosticDescriptor = new DiagnosticDescriptor(UserVisibleErrors.InternalErrorId, "Anywhere Controls source generation failed with internal error",
                     e.ToString(), Utils.AnywhereControlsRootNamespace, DiagnosticSeverity.Error, isEnabledByDefault: true);
                 sourceProductionContext.ReportDiagnostic(Diagnostic.Create(diagnosticDescriptor, null));
             }
@@ -231,6 +231,8 @@ namespace AnywhereControls.SourceGenerator
                     return new WinFormsUIFramework(context);
                 else if (assemblyName == "AnywhereControls.Blazor")
                     return new BlazorUIFramework(context);
+                else if (assemblyName == "AnywhereControls.Maui")
+                    return new MauiUIFramework(context);
             }
 
             throw UserVisibleErrors.CouldNotIdentifyUIFramework();
