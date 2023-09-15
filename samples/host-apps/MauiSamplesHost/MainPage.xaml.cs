@@ -19,8 +19,6 @@ namespace MauiHost
     {
         public MainPage()
         {
-            MauiHostFramework.Init(new MauiNativeVisualFramework(null));
-
             SimpleControlsLibrary.Initialize();
             MicrochartsLibrary.Initialize();
 
@@ -60,6 +58,7 @@ namespace MauiHost
 
                 Border controlBorder = new Border()
                 {
+                    StrokeThickness = 0,
                     Padding = new Microsoft.Maui.Thickness(10.0),
                     Content = controlUIElement,
                     VerticalOptions = LayoutOptions.Center

@@ -5,7 +5,7 @@ namespace AnywhereControls.Maui.NativeVisualFramework
 {
     public class MauiNativeVisualFramework : IVisualFramework
     {
-        Microsoft.Maui.Graphics.ICanvas _canvas;
+        readonly Microsoft.Maui.Graphics.ICanvas _canvas;
 
         public MauiNativeVisualFramework(Microsoft.Maui.Graphics.ICanvas canvas)
         {
