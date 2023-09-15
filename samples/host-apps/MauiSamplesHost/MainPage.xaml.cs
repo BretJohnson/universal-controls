@@ -3,7 +3,9 @@
 // Dependencies / Analyzers / AnywhereControls.Analyzers / ImportControlLibraryGenerator
 using AnywhereControls;
 using Microcharts;
+using Microcharts.Maui;
 using SimpleControls;
+using SimpleControls.Maui;
 using AnywhereControls.Maui;
 using AnywhereControls.Maui.NativeVisualFramework;
 using Microsoft.ComponentModelEx.Tooling;
@@ -19,9 +21,8 @@ namespace MauiHost
         {
             MauiHostFramework.Init(new MauiNativeVisualFramework(null));
 
-            // TODO: Generate
-            //SimpleControlsLibrary.Initialize();
-            //MicrochartsLibrary.Initialize();
+            SimpleControlsLibrary.Initialize();
+            MicrochartsLibrary.Initialize();
 
             InitializeComponent();
 
