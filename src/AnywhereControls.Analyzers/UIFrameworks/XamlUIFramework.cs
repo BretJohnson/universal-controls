@@ -36,6 +36,11 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             classSource.StaticFields.AddLine(
                 $"public static readonly {DependencyPropertyType.Name} {descriptorName} = PropertyUtils.Register(nameof({property.Name}), typeof({nonNullablePropertyType}), typeof({property.Interface.FrameworkClassName}), {defaultValue});");
 
+            if (defaultValue.StartsWith("Colors."))
+            {
+                AddTypeAliasUsingIfNeeded(classSource.Usings, "Colors");
+            }
+
             if (property.IsUICollection)
             {
                 string fieldName = PropertyFieldName(property);
