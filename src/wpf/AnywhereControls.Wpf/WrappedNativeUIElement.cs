@@ -36,7 +36,7 @@ namespace AnywhereControls.Wpf
 
         Thickness IUIElement.Margin
         {
-            get => _frameworkElement.Margin.ToStandardUIThickness();
+            get => _frameworkElement.Margin.ToAnywhereControlsThickness();
             set => _frameworkElement.Margin = value.ToWpfThickness();
         }
 
@@ -48,7 +48,7 @@ namespace AnywhereControls.Wpf
 
         VerticalAlignment IUIElement.VerticalAlignment
         {
-            get => _frameworkElement.VerticalAlignment.ToStandardUIVerticalAlignment();
+            get => _frameworkElement.VerticalAlignment.ToAnywhereControlsVerticalAlignment();
             set => _frameworkElement.VerticalAlignment = value.ToWpfVerticalAlignment();
         }
 

@@ -16,7 +16,7 @@ namespace AnywhereControls.Wpf.Text
         public static System.Windows.Media.FontFamily ToWpfFontFamily(this FontFamily fontFamily) =>
             new System.Windows.Media.FontFamily(fontFamily.Source);
 
-        public static FontFamily ToStandardUIFontFamily(System.Windows.Media.FontFamily fontFamily) =>
+        public static FontFamily ToAnywhereControlsFontFamily(System.Windows.Media.FontFamily fontFamily) =>
             new FontFamily(fontFamily.Source);
     }
 }

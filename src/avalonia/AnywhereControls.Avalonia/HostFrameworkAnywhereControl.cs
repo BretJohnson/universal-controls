@@ -1,11 +1,10 @@
-﻿using System;
-using AnywhereControls.Wpf;
-using AnywhereControls.Wpf.NativeVisualFramework;
-using Visibility = System.Windows.Visibility;
+﻿using AnywhereControls.Avalonia;
+using AnywhereControls.Avalonia.NativeVisualFramework;
+using Avalonia.Controls;
 
 namespace AnywhereControls.Controls
 {
-    public abstract class HostFrameworkAnywhereControl : System.Windows.Controls.Control, IAnywhereControl, ILogicalParent
+    public abstract class HostFrameworkAnywhereControl : Control, IAnywhereControl, ILogicalParent
     {
         protected IUIElement? _buildContent;
         private bool _invalid = true;
@@ -14,13 +13,13 @@ namespace AnywhereControls.Controls
         {
             if (!HostEnvironment.IsInitialized)
             {
-                WpfHostFramework.Init(new WpfNativeVisualFramework());
+                AvaloniaHostFramework.Init(new AvaloniaNativeVisualFramework());
             }
         }
 
         protected IUIElement? BuildContent => _buildContent;
 
-        protected override System.Windows.Size MeasureOverride(System.Windows.Size constraint)
+        protected override global::Avalonia.Size MeasureOverride(global::Avalonia.Size availableSize)
         {
             if (_invalid)
             {
@@ -28,11 +27,11 @@ namespace AnywhereControls.Controls
                 _invalid = false;
             }
 
-            ((IUIElement) this).Measure(constraint.ToAnywhereControlsSize());
-            return ((IUIElement)this).DesiredSize.ToWpfSize();
+            ((IUIElement) this).Measure(availableSize.ToAnywhereControlsSize());
+            return ((IUIElement)this).DesiredSize.ToAvaloniaSize();
         }
 
-        protected override System.Windows.Size ArrangeOverride(System.Windows.Size arrangeSize)
+        protected override global::Avalonia.Size ArrangeOverride(global::Avalonia.Size arrangeSize)
         {
             ((IUIElement) this).Arrange(new Rect(0, 0, arrangeSize.Width, arrangeSize.Height));
             return arrangeSize;
@@ -52,15 +51,16 @@ namespace AnywhereControls.Controls
 
         public Rect Frame => throw new NotImplementedException();
 
-        void ILogicalParent.AddLogicalChild(object child) => this.AddLogicalChild(child);
+        // TODO: Implement as needed
+        void ILogicalParent.AddLogicalChild(object child) => throw new NotImplementedException();
 
-        void ILogicalParent.RemoveLogicalChild(object child) => this.RemoveLogicalChild(child);
+        void ILogicalParent.RemoveLogicalChild(object child) => throw new NotImplementedException();
 
         private void Rebuild()
         {
             if (_buildContent != null)
             {
-                System.Windows.UIElement wpfUIElement = _buildContent.ToWpfUIElement();
+                System.Windows.UIElement wpfUIElement = _buildContent.ToAvaloniaControl();
                 RemoveVisualChild(wpfUIElement);
                 RemoveLogicalChild(wpfUIElement);
                 _buildContent = null;
@@ -70,15 +70,15 @@ namespace AnywhereControls.Controls
 
             if (_buildContent != null)
             {
-                System.Windows.UIElement wpfUIElement = _buildContent.ToWpfUIElement();
+                System.Windows.UIElement wpfUIElement = _buildContent.ToAvaloniaControl();
                 AddVisualChild(wpfUIElement);
                 AddLogicalChild(wpfUIElement);
             }
         }
 
         void IUIElement.Measure(Size desiredSize) =>
-            Measure(new System.Windows.Size(desiredSize.Width, desiredSize.Height));
-        void IUIElement.Arrange(Rect finalRect) => Arrange(finalRect.ToWpfRect());
+            Measure(new global::Avalonia.Size(desiredSize.Width, desiredSize.Height));
+        void IUIElement.Arrange(Rect finalRect) => Arrange(finalRect.ToAvaloniaRect());
         Size IUIElement.DesiredSize => DesiredSize.ToAnywhereControlsSize();
 
         double IUIElement.ActualX => throw new System.NotImplementedException();
@@ -87,31 +87,31 @@ namespace AnywhereControls.Controls
         Thickness IUIElement.Margin
         {
             get => Margin.ToAnywhereControlsThickness();
-            set => Margin = value.ToWpfThickness();
+            set => Margin = value.ToAvaloniaThickness();
         }
 
         HorizontalAlignment IUIElement.HorizontalAlignment
         {
-            get => HorizontalAlignment.ToStandardUIHorizontalAlignment();
-            set => HorizontalAlignment = value.ToWpfHorizontalAlignment();
+            get => HorizontalAlignment.ToAnywhereControlsHorizontalAlignment();
+            set => HorizontalAlignment = value.ToAvaloniaHorizontalAlignment();
         }
 
         VerticalAlignment IUIElement.VerticalAlignment
         {
             get => VerticalAlignment.ToAnywhereControlsVerticalAlignment();
-            set => VerticalAlignment = value.ToWpfVerticalAlignment();
+            set => VerticalAlignment = value.ToAvaloniaVerticalAlignment();
         }
 
         FlowDirection IUIElement.FlowDirection
         {
             get => FlowDirection.ToStandardUIFlowDirection();
-            set => FlowDirection = value.ToWpfFlowDirection();
+            set => FlowDirection = value.ToAvaloniaFlowDirection();
         }
 
         bool IUIElement.Visible
         {
-            get => Visibility != Visibility.Collapsed;
-            set => Visibility = value ? Visibility.Visible : Visibility.Collapsed;
+            get => IsVisible;
+            set => IsVisible = value;
         }
 
         double IUIElement.Width
@@ -150,18 +150,19 @@ namespace AnywhereControls.Controls
             set => MaxHeight = value;
         }
 
-        double IUIElement.ActualWidth => ActualWidth;
-        double IUIElement.ActualHeight => ActualHeight;
+        double IUIElement.ActualWidth => Bounds.Width;
+        double IUIElement.ActualHeight => Bounds.Height;
 
-        object? IUIObject.GetValue(IUIProperty property) => GetValue(((UIProperty)property).DependencyProperty);
-        object? IUIObject.ReadLocalValue(IUIProperty property) => ReadLocalValue(((UIProperty)property).DependencyProperty);
-        void IUIObject.SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).DependencyProperty, value);
-        void IUIObject.ClearValue(IUIProperty property) => ClearValue(((UIProperty)property).DependencyProperty);
+        object? IUIObject.GetValue(IUIProperty property) => GetValue(((UIProperty)property).AvaloniaProperty);
+        void IUIObject.SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).AvaloniaProperty, value);
+        void IUIObject.ClearValue(IUIProperty property) => ClearValue(((UIProperty)property).AvaloniaProperty);
 
+#if LATER
         protected override int VisualChildrenCount => 
             ((IUIElement)this).VisualChildrenCount;
-        protected override System.Windows.Media.Visual GetVisualChild(int index) =>
-            ((IUIElement)this).GetVisualChild(index).ToWpfUIElement();
+        protected override global::Avalonia.Media.Visual GetVisualChild(int index) =>
+            ((IUIElement)this).GetVisualChild(index).ToAvaloniaControl();
+#endif
 
         protected abstract IUIElement? Build();
     }

@@ -1,21 +1,20 @@
-﻿using System;
-using System.Windows.Media;
-using Visibility = System.Windows.Visibility;
+﻿using Avalonia.Controls;
+using Avalonia.Media;
 
-namespace AnywhereControls.Wpf
+namespace AnywhereControls.Avalonia
 {
     /// <summary>
     /// This is the base for predefined UI elements.
     /// </summary>
-    public class BuiltInUIElement : System.Windows.FrameworkElement, IUIElement, ILogicalParent
+    public class BuiltInUIElement : Control, IUIElement, ILogicalParent
     {
         private StandardUIFrameworkElementHelper _helper = new();
 
-        protected override void OnRender(DrawingContext drawingContextWpf)
+        public override void Render(DrawingContext drawingContextAvalonia)
         {
-            base.OnRender(drawingContextWpf);
+            base.Render(drawingContextAvalonia);
 
-            if (Visibility != System.Windows.Visibility.Visible)
+            if (! IsVisible)
                 return;
 
             if (this is not IDrawable drawable)
@@ -30,16 +29,19 @@ namespace AnywhereControls.Wpf
 
                 if (visual != null)
                 {
-                    _helper.OnRender(visual, Width, Height, drawingContextWpf);
+                    _helper.OnRender(visual, Width, Height, drawingContextAvalonia);
                 }
             }
         }
 
+        // TODO: Handle if needed for Avalonia
+#if false
         protected override void OnRenderSizeChanged(System.Windows.SizeChangedInfo sizeInfo)
         {
             base.OnRenderSizeChanged(sizeInfo);
             InvalidateVisual();
         }
+#endif
 
         public Rect Frame => throw new NotImplementedException();
 
@@ -51,8 +53,8 @@ namespace AnywhereControls.Wpf
         IUIElement IUIElement.GetVisualChild(int index) =>
             throw new IndexOutOfRangeException("UIElement has no children");
 
-        void IUIElement.Measure(Size availableSize) => Measure(availableSize.ToWpfSize());
-        void IUIElement.Arrange(Rect finalRect) => Arrange(finalRect.ToWpfRect());
+        void IUIElement.Measure(Size availableSize) => Measure(availableSize.ToAvaloniaSize());
+        void IUIElement.Arrange(Rect finalRect) => Arrange(finalRect.ToAvaloniaRect());
         Size IUIElement.DesiredSize => DesiredSize.ToAnywhereControlsSize();
 
         double IUIElement.ActualX => throw new System.NotImplementedException();
@@ -61,31 +63,31 @@ namespace AnywhereControls.Wpf
         Thickness IUIElement.Margin
         {
             get => Margin.ToAnywhereControlsThickness();
-            set => Margin = value.ToWpfThickness();
+            set => Margin = value.ToAvaloniaThickness();
         }
 
         HorizontalAlignment IUIElement.HorizontalAlignment
         {
-            get => HorizontalAlignment.ToStandardUIHorizontalAlignment();
-            set => HorizontalAlignment = value.ToWpfHorizontalAlignment();
+            get => HorizontalAlignment.ToAnywhereControlsHorizontalAlignment();
+            set => HorizontalAlignment = value.ToAvaloniaHorizontalAlignment();
         }
 
         VerticalAlignment IUIElement.VerticalAlignment
         {
             get => VerticalAlignment.ToAnywhereControlsVerticalAlignment();
-            set => VerticalAlignment = value.ToWpfVerticalAlignment();
+            set => VerticalAlignment = value.ToAvaloniaVerticalAlignment();
         }
 
         FlowDirection IUIElement.FlowDirection
         {
             get => FlowDirection.ToStandardUIFlowDirection();
-            set => FlowDirection = value.ToWpfFlowDirection();
+            set => FlowDirection = value.ToAvaloniaFlowDirection();
         }
 
         bool IUIElement.Visible
         {
-            get => Visibility != Visibility.Collapsed;
-            set => Visibility = value ? Visibility.Visible : Visibility.Collapsed;
+            get => IsVisible;
+            set => IsVisible = value;
         }
 
         double IUIElement.Width
@@ -124,18 +126,18 @@ namespace AnywhereControls.Wpf
             set => MaxHeight = value;
         }
 
-        double IUIElement.ActualWidth => ActualWidth;
-        double IUIElement.ActualHeight => ActualHeight;
+        double IUIElement.ActualWidth => Bounds.Width;
+        double IUIElement.ActualHeight => Bounds.Height;
 
         object? IUIObject.GetValue(IUIProperty property) => GetValue(((UIProperty)property).DependencyProperty);
-        object? IUIObject.ReadLocalValue(IUIProperty property) => ReadLocalValue(((UIProperty)property).DependencyProperty);
         void IUIObject.SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).DependencyProperty, value);
         void IUIObject.ClearValue(IUIProperty property) => ClearValue(((UIProperty)property).DependencyProperty);
 
+#if LATER
         protected override int VisualChildrenCount =>
             ((IUIElement)this).VisualChildrenCount;
-        protected override System.Windows.Media.Visual GetVisualChild(int index) =>
-            ((IUIElement)this).GetVisualChild(index).ToWpfUIElement();
-
+        protected override global::Avalonia.Media.Visual GetVisualChild(int index) =>
+            ((IUIElement)this).GetVisualChild(index).ToAvaloniaControl();
+#endif
     }
 }

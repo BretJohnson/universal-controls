@@ -1,38 +1,38 @@
 namespace AnywhereControls.SourceGenerator.UIFrameworks
 {
-    public class WpfUIFramework : XamlUIFramework
+    public class AvaloniaUIFramework : XamlUIFramework
     {
-        public WpfUIFramework(Context context) : base(context)
+        public AvaloniaUIFramework(Context context) : base(context)
         {
         }
 
-        public override string Name => "Wpf";
-        public override TypeName DependencyPropertyType => new("System.Windows", "DependencyProperty");
-        public override TypeName ContentPropertyAttribute => new("System.Windows.Markup", "ContentPropertyAttribute");
+        public override string Name => "Avalonia";
+        public override TypeName DependencyPropertyType => new("Avalolnia", "StyledProperty");
+        public override TypeName ContentPropertyAttribute => new("Avalonia.Metadata", "ContentAttribute");
 
-        public override string FrameworkTypeForUIElementAttachedTarget => "System.Windows.UIElement";
-        public override string ToFrameworkTypeForUIElementAttachedTarget => "ToWpfUIElement";
+        public override string FrameworkTypeForUIElementAttachedTarget => "Avalonia.Control";
+        public override string ToFrameworkTypeForUIElementAttachedTarget => "ToAvaloniaUIElement";
 
-        public override string NativeUIElementType => "System.Windows.FrameworkElement";
-        public override string WrapperSuffix => "Wpf";
-        protected override string FontFamilyDefaultValue => "FontFamilyExtensions.DefaultFontFamily";
+        public override string NativeUIElementType => "Avalonia.Control";
+        public override string WrapperSuffix => "Avalonia";
+        protected override string FontFamilyDefaultValue => "global::Avalonia.Media.FontFamily.Default.Name";
 
         public override void GenerateStandardPanelLayoutMethods(string layoutManagerTypeName, Source methods)
         {
             methods.AddBlankLineIfNonempty();
-            methods.AddLine($"protected override System.Windows.Size MeasureOverride(System.Windows.Size constraint) =>");
+            methods.AddLine($"protected override global::Avalonia.Size MeasureOverride(global::Avalonia.Size availableSize) =>");
             using (methods.Indent())
             {
                 methods.AddLine(
-                    $"{layoutManagerTypeName}.Instance.MeasureOverride(this, constraint.Width, constraint.Height).ToWpfSize();");
+                    $"{layoutManagerTypeName}.Instance.MeasureOverride(this, availableSize.Width, availableSize.Height).ToAvaloniaSize();");
             }
 
             methods.AddBlankLine();
-            methods.AddLine($"protected override System.Windows.Size ArrangeOverride(System.Windows.Size arrangeSize) =>");
+            methods.AddLine($"protected override global::Avalonia.Size ArrangeOverride(global::Avalonia.Size finalSize) =>");
             using (methods.Indent())
             {
                 methods.AddLine(
-                    $"{layoutManagerTypeName}.Instance.ArrangeOverride(this, arrangeSize.ToAnywhereControlsSize()).ToWpfSize();");
+                    $"{layoutManagerTypeName}.Instance.ArrangeOverride(this, finalSize.ToAnywhereControlsSize()).ToAvaloniaSize();");
             }
         }
 

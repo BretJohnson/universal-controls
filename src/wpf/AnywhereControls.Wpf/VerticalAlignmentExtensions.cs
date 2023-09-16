@@ -14,7 +14,7 @@ namespace AnywhereControls.Wpf
                 _ => throw new ArgumentOutOfRangeException(nameof(verticalAlignment), $"Invalid VerticalAlignment value: {verticalAlignment}"),
             };
 
-        public static VerticalAlignment ToStandardUIVerticalAlignment(this System.Windows.VerticalAlignment verticalAlignment) =>
+        public static VerticalAlignment ToAnywhereControlsVerticalAlignment(this System.Windows.VerticalAlignment verticalAlignment) =>
             verticalAlignment switch
             {
                 System.Windows.VerticalAlignment.Top => VerticalAlignment.Top,
