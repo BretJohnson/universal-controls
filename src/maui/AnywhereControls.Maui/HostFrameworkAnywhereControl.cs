@@ -18,6 +18,8 @@ namespace AnywhereControls.Controls
     public abstract class HostFrameworkAnywhereControl : GraphicsView, IAnywhereControl
     {
         readonly HostFrameworkAnywhereControlDrawable _drawable;
+        protected IUIElement? _buildContent;
+        bool _invalid = true;
 
         public HostFrameworkAnywhereControl()
         {
@@ -79,7 +81,7 @@ namespace AnywhereControls.Controls
             set => IsVisible = value;
         }
 
-        public int VisualChildrenCount => throw new NotImplementedException();
+        public int VisualChildrenCount => _buildContent != null ? 1 : 0;
 
         double IUIElement.Width
         {
@@ -109,14 +111,34 @@ namespace AnywhereControls.Controls
 
         Size IUIElement.DesiredSize => DesiredSize.ToAnywhereControlsSize();
 
+        protected override Microsoft.Maui.Graphics.Size ArrangeOverride(Microsoft.Maui.Graphics.Rect bounds)
+        {
+            Arrange(bounds);
+
+            return base.ArrangeOverride(bounds);
+        }
+
         public void Arrange(Rect finalRect)
         {
             ((IUIElement)this).Arrange(new Rect(0, 0, finalRect.Width, finalRect.Height));
         }
 
+        protected override Microsoft.Maui.Graphics.Size MeasureOverride(double widthConstraint, double heightConstraint)
+        {
+            if (_invalid)
+            {
+                Rebuild();
+                _invalid = false;
+            }
+
+            Measure(new Size(widthConstraint, heightConstraint));
+
+            return ((IUIElement)this).DesiredSize.ToMauiSize();
+        }
+
         public void Measure(Size availableSize)
         {
-
+            ((IUIElement)this).Measure(availableSize);
         }
 
         public void ClearValue(IUIProperty property) => ClearValue(((UIProperty)property).BindableProperty);
@@ -129,7 +151,21 @@ namespace AnywhereControls.Controls
 
         public IUIElement GetVisualChild(int index)
         {
-            throw new NotImplementedException();
+            if (_buildContent == null)
+                throw new ArgumentOutOfRangeException("index", index, "Control returned null from build");
+            if (index != 0)
+                throw new ArgumentOutOfRangeException("index", index, "Index out of range; control only has a single visual child.");
+
+            return _buildContent;
+        }
+
+        protected IUIElement? BuildContent => _buildContent;
+
+        protected abstract IUIElement? Build();
+
+        void Rebuild()
+        { 
+            _buildContent = Build();
         }
     }
 }
