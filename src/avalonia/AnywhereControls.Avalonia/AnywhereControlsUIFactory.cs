@@ -1,11 +1,13 @@
+using AnywhereControls;
 using AnywhereControls.Controls;
 using AnywhereControls.Media;
 using AnywhereControls.Shapes;
-using AnywhereControls.Avalonia.Controls;
-using AnywhereControls.Avalonia.Media;
-using AnywhereControls.Avalonia.Shapes;
+using AnywhereControlsAvalonia.Controls;
+using AnywhereControlsAvalonia.Media;
+using AnywhereControlsAvalonia.Shapes;
+using Path = AnywhereControlsAvalonia.Shapes.Path;
 
-namespace AnywhereControls.Avalonia
+namespace AnywhereControlsAvalonia
 {
     public class AnywhereControlsUIFactory : IAnywhereControlsUIFactory
     {

@@ -1,16 +1,15 @@
-﻿using System;
-using AnywhereControls.Media;
+﻿using AnywhereControls.Media;
 
-namespace AnywhereControls.Avalonia
+namespace AnywhereControlsAvalonia
 {
     public static class BrushExtensions
     {
-        public static global::Avalonia.Media.Brush? ToAvaloniaBrush(this IBrush? brush)
+        public static Avalonia.Media.Brush? ToAvaloniaBrush(this IBrush? brush)
         {
             if (brush is null)
                 return null;
             else if (brush is ISolidColorBrush solidColorBrush)
-                return new global::Avalonia.Media.SolidColorBrush(solidColorBrush.Color.ToAvaloniaColor());
+                return new Avalonia.Media.SolidColorBrush(solidColorBrush.Color.ToAvaloniaColor());
             else if (brush is IGradientBrush gradientBrush)
             {
                 // TODO: Complete this

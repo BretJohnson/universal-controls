@@ -1,12 +1,13 @@
+using AnywhereControls;
 using Avalonia.Media;
 
-namespace AnywhereControls.Avalonia.NativeVisualFramework
+namespace AnywhereControlsAvalonia.NativeVisualFramework
 {
-    public class WpfNativeVisual : IVisual
+    public class AvaloniaNativeVisual : IVisual
     {
         public DrawingGroup DrawingGroup { get; }
 
-        public WpfNativeVisual(DrawingGroup drawingGroup)
+        public AvaloniaNativeVisual(DrawingGroup drawingGroup)
         {
             DrawingGroup = drawingGroup;
         }

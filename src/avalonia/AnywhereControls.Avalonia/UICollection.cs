@@ -1,10 +1,12 @@
-namespace AnywhereControls.Avalonia;
+using AnywhereControls;
+
+namespace AnywhereControlsAvalonia;
 
 public sealed class UICollection<T> : BasicUICollection<T>
 {
-    global::Avalonia.AvaloniaObject _parent;
+    Avalonia.AvaloniaObject _parent;
 
-    public UICollection(global::Avalonia.AvaloniaObject parent)
+    public UICollection(Avalonia.AvaloniaObject parent)
     {
         _parent = parent;
     }

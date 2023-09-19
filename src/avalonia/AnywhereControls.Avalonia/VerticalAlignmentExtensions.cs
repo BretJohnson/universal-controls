@@ -1,24 +1,26 @@
-namespace AnywhereControls.Avalonia
+using AnywhereControls;
+
+namespace AnywhereControlsAvalonia
 {
     public static class VerticalAlignmentExtensions
     {
-        public static global::Avalonia.Layout.VerticalAlignment ToAvaloniaVerticalAlignment(this VerticalAlignment verticalAlignment) =>
+        public static Avalonia.Layout.VerticalAlignment ToAvaloniaVerticalAlignment(this VerticalAlignment verticalAlignment) =>
             verticalAlignment switch
             {
-                VerticalAlignment.Top => global::Avalonia.Layout.VerticalAlignment.Top,
-                VerticalAlignment.Center => global::Avalonia.Layout.VerticalAlignment.Center,
-                VerticalAlignment.Bottom => global::Avalonia.Layout.VerticalAlignment.Bottom,
-                VerticalAlignment.Stretch => global::Avalonia.Layout.VerticalAlignment.Stretch,
+                VerticalAlignment.Top => Avalonia.Layout.VerticalAlignment.Top,
+                VerticalAlignment.Center => Avalonia.Layout.VerticalAlignment.Center,
+                VerticalAlignment.Bottom => Avalonia.Layout.VerticalAlignment.Bottom,
+                VerticalAlignment.Stretch => Avalonia.Layout.VerticalAlignment.Stretch,
                 _ => throw new ArgumentOutOfRangeException(nameof(verticalAlignment), $"Invalid VerticalAlignment value: {verticalAlignment}"),
             };
 
-        public static VerticalAlignment ToAnywhereControlsVerticalAlignment(this global::Avalonia.Layout.VerticalAlignment verticalAlignment) =>
+        public static VerticalAlignment ToAnywhereControlsVerticalAlignment(this Avalonia.Layout.VerticalAlignment verticalAlignment) =>
             verticalAlignment switch
             {
-                global::Avalonia.Layout.VerticalAlignment.Top => VerticalAlignment.Top,
-                global::Avalonia.Layout.VerticalAlignment.Center => VerticalAlignment.Center,
-                global::Avalonia.Layout.VerticalAlignment.Bottom => VerticalAlignment.Bottom,
-                global::Avalonia.Layout.VerticalAlignment.Stretch => VerticalAlignment.Stretch,
+                Avalonia.Layout.VerticalAlignment.Top => VerticalAlignment.Top,
+                Avalonia.Layout.VerticalAlignment.Center => VerticalAlignment.Center,
+                Avalonia.Layout.VerticalAlignment.Bottom => VerticalAlignment.Bottom,
+                Avalonia.Layout.VerticalAlignment.Stretch => VerticalAlignment.Stretch,
                 _ => throw new ArgumentOutOfRangeException(nameof(verticalAlignment), $"Invalid VerticalAlignment value: {verticalAlignment}"),
             };
     }

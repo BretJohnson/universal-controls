@@ -1,4 +1,4 @@
-namespace AnywhereControls.Avalonia
+namespace AnywhereControlsAvalonia
 {
     public interface ILogicalParent
     {

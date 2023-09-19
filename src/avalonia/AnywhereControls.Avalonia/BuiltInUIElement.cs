@@ -1,16 +1,15 @@
-﻿using Avalonia.Controls;
-using Avalonia.Media;
+﻿using AnywhereControls;
 
-namespace AnywhereControls.Avalonia
+namespace AnywhereControlsAvalonia
 {
     /// <summary>
     /// This is the base for predefined UI elements.
     /// </summary>
-    public class BuiltInUIElement : Control, IUIElement, ILogicalParent
+    public class BuiltInUIElement : Avalonia.Controls.Control, IUIElement, ILogicalParent
     {
         private StandardUIFrameworkElementHelper _helper = new();
 
-        public override void Render(DrawingContext drawingContextAvalonia)
+        public override void Render(Avalonia.Media.DrawingContext drawingContextAvalonia)
         {
             base.Render(drawingContextAvalonia);
 
@@ -45,8 +44,10 @@ namespace AnywhereControls.Avalonia
 
         public Rect Frame => throw new NotImplementedException();
 
-        void ILogicalParent.AddLogicalChild(object child) => AddLogicalChild(child);
-        void ILogicalParent.RemoveLogicalChild(object child) => RemoveLogicalChild(child);
+        void ILogicalParent.AddLogicalChild(object child) => throw new NotImplementedException();
+        //AddLogicalChild(child);
+        void ILogicalParent.RemoveLogicalChild(object child) => throw new NotImplementedException();
+            //RemoveLogicalChild(child);
 
         int IUIElement.VisualChildrenCount => 0;
 
@@ -129,14 +130,14 @@ namespace AnywhereControls.Avalonia
         double IUIElement.ActualWidth => Bounds.Width;
         double IUIElement.ActualHeight => Bounds.Height;
 
-        object? IUIObject.GetValue(IUIProperty property) => GetValue(((UIProperty)property).DependencyProperty);
-        void IUIObject.SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).DependencyProperty, value);
-        void IUIObject.ClearValue(IUIProperty property) => ClearValue(((UIProperty)property).DependencyProperty);
+        object? IUIObject.GetValue(IUIProperty property) => GetValue(((UIProperty)property).AvaloniaProperty);
+        void IUIObject.SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).AvaloniaProperty, value);
+        void IUIObject.ClearValue(IUIProperty property) => ClearValue(((UIProperty)property).AvaloniaProperty);
 
 #if LATER
         protected override int VisualChildrenCount =>
             ((IUIElement)this).VisualChildrenCount;
-        protected override global::Avalonia.Media.Visual GetVisualChild(int index) =>
+        protected override Avalonia.Media.Visual GetVisualChild(int index) =>
             ((IUIElement)this).GetVisualChild(index).ToAvaloniaControl();
 #endif
     }

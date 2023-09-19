@@ -1,10 +1,7 @@
-﻿using System;
-using System.Windows;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia;
-using Avalonia.Metadata;
 
-namespace AnywhereControls.Avalonia
+namespace AnywhereControlsAvalonia
 {
     public static class PropertyUtils
     {

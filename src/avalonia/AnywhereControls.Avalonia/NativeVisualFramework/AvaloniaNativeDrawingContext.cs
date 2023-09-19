@@ -1,19 +1,21 @@
 ﻿using System.Globalization;
 using AnywhereControls.Controls;
-using AnywhereControls.Media;
 using AnywhereControls.Shapes;
-using AnywhereControls.Avalonia.Text;
+using AnywhereControlsAvalonia.Media;
 using Pen = AnywhereControls.Media.Pen;
 using Avalonia.Media;
 using IBrush = AnywhereControls.Media.IBrush;
 using ITransform = AnywhereControls.Media.ITransform;
+using AnywhereControls;
+using AnywhereControlsAvalonia.Text;
 
-namespace AnywhereControls.Avalonia.NativeVisualFramework
+namespace AnywhereControlsAvalonia.NativeVisualFramework
 {
     public class AvaloniaNativeDrawingContext : IDrawingContext
     {
         private DrawingGroup _drawingGroup;
         private DrawingContext? _drawingContext;
+        private Stack<DrawingContext.PushedState> _stateStack = new();
 
         public AvaloniaNativeDrawingContext()
         {
@@ -43,24 +45,24 @@ namespace AnywhereControls.Avalonia.NativeVisualFramework
 
         public void DrawEllipse(IEllipse ellipse)
         {
-            Brush? wpfBrush = ellipse.Fill.ToAvaloniaBrush();
-            global::Avalonia.Media.Pen? wpfPen = ToAvaloniaNativePen(ellipse);
+            Avalonia.Media.Brush? avaloniaBrush = ellipse.Fill.ToAvaloniaBrush();
+            Avalonia.Media.Pen? avaloniaPen = ToAvaloniaNativePen(ellipse);
 
             double radiusX = ellipse.ActualWidth / 2;
             double radiusY = ellipse.ActualHeight / 2;
-            var center = new System.Windows.Point(radiusX, radiusY);
+            var center = new Avalonia.Point(radiusX, radiusY);
 
-            _drawingContext!.DrawEllipse(wpfBrush, wpfPen, center, radiusX, radiusY);
+            _drawingContext!.DrawEllipse(avaloniaBrush, avaloniaPen, center, radiusX, radiusY);
         }
 
         public void DrawLine(ILine line)
         {
-            global::Avalonia.Media.Pen? wpfPen = ToAvaloniaNativePen(line);
-            if (wpfPen != null)
+            Avalonia.Media.Pen? avaloniaPen = ToAvaloniaNativePen(line);
+            if (avaloniaPen != null)
             {
-                _drawingContext!.DrawLine(wpfPen,
-                    new System.Windows.Point(line.X1, line.Y1),
-                    new System.Windows.Point(line.X2, line.Y2));
+                _drawingContext!.DrawLine(avaloniaPen,
+                    new Avalonia.Point(line.X1, line.Y1),
+                    new Avalonia.Point(line.X2, line.Y2));
             }
         }
 
@@ -93,38 +95,38 @@ namespace AnywhereControls.Avalonia.NativeVisualFramework
 
         public void DrawRectangle(IBrush? brush, Pen? pen, Rect rect)
         {
-            global::Avalonia.Rect avaloniaRect = rect.ToAvaloniaRect();
-            Brush? wpfBurush = brush?.ToAvaloniaBrush();
-            global::Avalonia.Media.Pen? wpfPen = pen?.ToAvaloniaPen();
+            Avalonia.Rect avaloniaRect = rect.ToAvaloniaRect();
+            Avalonia.Media.Brush? avaloniaBrush = brush?.ToAvaloniaBrush();
+            Avalonia.Media.Pen? avaloniaPen = pen?.ToAvaloniaPen();
 
-            _drawingContext!.DrawRectangle(wpfBurush, wpfPen, avaloniaRect);
+            _drawingContext!.DrawRectangle(avaloniaBrush, avaloniaPen, avaloniaRect);
         }
 
         public void DrawRoundedRectangle(IBrush? brush, Pen? pen, Rect rect, double radiusX, double radiusY)
         {
-            System.Windows.Rect wpfRect = rect.ToAvaloniaRect();
-            Brush? wpfBurush = brush?.ToAvaloniaBrush();
-            global::Avalonia.Media.Pen? wpfPen = pen?.ToAvaloniaPen();
+            Avalonia.Rect avaloniaRect = rect.ToAvaloniaRect();
+            Avalonia.Media.Brush? avaloniaBrush = brush?.ToAvaloniaBrush();
+            Avalonia.Media.Pen? avaloniaPen = pen?.ToAvaloniaPen();
 
-            _drawingContext!.DrawRoundedRectangle(wpfBurush, wpfPen, wpfRect, radiusX, radiusY);
+            _drawingContext!.DrawRectangle(avaloniaBrush, avaloniaPen, avaloniaRect, radiusX, radiusY);
         }
 
         public void DrawRectangle(IRectangle rectangle)
         {
-            System.Windows.Rect wpfRect = new System.Windows.Rect(0, 0, rectangle.ActualWidth, rectangle.ActualHeight);
+            Avalonia.Rect avaloniaRect = new Avalonia.Rect(0, 0, rectangle.ActualWidth, rectangle.ActualHeight);
 
-            Brush? wpfBurush = rectangle.Fill.ToAvaloniaBrush();
-            global::Avalonia.Media.Pen? wpfPen = ToAvaloniaNativePen(rectangle);
+            Avalonia.Media.Brush? avaloniaBrush = rectangle.Fill.ToAvaloniaBrush();
+            Avalonia.Media.Pen? avaloniaPen = ToAvaloniaNativePen(rectangle);
 
             if (rectangle.RadiusX > 0 || rectangle.RadiusY > 0)
-                _drawingContext!.DrawRoundedRectangle(wpfBurush, wpfPen, wpfRect, rectangle.RadiusX, rectangle.RadiusY);
+                _drawingContext!.DrawRectangle(avaloniaBrush, avaloniaPen, avaloniaRect, rectangle.RadiusX, rectangle.RadiusY);
             else
-                _drawingContext!.DrawRectangle(wpfBurush, wpfPen, wpfRect);
+                _drawingContext!.DrawRectangle(avaloniaBrush, avaloniaPen, avaloniaRect);
         }
 
         public void DrawTextBlock(ITextBlock textBlock)
         {
-            Brush? brush = textBlock.Foreground.ToAvaloniaBrush();
+            Avalonia.Media.Brush? brush = textBlock.Foreground.ToAvaloniaBrush();
             if (brush == null)
                 return;
 
@@ -140,44 +142,44 @@ namespace AnywhereControls.Avalonia.NativeVisualFramework
                 textBlock.FlowDirection.ToAvaloniaFlowDirection(),
                 typeface,
                 textBlock.FontSize,  // TODO: Set this appropriately
-                brush,
-                1.0); // TODO: Set this appropriately
+                brush);
 
-            _drawingContext!.DrawText(formattedText, new System.Windows.Point(0, 0));
+            _drawingContext!.DrawText(formattedText, new Avalonia.Point(0, 0));
         }
 
         public void PushRotateTransform(double angle, double centerX, double centerY)
         {
-            var transform = new RotateTransform(
+            var transform = new Avalonia.Media.RotateTransform(
                 angle: angle,
                 centerX: centerX,
                 centerY: centerY);
-            _drawingContext!.PushTransform(transform);
+            _stateStack.Push(_drawingContext!.PushTransform(transform.Value));
         }
 
         public void PushTranslateTransform(double offsetX, double offsetY)
         {
-            var transform = new TranslateTransform(offsetX, offsetY);
-            _drawingContext!.PushTransform(transform);
+            var transform = new Avalonia.Media.TranslateTransform(offsetX, offsetY);
+            _stateStack.Push(_drawingContext!.PushTransform(transform.Value));
         }
 
         public void PushTransform(ITransform transform)
         {
-            Transform wpfTransform = transform.ToAvaloniaTransform();
-            _drawingContext!.PushTransform(wpfTransform);
+            Avalonia.Media.Transform avaloniaTransform = transform.ToAvaloniaTransform();
+            _stateStack.Push(_drawingContext!.PushTransform(avaloniaTransform.Value));
         }
 
         public void Pop()
         {
-            _drawingContext!.Pop();
+            DrawingContext.PushedState poppedElement = _stateStack.Pop();
+            poppedElement.Dispose();
         }
 
         public IVisual? Close()
         {
             // TODO: Return null if didn't draw anything
-            _drawingContext!.Close();
+            //_drawingContext!.Close();
             _drawingContext = null;
-            return new WpfNativeVisual(_drawingGroup);
+            return new AvaloniaNativeVisual(_drawingGroup);
         }
 
 #if LATER
@@ -231,13 +233,13 @@ namespace AnywhereControls.Avalonia.NativeVisualFramework
         }
 #endif
 
-        public static global::Avalonia.Media.Pen? ToAvaloniaNativePen(IShape shape)
+        public static Avalonia.Media.Pen? ToAvaloniaNativePen(IShape shape)
         {
             IBrush? strokeBrush = shape.Stroke;
             if (strokeBrush == null)
                 return null;
 
-            return new global::Avalonia.Media.Pen(strokeBrush.ToAvaloniaBrush(), shape.StrokeThickness)
+            return new Avalonia.Media.Pen(strokeBrush.ToAvaloniaBrush(), shape.StrokeThickness)
             {
                 MiterLimit = shape.StrokeMiterLimit,
                 LineCap = shape.StrokeLineCap.ToAvaloniaPenLineCap(),

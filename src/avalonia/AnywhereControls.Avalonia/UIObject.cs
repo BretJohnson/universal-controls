@@ -1,13 +1,14 @@
+using AnywhereControls;
 using Avalonia;
 
-namespace AnywhereControls.Avalonia;
+namespace AnywhereControlsAvalonia;
 
 /// <summary>
 /// This is the base for predefined dependency objects
 /// </summary>
 public class UIObject : AvaloniaObject, IUIObject
 {
-    object? IUIObject.GetValue(IUIProperty property) => GetValue(((UIProperty)property).DependencyProperty);
-    void IUIObject.SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).DependencyProperty, value);
-    void IUIObject.ClearValue(IUIProperty property) => ClearValue(((UIProperty)property).DependencyProperty);
+    object? IUIObject.GetValue(IUIProperty property) => GetValue(((UIProperty)property).AvaloniaProperty);
+    void IUIObject.SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).AvaloniaProperty, value);
+    void IUIObject.ClearValue(IUIProperty property) => ClearValue(((UIProperty)property).AvaloniaProperty);
 }

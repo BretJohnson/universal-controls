@@ -1,7 +1,8 @@
+using AnywhereControls;
 using Avalonia.Media;
-using global::Avalonia.Media.Imaging;
+using Avalonia.Media.Imaging;
 
-namespace AnywhereControls.Avalonia
+namespace AnywhereControlsAvalonia
 {
     internal struct SizeInPixels
     {
@@ -26,8 +27,15 @@ namespace AnywhereControls.Avalonia
 
         public void OnRender(IVisual visual, double width, double height, DrawingContext drawingContext)
         {
+#if LATER
             if (visual.NativeVisual is DrawingGroup drawingGroup)
             {
+                foreach (Drawing drawing in drawingGroup.Children)
+                {
+                    drawingContext.DrawD
+                }
+
+
                 drawingContext.DrawDrawing(drawingGroup);
             }
             else
@@ -62,10 +70,10 @@ namespace AnywhereControls.Avalonia
 
                 _bitmap.AddDirtyRect(new Int32Rect(0, 0, widthInPixels, heightInPixels));
                 _bitmap.Unlock();
-                drawingContext.DrawImage(_bitmap, new System.Windows.Rect(0, 0, widthInPixels, heightInPixels));
+                drawingContext.DrawImage(_bitmap, new Avalonia.Rect(0, 0, widthInPixels, heightInPixels));
 
-                //var rect = new System.Windows.Rect(0, 0, 175, 50);
-                //drawingContext.DrawRectangle(new SolidColorBrush(global::Avalonia.Media.Colors.Red), null, rect);
+                //var rect = new Avalonia.Rect(0, 0, 175, 50);
+                //drawingContext.DrawRectangle(new SolidColorBrush(Avalonia.Media.Colors.Red), null, rect);
             }
 
             /*
@@ -75,6 +83,7 @@ namespace AnywhereControls.Avalonia
             Rect myRect = new Rect(0, 0, 500, 500);
             dc.DrawRectangle(mySolidColorBrush, myPen, myRect);
             */
+#endif
         }
 
         private static bool IsPositive(double value)

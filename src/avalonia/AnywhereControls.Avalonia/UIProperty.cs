@@ -1,6 +1,7 @@
+using AnywhereControls;
 using Avalonia;
 
-namespace AnywhereControls.Avalonia
+namespace AnywhereControlsAvalonia
 {
     public class UIProperty : IUIProperty
     {

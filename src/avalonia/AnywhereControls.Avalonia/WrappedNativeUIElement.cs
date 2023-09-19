@@ -1,6 +1,7 @@
-﻿using Avalonia.Controls;
+﻿using AnywhereControls;
+using Avalonia.Controls;
 
-namespace AnywhereControls.Avalonia
+namespace AnywhereControlsAvalonia
 {
     /// <summary>
     /// This class is for UI controls passed in from the host, for native WPF controls (not
@@ -60,8 +61,8 @@ namespace AnywhereControls.Avalonia
         // TODO: Error if appropriate when set to Visibility.Hidden
         bool IUIElement.Visible
         {
-            get => _control.Visibility != System.Windows.Visibility.Collapsed;
-            set => _control.Visibility = value ? System.Windows.Visibility.Visible : System.Windows.Visibility.Collapsed;
+            get => _control.IsVisible;
+            set => _control.IsVisible = value;
         }
 
         double IUIElement.Width
@@ -100,13 +101,13 @@ namespace AnywhereControls.Avalonia
             set => _control.MaxHeight = value;
         }
 
-        double IUIElement.ActualWidth => _control.ActualWidth;
+        double IUIElement.ActualWidth => _control.Bounds.Width;
 
-        double IUIElement.ActualHeight => _control.ActualHeight;
+        double IUIElement.ActualHeight => _control.Bounds.Height;
 
-        object? IUIObject.GetValue(IUIProperty property) => _control.GetValue(((UIProperty)property).DependencyProperty);
-        void IUIObject.SetValue(IUIProperty property, object? value) => _control.SetValue(((UIProperty)property).DependencyProperty, value);
-        void IUIObject.ClearValue(IUIProperty property) => _control.ClearValue(((UIProperty)property).DependencyProperty);
+        object? IUIObject.GetValue(IUIProperty property) => _control.GetValue(((UIProperty)property).AvaloniaProperty);
+        void IUIObject.SetValue(IUIProperty property, object? value) => _control.SetValue(((UIProperty)property).AvaloniaProperty, value);
+        void IUIObject.ClearValue(IUIProperty property) => _control.ClearValue(((UIProperty)property).AvaloniaProperty);
 
         int IUIElement.VisualChildrenCount => 0;
 

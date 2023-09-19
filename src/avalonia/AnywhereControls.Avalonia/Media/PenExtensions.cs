@@ -1,11 +1,11 @@
 using AnywhereControls.Media;
 
-namespace AnywhereControls.Avalonia.Media
+namespace AnywhereControlsAvalonia.Media
 {
     public static class PenExtensions
     {
-        public static global::Avalonia.Media.Pen ToWpfPen(this Pen pen) =>
-            new global::Avalonia.Media.Pen(pen.Brush?.ToAvaloniaBrush(), pen.Thickness)
+        public static Avalonia.Media.Pen ToAvaloniaPen(this Pen pen) =>
+            new Avalonia.Media.Pen(pen.Brush?.ToAvaloniaBrush(), pen.Thickness)
             {
                 MiterLimit = pen.MiterLimit,
                 LineCap = pen.StartLineCap.ToAvaloniaPenLineCap(),

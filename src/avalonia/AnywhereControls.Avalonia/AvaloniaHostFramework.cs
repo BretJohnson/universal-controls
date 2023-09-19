@@ -1,4 +1,6 @@
-namespace AnywhereControls.Avalonia
+using AnywhereControls;
+
+namespace AnywhereControlsAvalonia
 {
     public class AvaloniaHostFramework : IHostFramework
     {
