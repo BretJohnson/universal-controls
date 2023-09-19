@@ -27,6 +27,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
         public override void GenerateProperty(Property property, ClassSource classSource)
         {
             string descriptorName = PropertyDescriptorName(property);
+            string defaultValue = DefaultValue(property);
 
             classSource.Usings.AddNamespace("AnywhereControls");
             classSource.Usings.AddNamespace(RootNamespace);
