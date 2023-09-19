@@ -145,8 +145,6 @@ namespace AnywhereControls.Controls
 
         public object? GetValue(IUIProperty property) => GetValue(((UIProperty)property).BindableProperty);
 
-        public object? ReadLocalValue(IUIProperty property) => GetValue(((UIProperty)property).BindableProperty);
-
         public void SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).BindableProperty, value);
 
         public IUIElement GetVisualChild(int index)
