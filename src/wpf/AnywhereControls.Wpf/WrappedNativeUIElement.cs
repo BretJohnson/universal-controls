@@ -106,7 +106,6 @@ namespace AnywhereControls.Wpf
         double IUIElement.ActualHeight => _frameworkElement.ActualHeight;
 
         object? IUIObject.GetValue(IUIProperty property) => _frameworkElement.GetValue(((UIProperty)property).DependencyProperty);
-        object? IUIObject.ReadLocalValue(IUIProperty property) => _frameworkElement.ReadLocalValue(((UIProperty)property).DependencyProperty);
         void IUIObject.SetValue(IUIProperty property, object? value) => _frameworkElement.SetValue(((UIProperty)property).DependencyProperty, value);
         void IUIObject.ClearValue(IUIProperty property) => _frameworkElement.ClearValue(((UIProperty)property).DependencyProperty);
 
