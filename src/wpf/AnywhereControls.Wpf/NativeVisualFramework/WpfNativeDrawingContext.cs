@@ -5,6 +5,7 @@ using AnywhereControls.Controls;
 using AnywhereControls.Media;
 using AnywhereControls.Media.Wpf;
 using AnywhereControls.Shapes;
+using AnywhereControls.Wpf.Media;
 using AnywhereControls.Wpf.Text;
 using Pen = AnywhereControls.Media.Pen;
 
@@ -43,7 +44,7 @@ namespace AnywhereControls.Wpf.NativeVisualFramework
 
         public void DrawEllipse(IEllipse ellipse)
         {
-            Brush? wpfBrush = ellipse.Fill.ToWpfBrush();
+            System.Windows.Media.Brush? wpfBrush = ellipse.Fill.ToWpfBrush();
             System.Windows.Media.Pen? wpfPen = ToWpfNativePen(ellipse);
 
             double radiusX = ellipse.ActualWidth / 2;
@@ -94,7 +95,7 @@ namespace AnywhereControls.Wpf.NativeVisualFramework
         public void DrawRectangle(IBrush? brush, Pen? pen, Rect rect)
         {
             System.Windows.Rect wpfRect = rect.ToWpfRect();
-            Brush? wpfBurush = brush?.ToWpfBrush();
+            System.Windows.Media.Brush? wpfBurush = brush?.ToWpfBrush();
             System.Windows.Media.Pen? wpfPen = pen?.ToWpfPen();
 
             _drawingContext!.DrawRectangle(wpfBurush, wpfPen, wpfRect);
@@ -103,7 +104,7 @@ namespace AnywhereControls.Wpf.NativeVisualFramework
         public void DrawRoundedRectangle(IBrush? brush, Pen? pen, Rect rect, double radiusX, double radiusY)
         {
             System.Windows.Rect wpfRect = rect.ToWpfRect();
-            Brush? wpfBurush = brush?.ToWpfBrush();
+            System.Windows.Media.Brush? wpfBurush = brush?.ToWpfBrush();
             System.Windows.Media.Pen? wpfPen = pen?.ToWpfPen();
 
             _drawingContext!.DrawRoundedRectangle(wpfBurush, wpfPen, wpfRect, radiusX, radiusY);
@@ -113,7 +114,7 @@ namespace AnywhereControls.Wpf.NativeVisualFramework
         {
             System.Windows.Rect wpfRect = new System.Windows.Rect(0, 0, rectangle.ActualWidth, rectangle.ActualHeight);
 
-            Brush? wpfBurush = rectangle.Fill.ToWpfBrush();
+            System.Windows.Media.Brush? wpfBurush = rectangle.Fill.ToWpfBrush();
             System.Windows.Media.Pen? wpfPen = ToWpfNativePen(rectangle);
 
             if (rectangle.RadiusX > 0 || rectangle.RadiusY > 0)
@@ -124,7 +125,7 @@ namespace AnywhereControls.Wpf.NativeVisualFramework
 
         public void DrawTextBlock(ITextBlock textBlock)
         {
-            Brush? brush = textBlock.Foreground.ToWpfBrush();
+            System.Windows.Media.Brush? brush = textBlock.Foreground.ToWpfBrush();
             if (brush == null)
                 return;
 
@@ -148,7 +149,7 @@ namespace AnywhereControls.Wpf.NativeVisualFramework
 
         public void PushRotateTransform(double angle, double centerX, double centerY)
         {
-            var transform = new RotateTransform(
+            var transform = new System.Windows.Media.RotateTransform(
                 angle: angle,
                 centerX: centerX,
                 centerY: centerY);
@@ -157,13 +158,13 @@ namespace AnywhereControls.Wpf.NativeVisualFramework
 
         public void PushTranslateTransform(double offsetX, double offsetY)
         {
-            var transform = new TranslateTransform(offsetX, offsetY);
+            var transform = new System.Windows.Media.TranslateTransform(offsetX, offsetY);
             _drawingContext!.PushTransform(transform);
         }
 
         public void PushTransform(ITransform transform)
         {
-            Transform wpfTransform = transform.ToWpfTransform();
+            System.Windows.Media.Transform wpfTransform = transform.ToWpfTransform();
             _drawingContext!.PushTransform(wpfTransform);
         }
 

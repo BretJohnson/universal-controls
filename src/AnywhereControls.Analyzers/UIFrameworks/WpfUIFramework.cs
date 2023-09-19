@@ -84,7 +84,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             methods.AddBlankLine();
             methods.AddProperty("HorizontalAlignment IUIElement.HorizontalAlignment", "HorizontalAlignment.ToStandardUIHorizontalAlignment()", "HorizontalAlignment = value.ToWpfHorizontalAlignment()");
             methods.AddBlankLine();
-            methods.AddProperty("VerticalAlignment IUIElement.VerticalAlignment", "VerticalAlignment.ToStandardUIVerticalAlignment()", "VerticalAlignment = value.ToWpfVerticalAlignment()");
+            methods.AddProperty("VerticalAlignment IUIElement.VerticalAlignment", "VerticalAlignment.ToAnywhereControlsVerticalAlignment()", "VerticalAlignment = value.ToWpfVerticalAlignment()");
             methods.AddBlankLine();
             methods.AddProperty("FlowDirection IUIElement.FlowDirection", "FlowDirection.ToStandardUIFlowDirection()", "FlowDirection = value.ToWpfFlowDirection()");
             methods.AddBlankLine();

@@ -233,6 +233,8 @@ namespace AnywhereControls.SourceGenerator
                     return new BlazorUIFramework(context);
                 else if (assemblyName == "AnywhereControls.Maui")
                     return new MauiUIFramework(context);
+                else if (assemblyName == "AnywhereControls.Avalonia")
+                    return new AvaloniaUIFramework(context);
             }
 
             throw UserVisibleErrors.CouldNotIdentifyUIFramework();

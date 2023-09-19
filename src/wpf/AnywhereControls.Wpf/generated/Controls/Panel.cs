@@ -20,7 +20,7 @@ namespace AnywhereControls.Wpf.Controls
         }
         
         public UIElementCollection<System.Windows.FrameworkElement,AnywhereControls.IUIElement> Children => _children;
-        IUICollection<IUIElement> IPanel.Children => Children.ToStandardUIElementCollection();
+        IUICollection<IUIElement> IPanel.Children => Children.ToAnywhereControlsUIElementCollection();
         
         protected override int VisualChildrenCount => _children.Count;
         

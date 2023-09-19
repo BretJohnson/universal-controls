@@ -15,14 +15,15 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             Context = context;
         }
 
+        public virtual bool UseNewNamingConvention => false;
         public abstract string Name { get; }
         public virtual string NamespaceSuffix => Name;
         public virtual string ProjectBaseDirectory => $"AnywhereControls.{Name}";
-        public string RootNamespace => $"AnywhereControls.{NamespaceSuffix}";
+        public string RootNamespace => UseNewNamingConvention ? $"AnywhereControls{NamespaceSuffix}" : $"AnywhereControls.{NamespaceSuffix}";
         public abstract string FrameworkTypeForUIElementAttachedTarget { get; }
         public abstract string NativeUIElementType { get; }
         public virtual TypeName BuiltInUIElementBaseClassType => new(RootNamespace, "BuiltInUIElement");
-        public virtual TypeName BuiltInUIObjectBaseClassType => new(RootNamespace, "StandardUIObject");
+        public virtual TypeName BuiltInUIObjectBaseClassType => new(RootNamespace, "UIObject");
         public virtual TypeName StandardControlBaseClassType => new(RootNamespace, Name + "StandardControl");
 
         public virtual string PropertyDescriptorName(Property property) => property.Name + "Property";
@@ -52,8 +53,8 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             // TODO: Check if should update the code to match what the comment actually says here (and not add suffix)
             // For controls outside the StandardUI namespace - user provided, not built in -
             // just keep with a the original namespace, not using a child namespace per platform
-            if (!namespaceName.StartsWith(Utils.AnywhereControlsRootNamespace))
-                return $"{namespaceName}.{NamespaceSuffix}";
+            if (!Utils.IsNamespaceUnder(namespaceName, Utils.AnywhereControlsRootNamespace))
+                return UseNewNamingConvention ? $"{namespaceName}{NamespaceSuffix}" : $"{namespaceName}.{NamespaceSuffix}";
 
             // Map e.g. AnywhereControls.Media source namespace => AnywhereControls.Wpf.Media destination namespace
             // If the source namespace is just AnywhereControls, don't change anything here

@@ -86,7 +86,7 @@ namespace AnywhereControls.Controls
 
         Thickness IUIElement.Margin
         {
-            get => Margin.ToStandardUIThickness();
+            get => Margin.ToAnywhereControlsThickness();
             set => Margin = value.ToWpfThickness();
         }
 
@@ -98,7 +98,7 @@ namespace AnywhereControls.Controls
 
         VerticalAlignment IUIElement.VerticalAlignment
         {
-            get => VerticalAlignment.ToStandardUIVerticalAlignment();
+            get => VerticalAlignment.ToAnywhereControlsVerticalAlignment();
             set => VerticalAlignment = value.ToWpfVerticalAlignment();
         }
 
@@ -154,7 +154,6 @@ namespace AnywhereControls.Controls
         double IUIElement.ActualHeight => ActualHeight;
 
         object? IUIObject.GetValue(IUIProperty property) => GetValue(((UIProperty)property).DependencyProperty);
-        object? IUIObject.ReadLocalValue(IUIProperty property) => ReadLocalValue(((UIProperty)property).DependencyProperty);
         void IUIObject.SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).DependencyProperty, value);
         void IUIObject.ClearValue(IUIProperty property) => ClearValue(((UIProperty)property).DependencyProperty);
 

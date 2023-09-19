@@ -10,13 +10,14 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
         public abstract string ToFrameworkTypeForUIElementAttachedTarget { get; }
         public abstract TypeName DependencyPropertyType { get; }
         public abstract TypeName ContentPropertyAttribute { get; }
+        public virtual ContentPropertyStyle ContentPropertyStyle => ContentPropertyStyle.ClassAttribute;
 
         public override string UIElementCollectionOutputTypeName(ITypeSymbol elementType) => $"UIElementCollection<{NativeUIElementType},{elementType}>";
         public override string UIElementSubtypeCollectionOutputTypeName(ITypeSymbol elementType) => $"UIElementCollection<{OutputTypeName(elementType)},{elementType.Name}>";
 
         public override void GenerateAttributes(Interface intface, ClassSource classSource)
         {
-            if (intface.ContentPropertyName != null)
+            if (intface.ContentPropertyName != null && ContentPropertyStyle == ContentPropertyStyle.ClassAttribute)
             {
                 classSource.Attributes.Usings.AddNamespace(ContentPropertyAttribute.Namespace);
                 classSource.Attributes.AddLine($"[ContentProperty(\"{intface.ContentPropertyName}\")]");
@@ -25,16 +26,12 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
         public override void GenerateProperty(Property property, ClassSource classSource)
         {
-            classSource.Usings.AddType(DependencyPropertyType);
+            string descriptorName = PropertyDescriptorName(property);
+
             classSource.Usings.AddNamespace("AnywhereControls");
             classSource.Usings.AddNamespace(RootNamespace);
 
-            // Generate the property descriptor
-            string nonNullablePropertyType = Utils.ToNonnullableType(PropertyOutputTypeName(property));
-            string descriptorName = PropertyDescriptorName(property);
-            string defaultValue = DefaultValue(property);
-            classSource.StaticFields.AddLine(
-                $"public static readonly {DependencyPropertyType.Name} {descriptorName} = PropertyUtils.Register(nameof({property.Name}), typeof({nonNullablePropertyType}), typeof({property.Interface.FrameworkClassName}), {defaultValue});");
+            GeneratePropertyDescriptor(property, classSource);
 
             if (defaultValue.StartsWith("Colors."))
             {
@@ -55,6 +52,16 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             }
 
             GeneratePropertyMethods(property, classSource.NonstaticMethods);
+        }
+
+        protected virtual void GeneratePropertyDescriptor(Property property, ClassSource classSource)
+        {
+            classSource.Usings.AddType(DependencyPropertyType);
+
+            string nonNullablePropertyType = Utils.ToNonnullableType(PropertyOutputTypeName(property));
+
+            classSource.StaticFields.AddLine(
+                $"public static readonly {DependencyPropertyType.Name} {PropertyDescriptorName(property)} = PropertyUtils.Register(nameof({property.Name}), typeof({nonNullablePropertyType}), typeof({property.Interface.FrameworkClassName}), {DefaultValue(property)});");
         }
 
         private void GeneratePropertyMethods(Property property, Source source)
@@ -93,7 +100,17 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             else
                 getterValue = $"({propertyOutputTypeName}) GetValue({descriptorName})";
 
-            string modifiers = "public";
+            string modifiers;
+            if (property.Interface.ContentPropertyName == property.Name && ContentPropertyStyle == ContentPropertyStyle.PropertyAttribute)
+            {
+                source.Usings.AddNamespace(ContentPropertyAttribute.Namespace);
+                modifiers = "[Content] public";
+            }
+            else
+            {
+                modifiers = "public";
+            }
+
             if (purpose == InterfacePurpose.AnywhereControl)
             {
                 modifiers += " override";
@@ -137,7 +154,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                 }
                 else if (Utils.IsUICollectionType(Context, property.Type, out var elementType) && propertyOutputTypeName.StartsWith("UIElementCollection<"))
                 {
-                    otherGetterValue = $"{property.Name}.ToStandardUIElementCollection()";
+                    otherGetterValue = $"{property.Name}.ToAnywhereControlsUIElementCollection()";
                     setterAssignment = ""; // Not used
                 }
                 else
@@ -171,21 +188,17 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
         public override void GenerateAttachedProperty(AttachedProperty attachedProperty, ClassSource mainClassSource, ClassSource attachedClassSource)
         {
-            mainClassSource.Usings.AddType(DependencyPropertyType);
             attachedClassSource.Usings.AddTypeNamespace(attachedProperty.TargetType);
 
             string parameterAsAttachedTargetType = Utils.IsThisType(attachedProperty.TargetType, KnownTypes.IUIElement) ?
                 $"{attachedProperty.TargetParameterName}.{ToFrameworkTypeForUIElementAttachedTarget}()" :
                 $"({OutputTypeName(attachedProperty.TargetType)}) {attachedProperty.TargetParameterName}";
 
+            GenerateAttachedPropertyDescriptor(attachedProperty, mainClassSource, attachedClassSource);
+
             string targetOutputTypeName = AttachedTargetOutputTypeName(attachedProperty);
             string propertyOutputTypeName = PropertyOutputTypeName(attachedProperty);
-            string nonNullablePropertyType = Utils.ToNonnullableType(propertyOutputTypeName);
             string descriptorName = PropertyDescriptorName(attachedProperty);
-            string defaultValue = DefaultValue(attachedProperty);
-
-            mainClassSource.StaticFields.AddLine(
-                $"public static readonly {DependencyPropertyType.Name} {descriptorName} = PropertyUtils.RegisterAttached(\"{attachedProperty.Name}\", typeof({nonNullablePropertyType}), typeof({targetOutputTypeName}), {defaultValue});");
 
             mainClassSource.StaticMethods.AddBlankLineIfNonempty();
             mainClassSource.StaticMethods.AddLine($"public static {propertyOutputTypeName} Get{attachedProperty.Name}({targetOutputTypeName} {attachedProperty.TargetParameterName}) => ({propertyOutputTypeName}) {attachedProperty.TargetParameterName}.GetValue({descriptorName});");
@@ -198,10 +211,18 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                 attachedClassSource.NonstaticMethods.AddLine($"public void Set{attachedProperty.Name}({attachedProperty.TargetTypeName} {attachedProperty.TargetParameterName}, {propertyOutputTypeName} value) => {attachedProperty.Interface.FrameworkClassName}.Set{attachedProperty.Name}({parameterAsAttachedTargetType}, value);");
         }
 
-        public override bool IsWrappedType(ITypeSymbol type)
+        protected virtual void GenerateAttachedPropertyDescriptor(AttachedProperty attachedProperty, ClassSource mainClassSource, ClassSource attachedClassSource)
         {
-            string typeName = type.Name;
-            return typeName == "DataSource" || typeName == "FontWeight";
+            mainClassSource.Usings.AddType(DependencyPropertyType);
+
+            string targetOutputTypeName = AttachedTargetOutputTypeName(attachedProperty);
+            string propertyOutputTypeName = PropertyOutputTypeName(attachedProperty);
+            string nonNullablePropertyType = Utils.ToNonnullableType(propertyOutputTypeName);
+            string descriptorName = PropertyDescriptorName(attachedProperty);
+            string defaultValue = DefaultValue(attachedProperty);
+
+            mainClassSource.StaticFields.AddLine(
+                $"public static readonly {DependencyPropertyType.Name} {descriptorName} = PropertyUtils.RegisterAttached(\"{attachedProperty.Name}\", typeof({nonNullablePropertyType}), typeof({targetOutputTypeName}), {defaultValue});");
         }
     }
 }

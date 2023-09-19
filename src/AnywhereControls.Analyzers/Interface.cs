@@ -161,7 +161,10 @@ namespace AnywhereControls.SourceGenerator
             }
 
             if (IsDrawableObject)
+            {
+                mainClassSource.Usings.AddNamespace("AnywhereControls");
                 mainClassSource.DerivedFrom += ", IDrawable";
+            }
 
             uiFramework.GenerateAttributes(this, mainClassSource);
 
