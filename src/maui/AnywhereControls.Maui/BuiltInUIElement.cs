@@ -177,7 +177,6 @@ namespace AnywhereControls.Maui
         }
 
         object? IUIObject.GetValue(IUIProperty property) => GetValue(((UIProperty)property).BindableProperty);
-        object? IUIObject.ReadLocalValue(IUIProperty property) => throw new NotSupportedException("ReadLocalValue isn't currently supported");   // ReadLocalValue(((UIProperty)property).BindableProperty);
         void IUIObject.SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).BindableProperty, value);
         void IUIObject.ClearValue(IUIProperty property) => ClearValue(((UIProperty)property).BindableProperty);
 
