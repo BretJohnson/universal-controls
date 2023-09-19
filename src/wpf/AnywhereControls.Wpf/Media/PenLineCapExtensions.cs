@@ -1,6 +1,7 @@
 using System;
+using AnywhereControls.Media;
 
-namespace AnywhereControls.Media.Wpf
+namespace AnywhereControls.Wpf.Media
 {
     public static class PenLineCapExtensions
     {

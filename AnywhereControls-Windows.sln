@@ -45,6 +45,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.Wpf", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.FrameworkForwarderStub", "src\AnywhereControls.FrameworkForwarderStub\AnywhereControls.FrameworkForwarderStub.csproj", "{1DF10122-622E-4A4C-93C7-6172997D8332}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "avalonia", "avalonia", "{D4A45A87-89E1-41A4-8F2B-CD8FBDA04F1C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.Avalonia", "src\avalonia\AnywhereControls.Avalonia\AnywhereControls.Avalonia.csproj", "{D7BE9009-7211-4BA7-9FB6-4DDD3BE3E094}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaSamplesHost", "samples\host-apps\AvaloniaSamplesHost\AvaloniaSamplesHost.csproj", "{234FC45F-391E-4501-8399-D97B6976E1DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnywhereControls.FrameworkForwarder", "src\avalonia\AnywhereControls.FrameworkForwarder\AnywhereControls.FrameworkForwarder.csproj", "{D9845879-D33A-4CC7-AC92-71C16CC90BA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +107,18 @@ Global
 		{1DF10122-622E-4A4C-93C7-6172997D8332}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DF10122-622E-4A4C-93C7-6172997D8332}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DF10122-622E-4A4C-93C7-6172997D8332}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7BE9009-7211-4BA7-9FB6-4DDD3BE3E094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7BE9009-7211-4BA7-9FB6-4DDD3BE3E094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7BE9009-7211-4BA7-9FB6-4DDD3BE3E094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7BE9009-7211-4BA7-9FB6-4DDD3BE3E094}.Release|Any CPU.Build.0 = Release|Any CPU
+		{234FC45F-391E-4501-8399-D97B6976E1DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{234FC45F-391E-4501-8399-D97B6976E1DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{234FC45F-391E-4501-8399-D97B6976E1DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{234FC45F-391E-4501-8399-D97B6976E1DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9845879-D33A-4CC7-AC92-71C16CC90BA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9845879-D33A-4CC7-AC92-71C16CC90BA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9845879-D33A-4CC7-AC92-71C16CC90BA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9845879-D33A-4CC7-AC92-71C16CC90BA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -113,6 +133,9 @@ Global
 		{BAE8337E-9497-4790-B6F2-49FF9467D4EF} = {E3C556B6-A9DB-4772-A7CA-74B4E4CBD362}
 		{29322FD8-3BA2-47E3-A8D9-E9C918979670} = {53F78F6D-A2D0-41D5-8A81-7D71C5763249}
 		{E289961D-B4F4-4368-9402-A0057A009122} = {53F78F6D-A2D0-41D5-8A81-7D71C5763249}
+		{D7BE9009-7211-4BA7-9FB6-4DDD3BE3E094} = {D4A45A87-89E1-41A4-8F2B-CD8FBDA04F1C}
+		{234FC45F-391E-4501-8399-D97B6976E1DB} = {63D6491B-37EA-4F36-8B9D-2AD526F74BB8}
+		{D9845879-D33A-4CC7-AC92-71C16CC90BA8} = {D4A45A87-89E1-41A4-8F2B-CD8FBDA04F1C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5981247F-FDA6-460F-8B83-6AFBEE114226}

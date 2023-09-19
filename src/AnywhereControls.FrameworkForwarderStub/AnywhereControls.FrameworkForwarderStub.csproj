@@ -5,6 +5,7 @@
     <LangVersion>11.0</LangVersion>
     <Nullable>enable</Nullable>
     <AssemblyName>AnywhereControls.FrameworkForwarder</AssemblyName>
+    <PackageId>AnywhereControls.FrameworkForwarderStub</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

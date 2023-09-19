@@ -118,6 +118,7 @@ public interface IUIElement : IUIObject
     /// The visibility of a UIElement. A UIElement that is not visible is not rendered, does not take up space in the
     /// layout, and cannot receive focus or input events.
     /// </summary>
+    // TODO: We should probably rename this to IsVisible, consistent with MAUI and Avalonia.
     [DefaultValue(true)]
     public bool Visible { get; set; }
 

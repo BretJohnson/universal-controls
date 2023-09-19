@@ -13,7 +13,6 @@ public abstract class HostFrameworkAnywhereControl : IAnywhereControl
 {
     void IUIObject.ClearValue(IUIProperty property) => throw NotSupportedException();
     object IUIObject.GetValue(IUIProperty property) => throw NotSupportedException();
-    object IUIObject.ReadLocalValue(IUIProperty property) => throw NotSupportedException();
     void IUIObject.SetValue(IUIProperty property, object value) => throw NotSupportedException();
 
     double IUIElement.Width { get => throw NotSupportedException(); set => throw NotSupportedException(); }

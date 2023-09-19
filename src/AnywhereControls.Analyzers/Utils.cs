@@ -174,6 +174,16 @@ namespace AnywhereControls.SourceGenerator
 
         public static string GetNamespaceFullName(INamespaceSymbol namespce) => namespce.ToDisplayString(TypeFullNameSymbolDisplayFormat);
 
+        /// <summary>
+        /// Return true if the namespace is under the specified prefix (e.g. "AnywhereControls.Shapes" is
+        /// under "AnywhereControls"). Also returns true if the namespace is the prefix itself
+        /// (e.g. "AnywhereControls" is under "AnywhereControls").
+        /// </summary>
+        /// <param name="namespaceName">namespace in question</param>
+        /// <param name="prefixNamespaceName">potential namespace prefix</param>
+        /// <returns>whether prefixNamespaceName is under (or the same as) namespaceName</returns>
+        public static bool IsNamespaceUnder(string namespaceName, string prefixNamespaceName) => namespaceName.StartsWith(prefixNamespaceName + ".") || namespaceName == prefixNamespaceName;
+
         public static bool IncludeDraw(ITypeSymbol type)
         {
             if (type is not INamedTypeSymbol namedType)
@@ -217,7 +227,7 @@ namespace AnywhereControls.SourceGenerator
         public static bool IsUICollectionType(Context context, ITypeSymbol type) => IsUICollectionType(context, type, out ITypeSymbol _);
 
         /// <summary>
-        /// Return the child namespace (e.g. "Shapes", "Transforms", etc. or null if there is no child
+        /// Return the child namespace (e.g. "Shapes", "Transforms", etc.) or null if there is no child
         /// and classes should be at the root.
         /// </summary>
         /// <param name="sourceNamespace">source namespace</param>

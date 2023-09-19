@@ -80,7 +80,6 @@ namespace AnywhereControls.Controls
 
             void IUIObject.ClearValue(IUIProperty property) => throw new NotImplementedException();
             object? IUIObject.GetValue(IUIProperty property) => throw new NotImplementedException();
-            object? IUIObject.ReadLocalValue(IUIProperty property) => throw new NotImplementedException();
             void IUIObject.SetValue(IUIProperty property, object? value) => throw new NotImplementedException();
         }
 
@@ -94,7 +93,6 @@ namespace AnywhereControls.Controls
 
             void IUIObject.ClearValue(IUIProperty property) => throw new NotImplementedException();
             object? IUIObject.GetValue(IUIProperty property) => throw new NotImplementedException();
-            object? IUIObject.ReadLocalValue(IUIProperty property) => throw new NotImplementedException();
             void IUIObject.SetValue(IUIProperty property, object? value) => throw new NotImplementedException();
         }
     }

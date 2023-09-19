@@ -73,9 +73,10 @@ namespace AnywhereControls.CommandLineSourceGenerator
             }
 
             controlLibrary.GenerateControlClasses(new WpfUIFramework(context));
-            controlLibrary.GenerateControlClasses(new WinUIUIFramework(context));
-            controlLibrary.GenerateControlClasses(new WinFormsUIFramework(context));
-            controlLibrary.GenerateControlClasses(new MacUIFramework(context));
+            controlLibrary.GenerateControlClasses(new AvaloniaUIFramework(context));
+            //controlLibrary.GenerateControlClasses(new WinUIUIFramework(context));
+            //controlLibrary.GenerateControlClasses(new WinFormsUIFramework(context));
+            //controlLibrary.GenerateControlClasses(new MacUIFramework(context));
             controlLibrary.GenerateControlClasses(new MauiUIFramework(context));
             controlLibrary.GenerateControlClasses(new BlazorUIFramework(context));
 

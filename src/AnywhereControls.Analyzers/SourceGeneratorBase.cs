@@ -231,6 +231,8 @@ namespace AnywhereControls.SourceGenerator
                     return new WinFormsUIFramework(context);
                 else if (assemblyName == "AnywhereControls.Blazor")
                     return new BlazorUIFramework(context);
+                else if (assemblyName == "AnywhereControls.Avalonia")
+                    return new AvaloniaUIFramework(context);
             }
 
             throw UserVisibleErrors.CouldNotIdentifyUIFramework();

@@ -39,7 +39,7 @@ namespace AnywhereControls.Wpf
             _logicalParent = (ILogicalParent)parent;
         }
 
-        public IUICollection<TStandardUIElement> ToStandardUIElementCollection()
+        public IUICollection<TStandardUIElement> ToAnywhereControlsUIElementCollection()
         {
             if (_standardUIElementCollection == null)
             {
