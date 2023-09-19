@@ -81,7 +81,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             }
             else if (Utils.IsUICollectionType(Context, property.Type, out var elementType) && propertyOutputTypeName.StartsWith("UIElementCollection<"))
             {
-                getterValue = $"{PropertyFieldName(property)}.ToStandardUIElementCollection()";
+                getterValue = $"{PropertyFieldName(property)}.ToAnywhereControlsUIElementCollection()";
                 setterAssignment = ""; // Not used
             }
             else

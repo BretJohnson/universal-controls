@@ -1,3 +1,5 @@
+using System.Windows.Input;
+
 namespace AnywhereControls.SourceGenerator.UIFrameworks
 {
     public class AvaloniaUIFramework : XamlUIFramework
@@ -6,21 +8,46 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
         {
         }
 
+        public override bool UseNewNamingConvention => true;
         public override string Name => "Avalonia";
-        public override TypeName DependencyPropertyType => new("Avalolnia", "StyledProperty");
+        public override TypeName DependencyPropertyType => new("Avalolnia.Media", "StyledProperty");
         public override TypeName ContentPropertyAttribute => new("Avalonia.Metadata", "ContentAttribute");
+        public override ContentPropertyStyle ContentPropertyStyle => ContentPropertyStyle.PropertyAttribute;
 
-        public override string FrameworkTypeForUIElementAttachedTarget => "Avalonia.Control";
-        public override string ToFrameworkTypeForUIElementAttachedTarget => "ToAvaloniaUIElement";
+        public override string FrameworkTypeForUIElementAttachedTarget => "Avalonia.Controls.Control";
+        public override string ToFrameworkTypeForUIElementAttachedTarget => "ToAvaloniaControl";
 
-        public override string NativeUIElementType => "Avalonia.Control";
+        public override string NativeUIElementType => "Avalonia.Controls.Control";
         public override string WrapperSuffix => "Avalonia";
-        protected override string FontFamilyDefaultValue => "global::Avalonia.Media.FontFamily.Default.Name";
+        protected override string FontFamilyDefaultValue => "null";
+
+        protected override void GeneratePropertyDescriptor(Property property, ClassSource classSource)
+        {
+            classSource.Usings.AddTypeAlias("AvaloniaProperty = Avalonia.AvaloniaProperty");
+
+            string propertyType = PropertyOutputTypeName(property);
+
+            classSource.StaticFields.AddLine(
+                $"public static readonly Avalonia.StyledProperty<{propertyType}> {PropertyDescriptorName(property)} = " +
+                $"AvaloniaProperty.Register<{property.Interface.FrameworkClassName}, {propertyType}>(nameof({property.Name}), {DefaultValue(property)});");
+        }
+
+        protected override void GenerateAttachedPropertyDescriptor(AttachedProperty attachedProperty, ClassSource mainClassSource, ClassSource attachedClassSource)
+        {
+            mainClassSource.Usings.AddTypeAlias("AvaloniaProperty = Avalonia.AvaloniaProperty");
+
+            string propertyType = PropertyOutputTypeName(attachedProperty);
+            string targetOutputTypeName = AttachedTargetOutputTypeName(attachedProperty);
+
+            mainClassSource.StaticFields.AddLine(
+                $"public static readonly Avalonia.AttachedProperty<{propertyType}> {PropertyDescriptorName(attachedProperty)} = " +
+                $"AvaloniaProperty.RegisterAttached<{attachedProperty.Interface.FrameworkClassName}, {targetOutputTypeName}, {propertyType}>(\"{attachedProperty.Name}\", {DefaultValue(attachedProperty)});");
+        }
 
         public override void GenerateStandardPanelLayoutMethods(string layoutManagerTypeName, Source methods)
         {
             methods.AddBlankLineIfNonempty();
-            methods.AddLine($"protected override global::Avalonia.Size MeasureOverride(global::Avalonia.Size availableSize) =>");
+            methods.AddLine($"protected override Avalonia.Size MeasureOverride(Avalonia.Size availableSize) =>");
             using (methods.Indent())
             {
                 methods.AddLine(
@@ -28,7 +55,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             }
 
             methods.AddBlankLine();
-            methods.AddLine($"protected override global::Avalonia.Size ArrangeOverride(global::Avalonia.Size finalSize) =>");
+            methods.AddLine($"protected override Avalonia.Size ArrangeOverride(Avalonia.Size finalSize) =>");
             using (methods.Indent())
             {
                 methods.AddLine(
@@ -40,11 +67,14 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
         {
             methods.AddBlankLineIfNonempty();
 
+            methods.AddLine("#if LATER");
             methods.AddLine(
                 "protected override int VisualChildrenCount => _children.Count;");
             methods.AddBlankLine();
             methods.AddLine(
                 "protected override System.Windows.Media.Visual GetVisualChild(int index) => (System.Windows.Media.Visual) _children[index];");
+            methods.AddLine(
+                "#endif");
         }
 
         public override void GenerateDrawableObjectMethods(Interface intface, Source methods)
@@ -54,11 +84,11 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             if (intface.IsThisType(KnownTypes.ITextBlock))
             {
                 methods.AddLine(
-                    $"protected override System.Windows.Size MeasureOverride(System.Windows.Size constraint) =>");
+                    $"protected override Avalonia.Size MeasureOverride(Avalonia.Size constraint) =>");
                 using (methods.Indent())
                 {
                     methods.AddLine(
-                        $"HostEnvironment.VisualFramework.MeasureTextBlock(this).ToWpfSize();");
+                        $"HostEnvironment.VisualFramework.MeasureTextBlock(this).ToAvaloniaSize();");
                 }
             }
         }
@@ -72,21 +102,21 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             // TODO: Error if appropriate when set to Visibility.Hidden
 
             methods.AddLines(
-                "void IUIElement.Measure(double widthConstraint, double heightConstraint) =>",
+                "void IUIElement.Measure(Size availableSize) =>",
                 "    Measure(new System.Windows.Size(widthConstraint, heightConstraint));",
-                "void IUIElement.Arrange(Rect finalRect) => Arrange(finalRect.ToWpfRect());",
+                "void IUIElement.Arrange(Rect finalRect) => Arrange(finalRect.ToAvaloniaRect());",
                 "Size IUIElement.DesiredSize => DesiredSize.ToAnywhereControlsSize();",
                 "",
                 "double IUIElement.ActualX => throw new System.NotImplementedException();",
                 "double IUIElement.ActualY => throw new System.NotImplementedException();",
                 "");
-            methods.AddProperty("Thickness IUIElement.Margin", "Margin.ToStandardUIThickness()", "Margin = value.ToWpfThickness()");
+            methods.AddProperty("Thickness IUIElement.Margin", "Margin.ToStandardUIThickness()", "Margin = value.ToAvaloniaThickness()");
             methods.AddBlankLine();
-            methods.AddProperty("HorizontalAlignment IUIElement.HorizontalAlignment", "HorizontalAlignment.ToStandardUIHorizontalAlignment()", "HorizontalAlignment = value.ToWpfHorizontalAlignment()");
+            methods.AddProperty("HorizontalAlignment IUIElement.HorizontalAlignment", "HorizontalAlignment.ToStandardUIHorizontalAlignment()", "HorizontalAlignment = value.ToAvaloniaHorizontalAlignment()");
             methods.AddBlankLine();
-            methods.AddProperty("VerticalAlignment IUIElement.VerticalAlignment", "VerticalAlignment.ToAnywhereControlsVerticalAlignment()", "VerticalAlignment = value.ToWpfVerticalAlignment()");
+            methods.AddProperty("VerticalAlignment IUIElement.VerticalAlignment", "VerticalAlignment.ToAnywhereControlsVerticalAlignment()", "VerticalAlignment = value.ToAvaloniaVerticalAlignment()");
             methods.AddBlankLine();
-            methods.AddProperty("FlowDirection IUIElement.FlowDirection", "FlowDirection.ToStandardUIFlowDirection()", "FlowDirection = value.ToWpfFlowDirection()");
+            methods.AddProperty("FlowDirection IUIElement.FlowDirection", "FlowDirection.ToStandardUIFlowDirection()", "FlowDirection = value.ToAvaloniaFlowDirection()");
             methods.AddBlankLine();
             methods.AddProperty("bool IUIElement.Visible", "Visibility != Visibility.Collapsed", "Visibility = value ? Visibility.Visible : Visibility.Collapsed");
             methods.AddBlankLine();
@@ -116,7 +146,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                 "    ((IUIElement)this).VisualChildrenCount;");
             methods.AddLines(
                 "protected override System.Windows.Media.Visual GetVisualChild(int index) =>",
-                "    ((IUIElement)this).GetVisualChild(index).ToWpfUIElement();");
+                "    ((IUIElement)this).GetVisualChild(index).ToAvaloniaUIElement();");
         }
     }
 }

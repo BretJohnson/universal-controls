@@ -15,7 +15,7 @@ namespace AnywhereControls.SourceGenerator
         public override void AddSource(UIFramework? uiFramework, string? namespaceName, string fileName, Source source)
         {
             string outputDirectory = uiFramework != null
-                ? Path.Combine(RootDirectory, "src", uiFramework.ProjectBaseDirectory, "generated")
+                ? Path.Combine(RootDirectory, "src", uiFramework.Name.ToLower(), uiFramework.ProjectBaseDirectory, "generated")
                 : Path.Combine(RootDirectory, "src", "AnywhereControls", "generated");
 
             if (namespaceName != null)
