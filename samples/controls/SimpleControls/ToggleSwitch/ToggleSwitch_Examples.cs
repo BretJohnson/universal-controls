@@ -3,7 +3,7 @@ using AnywhereControls;
 using AnywhereControls.Controls;
 using static SimpleControls.SimpleControlsStatics;
 
-namespace AlohaKit.StandardControls
+namespace AlohaKit.AnywhereControls
 {
     public class ToggleSwitch_Examples
     {

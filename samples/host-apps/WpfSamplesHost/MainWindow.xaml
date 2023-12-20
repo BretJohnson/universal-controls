@@ -1,18 +1,23 @@
 <Window
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:a="http://schemas.microsoft.com/anywhere-controls/2023"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        x:Class="WpfHost.MainWindow"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <a:VerticalStack HorizontalAlignment="Stretch" Margin="20">
-        <Label Content=".NET Anywhere Controls Examples" FontSize="24"/>
-        <Grid Name="Examples" HorizontalAlignment="Left" Margin="10">
+    x:Class="WpfHost.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:a="http://schemas.microsoft.com/anywhere-controls/2023"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title=".NET Anywhere Controls"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <a:VerticalStack Margin="20" HorizontalAlignment="Stretch">
+        <Label Content=".NET Anywhere Controls Examples" FontSize="24" />
+        <Grid
+            Name="Examples"
+            Margin="10"
+            HorizontalAlignment="Left">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
         </Grid>
     </a:VerticalStack>
