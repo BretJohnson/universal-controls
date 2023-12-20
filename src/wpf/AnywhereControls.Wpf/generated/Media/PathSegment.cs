@@ -4,7 +4,7 @@ using AnywhereControls.Media;
 
 namespace AnywhereControls.Wpf.Media
 {
-    public class PathSegment : StandardUIObject, IPathSegment
+    public class PathSegment : UIObject, IPathSegment
     {
     }
 }

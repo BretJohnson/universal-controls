@@ -4,7 +4,7 @@ using AnywhereControls.Media;
 
 namespace AnywhereControls.Maui.Media
 {
-    public class Transform : StandardUIObject, ITransform
+    public class Transform : UIObject, ITransform
     {
     }
 }

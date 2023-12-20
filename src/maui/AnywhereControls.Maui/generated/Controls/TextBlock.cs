@@ -3,7 +3,6 @@
 using AnywhereControls.Media;
 using AnywhereControls.Maui.Media;
 using AnywhereControls.Text;
-using AnywhereControls.Maui.Text;
 using AnywhereControls.Controls;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 using Brush = AnywhereControls.Maui.Media.Brush;
@@ -16,7 +15,7 @@ namespace AnywhereControls.Maui.Controls
         public static readonly BindableProperty TextProperty = PropertyUtils.Register(nameof(Text), typeof(string), typeof(TextBlock), "");
         public static readonly BindableProperty FontFamilyProperty = PropertyUtils.Register(nameof(FontFamily), typeof(FontFamily), typeof(TextBlock), "");
         public static readonly BindableProperty FontStyleProperty = PropertyUtils.Register(nameof(FontStyle), typeof(FontStyle), typeof(TextBlock), FontStyle.Normal);
-        public static readonly BindableProperty FontWeightProperty = PropertyUtils.Register(nameof(FontWeight), typeof(FontWeightMaui), typeof(TextBlock), FontWeightMaui.Default);
+        public static readonly BindableProperty FontWeightProperty = PropertyUtils.Register(nameof(FontWeight), typeof(FontWeight), typeof(TextBlock), FontWeight.Default);
         public static readonly BindableProperty FontSizeProperty = PropertyUtils.Register(nameof(FontSize), typeof(double), typeof(TextBlock), 11.0);
         public static readonly BindableProperty FontStretchProperty = PropertyUtils.Register(nameof(FontStretch), typeof(FontStretch), typeof(TextBlock), FontStretch.Normal);
         public static readonly BindableProperty TextAlignmentProperty = PropertyUtils.Register(nameof(TextAlignment), typeof(TextAlignment), typeof(TextBlock), TextAlignment.Left);
@@ -50,15 +49,10 @@ namespace AnywhereControls.Maui.Controls
             set => SetValue(FontStyleProperty, value);
         }
         
-        public FontWeightMaui FontWeight
+        public FontWeight FontWeight
         {
-            get => (FontWeightMaui) GetValue(FontWeightProperty);
+            get => (FontWeight) GetValue(FontWeightProperty);
             set => SetValue(FontWeightProperty, value);
-        }
-        FontWeight ITextBlock.FontWeight
-        {
-            get => FontWeight.FontWeight;
-            set => FontWeight = new FontWeightMaui(value);
         }
         
         public double FontSize

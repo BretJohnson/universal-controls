@@ -4,7 +4,7 @@ using DependencyProperty = System.Windows.DependencyProperty;
 
 namespace AnywhereControls.Wpf
 {
-    public class VisualState : StandardUIObject, IVisualState
+    public class VisualState : UIObject, IVisualState
     {
         public static readonly DependencyProperty NameProperty = PropertyUtils.Register(nameof(Name), typeof(string), typeof(VisualState), "");
         public static readonly DependencyProperty SettersProperty = PropertyUtils.Register(nameof(Setters), typeof(UICollection<ISetter>), typeof(VisualState), null);

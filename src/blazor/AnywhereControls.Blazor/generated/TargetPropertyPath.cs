@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace AnywhereControls.Blazor
 {
-    public class TargetPropertyPath : StandardUIObject, ITargetPropertyPath
+    public class TargetPropertyPath : UIObject, ITargetPropertyPath
     {
         public static readonly UIProperty PropertyProperty = new UIProperty(nameof(Property), null);
         public static readonly UIProperty TargetProperty = new UIProperty(nameof(Target), null);

@@ -6,7 +6,7 @@ using AnywhereControls.Controls;
 
 namespace AnywhereControls.Blazor.Controls
 {
-    public class RowDefinition : StandardUIObject, IRowDefinition
+    public class RowDefinition : UIObject, IRowDefinition
     {
         public static readonly UIProperty HeightProperty = new UIProperty(nameof(Height), GridLength.Default);
         public static readonly UIProperty MinHeightProperty = new UIProperty(nameof(MinHeight), 0.0);

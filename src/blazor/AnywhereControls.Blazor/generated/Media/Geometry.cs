@@ -6,7 +6,7 @@ using AnywhereControls.Media;
 
 namespace AnywhereControls.Blazor.Media
 {
-    public class Geometry : StandardUIObject, IGeometry
+    public class Geometry : UIObject, IGeometry
     {
         public static readonly UIProperty StandardFlatteningToleranceProperty = new UIProperty(nameof(StandardFlatteningTolerance), 0.25);
         public static readonly UIProperty TransformProperty = new UIProperty(nameof(Transform), null);

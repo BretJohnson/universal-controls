@@ -5,7 +5,7 @@ using DependencyProperty = System.Windows.DependencyProperty;
 
 namespace AnywhereControls.Wpf.Media
 {
-    public class PathFigure : StandardUIObject, IPathFigure
+    public class PathFigure : UIObject, IPathFigure
     {
         public static readonly DependencyProperty SegmentsProperty = PropertyUtils.Register(nameof(Segments), typeof(UICollection<IPathSegment>), typeof(PathFigure), null);
         public static readonly DependencyProperty StartPointProperty = PropertyUtils.Register(nameof(StartPoint), typeof(Point), typeof(PathFigure), default(Point));

@@ -5,7 +5,7 @@ using DependencyProperty = System.Windows.DependencyProperty;
 
 namespace AnywhereControls.Wpf.Controls
 {
-    public class ColumnDefinition : StandardUIObject, IColumnDefinition
+    public class ColumnDefinition : UIObject, IColumnDefinition
     {
         public static readonly DependencyProperty WidthProperty = PropertyUtils.Register(nameof(Width), typeof(GridLength), typeof(ColumnDefinition), GridLength.Default);
         public static readonly DependencyProperty MinWidthProperty = PropertyUtils.Register(nameof(MinWidth), typeof(double), typeof(ColumnDefinition), 0.0);

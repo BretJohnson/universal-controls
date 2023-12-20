@@ -4,7 +4,7 @@ using AnywhereControls.DefaultImplementations;
 
 namespace AnywhereControls.Blazor
 {
-    public class VisualStateGroup : StandardUIObject, IVisualStateGroup
+    public class VisualStateGroup : UIObject, IVisualStateGroup
     {
         public static readonly UIProperty CurrentStateProperty = new UIProperty(nameof(CurrentState), null, readOnly:true);
         public static readonly UIProperty NameProperty = new UIProperty(nameof(Name), "", readOnly:true);

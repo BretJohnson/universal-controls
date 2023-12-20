@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace AnywhereControls.Blazor.Media
 {
-    public class PathFigure : StandardUIObject, IPathFigure
+    public class PathFigure : UIObject, IPathFigure
     {
         public static readonly UIProperty SegmentsProperty = new UIProperty(nameof(Segments), null, readOnly:true);
         public static readonly UIProperty StartPointProperty = new UIProperty(nameof(StartPoint), default(Point));

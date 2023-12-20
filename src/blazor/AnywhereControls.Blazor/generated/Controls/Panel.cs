@@ -20,7 +20,7 @@ namespace AnywhereControls.Blazor.Controls
             SetValue(ChildrenProperty, _children);
         }
         
-        public IUICollection<IUIElement> Children => _children.ToStandardUIElementCollection();
+        public IUICollection<IUIElement> Children => _children.ToAnywhereControlsUIElementCollection();
         
         public override int VisualChildrenCount => _children.Count;
         

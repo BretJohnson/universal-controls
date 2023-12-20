@@ -4,7 +4,7 @@ using AnywhereControls.DefaultImplementations;
 
 namespace AnywhereControls.Blazor
 {
-    public class PropertyPath : StandardUIObject, IPropertyPath
+    public class PropertyPath : UIObject, IPropertyPath
     {
         public static readonly UIProperty PathProperty = new UIProperty(nameof(Path), "", readOnly:true);
         

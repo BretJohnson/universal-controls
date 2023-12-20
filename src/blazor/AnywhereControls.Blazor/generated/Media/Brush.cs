@@ -4,7 +4,7 @@ using AnywhereControls.Media;
 
 namespace AnywhereControls.Blazor.Media
 {
-    public class Brush : StandardUIObject, IBrush
+    public class Brush : UIObject, IBrush
     {
     }
 }

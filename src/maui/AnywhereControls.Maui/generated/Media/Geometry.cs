@@ -5,7 +5,7 @@ using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace AnywhereControls.Maui.Media
 {
-    public class Geometry : StandardUIObject, IGeometry
+    public class Geometry : UIObject, IGeometry
     {
         public static readonly BindableProperty StandardFlatteningToleranceProperty = PropertyUtils.Register(nameof(StandardFlatteningTolerance), typeof(double), typeof(Geometry), 0.25);
         public static readonly BindableProperty TransformProperty = PropertyUtils.Register(nameof(Transform), typeof(Transform), typeof(Geometry), null);

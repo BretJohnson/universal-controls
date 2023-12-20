@@ -6,7 +6,7 @@ using AnywhereControls.Controls;
 
 namespace AnywhereControls.Blazor.Controls
 {
-    public class ColumnDefinition : StandardUIObject, IColumnDefinition
+    public class ColumnDefinition : UIObject, IColumnDefinition
     {
         public static readonly UIProperty WidthProperty = new UIProperty(nameof(Width), GridLength.Default);
         public static readonly UIProperty MinWidthProperty = new UIProperty(nameof(MinWidth), 0.0);

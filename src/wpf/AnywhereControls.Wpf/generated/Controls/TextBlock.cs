@@ -3,7 +3,6 @@
 using AnywhereControls.Media;
 using AnywhereControls.Wpf.Media;
 using AnywhereControls.Text;
-using AnywhereControls.Wpf.Text;
 using AnywhereControls.Controls;
 using DependencyProperty = System.Windows.DependencyProperty;
 
@@ -13,9 +12,9 @@ namespace AnywhereControls.Wpf.Controls
     {
         public static readonly DependencyProperty ForegroundProperty = PropertyUtils.Register(nameof(Foreground), typeof(Brush), typeof(TextBlock), null);
         public static readonly DependencyProperty TextProperty = PropertyUtils.Register(nameof(Text), typeof(string), typeof(TextBlock), "");
-        public static readonly DependencyProperty FontFamilyProperty = PropertyUtils.Register(nameof(FontFamily), typeof(FontFamily), typeof(TextBlock), FontFamilyExtensions.DefaultFontFamily);
+        public static readonly DependencyProperty FontFamilyProperty = PropertyUtils.Register(nameof(FontFamily), typeof(FontFamily), typeof(TextBlock), Wpf.Text.FontFamilyExtensions.DefaultFontFamily);
         public static readonly DependencyProperty FontStyleProperty = PropertyUtils.Register(nameof(FontStyle), typeof(FontStyle), typeof(TextBlock), FontStyle.Normal);
-        public static readonly DependencyProperty FontWeightProperty = PropertyUtils.Register(nameof(FontWeight), typeof(FontWeightWpf), typeof(TextBlock), FontWeightWpf.Default);
+        public static readonly DependencyProperty FontWeightProperty = PropertyUtils.Register(nameof(FontWeight), typeof(FontWeight), typeof(TextBlock), FontWeight.Default);
         public static readonly DependencyProperty FontSizeProperty = PropertyUtils.Register(nameof(FontSize), typeof(double), typeof(TextBlock), 11.0);
         public static readonly DependencyProperty FontStretchProperty = PropertyUtils.Register(nameof(FontStretch), typeof(FontStretch), typeof(TextBlock), FontStretch.Normal);
         public static readonly DependencyProperty TextAlignmentProperty = PropertyUtils.Register(nameof(TextAlignment), typeof(TextAlignment), typeof(TextBlock), TextAlignment.Left);
@@ -49,15 +48,10 @@ namespace AnywhereControls.Wpf.Controls
             set => SetValue(FontStyleProperty, value);
         }
         
-        public FontWeightWpf FontWeight
+        public FontWeight FontWeight
         {
-            get => (FontWeightWpf) GetValue(FontWeightProperty);
+            get => (FontWeight) GetValue(FontWeightProperty);
             set => SetValue(FontWeightProperty, value);
-        }
-        FontWeight ITextBlock.FontWeight
-        {
-            get => FontWeight.FontWeight;
-            set => FontWeight = new FontWeightWpf(value);
         }
         
         public double FontSize

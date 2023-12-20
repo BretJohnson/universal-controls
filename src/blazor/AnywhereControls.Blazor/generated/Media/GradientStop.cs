@@ -6,7 +6,7 @@ using AnywhereControls.Media;
 
 namespace AnywhereControls.Blazor.Media
 {
-    public class GradientStop : StandardUIObject, IGradientStop
+    public class GradientStop : UIObject, IGradientStop
     {
         public static readonly UIProperty ColorProperty = new UIProperty(nameof(Color), Colors.Transparent);
         public static readonly UIProperty OffsetProperty = new UIProperty(nameof(Offset), 0.0);
