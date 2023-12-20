@@ -15,7 +15,8 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
         public override string NativeUIElementType => "System.Windows.FrameworkElement";
         public override string WrapperSuffix => "Wpf";
-        protected override string FontFamilyDefaultValue => "FontFamilyExtensions.DefaultFontFamily";
+        protected override string FontFamilyDefaultValue => "AnywhereControls.Wpf.Text.FontFamilyExtensions.DefaultFontFamily";
+
 
         public override void GenerateStandardPanelLayoutMethods(string layoutManagerTypeName, Source methods)
         {

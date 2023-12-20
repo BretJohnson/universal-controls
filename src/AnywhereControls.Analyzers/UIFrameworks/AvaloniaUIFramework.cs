@@ -1,5 +1,3 @@
-using System.Windows.Input;
-
 namespace AnywhereControls.SourceGenerator.UIFrameworks
 {
     public class AvaloniaUIFramework : XamlUIFramework
@@ -19,7 +17,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
         public override string NativeUIElementType => "Avalonia.Controls.Control";
         public override string WrapperSuffix => "Avalonia";
-        protected override string FontFamilyDefaultValue => "null";
+        protected override string FontFamilyDefaultValue => "AnywhereControlsAvalonia.Text.FontFamilyExtensions.DefaultFontFamily";
 
         protected override void GeneratePropertyDescriptor(Property property, ClassSource classSource)
         {
