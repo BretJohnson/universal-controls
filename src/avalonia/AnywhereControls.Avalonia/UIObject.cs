@@ -4,7 +4,7 @@ using Avalonia;
 namespace AnywhereControlsAvalonia;
 
 /// <summary>
-/// This is the base for predefined dependency objects
+/// This is the base for predefined Anywhere Controls UI objects
 /// </summary>
 public class UIObject : AvaloniaObject, IUIObject
 {

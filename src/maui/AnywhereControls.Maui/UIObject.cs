@@ -6,7 +6,7 @@ namespace AnywhereControls.Maui
     /// <summary>
     /// This is the base for predefined non-view bindable objects
     /// </summary>
-    public class StandardUIObject : BindableObject, IUIObject
+    public class UIObject : BindableObject, IUIObject
     {
         object? IUIObject.GetValue(IUIProperty property) => GetValue(((UIProperty)property).BindableProperty);
         void IUIObject.SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).BindableProperty, value);
