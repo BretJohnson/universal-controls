@@ -3,9 +3,9 @@ using System.Windows;
 namespace AnywhereControls.Wpf
 {
     /// <summary>
-    /// This is the base for predefined dependency objects
+    /// This is the base for predefined Anywhere Controls UI objects
     /// </summary>
-    public class StandardUIObject : DependencyObject, IUIObject
+    public class UIObject : DependencyObject, IUIObject
     {
         object? IUIObject.GetValue(IUIProperty property) => GetValue(((UIProperty)property).DependencyProperty);
         void IUIObject.SetValue(IUIProperty property, object? value) => SetValue(((UIProperty)property).DependencyProperty, value);
