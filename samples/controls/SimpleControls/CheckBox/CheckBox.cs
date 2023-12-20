@@ -5,7 +5,7 @@ using AnywhereControls.Media;
 using AnywhereControls.Shapes;
 using static AnywhereControls.AnywhereControlsStatics;
 
-namespace AlohaKit.StandardControls
+namespace AlohaKit.AnywhereControls
 {
     [AnywhereControl]
     public interface ICheckBox : IAnywhereControl
@@ -37,11 +37,11 @@ namespace AlohaKit.StandardControls
         protected override IUIElement Build() =>
             Canvas()._
             (
-                BuildCheckBoxBackground(),
+                CheckBoxBackground(),
                 BuildCheckBoxCheckIndicator()
             );
 
-        IUIElement BuildCheckBoxBackground()
+        IUIElement CheckBoxBackground()
         {
             if (IsChecked)
             {

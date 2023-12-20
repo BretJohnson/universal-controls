@@ -5,7 +5,7 @@ using AnywhereControls.Media;
 using AnywhereControls.Shapes;
 using static AnywhereControls.AnywhereControlsStatics;
 
-namespace AlohaKit.StandardControls
+namespace AlohaKit.AnywhereControls
 {
     [AnywhereControl]
     public interface IToggleSwitch : IAnywhereControl

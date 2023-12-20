@@ -4,7 +4,7 @@ using System.ComponentModel;
 using static AnywhereControls.AnywhereControlsStatics;
 using AnywhereControls.Shapes;
 
-namespace AlohaKit.StandardControls
+namespace AlohaKit.AnywhereControls
 {
     [AnywhereControl]
     public interface ISlider : IAnywhereControl
@@ -45,43 +45,29 @@ namespace AlohaKit.StandardControls
         public abstract Color MaximumColor { get; set; }
         public abstract Color ThumbColor { get; set; }
 
-        protected override IUIElement Build()
-        {
-            int width = (int)UIElement.Width;
-            int height = (int)UIElement.Height;
+        protected override IUIElement Build() =>
+            Canvas()
+                .Width(UIElement.Width)
+                .Height(UIElement.Height)
+                ._(
+                    SliderTrack(),
+                    SliderProgress(),
+                    SliderThumb()
+                );
 
-            ICanvas canvas =
-                Canvas()
-                    .Width(width)
-                    .Height(height);
-
-            // Track
-            BuildSliderTrack(canvas);
-
-            // Progress
-            BuildSliderProgress(canvas);
-
-            // Thumb
-            BuildSliderThumb(canvas);
-
-            return canvas;
-        }
-
-        void BuildSliderTrack(ICanvas canvas)
+        IUIElement SliderTrack()
         {
             var height = TrackSize;
             var y = (float)((UIElement.Height - height) / 2);
 
-            var sliderTrack = Rectangle()
+            return Rectangle()
                 .Width(UIElement.Width)
                 .Height(height)
                 .Margin(new Thickness(0, y, 0, 0))
                 .Fill(SolidColorBrush(MinimumColor));
-
-            canvas.Add(0, 0, sliderTrack);
         }
 
-        void BuildSliderProgress(ICanvas canvas)
+        IUIElement SliderProgress()
         {
             var value = (Value / Maximum - Minimum).Clamp(0, 1);
 
@@ -91,16 +77,14 @@ namespace AlohaKit.StandardControls
             var x = 0;
             var y = (float)((UIElement.Height - height) / 2);
 
-            var sliderProgress = Rectangle()
+            return Rectangle()
                 .Width(width)
                 .Height(height)
                 .Margin(new Thickness(x, y, 0, 0))
                 .Fill(SolidColorBrush(MaximumColor));
-
-            canvas.Add(0, 0, sliderProgress);
         }
 
-        void BuildSliderThumb(ICanvas canvas)
+        IUIElement SliderThumb()
         {
             const double ThumbSize = 18d;
 
@@ -116,13 +100,11 @@ namespace AlohaKit.StandardControls
 
             var y = (float)((UIElement.Height - ThumbSize) / 2);
 
-            var sliderThumb = Ellipse()
+            return Ellipse()
                 .Width((ThumbSize))
                 .Height(ThumbSize)
                 .Margin(new Thickness(x, y, 0, 0))
                 .Fill(SolidColorBrush(ThumbColor));
-
-            canvas.Add(0, 0, sliderThumb);
         }
     }
 }
