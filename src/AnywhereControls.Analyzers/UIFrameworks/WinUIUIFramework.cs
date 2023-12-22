@@ -20,8 +20,7 @@
         {
             if (intface.ContentPropertyName != null)
             {
-                classSource.Attributes.Usings.AddNamespace(ContentPropertyAttribute.Namespace);
-                classSource.Attributes.AddLine($"[ContentProperty(Name = \"{intface.ContentPropertyName}\")]");
+                classSource.Attributes.AddLine($"[{ContentPropertyAttribute.AtributeFullName}(Name = \"{intface.ContentPropertyName}\")]");
             }
         }
 
