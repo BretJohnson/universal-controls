@@ -1,4 +1,4 @@
-﻿using Microsoft.ComponentModelEx;
+﻿using ExampleFramework;
 using static SimpleControls.SimpleControlsStatics;
 
 namespace AlohaKit.AnywhereControls

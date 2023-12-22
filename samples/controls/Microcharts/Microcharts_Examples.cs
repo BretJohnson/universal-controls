@@ -1,6 +1,6 @@
-﻿using Microsoft.ComponentModelEx;
-using AnywhereControls;
+﻿using AnywhereControls;
 using AnywhereControls.Controls;
+using ExampleFramework;
 using static Microcharts.MicrochartsStatics;
 
 namespace Microcharts
