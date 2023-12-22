@@ -19,4 +19,10 @@
     <ProjectReference Include="..\..\controls\SimpleControls\SimpleControls.csproj" />
   </ItemGroup>
 
+  <ItemGroup Condition="$(UseLocalExampleFramework) == ''">
+  </ItemGroup>
+  <ItemGroup Condition="$(UseLocalExampleFramework) != ''">
+    <ProjectReference Include="..\..\..\..\example-framework\src\ExampleFramework.Tooling\ExampleFramework.Tooling.csproj" />
+  </ItemGroup>
+
 </Project>

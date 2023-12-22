@@ -1,6 +1,6 @@
-﻿using Microsoft.ComponentModelEx;
-using AnywhereControls;
+﻿using AnywhereControls;
 using AnywhereControls.Controls;
+using ExampleFramework;
 using static SimpleControls.SimpleControlsStatics;
 
 namespace AlohaKit.AnywhereControls

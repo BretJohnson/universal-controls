@@ -38,5 +38,11 @@
     <ProjectReference Include="..\..\..\src\AnywhereControls\AnywhereControls.csproj" />
     <ProjectReference Include="..\..\..\src\AnywhereControls.FrameworkForwarderStub\AnywhereControls.FrameworkForwarderStub.csproj" Private="False" PrivateAssets="All"  />
   </ItemGroup>
-  
+
+  <ItemGroup Condition="$(UseLocalExampleFramework) == ''">
+  </ItemGroup>
+  <ItemGroup Condition="$(UseLocalExampleFramework) != ''">
+    <ProjectReference Include="..\..\..\..\example-framework\src\ExampleFramework\ExampleFramework.csproj" />
+  </ItemGroup>
+
 </Project>
