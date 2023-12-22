@@ -19,8 +19,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
         {
             if (intface.ContentPropertyName != null && ContentPropertyStyle == ContentPropertyStyle.ClassAttribute)
             {
-                classSource.Attributes.Usings.AddNamespace(ContentPropertyAttribute.Namespace);
-                classSource.Attributes.AddLine($"[ContentProperty(\"{intface.ContentPropertyName}\")]");
+                classSource.Attributes.AddLine($"[{ContentPropertyAttribute.AttributeName}(\"{intface.ContentPropertyName}\")]");
             }
         }
 

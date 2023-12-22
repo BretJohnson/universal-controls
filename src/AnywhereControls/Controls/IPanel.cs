@@ -1,5 +1,3 @@
-using Microsoft.ComponentModelEx;
-
 namespace AnywhereControls.Controls
 {
     [UIModelObject]

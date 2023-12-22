@@ -28,6 +28,6 @@
         public const string ControlLibraryAttribute = "AnywhereControls.ControlLibraryAttribute";
 
         public const string DefaultValueAttribute = "System.ComponentModel.DefaultValueAttribute";
-        public const string ContentPropertyAttribute = "Microsoft.ComponentModelEx.ContentPropertyAttribute";
+        public const string ContentPropertyAttribute = "AnywhereControls.ContentPropertyAttribute";
     }
 }
