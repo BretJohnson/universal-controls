@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-	  <TargetFramework>net6.0-windows</TargetFramework>
+	  <TargetFramework>net8.0-windows</TargetFramework>
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
@@ -17,6 +17,12 @@
     <ProjectReference Include="..\..\..\src\wpf\AnywhereControls.FrameworkForwarder\AnywhereControls.FrameworkForwarder.csproj" />
     <ProjectReference Include="..\..\controls\Microcharts\Microcharts.csproj" />
     <ProjectReference Include="..\..\controls\SimpleControls\SimpleControls.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(UseLocalExampleFramework) == ''">
+  </ItemGroup>
+  <ItemGroup Condition="$(UseLocalExampleFramework) != ''">
+    <ProjectReference Include="..\..\..\..\example-framework\src\ExampleFramework.Tooling\ExampleFramework.Tooling.csproj" />
   </ItemGroup>
 
 </Project>

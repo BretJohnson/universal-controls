@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <!-- To use a local version of example-framework instead of the NuGets, clone the repo as a sibling to the anywhere-controls directory and uncomment this -->
+    <UseLocalExampleFramework>true</UseLocalExampleFramework>
+  </PropertyGroup>
+</Project>

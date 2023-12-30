@@ -1,7 +1,7 @@
-﻿using Microsoft.ComponentModelEx;
+﻿using ExampleFramework;
 using static SimpleControls.SimpleControlsStatics;
 
-namespace AlohaKit.StandardControls
+namespace AlohaKit.AnywhereControls
 {
     public class CheckBox_Examples
     {
