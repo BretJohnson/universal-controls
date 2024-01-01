@@ -4,7 +4,7 @@ using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace AnywhereControls.Maui
 {
-    public class TargetPropertyPath : StandardUIObject, ITargetPropertyPath
+    public class TargetPropertyPath : UIObject, ITargetPropertyPath
     {
         public static readonly BindableProperty PropertyProperty = PropertyUtils.Register(nameof(Property), typeof(PropertyPath), typeof(TargetPropertyPath), null);
         public static readonly BindableProperty TargetProperty = PropertyUtils.Register(nameof(Target), typeof(object), typeof(TargetPropertyPath), null);

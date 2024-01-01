@@ -13,7 +13,7 @@ namespace AnywhereControlsAvalonia.Controls
     {
         public static readonly Avalonia.StyledProperty<Brush> ForegroundProperty = AvaloniaProperty.Register<TextBlock, Brush>(nameof(Foreground), null);
         public static readonly Avalonia.StyledProperty<string> TextProperty = AvaloniaProperty.Register<TextBlock, string>(nameof(Text), "");
-        public static readonly Avalonia.StyledProperty<FontFamily> FontFamilyProperty = AvaloniaProperty.Register<TextBlock, FontFamily>(nameof(FontFamily), null);
+        public static readonly Avalonia.StyledProperty<FontFamily> FontFamilyProperty = AvaloniaProperty.Register<TextBlock, FontFamily>(nameof(FontFamily), AnywhereControlsAvalonia.Text.FontFamilyExtensions.DefaultFontFamily);
         public static readonly Avalonia.StyledProperty<FontStyle> FontStyleProperty = AvaloniaProperty.Register<TextBlock, FontStyle>(nameof(FontStyle), FontStyle.Normal);
         public static readonly Avalonia.StyledProperty<FontWeight> FontWeightProperty = AvaloniaProperty.Register<TextBlock, FontWeight>(nameof(FontWeight), FontWeight.Default);
         public static readonly Avalonia.StyledProperty<double> FontSizeProperty = AvaloniaProperty.Register<TextBlock, double>(nameof(FontSize), 11.0);

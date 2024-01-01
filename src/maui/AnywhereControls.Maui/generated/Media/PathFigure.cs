@@ -5,7 +5,7 @@ using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace AnywhereControls.Maui.Media
 {
-    public class PathFigure : StandardUIObject, IPathFigure
+    public class PathFigure : UIObject, IPathFigure
     {
         public static readonly BindableProperty SegmentsProperty = PropertyUtils.Register(nameof(Segments), typeof(UICollection<IPathSegment>), typeof(PathFigure), null);
         public static readonly BindableProperty StartPointProperty = PropertyUtils.Register(nameof(StartPoint), typeof(Point), typeof(PathFigure), default(Point));

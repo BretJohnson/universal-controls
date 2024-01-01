@@ -5,7 +5,7 @@ using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace AnywhereControls.Maui.Controls
 {
-    public class ColumnDefinition : StandardUIObject, IColumnDefinition
+    public class ColumnDefinition : UIObject, IColumnDefinition
     {
         public static readonly BindableProperty WidthProperty = PropertyUtils.Register(nameof(Width), typeof(GridLength), typeof(ColumnDefinition), GridLength.Default);
         public static readonly BindableProperty MinWidthProperty = PropertyUtils.Register(nameof(MinWidth), typeof(double), typeof(ColumnDefinition), 0.0);

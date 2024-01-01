@@ -1,7 +1,6 @@
 // This file is generated from IGrid.cs. Update the source file to change its contents.
 
 using AnywhereControls.Controls;
-using CommonUI;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace AnywhereControls.Maui.Controls

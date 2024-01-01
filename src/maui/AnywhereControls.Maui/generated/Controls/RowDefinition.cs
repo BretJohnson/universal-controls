@@ -5,7 +5,7 @@ using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace AnywhereControls.Maui.Controls
 {
-    public class RowDefinition : StandardUIObject, IRowDefinition
+    public class RowDefinition : UIObject, IRowDefinition
     {
         public static readonly BindableProperty HeightProperty = PropertyUtils.Register(nameof(Height), typeof(GridLength), typeof(RowDefinition), GridLength.Default);
         public static readonly BindableProperty MinHeightProperty = PropertyUtils.Register(nameof(MinHeight), typeof(double), typeof(RowDefinition), 0.0);

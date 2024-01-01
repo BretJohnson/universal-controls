@@ -4,7 +4,7 @@ using AnywhereControls.Media;
 
 namespace AnywhereControls.Wpf.Media
 {
-    public class Transform : StandardUIObject, ITransform
+    public class Transform : UIObject, ITransform
     {
     }
 }

@@ -5,7 +5,7 @@ using DependencyProperty = System.Windows.DependencyProperty;
 
 namespace AnywhereControls.Wpf.Controls
 {
-    public class RowDefinition : StandardUIObject, IRowDefinition
+    public class RowDefinition : UIObject, IRowDefinition
     {
         public static readonly DependencyProperty HeightProperty = PropertyUtils.Register(nameof(Height), typeof(GridLength), typeof(RowDefinition), GridLength.Default);
         public static readonly DependencyProperty MinHeightProperty = PropertyUtils.Register(nameof(MinHeight), typeof(double), typeof(RowDefinition), 0.0);

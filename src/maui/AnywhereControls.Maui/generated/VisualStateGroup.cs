@@ -4,7 +4,7 @@ using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace AnywhereControls.Maui
 {
-    public class VisualStateGroup : StandardUIObject, IVisualStateGroup
+    public class VisualStateGroup : UIObject, IVisualStateGroup
     {
         public static readonly BindableProperty CurrentStateProperty = PropertyUtils.Register(nameof(CurrentState), typeof(VisualState), typeof(VisualStateGroup), null);
         public static readonly BindableProperty NameProperty = PropertyUtils.Register(nameof(Name), typeof(string), typeof(VisualStateGroup), "");
