@@ -60,6 +60,9 @@ internal enum FrugalListStoreState
 
 abstract class FrugalListBase<T> where T : struct
 {
+    // The number of items in the list.
+    protected int _count;
+
     /// <summary>
     /// Number of entries in this store
     /// </summary>
@@ -145,9 +148,6 @@ abstract class FrugalListBase<T> where T : struct
     /// </summary>
     public abstract object Clone();
 
-    // The number of items in the list.
-    protected int _count;
-
     public virtual Compacter NewCompacter(int newCount)
     {
         return new Compacter(this, newCount);
@@ -159,6 +159,11 @@ abstract class FrugalListBase<T> where T : struct
     // basic implementation - compacts in-place
     internal class Compacter
     {
+        protected FrugalListBase<T> _store;
+        protected int _validItemCount;
+        protected int _previousEnd;
+        private int _newCount;
+
         public Compacter(FrugalListBase<T> store, int newCount)
         {
             _store = store;
@@ -196,11 +201,6 @@ abstract class FrugalListBase<T> where T : struct
             _store._count = _validItemCount;
             return _store;
         }
-
-        protected FrugalListBase<T> _store;
-        protected int _validItemCount;
-        protected int _previousEnd;
-        private int _newCount;
     }
 }
 
@@ -361,14 +361,14 @@ internal sealed class SingleItemList<T> : FrugalListBase<T> where T : struct
 /// </summary>
 internal sealed class ThreeItemList<T> : FrugalListBase<T> where T : struct
 {
+    private const int SIZE = 3;
+
+    private T _entry0;
+    private T _entry1;
+    private T _entry2;
+
     // Capacity of this store
-    public override int Capacity
-    {
-        get
-        {
-            return SIZE;
-        }
-    }
+    public override int Capacity => SIZE;
 
     public override FrugalListStoreState Add(T value)
     {
@@ -674,12 +674,6 @@ internal sealed class ThreeItemList<T> : FrugalListBase<T> where T : struct
             throw new ArgumentOutOfRangeException(nameof(value));
         }
     }
-
-    private const int SIZE = 3;
-
-    private T _entry0;
-    private T _entry1;
-    private T _entry2;
 }
 
 /// <summary>
@@ -687,6 +681,15 @@ internal sealed class ThreeItemList<T> : FrugalListBase<T> where T : struct
 /// </summary>
 internal sealed class SixItemList<T> : FrugalListBase<T> where T : struct
 {
+    private const int SIZE = 6;
+
+    private T _entry0;
+    private T _entry1;
+    private T _entry2;
+    private T _entry3;
+    private T _entry4;
+    private T _entry5;
+
     // Capacity of this store
     public override int Capacity
     {
@@ -1237,15 +1240,6 @@ internal sealed class SixItemList<T> : FrugalListBase<T> where T : struct
             throw new ArgumentOutOfRangeException(nameof(value));
         }
     }
-
-    private const int SIZE = 6;
-
-    private T _entry0;
-    private T _entry1;
-    private T _entry2;
-    private T _entry3;
-    private T _entry4;
-    private T _entry5;
 }
 
 /// <summary>
@@ -1254,6 +1248,13 @@ internal sealed class SixItemList<T> : FrugalListBase<T> where T : struct
 /// </summary>
 internal sealed class ArrayItemList<T> : FrugalListBase<T> where T : struct
 {
+    // MINSIZE and GROWTH chosen to minimize memory footprint
+    private const int MINSIZE = 9;
+    private const int GROWTH = 3;
+    private const int LARGEGROWTH = 18;
+
+    private T[] _entries;
+
     public ArrayItemList(int size)
     {
         // Make size a multiple of GROWTH
@@ -1376,13 +1377,9 @@ internal sealed class ArrayItemList<T> : FrugalListBase<T> where T : struct
         // Wipe out the last entry
         _entries[_count - 1] = default(T);
         --_count;
-        return;
     }
 
-    public override T EntryAt(int index)
-    {
-        return _entries[index];
-    }
+    public override T EntryAt(int index) => _entries[index];
 
     public override void Promote(FrugalListBase<T> oldList)
     {
@@ -1506,19 +1503,7 @@ internal sealed class ArrayItemList<T> : FrugalListBase<T> where T : struct
         }
     }
 
-    // MINSIZE and GROWTH chosen to minimize memory footprint
-    private const int MINSIZE = 9;
-    private const int GROWTH = 3;
-    private const int LARGEGROWTH = 18;
-
-    private T[] _entries;
-
-    #region Compacter
-
-    public override Compacter NewCompacter(int newCount)
-    {
-        return new ArrayCompacter(this, newCount);
-    }
+    public override Compacter NewCompacter(int newCount) => new ArrayCompacter(this, newCount);
 
     // array-based implementation - compacts in-place or into a new array
     internal class ArrayCompacter : FrugalListBase<T>.Compacter
@@ -1603,8 +1588,6 @@ internal sealed class ArrayItemList<T> : FrugalListBase<T> where T : struct
         T[] _sourceArray;
         T[] _targetArray;
     }
-
-    #endregion Compacter
 }
 
 // Use FrugalObjectList when more than one reference to the list is needed.
@@ -1612,6 +1595,8 @@ internal sealed class ArrayItemList<T> : FrugalListBase<T> where T : struct
 
 internal class FrugalObjectList<T> where T : struct
 {
+    internal FrugalListBase<T>? _listStore;
+
     public FrugalObjectList()
     {
     }
@@ -1671,18 +1656,7 @@ internal class FrugalObjectList<T> where T : struct
         }
     }
 
-    public int Count
-    {
-        get
-        {
-            if (null != _listStore)
-            {
-                return _listStore.Count;
-            }
-            return 0;
-        }
-    }
-
+    public int Count => null != _listStore ? _listStore.Count : 0;
 
     public T this[int index]
     {
@@ -1775,13 +1749,7 @@ internal class FrugalObjectList<T> where T : struct
         return _listStore.Count - 1;
     }
 
-    public void Clear()
-    {
-        if (null != _listStore)
-        {
-            _listStore.Clear();
-        }
-    }
+    public void Clear() => _listStore?.Clear();
 
     public bool Contains(T value)
     {
@@ -1894,8 +1862,6 @@ internal class FrugalObjectList<T> where T : struct
         return myClone;
     }
 
-    internal FrugalListBase<T>? _listStore;
-
     // helper class - compacts the valid entries, while removing the invalid ones.
     // Usage:
     //      Compacter compacter = new Compacter(this, newCount);
@@ -1941,6 +1907,8 @@ internal class FrugalObjectList<T> where T : struct
 // The "struct" in FrugalStructList refers to the list itself, not what the list contains.
 internal struct FrugalStructList<T> where T : struct
 {
+    internal FrugalListBase<T>? _listStore;
+
     public FrugalStructList(int size)
     {
         _listStore = null;
@@ -2266,6 +2234,4 @@ internal struct FrugalStructList<T> where T : struct
 
         return myClone;
     }
-
-    internal FrugalListBase<T>? _listStore;
 }

@@ -44,6 +44,8 @@ internal enum FrugalMapStoreState
 
 abstract class FrugalMapBase
 {
+    protected const int INVALIDKEY = 0x7FFFFFFF;
+
     public abstract FrugalMapStoreState InsertEntry(int key, Object value);
 
     public abstract void RemoveEntry(int key);
@@ -89,8 +91,6 @@ abstract class FrugalMapBase
     public static InvalidOperationException CreateCannotPromoteBeyondHashtableException() =>
         new InvalidOperationException("Cannot promote from Hashtable.");
 
-    protected const int INVALIDKEY = 0x7FFFFFFF;
-
     internal struct Entry
     {
         public int Key;
@@ -103,6 +103,8 @@ abstract class FrugalMapBase
 /// </summary>
 internal sealed class SingleObjectMap : FrugalMapBase
 {
+    private Entry _loneEntry;
+
     public SingleObjectMap()
     {
         _loneEntry.Key = INVALIDKEY;
@@ -188,22 +190,7 @@ internal sealed class SingleObjectMap : FrugalMapBase
     }
 
     // Size of this data store
-    public override int Count
-    {
-        get
-        {
-            if (INVALIDKEY != _loneEntry.Key)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-    }
-
-    private Entry _loneEntry;
+    public override int Count => INVALIDKEY == _loneEntry.Key ? 0 : 1;
 }
 
 
@@ -218,6 +205,16 @@ internal sealed class SingleObjectMap : FrugalMapBase
 /// </remarks>
 internal sealed class ThreeObjectMap : FrugalMapBase
 {
+    private const int SIZE = 3;
+
+    // The number of items in the map.
+    private UInt16 _count;
+
+    private bool _sorted;
+    private Entry _entry0;
+    private Entry _entry1;
+    private Entry _entry2;
+
     public override FrugalMapStoreState InsertEntry(int key, Object value)
     {
         // Check to see if we are updating an existing entry
@@ -508,23 +505,7 @@ internal sealed class ThreeObjectMap : FrugalMapBase
     }
 
     // Size of this data store
-    public override int Count
-    {
-        get
-        {
-            return _count;
-        }
-    }
-
-    private const int SIZE = 3;
-
-    // The number of items in the map.
-    private UInt16 _count;
-
-    private bool _sorted;
-    private Entry _entry0;
-    private Entry _entry1;
-    private Entry _entry2;
+    public override int Count => _count;
 }
 
 /// <summary>
@@ -538,6 +519,19 @@ internal sealed class ThreeObjectMap : FrugalMapBase
 /// </remarks>
 internal sealed class SixObjectMap : FrugalMapBase
 {
+    private const int SIZE = 6;
+
+    // The number of items in the map.
+    private UInt16 _count;
+
+    private bool _sorted;
+    private Entry _entry0;
+    private Entry _entry1;
+    private Entry _entry2;
+    private Entry _entry3;
+    private Entry _entry4;
+    private Entry _entry5;
+
     public override FrugalMapStoreState InsertEntry(int key, Object value)
     {
         // Check to see if we are updating an existing entry
@@ -1094,19 +1088,6 @@ internal sealed class SixObjectMap : FrugalMapBase
             return _count;
         }
     }
-
-    private const int SIZE = 6;
-
-    // The number of items in the map.
-    private UInt16 _count;
-
-    private bool _sorted;
-    private Entry _entry0;
-    private Entry _entry1;
-    private Entry _entry2;
-    private Entry _entry3;
-    private Entry _entry4;
-    private Entry _entry5;
 }
 
 /// <summary>
@@ -1116,6 +1097,17 @@ internal sealed class SixObjectMap : FrugalMapBase
 /// </summary>
 internal sealed class ArrayObjectMap : FrugalMapBase
 {
+    // MINSIZE and GROWTH chosen to minimize memory footprint
+    private const int MINSIZE = 9;
+    private const int MAXSIZE = 15;
+    private const int GROWTH = 3;
+
+    // The number of items in the map.
+    private UInt16 _count;
+
+    private bool _sorted;
+    private Entry[]? _entries;
+
     public override FrugalMapStoreState InsertEntry(int key, Object value)
     {
         // Check to see if we are updating an existing entry
@@ -1259,19 +1251,10 @@ internal sealed class ArrayObjectMap : FrugalMapBase
     }
 
     // Size of this data store
-    public override int Count
-    {
-        get
-        {
-            return _count;
-        }
-    }
+    public override int Count => _count;
 
     // Compare two Entry nodes in the _entries array
-    private int Compare(int left, int right)
-    {
-        return (_entries![left].Key - _entries[right].Key);
-    }
+    private int Compare(int left, int right) => _entries![left].Key - _entries[right].Key;
 
     // Partition the _entries array for QuickSort
     private int Partition(int left, int right)
@@ -1315,23 +1298,24 @@ internal sealed class ArrayObjectMap : FrugalMapBase
             QSort(pivot + 1, right);
         }
     }
-
-    // MINSIZE and GROWTH chosen to minimize memory footprint
-    private const int MINSIZE = 9;
-    private const int MAXSIZE = 15;
-    private const int GROWTH = 3;
-
-    // The number of items in the map.
-    private UInt16 _count;
-
-    private bool _sorted;
-    private Entry[]? _entries;
 }
 
 // A sorted array of key/value pairs. A binary search is used to minimize the cost of insert/search.
 
 internal sealed class SortedObjectMap : FrugalMapBase
 {
+    // MINSIZE chosen to be larger than MAXSIZE of the ArrayObjectMap with some extra space for new values
+    // The MAXSIZE and GROWTH are chosen to minimize memory usage as we grow the array
+    private const int MINSIZE = 16;
+    private const int MAXSIZE = 128;
+    private const int GROWTH = 8;
+
+    // The number of items in the map.
+    internal int _count;
+
+    private int _lastKey = INVALIDKEY;
+    private Entry[]? _entries;
+
     public override FrugalMapStoreState InsertEntry(int key, Object value)
     {
         bool found;
@@ -1531,29 +1515,21 @@ internal sealed class SortedObjectMap : FrugalMapBase
         return iLo;
     }
 
-    public override int Count
-    {
-        get
-        {
-            return _count;
-        }
-    }
-
-    // MINSIZE chosen to be larger than MAXSIZE of the ArrayObjectMap with some extra space for new values
-    // The MAXSIZE and GROWTH are chosen to minimize memory usage as we grow the array
-    private const int MINSIZE = 16;
-    private const int MAXSIZE = 128;
-    private const int GROWTH = 8;
-
-    // The number of items in the map.
-    internal int _count;
-
-    private int _lastKey = INVALIDKEY;
-    private Entry[]? _entries;
+    public override int Count => _count;
 }
 
 internal sealed class HashObjectMap : FrugalMapBase
 {
+    // 163 is chosen because it is the first prime larger than 128, the MAXSIZE of SortedObjectMap
+    internal const int MINSIZE = 163;
+
+    // Hashtable will return null from its indexer if the key is not
+    // found OR if the value is null.  To distinguish between these
+    // two cases we insert NullValue instead of null.
+    private static object NullValue = new object();
+
+    internal Dictionary<int, object>? _entries;
+
     public override FrugalMapStoreState InsertEntry(int key, Object value)
     {
         Debug.Assert(INVALIDKEY != key);
@@ -1574,17 +1550,12 @@ internal sealed class HashObjectMap : FrugalMapBase
         return FrugalMapStoreState.Success;
     }
 
-    public override void RemoveEntry(int key)
-    {
-        _entries!.Remove(key);
-    }
+    public override void RemoveEntry(int key) => _entries!.Remove(key);
 
-    public override Object Search(int key)
-    {
-        return _entries!.TryGetValue(key, out object value) && (value != NullValue) ?
+    public override Object Search(int key) =>
+        _entries!.TryGetValue(key, out object value) && (value != NullValue) ?
             value :
             UnsetValue.Instance;
-    }
 
     public override void Sort()
     {
@@ -1638,27 +1609,13 @@ internal sealed class HashObjectMap : FrugalMapBase
     }
 
     // Size of this data store
-    public override int Count
-    {
-        get
-        {
-            return _entries!.Count;
-        }
-    }
-
-    // 163 is chosen because it is the first prime larger than 128, the MAXSIZE of SortedObjectMap
-    internal const int MINSIZE = 163;
-
-    // Hashtable will return null from its indexer if the key is not
-    // found OR if the value is null.  To distinguish between these
-    // two cases we insert NullValue instead of null.
-    private static object NullValue = new object();
-
-    internal Dictionary<int, object>? _entries;
+    public override int Count => _entries!.Count;
 }
 
 internal struct FrugalMap
 {
+    internal FrugalMapBase? _mapStore;
+
     public object this[int key]
     {
         get
@@ -1800,14 +1757,22 @@ internal struct FrugalMap
             return 0;
         }
     }
-
-    internal FrugalMapBase? _mapStore;
 }
 
 // A sorted array of key/value pairs. A binary search is used to minimize the cost of insert/search.
 
 internal sealed class LargeSortedObjectMap : FrugalMapBase
 {
+    // MINSIZE chosen to be small, growth rate of 1.5 is slow at small sizes, but increasingly agressive as
+    // the array grows
+    private const int MINSIZE = 2;
+
+    // The number of items in the map.
+    internal int _count;
+
+    private int _lastKey = INVALIDKEY;
+    private Entry[]? _entries;
+
     public override FrugalMapStoreState InsertEntry(int key, Object value)
     {
         bool found;
@@ -1999,23 +1964,7 @@ internal sealed class LargeSortedObjectMap : FrugalMapBase
         return iLo;
     }
 
-    public override int Count
-    {
-        get
-        {
-            return _count;
-        }
-    }
-
-    // MINSIZE chosen to be small, growth rate of 1.5 is slow at small sizes, but increasingly agressive as
-    // the array grows
-    private const int MINSIZE = 2;
-
-    // The number of items in the map.
-    internal int _count;
-
-    private int _lastKey = INVALIDKEY;
-    private Entry[]? _entries;
+    public override int Count => _count;
 }
 
 // This is a variant of FrugalMap that always uses an array as the underlying store.
@@ -2024,6 +1973,8 @@ internal sealed class LargeSortedObjectMap : FrugalMapBase
 // store will always be populated and individual elements will be accessed in a tight loop.
 internal struct InsertionSortMap
 {
+    internal LargeSortedObjectMap? _mapStore;
+
     public object this[int key]
     {
         get
@@ -2149,8 +2100,6 @@ internal struct InsertionSortMap
             return 0;
         }
     }
-
-    internal LargeSortedObjectMap? _mapStore;
 }
 
 /// <summary>

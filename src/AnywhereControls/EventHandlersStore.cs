@@ -167,14 +167,10 @@ public class EventHandlersStore
     }
 
     /// <summary>
-    ///     Removes an instance of the specified 
-    ///     routed event handler for the given 
-    ///     RoutedEvent from the store
+    ///     Removes an instance of the specified routed event handler for the given RoutedEvent from the store
     /// </summary>
     /// <remarks>
-    ///     NOTE: This method does nothing if no 
-    ///     matching handler instances are found 
-    ///     in the store
+    ///     NOTE: This method does nothing if no matching handler instances are found in the store
     /// </remarks>
     public bool RemoveRoutedEventHandler(RoutedEvent routedEvent, Delegate handler)
     {
@@ -208,8 +204,7 @@ public class EventHandlersStore
     }
 
     /// <summary>
-    ///     Determines whether the given
-    ///     RoutedEvent exists in the store.
+    ///     Determines whether the given RoutedEvent exists in the store.
     /// </summary>
     /// <param name="routedEvent">
     ///     the RoutedEvent of the event.
