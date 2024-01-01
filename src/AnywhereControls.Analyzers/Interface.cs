@@ -126,9 +126,16 @@ namespace AnywhereControls.SourceGenerator
 
         public void Generate(UIFramework uiFramework, ISet<string>? noAutoGenerationProperties = null)
         {
-            // These two types have hand-written implementations, so we don't generate anything for them
-            if (IsThisType(KnownTypes.IUIElement) || IsThisType(KnownTypes.IUIObject))
+            if (IsThisType(KnownTypes.IUIElement))
+            {
+                uiFramework.GenerateBuiltInIUIElementPartialClasses();
                 return;
+            }
+            else if (IsThisType(KnownTypes.IUIObject))
+            {
+                // UIObject has a hand-written implementation, so don't generate anything for it
+                return;
+            }
 
             // Code is only generated for the interface types below
             if (Purpose != InterfacePurpose.AnywhereControl &&

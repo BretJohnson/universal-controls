@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using System.IO.MemoryMappedFiles;
+using Microsoft.CodeAnalysis;
 
 namespace AnywhereControls.SourceGenerator.UIFrameworks
 {
@@ -19,7 +20,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
         {
             if (intface.ContentPropertyName != null && ContentPropertyStyle == ContentPropertyStyle.ClassAttribute)
             {
-                classSource.Attributes.AddLine($"[{ContentPropertyAttribute.AttributeName}(\"{intface.ContentPropertyName}\")]");
+                classSource.Attributes.AddLine($"[{ContentPropertyAttribute.AtributeFullName}(\"{intface.ContentPropertyName}\")]");
             }
         }
 
@@ -218,6 +219,34 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
             mainClassSource.StaticFields.AddLine(
                 $"public static readonly {DependencyPropertyType.Name} {descriptorName} = PropertyUtils.RegisterAttached(\"{attachedProperty.Name}\", typeof({nonNullablePropertyType}), typeof({targetOutputTypeName}), {defaultValue});");
+        }
+
+        protected virtual void GenerateHostFrameworkMappedEvent(ClassSource classSource, string eventName, string handlerType, string hostFrameworkEvent, string hostFrameworkEventArgsType, string mappedEventArgsType)
+        {
+            string hotFrameworkHandler = $"On{hostFrameworkEvent}";
+
+            classSource.NonstaticMethods.AddBlankLineIfNonempty();
+            classSource.NonstaticMethods.Add($$"""
+                public event {{handlerType}} {{eventName}}
+                {
+                    add
+                    {
+                        if (AddRoutedEventHandler(InputEvents.{{eventName}}Event, value))
+                        {
+                            {{hostFrameworkEvent}} += {{hotFrameworkHandler}};
+                        }
+                    }
+                    remove
+                    {
+                        if (RemoveRoutedEventHandler(InputEvents.{{eventName}}Event, value))
+                        {
+                            {{hostFrameworkEvent}} -= {{hotFrameworkHandler}};
+                        }
+                    }
+                }
+                private void {{hotFrameworkHandler}}(object sender, {{hostFrameworkEventArgsType}} e) =>
+                    RaiseHandleableEvent(InputEvents.{{eventName}}Event, new {{mappedEventArgsType}}(e));
+                """);
         }
     }
 }

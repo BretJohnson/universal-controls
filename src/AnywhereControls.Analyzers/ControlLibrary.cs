@@ -28,7 +28,7 @@ namespace AnywhereControls.SourceGenerator
             }
             else
             {
-                INamedTypeSymbol controlLibraryClass = gatherTypesVisitor.ControlLibraryClass;
+                INamedTypeSymbol? controlLibraryClass = gatherTypesVisitor.ControlLibraryClass;
                 if (controlLibraryClass == null)
                     throw UserVisibleErrors.MissingControlLibraryClass();
 
@@ -259,7 +259,7 @@ namespace AnywhereControls.SourceGenerator
 
             public List<Interface> Interfaces => _interfaces;
 
-            public INamedTypeSymbol ControlLibraryClass => _controlLibraryClass;
+            public INamedTypeSymbol? ControlLibraryClass => _controlLibraryClass;
 
             public override void VisitNamespace(INamespaceSymbol symbol)
             {
