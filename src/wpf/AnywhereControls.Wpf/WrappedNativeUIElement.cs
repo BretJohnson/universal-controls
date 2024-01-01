@@ -1,4 +1,5 @@
 ﻿using System;
+using AnywhereControls.Input;
 using FrameworkElement = System.Windows.FrameworkElement;
 
 namespace AnywhereControls.Wpf
@@ -18,15 +19,9 @@ namespace AnywhereControls.Wpf
 
         public FrameworkElement FrameworkElement => _frameworkElement;
 
-        void IUIElement.Measure(Size availableSize)
-        {
-            _frameworkElement.Measure(availableSize.ToWpfSize());
-        }
+        void IUIElement.Measure(Size availableSize) => _frameworkElement.Measure(availableSize.ToWpfSize());
 
-        void IUIElement.Arrange(Rect finalRect)
-        {
-            _frameworkElement.Arrange(finalRect.ToWpfRect());
-        }
+        void IUIElement.Arrange(Rect finalRect) => _frameworkElement.Arrange(finalRect.ToWpfRect());
 
         Size IUIElement.DesiredSize => _frameworkElement.DesiredSize.ToAnywhereControlsSize();
 
@@ -113,7 +108,30 @@ namespace AnywhereControls.Wpf
 
         public Rect Frame => throw new NotImplementedException();
 
+        Rect IUIElement.Frame => throw new NotImplementedException();
+
         IUIElement IUIElement.GetVisualChild(int index) =>
             throw new IndexOutOfRangeException("UIElement has no children");
+
+        event PointerEventHandler IUIElement.PointerEntered
+        {
+            add { throw EventsHandlersNotSupportedException(); }
+            remove { throw EventsHandlersNotSupportedException(); }
+        }
+
+        event PointerEventHandler IUIElement.PointerExited
+        {
+            add { throw EventsHandlersNotSupportedException(); }
+            remove { throw EventsHandlersNotSupportedException(); }
+        }
+
+        event PointerEventHandler IUIElement.PointerMoved
+        {
+            add { throw EventsHandlersNotSupportedException(); }
+            remove { throw EventsHandlersNotSupportedException(); }
+        }
+
+        public NotSupportedException EventsHandlersNotSupportedException() =>
+            new NotSupportedException("Adding event handers to host framework UI elements isn't currently suuported. Wrap it with an AnywhereControls control instead to get events.");
     }
 }
