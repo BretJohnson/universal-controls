@@ -1,6 +1,4 @@
-﻿using AnywhereControls;
-
-namespace AnywhereControls.Controls;
+﻿namespace AnywhereControls.Controls;
 
 public interface IAnywhereControl : IUIElement
 {
