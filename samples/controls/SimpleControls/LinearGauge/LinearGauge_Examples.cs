@@ -8,7 +8,7 @@ namespace AlohaKit.AnywhereControls
     public class LinearGauge_Examples
     {
         [UIExample("LinearGauge")]
-        public static ILinearGauge SimpleLinearGauge() =>
+        public static LinearGauge SimpleLinearGauge() =>
             LinearGauge()
                 .Width(60)
                 .Height(200)

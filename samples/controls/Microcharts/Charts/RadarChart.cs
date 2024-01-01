@@ -12,10 +12,6 @@ using ICanvas = AnywhereControls.Controls.ICanvas;
 
 namespace Microcharts
 {
-    public interface IRadarChart : IChart
-    {
-    }
-
     /// <summary>
     /// ![chart](../images/Radar.png)
     ///
@@ -25,7 +21,7 @@ namespace Microcharts
     {
         private const float Epsilon = 0.01f;
 
-        public RadarChart(IChart control) : base(control)
+        public RadarChart(Chart control) : base(control)
         {
         }
 

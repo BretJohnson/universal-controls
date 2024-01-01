@@ -31,17 +31,17 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
         public virtual void AddTypeAliasUsingIfNeeded(Usings usings, string destinationtypeFullName) { }
 
-        public virtual void GenerateAttributes(Interface intface, ClassSource classSource) { }
+        public virtual void GenerateAttributes(UIObjectType uiObjectType, ClassSource classSource) { }
         public abstract void GenerateProperty(Property property, ClassSource classSource);
         public abstract void GenerateAttachedProperty(AttachedProperty attachedProperty, ClassSource mainClassSource, ClassSource attachedClassSource);
 
         public virtual void GeneratePanelMethods(Source methods) { }
 
-        public virtual void GenerateDrawableObjectMethods(Interface intface, Source methods)
+        public virtual void GenerateDrawableObjectMethods(UIObjectType uiObjectType, Source methods)
         {
             methods.AddBlankLineIfNonempty();
             methods.AddLine(
-                $"public void Draw(IDrawingContext drawingContext) => drawingContext.Draw{intface.FrameworkClassName}(this);");
+                $"public void Draw(IDrawingContext drawingContext) => drawingContext.Draw{uiObjectType.FrameworkClassName}(this);");
         }
 
         public virtual void GenerateIUIElementMethods(ClassSource classSource) { }

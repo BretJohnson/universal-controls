@@ -8,25 +8,7 @@ using static AnywhereControls.AnywhereControlsStatics;
 namespace AlohaKit.AnywhereControls
 {
     [AnywhereControl]
-    public interface ILinearGauge : IAnywhereControl
-    {
-        [DefaultValue(DefaultColor.White)]
-        public Color BackgroundColor { get; set; }
-
-        [DefaultValue(DefaultColor.Black)]
-        public Color ProgressColor { get; set; }
-
-        [DefaultValue(0)]
-        public int RangeStart { get; set; }
-
-        [DefaultValue(100)]
-        public int RangeEnd { get; set; }
-
-        [DefaultValue(0)]
-        public int Value { get; set; }
-    }
-
-    public abstract class LinearGauge : AnywhereControl, ILinearGauge
+    public abstract class LinearGauge : AnywhereControl
     {
         // TODO: Expose these properties 
         Color Stroke = Colors.Black;
@@ -40,10 +22,19 @@ namespace AlohaKit.AnywhereControls
             UIElement.Height = 200;
         }
 
+        [DefaultValue(DefaultColor.White)]
         public abstract Color BackgroundColor { get; set; }
+
+        [DefaultValue(DefaultColor.Black)]
         public abstract Color ProgressColor { get; set; }
+
+        [DefaultValue(0)]
         public abstract int RangeStart { get; set; }
+
+        [DefaultValue(100)]
         public abstract int RangeEnd { get; set; }
+
+        [DefaultValue(0)]
         public abstract int Value { get; set; }
 
 

@@ -12,8 +12,8 @@ namespace AnywhereControls.SourceGenerator
         public string TargetTypeName { get; }
         public string? TargetParameterName { get; }
 
-        public AttachedProperty(Context context, Interface intface, INamedTypeSymbol attachedType, IMethodSymbol getterMethod, IMethodSymbol? setterMethod) :
-            base(context, intface, getterMethod, getterMethod.Name.Substring("Get".Length), getterMethod.ReturnType, setterMethod == null, attachedType.Name)
+        public AttachedProperty(Context context, UIObjectType uiObjectType, INamedTypeSymbol attachedType, IMethodSymbol getterMethod, IMethodSymbol? setterMethod) :
+            base(context, uiObjectType, getterMethod, getterMethod.Name.Substring("Get".Length), getterMethod.ReturnType, setterMethod == null, attachedType.Name)
         {
             if (getterMethod.Parameters.Length != 1)
                 throw new UserViewableException(
@@ -43,9 +43,9 @@ namespace AnywhereControls.SourceGenerator
             source.Usings.AddTypeNamespace(TargetType);
 
             // Get the type base name, without the "I" nor "Attached" suffix
-            string typeBaseName = Interface.Name.Substring(1);
+            string typeBaseName = UIObjectType.BaseName;
 
-            string targetVariableName = Utils.GetInterfaceVariableName(TargetType);
+            string targetVariableName = Utils.GeTypeVariableName(TargetType);
 
             source.AddBlankLineIfNonempty();
             source.AddLines(

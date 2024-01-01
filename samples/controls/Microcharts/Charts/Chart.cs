@@ -6,39 +6,19 @@ using AnywhereControls.Controls;
 namespace Microcharts
 {
     [AnywhereControl]
-    public interface IChart : IAnywhereControl
-    {
-        /// <summary>
-        /// The type of chart (bar chart, pie chart, etc.)
-        /// </summary>
-        [DefaultValue(ChartType.BarChart)]
-        ChartType ChartType { get; set; }
-
-        /// <summary>
-        /// Data for the chart
-        /// </summary>
-        IEnumerable<ChartEntry> Entries { get; set; }
-
-        /// <summary>
-        /// Color used for chart background
-        /// </summary>
-        [DefaultValue(DefaultColor.White)]
-        Color BackgroundColor { get; set; }
-
-        /// <summary>
-        /// Color used for chart labels
-        /// </summary>
-        [DefaultValue(DefaultColor.Gray)]
-        Color LabelColor { get; set; }
-    }
-
-    public abstract class Chart : AnywhereControl, IChart
+    public abstract class Chart : AnywhereControl
     {
         private ChartBase _chart;
 
+        [DefaultValue(ChartType.BarChart)]
         public abstract ChartType ChartType { get; set; }
+
         public abstract IEnumerable<ChartEntry> Entries { get; set; }
+
+        [DefaultValue(DefaultColor.White)]
         public abstract Color BackgroundColor { get; set; }
+
+        [DefaultValue(DefaultColor.Gray)]
         public abstract Color LabelColor { get; set; }
 
         /// <summary>

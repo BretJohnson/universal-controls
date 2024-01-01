@@ -5,11 +5,11 @@ using AnywhereControls.SourceGenerator.UIFrameworks;
 
 namespace AnywhereControls.SourceGenerator
 {
-    public class Interface
+    public class UIObjectType
     {
         public Context Context { get; }
         public INamedTypeSymbol Type { get; }
-        public InterfacePurpose Purpose { get; }
+        public UIObjectKind UIObjectKind { get; }
         public INamespaceSymbol Namespace { get; }
         public string NamespaceName { get; }
         public string GetFrameworkNamespaceName(UIFramework uiFramework) => uiFramework.ToFrameworkNamespaceName(Namespace);
@@ -22,6 +22,8 @@ namespace AnywhereControls.SourceGenerator
         public INamedTypeSymbol? AnywhereControlSharedClass { get; }
         public string? ContentPropertyName { get; }
 
+        public bool IsInterface => Type.TypeKind == TypeKind.Interface;
+        public string BaseName => IsInterface ? Name.Substring(1) : Name;
         public bool IsThisType(string typeName) => Utils.IsThisType(Type, typeName);
 
         public bool IsDrawableObject
@@ -44,15 +46,15 @@ namespace AnywhereControls.SourceGenerator
             }
         }
 
-        public static InterfacePurpose IdentifyPurpose(INamedTypeSymbol type)
+        public static UIObjectKind IdentifyObjectKind(INamedTypeSymbol type)
         {
             // Hardcode the purpose for CommonUI.IUIElement
             if (Utils.IsThisType(type, KnownTypes.IUIElement))
-                return InterfacePurpose.StandardUIElement;
+                return UIObjectKind.StandardUIElement;
 
             // Skip ...Attached interfaces, processing them when their paired main interface is processed instead
             if (type.Name.EndsWith("Attached"))
-                return InterfacePurpose.Unspecified;
+                return UIObjectKind.Unspecified;
 
             foreach (AttributeData attribute in type.GetAttributes())
             {
@@ -63,38 +65,38 @@ namespace AnywhereControls.SourceGenerator
                 string attributeTypeFullName = Utils.GetTypeFullName(attributeClass);
 
                 if (attributeTypeFullName == KnownTypes.UIModelAttribute)
-                    return InterfacePurpose.StandardUIObject;
+                    return UIObjectKind.StandardUIObject;
                 else if (attributeTypeFullName == KnownTypes.StandardUISingletonAttribute)
-                    return InterfacePurpose.UISingleton;
+                    return UIObjectKind.UISingleton;
                 else if (attributeTypeFullName == KnownTypes.UIObjectAttribute)
-                    return InterfacePurpose.UIObject;
+                    return UIObjectKind.UIObject;
                 else if (attributeTypeFullName == KnownTypes.StandardUIElementAttribute)
-                    return InterfacePurpose.StandardUIElement;
+                    return UIObjectKind.StandardUIElement;
                 else if (attributeTypeFullName == KnownTypes.StandardPanelAttribute)
-                    return InterfacePurpose.StandardPanel;
+                    return UIObjectKind.StandardPanel;
                 else if (attributeTypeFullName == KnownTypes.AnywhereControlAttribute)
-                    return InterfacePurpose.AnywhereControl;
+                    return UIObjectKind.AnywhereControl;
                 else continue;
             }
 
-            return InterfacePurpose.Unspecified;
+            return UIObjectKind.Unspecified;
         }
 
-        public Interface(Context context, INamedTypeSymbol type)
+        public UIObjectType(Context context, INamedTypeSymbol type)
         {
             Context = context;
 
             Type = type;
             Name = type.Name;
-            if (!Name.StartsWith("I"))
+            if (IsInterface && !Name.StartsWith("I"))
                 throw UserVisibleErrors.StandardUIInterfaceMustStartWithI(type);
 
-            Purpose = IdentifyPurpose(type);
+            UIObjectKind = IdentifyObjectKind(type);
 
-            FrameworkClassName = Name.Substring(1);
+            FrameworkClassName = BaseName;
 
             // Form the default variable name for the interface by dropping the "I" and lower casing the first letter(s) after (ICanvas => canvas)
-            VariableName = Utils.GetInterfaceVariableName(Type);
+            VariableName = Utils.GeTypeVariableName(Type);
 
             Namespace = Type.ContainingNamespace;
             NamespaceName = Utils.GetNamespaceFullName(Namespace);
@@ -103,21 +105,13 @@ namespace AnywhereControls.SourceGenerator
             string fullNameAttached = Utils.GetTypeFullName(type) + "Attached";
             AttachedType = Context.Compilation.GetTypeByMetadataName(fullNameAttached);
 
-            if (Purpose == InterfacePurpose.StandardPanel)
+            if (UIObjectKind == UIObjectKind.StandardPanel)
             {
-                string layoutManagerFullName = $"{NamespaceName}.{Name.Substring(1)}LayoutManager";
+                string layoutManagerFullName = $"{NamespaceName}.{BaseName}LayoutManager";
                 LayoutManagerType = Context.Compilation.GetTypeByMetadataName(layoutManagerFullName);
 
                 if (LayoutManagerType == null)
                     throw UserVisibleErrors.NoLayoutManagerClassFound(layoutManagerFullName, Name);
-            }
-            else if (Purpose == InterfacePurpose.AnywhereControl)
-            {
-                string anywhereControlSharedTypeFullName = $"{NamespaceName}.{Name.Substring(1)}";
-                AnywhereControlSharedClass = Context.Compilation.GetTypeByMetadataName(anywhereControlSharedTypeFullName);
-
-                if (AnywhereControlSharedClass == null)
-                    throw UserVisibleErrors.NoAnywhereControlImplementationClassFound(type, anywhereControlSharedTypeFullName, Name);
             }
 
             // Get content property name or null
@@ -138,10 +132,10 @@ namespace AnywhereControls.SourceGenerator
             }
 
             // Code is only generated for the interface types below
-            if (Purpose != InterfacePurpose.AnywhereControl &&
-                Purpose != InterfacePurpose.StandardPanel &&
-                Purpose != InterfacePurpose.StandardUIObject &&
-                Purpose != InterfacePurpose.UIObject)
+            if (UIObjectKind != UIObjectKind.AnywhereControl &&
+                UIObjectKind != UIObjectKind.StandardPanel &&
+                UIObjectKind != UIObjectKind.StandardUIObject &&
+                UIObjectKind != UIObjectKind.UIObject)
                 return;
 
             string generatedFrom = $"{Name}.cs";
@@ -153,10 +147,10 @@ namespace AnywhereControls.SourceGenerator
                 namespaceName: frameworkNamespaceName,
                 className: FrameworkClassName);
 
-            if (Purpose == InterfacePurpose.AnywhereControl)
+            if (UIObjectKind == UIObjectKind.AnywhereControl)
             {
-                string baseClass = Utils.GetTypeFullName(AnywhereControlSharedClass!);
-                mainClassSource.DerivedFrom = $"{baseClass}, {Name}";
+                string baseClass = Utils.GetTypeFullName(Type);
+                mainClassSource.DerivedFrom = baseClass;
             }
             else
             {
@@ -186,7 +180,7 @@ namespace AnywhereControls.SourceGenerator
             foreach (INamedTypeSymbol additionalInterfaceType in Type.Interfaces)
             {
                 // TODO: Remove this once Roslyn source generator issue is tracked down so it's not needed.
-                if (Purpose == InterfacePurpose.AnywhereControl)
+                if (UIObjectKind == UIObjectKind.AnywhereControl)
                     continue;
 
                 if (first)
@@ -195,8 +189,8 @@ namespace AnywhereControls.SourceGenerator
                     continue;
                 }
 
-                var additionalInterface = new Interface(Context, additionalInterfaceType);
-                GenerateTypeProperties(additionalInterface, uiFramework, noAutoGenerationProperties, properties, mainClassSource);
+                var additionalUIObjectType = new UIObjectType(Context, additionalInterfaceType);
+                GenerateTypeProperties(additionalUIObjectType, uiFramework, noAutoGenerationProperties, properties, mainClassSource);
             }
 
             // If there are any attached properties, add the property descriptors and accessors for them
@@ -241,14 +235,14 @@ namespace AnywhereControls.SourceGenerator
             if (IsThisType(KnownTypes.IPanel))
                 uiFramework.GeneratePanelMethods(mainClassSource.NonstaticMethods);
 
-            if (Purpose == InterfacePurpose.StandardPanel)
+            if (UIObjectKind == UIObjectKind.StandardPanel)
                 uiFramework.GenerateStandardPanelLayoutMethods(LayoutManagerType!.Name, mainClassSource.NonstaticMethods);
 
             mainClassSource.Usings.AddTypeNamespace(Type);
 
 #pragma warning disable CS8604 // Possible null reference argument.
 
-            if (Purpose == InterfacePurpose.AnywhereControl)
+            if (UIObjectKind == UIObjectKind.AnywhereControl)
             {
                 /*
                 string implementationFullTypeName = Utils.GetTypeFullName(AnywhereControlSharedType);
@@ -292,20 +286,20 @@ namespace AnywhereControls.SourceGenerator
             classSource.AddToOutput(uiFramework);
         }
 
-        private static void GenerateTypeProperties(Interface intface, UIFramework uiFramework, ISet<string>? noAutoGenerationProperties,
+        private static void GenerateTypeProperties(UIObjectType uiObjectType, UIFramework uiFramework, ISet<string>? noAutoGenerationProperties,
             List<Property> properties, ClassSource classSource)
         {
-            if (intface.IsThisType("AnywhereControls.Controls.ICanvas"))
+            if (uiObjectType.IsThisType("AnywhereControls.Controls.ICanvas"))
             {
                 classSource.Usings.AddTypeAlias("ICanvas = AnywhereControls.Controls.ICanvas");
             }
 
-            foreach (IPropertySymbol propertySymbol in intface.Type.GetMembers().Where(member => member.Kind == SymbolKind.Property))
+            foreach (IPropertySymbol propertySymbol in uiObjectType.Type.GetMembers().Where(member => member.Kind == SymbolKind.Property))
             {
                 if (noAutoGenerationProperties != null && noAutoGenerationProperties.Contains(propertySymbol.Name))
                     continue;
 
-                var property = new Property(intface.Context, intface, propertySymbol);
+                var property = new Property(uiObjectType.Context, uiObjectType, propertySymbol);
                 properties.Add(property);
 
                 uiFramework.GenerateProperty(property, classSource);

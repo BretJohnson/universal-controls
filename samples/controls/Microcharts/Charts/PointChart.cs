@@ -14,10 +14,6 @@ using ICanvas = AnywhereControls.Controls.ICanvas;
 
 namespace Microcharts
 {
-    public interface IPointChart : IChart
-    {
-    }
-
     /// <summary>
     /// ![chart](../images/Point.png)
     ///
@@ -28,7 +24,7 @@ namespace Microcharts
         /// <summary>
         /// Initializes a new instance of the <see cref="T:Microcharts.PointChart"/> class.
         /// </summary>
-        public PointChart(IChart control) : base(control)
+        public PointChart(Chart control) : base(control)
         {
             LabelOrientation = Orientation.Horizontal; // Orientation.Default;
             ValueLabelOrientation = Orientation.Default;

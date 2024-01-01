@@ -33,12 +33,12 @@ namespace Microcharts
         private Task invalidationPlanification;
         //private CancellationTokenSource animationCancellation;
 
-        public IChart Control { get; }
+        public Chart Control { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:Microcharts.Chart"/> class.
         /// </summary>
-        public ChartBase(IChart control)
+        public ChartBase(Chart control)
         {
             Control = control;
 
@@ -253,8 +253,8 @@ namespace Microcharts
 
         public virtual IUIElement Build()
         {
-            int width = (int)Control.Width;
-            int height = (int)Control.Height;
+            int width = (int)((IUIElement) Control).Width;
+            int height = (int)((IUIElement) Control).Height;
 
             ICanvas canvas = Canvas().Width(width).Height(height);
 

@@ -48,11 +48,11 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                 "protected override System.Windows.Media.Visual GetVisualChild(int index) => (System.Windows.Media.Visual) _children[index];");
         }
 
-        public override void GenerateDrawableObjectMethods(Interface intface, Source methods)
+        public override void GenerateDrawableObjectMethods(UIObjectType uiObjectType, Source methods)
         {
-            base.GenerateDrawableObjectMethods(intface, methods);
+            base.GenerateDrawableObjectMethods(uiObjectType, methods);
 
-            if (intface.IsThisType(KnownTypes.ITextBlock))
+            if (uiObjectType.IsThisType(KnownTypes.ITextBlock))
             {
                 methods.AddLine(
                     $"protected override System.Windows.Size MeasureOverride(System.Windows.Size constraint) =>");

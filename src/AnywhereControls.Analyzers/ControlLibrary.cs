@@ -9,7 +9,7 @@ namespace AnywhereControls.SourceGenerator
         public Context Context { get; }
         public string LibraryNamespace { get; }
         public string LibraryName { get; }
-        public List<Interface> Interfaces { get; }
+        public List<UIObjectType> UIObjectTypes { get; }
 
         public ControlLibrary(Context context, IAssemblySymbol assembly)
         {
@@ -42,13 +42,13 @@ namespace AnywhereControls.SourceGenerator
                 LibraryNamespace = Utils.GetNamespaceFullName(controlLibraryClass.ContainingNamespace);
             }
 
-            Interfaces = gatherTypesVisitor.Interfaces;
+            UIObjectTypes = gatherTypesVisitor.UIObjectTypes;
         }
 
-        public ControlLibrary(Context context, INamedTypeSymbol controlLibraryClass, List<Interface> interfaces)
+        public ControlLibrary(Context context, INamedTypeSymbol controlLibraryClass, List<UIObjectType> uiObjectTypes)
         {
             Context = context;
-            Interfaces = interfaces;
+            UIObjectTypes = uiObjectTypes;
 
             string typeName = controlLibraryClass.Name;
 
@@ -83,17 +83,17 @@ namespace AnywhereControls.SourceGenerator
             members.AddBlankLine();
 
             bool anySingletons = false;
-            foreach (Interface intface in Interfaces)
+            foreach (UIObjectType uiObjectType in UIObjectTypes)
             {
-                if (intface.Purpose == InterfacePurpose.UISingleton)
+                if (uiObjectType.UIObjectKind == UIObjectKind.UISingleton)
                 {
                     anySingletons = true;
                     continue;
                 }
 
-                usings.AddNamespace(intface.NamespaceName);
+                usings.AddNamespace(uiObjectType.NamespaceName);
                 members.AddLine(
-                    $"public static Func<{intface.Name}> {intface.FrameworkClassName}Creator {{ get; set; }} = UninitializedCreator<{intface.Name}>();");
+                    $"public static Func<{uiObjectType.Name}> {uiObjectType.FrameworkClassName}Creator {{ get; set; }} = UninitializedCreator<{uiObjectType.Name}>();");
             }
 
             if (anySingletons)
@@ -101,16 +101,16 @@ namespace AnywhereControls.SourceGenerator
                 members.AddBlankLine();
                 members.AddLine("// Singletons");
 
-                foreach (Interface intface in Interfaces)
+                foreach (UIObjectType uiObjectType in UIObjectTypes)
                 {
-                    if (intface.Purpose != InterfacePurpose.UISingleton)
+                    if (uiObjectType.UIObjectKind != UIObjectKind.UISingleton)
                     {
                         continue;
                     }
 
-                    usings.AddNamespace(intface.NamespaceName);
+                    usings.AddNamespace(uiObjectType.NamespaceName);
                     members.AddLine(
-                        $"public static {intface.Name} {intface.FrameworkClassName} {{ get; set; }}");
+                        $"public static {uiObjectType.Name} {uiObjectType.FrameworkClassName} {{ get; set; }}");
                 }
             }
 
@@ -128,17 +128,17 @@ namespace AnywhereControls.SourceGenerator
             Source members = factoryClassSource.StaticMethods;
 
             bool anySingletons = false;
-            foreach (Interface intface in Interfaces)
+            foreach (UIObjectType uiObjectType in UIObjectTypes)
             {
-                if (intface.Purpose == InterfacePurpose.UISingleton)
+                if (uiObjectType.UIObjectKind == UIObjectKind.UISingleton)
                 {
                     anySingletons = true;
                     continue;
                 }
 
-                usings.AddNamespace(intface.NamespaceName);
+                usings.AddNamespace(uiObjectType.NamespaceName);
                 members.AddLine(
-                    $"public static {intface.Name} {intface.FrameworkClassName}() => {LibraryName}Factory.{intface.FrameworkClassName}Creator();");
+                    $"public static {uiObjectType.Name} {uiObjectType.FrameworkClassName}() => {LibraryName}Factory.{uiObjectType.FrameworkClassName}Creator();");
             }
 
             if (anySingletons)
@@ -146,16 +146,16 @@ namespace AnywhereControls.SourceGenerator
                 members.AddBlankLine();
                 members.AddLine("// Singletons");
 
-                foreach (Interface intface in Interfaces)
+                foreach (UIObjectType uiObjectType in UIObjectTypes)
                 {
-                    if (intface.Purpose != InterfacePurpose.UISingleton)
+                    if (uiObjectType.UIObjectKind != UIObjectKind.UISingleton)
                     {
                         continue;
                     }
 
-                    usings.AddNamespace(intface.NamespaceName);
+                    usings.AddNamespace(uiObjectType.NamespaceName);
                     members.AddLine(
-                        $"public static {intface.Name} {intface.FrameworkClassName} => {LibraryName}Factory.{intface.FrameworkClassName};");
+                        $"public static {uiObjectType.Name} {uiObjectType.FrameworkClassName} => {LibraryName}Factory.{uiObjectType.FrameworkClassName};");
                 }
             }
 
@@ -192,16 +192,16 @@ namespace AnywhereControls.SourceGenerator
                 bool anySingletons = false;
                 using (members.Indent())
                 {
-                    foreach (Interface intface in Interfaces)
+                    foreach (UIObjectType uiObjectType in UIObjectTypes)
                     {
-                        if (intface.Purpose == InterfacePurpose.UISingleton)
+                        if (uiObjectType.UIObjectKind == UIObjectKind.UISingleton)
                         {
                             anySingletons = true;
                             continue;
                         }
 
                         members.AddLine(
-                            $"{LibraryName}Factory.{intface.FrameworkClassName}Creator = () => new {intface.GetFullFrameworkClassName(uiFramework)}();");
+                            $"{LibraryName}Factory.{uiObjectType.FrameworkClassName}Creator = () => new {uiObjectType.GetFullFrameworkClassName(uiFramework)}();");
                     }
 
                     if (anySingletons)
@@ -209,15 +209,15 @@ namespace AnywhereControls.SourceGenerator
                         members.AddBlankLine();
                         members.AddLine("// Singletons");
 
-                        foreach (Interface intface in Interfaces)
+                        foreach (UIObjectType uiObjectType in UIObjectTypes)
                         {
-                            if (intface.Purpose != InterfacePurpose.UISingleton)
+                            if (uiObjectType.UIObjectKind != UIObjectKind.UISingleton)
                             {
                                 continue;
                             }
 
                             members.AddLine(
-                                $"{LibraryName}Factory.{intface.FrameworkClassName} = new {intface.GetFullFrameworkClassName(uiFramework)}();");
+                                $"{LibraryName}Factory.{uiObjectType.FrameworkClassName} = new {uiObjectType.GetFullFrameworkClassName(uiFramework)}();");
                         }
                     }
                 }
@@ -232,17 +232,17 @@ namespace AnywhereControls.SourceGenerator
 
         public void GenerateExtensionsClasses()
         {
-            foreach (var intface in Interfaces)
+            foreach (UIObjectType uiObjectType in UIObjectTypes)
             {
-                intface.GenerateExtensionsClass();
+                uiObjectType.GenerateExtensionsClass();
             }
         }
 
         public void GenerateControlClasses(UIFramework uiFramework)
         {
-            foreach (Interface intface in Interfaces)
+            foreach (UIObjectType uiObjectType in UIObjectTypes)
             {
-                intface.Generate(uiFramework);
+                uiObjectType.Generate(uiFramework);
             }
         }
 
@@ -250,14 +250,14 @@ namespace AnywhereControls.SourceGenerator
         {
             private readonly Context _context;
             private INamedTypeSymbol? _controlLibraryClass = null;
-            private readonly List<Interface> _interfaces = new();
+            private readonly List<UIObjectType> _uiObjectTypes = new();
 
             public GatherTypesVisitor(Context context)
             {
                 _context = context;
             }
 
-            public List<Interface> Interfaces => _interfaces;
+            public List<UIObjectType> UIObjectTypes => _uiObjectTypes;
 
             public INamedTypeSymbol? ControlLibraryClass => _controlLibraryClass;
 
@@ -273,25 +273,34 @@ namespace AnywhereControls.SourceGenerator
             {
                 if (type.TypeKind == TypeKind.Class)
                 {
-                    foreach (AttributeData attribute in type.GetAttributes())
+                    UIObjectKind objectKind = UIObjectType.IdentifyObjectKind(type);
+                    if (objectKind != UIObjectKind.Unspecified)
                     {
-                        INamedTypeSymbol? attributeClass = attribute.AttributeClass;
-                        if (attributeClass == null)
-                            continue;
+                        var uiObjectType = new UIObjectType(_context, type);
+                        _uiObjectTypes.Add(uiObjectType);
+                    }
+                    else
+                    {
+                        foreach (AttributeData attribute in type.GetAttributes())
+                        {
+                            INamedTypeSymbol? attributeClass = attribute.AttributeClass;
+                            if (attributeClass == null)
+                                continue;
 
-                        string attributeTypeFullName = Utils.GetTypeFullName(attributeClass);
+                            string attributeTypeFullName = Utils.GetTypeFullName(attributeClass);
 
-                        if (attributeTypeFullName == KnownTypes.ControlLibraryAttribute)
-                            _controlLibraryClass = type;
+                            if (attributeTypeFullName == KnownTypes.ControlLibraryAttribute)
+                                _controlLibraryClass = type;
+                        }
                     }
                 }
                 else if (type.TypeKind == TypeKind.Interface)
                 {
-                    InterfacePurpose interfacePuprpose = Interface.IdentifyPurpose(type);
-                    if (interfacePuprpose != InterfacePurpose.Unspecified)
+                    UIObjectKind objectKind = UIObjectType.IdentifyObjectKind(type);
+                    if (objectKind != UIObjectKind.Unspecified)
                     {
-                        var intface = new Interface(_context, type);
-                        _interfaces.Add(intface);
+                        var uiObjectType = new UIObjectType(_context, type);
+                        _uiObjectTypes.Add(uiObjectType);
                     }
                 }
             }

@@ -2,7 +2,6 @@
 using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using AnywhereControls.SourceGenerator.UIFrameworks;
 
 namespace AnywhereControls.SourceGenerator
 {
@@ -24,13 +23,14 @@ namespace AnywhereControls.SourceGenerator
         protected override SyntaxNode? Transform(SemanticModel semanticModel, SyntaxNode node)
         {
             if (node is InterfaceDeclarationSyntax interfaceDeclarationSyntax &&
-                GetTypeAttribute(semanticModel, interfaceDeclarationSyntax, KnownTypes.AnywhereControlAttribute,
-                    KnownTypes.StandardUIElementAttribute, KnownTypes.StandardUISingletonAttribute) != null)
+                GetTypeAttribute(semanticModel, interfaceDeclarationSyntax, KnownTypes.StandardUIElementAttribute,
+                KnownTypes.StandardUISingletonAttribute) != null)
             {
                 return interfaceDeclarationSyntax;
             }
             else if (node is ClassDeclarationSyntax classDeclarationSyntax &&
-                GetTypeAttribute(semanticModel, classDeclarationSyntax, KnownTypes.ControlLibraryAttribute) != null)
+                GetTypeAttribute(semanticModel, classDeclarationSyntax, KnownTypes.AnywhereControlAttribute,
+                KnownTypes.ControlLibraryAttribute) != null)
             {
                 return classDeclarationSyntax;
             }
@@ -41,7 +41,7 @@ namespace AnywhereControls.SourceGenerator
         protected override void Generate(Context context, ImmutableArray<SyntaxNode> inputs)
         {
             INamedTypeSymbol? controlLibraryClass = null;
-            List<Interface> interfaces = new();
+            List<UIObjectType> uiObjectTypes = new();
 
             foreach (SyntaxNode input in inputs)
             {
@@ -51,8 +51,8 @@ namespace AnywhereControls.SourceGenerator
                     ISymbol? symbol = semanticModel.GetDeclaredSymbol(interfaceDeclarationSyntax);
                     if (symbol is INamedTypeSymbol interfaceTypeSymbol)
                     {
-                        var intface = new Interface(context, interfaceTypeSymbol);
-                        interfaces.Add(intface);
+                        var uiObjectType = new UIObjectType(context, interfaceTypeSymbol);
+                        uiObjectTypes.Add(uiObjectType);
                     }
                 }
                 else if (input is ClassDeclarationSyntax classDeclarationSyntax)
@@ -61,7 +61,12 @@ namespace AnywhereControls.SourceGenerator
                     ISymbol? symbol = semanticModel.GetDeclaredSymbol(classDeclarationSyntax);
                     if (symbol is INamedTypeSymbol classTypeSymbol)
                     {
-                        controlLibraryClass = classTypeSymbol;
+                        if (GetTypeAttribute(semanticModel, classDeclarationSyntax, KnownTypes.AnywhereControlAttribute) != null)
+                        {
+                            var uiObjectType = new UIObjectType(context, classTypeSymbol);
+                            uiObjectTypes.Add(uiObjectType);
+                        }
+                        else controlLibraryClass = classTypeSymbol;
                     }
                 }
             }
@@ -69,7 +74,7 @@ namespace AnywhereControls.SourceGenerator
             if (controlLibraryClass == null)
                 return;
 
-            var controlLibrary = new ControlLibrary(context, controlLibraryClass, interfaces);
+            var controlLibrary = new ControlLibrary(context, controlLibraryClass, uiObjectTypes);
             controlLibrary.GenerateStaticsClass();
             controlLibrary.GenerateFactoryClass();
             controlLibrary.GenerateExtensionsClasses();

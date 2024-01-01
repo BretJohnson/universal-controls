@@ -16,11 +16,11 @@
         public override string WrapperSuffix => "WinUI";
         protected override string FontFamilyDefaultValue => "FontFamilyExtensions.DefaultFontFamily";
 
-        public override void GenerateAttributes(Interface intface, ClassSource classSource)
+        public override void GenerateAttributes(UIObjectType uiObjectType, ClassSource classSource)
         {
-            if (intface.ContentPropertyName != null)
+            if (uiObjectType.ContentPropertyName != null)
             {
-                classSource.Attributes.AddLine($"[{ContentPropertyAttribute.AtributeFullName}(Name = \"{intface.ContentPropertyName}\")]");
+                classSource.Attributes.AddLine($"[{ContentPropertyAttribute.AtributeFullName}(Name = \"{uiObjectType.ContentPropertyName}\")]");
             }
         }
 
@@ -56,11 +56,11 @@
 #endif
         }
 
-        public override void GenerateDrawableObjectMethods(Interface intface, Source methods)
+        public override void GenerateDrawableObjectMethods(UIObjectType uiObjectType, Source methods)
         {
-            base.GenerateDrawableObjectMethods(intface, methods);
+            base.GenerateDrawableObjectMethods(uiObjectType, methods);
 
-            if (intface.IsThisType(KnownTypes.ITextBlock))
+            if (uiObjectType.IsThisType(KnownTypes.ITextBlock))
             {
                 methods.AddLine(
                     $"protected override global::Windows.Foundation.Size MeasureOverride(global::Windows.Foundation.Size constraint) =>");

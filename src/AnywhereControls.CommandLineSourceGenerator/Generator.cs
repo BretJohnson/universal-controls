@@ -67,9 +67,9 @@ namespace AnywhereControls.CommandLineSourceGenerator
             var controlLibrary = new ControlLibrary(context, context.Compilation.Assembly);
 
             Console.WriteLine($"Generating source for these interfaces:");
-            foreach (Interface intface in controlLibrary.Interfaces)
+            foreach (UIObjectType uiObjectType in controlLibrary.UIObjectTypes)
             {
-                Console.WriteLine($"{intface.Name}");
+                Console.WriteLine($"{uiObjectType.Name}");
             }
 
             controlLibrary.GenerateControlClasses(new WpfUIFramework(context));

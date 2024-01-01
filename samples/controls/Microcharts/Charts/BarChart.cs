@@ -12,10 +12,6 @@ using ICanvas = AnywhereControls.Controls.ICanvas;
 
 namespace Microcharts
 {
-    public interface IBarChart : IPointChart
-    {
-    }
-
     /// <summary>
     /// ![chart](../images/Bar.png)
     ///
@@ -26,7 +22,7 @@ namespace Microcharts
         /// <summary>
         /// Initializes a new instance of the <see cref="T:Microcharts.BarChart"/> class.
         /// </summary>
-        public BarChart(IChart control) : base(control)
+        public BarChart(Chart control) : base(control)
         {
             PointSize = 0;
         }
