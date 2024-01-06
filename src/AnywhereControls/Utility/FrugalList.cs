@@ -1591,7 +1591,7 @@ internal sealed class ArrayItemList<T> : FrugalListBase<T> where T : struct
 }
 
 // Use FrugalObjectList when more than one reference to the list is needed.
-// The "object" in FrugalObjectLIst refers to the list itself, not what the list contains.
+// The "object" in FrugalObjectList refers to the list itself, not what the list contains.
 
 internal class FrugalObjectList<T> where T : struct
 {
@@ -1785,7 +1785,7 @@ internal class FrugalObjectList<T> where T : struct
             // Make the Capacity at *least* this big
             Capacity = minCapacity;
 
-            _listStore.Insert(index, value);
+            _listStore!.Insert(index, value);
             return;
         }
         throw new ArgumentOutOfRangeException(nameof(index));
@@ -1825,7 +1825,7 @@ internal class FrugalObjectList<T> where T : struct
                 // Insert filler structs or objects
                 for (int i = 0; i < delta; ++i)
                 {
-                    _listStore.Add(filler);
+                    _listStore!.Add(filler);
                 }
             }
             return;
@@ -2158,7 +2158,7 @@ internal struct FrugalStructList<T> where T : struct
             // Make the Capacity at *least* this big
             Capacity = minCapacity;
 
-            _listStore.Insert(index, value);
+            _listStore!.Insert(index, value);
             return;
         }
         throw new ArgumentOutOfRangeException(nameof(index));
@@ -2198,7 +2198,7 @@ internal struct FrugalStructList<T> where T : struct
                 // Insert filler structs or objects
                 for (int i = 0; i < delta; ++i)
                 {
-                    _listStore.Add(filler);
+                    _listStore!.Add(filler);
                 }
             }
             return;
