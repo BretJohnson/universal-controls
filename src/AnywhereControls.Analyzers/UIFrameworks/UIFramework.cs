@@ -31,17 +31,17 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
         public virtual void AddTypeAliasUsingIfNeeded(Usings usings, string destinationtypeFullName) { }
 
-        public virtual void GenerateAttributes(Interface intface, ClassSource classSource) { }
+        public virtual void GenerateAttributes(UIObjectType uiObjectType, ClassSource classSource) { }
         public abstract void GenerateProperty(Property property, ClassSource classSource);
         public abstract void GenerateAttachedProperty(AttachedProperty attachedProperty, ClassSource mainClassSource, ClassSource attachedClassSource);
 
         public virtual void GeneratePanelMethods(Source methods) { }
 
-        public virtual void GenerateDrawableObjectMethods(Interface intface, Source methods)
+        public virtual void GenerateDrawableObjectMethods(UIObjectType uiObjectType, Source methods)
         {
             methods.AddBlankLineIfNonempty();
             methods.AddLine(
-                $"public void Draw(IDrawingContext drawingContext) => drawingContext.Draw{intface.FrameworkClassName}(this);");
+                $"public void Draw(IDrawingContext drawingContext) => drawingContext.Draw{uiObjectType.FrameworkClassName}(this);");
         }
 
         public virtual void GenerateIUIElementMethods(ClassSource classSource) { }
@@ -283,6 +283,8 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
         protected abstract string FontFamilyDefaultValue { get; }
 
+        public virtual void GenerateBuiltInIUIElementPartialClasses() { }
+
         public virtual void GenerateStandardPanelLayoutMethods(string layoutManagerTypeName, Source methods)
         {
             methods.AddBlankLineIfNonempty();
@@ -300,6 +302,50 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                 methods.AddLine(
                     $"{layoutManagerTypeName}.Instance.ArrangeOverride(this, bounds.Size);");
             }
+        }
+
+        public virtual void GenerateEventHandlersStoreSupport(ClassSource classSource)
+        {
+            classSource.Usings.AddNamespace("System");
+
+            classSource.NonstaticFields.Add(
+                "private EventHandlersStore? _eventHandlersStore;");
+
+            classSource.NonstaticMethods.AddBlankLineIfNonempty();
+            classSource.NonstaticMethods.Add("""
+                //
+                // Event support
+                //
+
+                protected bool AddRoutedEventHandler(RoutedEvent routedEvent, Delegate handler)
+                {
+                    if (_eventHandlersStore == null)
+                    {
+                        _eventHandlersStore = new EventHandlersStore();
+                    }
+
+                    return _eventHandlersStore.AddRoutedEventHandler(routedEvent, handler);
+                }
+
+                protected bool AddRoutedEventHandler(RoutedEvent routedEvent, Delegate handler, bool handledEventsToo)
+                {
+                    if (_eventHandlersStore == null)
+                    {
+                        _eventHandlersStore = new EventHandlersStore();
+                    }
+
+                    return _eventHandlersStore.AddRoutedEventHandler(routedEvent, handler, handledEventsToo);
+                }
+
+                protected bool RemoveRoutedEventHandler(RoutedEvent routedEvent, Delegate handler) =>
+                    _eventHandlersStore?.RemoveRoutedEventHandler(routedEvent, handler) ?? false;
+
+                public void RaiseHandleableEvent(RoutedEvent routedEvent, IHandleableRoutedEventArgs e) =>
+                    _eventHandlersStore?.RaiseHandleableEvent(routedEvent, this, e);
+
+                public void RaiseNonhandleableEvent(RoutedEvent routedEvent, IRoutedEventArgs e) =>
+                    _eventHandlersStore?.RaiseNonhandleableEvent(routedEvent, this, e);
+                """);
         }
     }
 }

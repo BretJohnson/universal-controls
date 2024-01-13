@@ -47,6 +47,21 @@ namespace AnywhereControls.SourceGenerator
                 AddBlankLine();
         }
 
+        public void Add(string text)
+        {
+            if (text.Contains("\n"))
+            {
+                text = text.Replace("\r", "");
+
+                string[] textLines = text.Split('\n');
+                AddLines(textLines);
+            }
+            else
+            {
+                AddLine(text);
+            }
+        }
+
         public void AddLine(string text)
         {
             var sourceLine = new SourceLine(_indent, text);

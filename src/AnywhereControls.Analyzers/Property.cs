@@ -6,8 +6,8 @@ namespace AnywhereControls.SourceGenerator
     {
         public IPropertySymbol PropertySymbol { get; }
 
-        public Property(Context context, Interface intface, IPropertySymbol propertySymbol) :
-            base(context, intface, propertySymbol, propertySymbol.Name, propertySymbol.Type, propertySymbol.IsReadOnly, intface.Name)
+        public Property(Context context, UIObjectType uiObjectType, IPropertySymbol propertySymbol) :
+            base(context, uiObjectType, propertySymbol, propertySymbol.Name, propertySymbol.Type, propertySymbol.IsReadOnly, uiObjectType.Name)
         {
             PropertySymbol = propertySymbol;
             SpecifiedDefaultValue = GetSpecifiedDefaultValue(propertySymbol);
@@ -22,13 +22,13 @@ namespace AnywhereControls.SourceGenerator
 
             source.Usings.AddTypeNamespace(Type);
 
-            string interfaceVariableName = Interface.VariableName;
+            string interfaceVariableName = UIObjectType.VariableName;
 
             source.AddBlankLineIfNonempty();
             if (IsUICollection)
             {
                 source.AddLines(
-                    $"public static T {Name}<T>(this T {interfaceVariableName}, params {UICollectionElementTypeName}[] value) where T : {Interface.Name}",
+                    $"public static T {Name}<T>(this T {interfaceVariableName}, params {UICollectionElementTypeName}[] value) where T : {UIObjectType.Name}",
                     "{");
                 using (source.Indent())
                 {
@@ -42,7 +42,7 @@ namespace AnywhereControls.SourceGenerator
             else
             {
                 source.AddLines(
-                    $"public static T {Name}<T>(this T {interfaceVariableName}, {TypeName} value) where T : {Interface.Name}",
+                    $"public static T {Name}<T>(this T {interfaceVariableName}, {TypeName} value) where T : {UIObjectType.Name}",
                     "{");
                 using (source.Indent())
                 {

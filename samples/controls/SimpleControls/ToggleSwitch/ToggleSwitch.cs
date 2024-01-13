@@ -8,22 +8,7 @@ using static AnywhereControls.AnywhereControlsStatics;
 namespace AlohaKit.AnywhereControls
 {
     [AnywhereControl]
-    public interface IToggleSwitch : IAnywhereControl
-    {
-        [DefaultValue(DefaultColor.White)]
-        public Color BackgroundColor { get; set; }
-
-        [DefaultValue(DefaultColor.Black)]
-        public Color ThumbColor { get; set; }
-
-        [DefaultValue(false)]
-        public bool IsOn { get; set; }
-
-        [DefaultValue(true)]
-        public bool HasShadow { get; set; }
-    }
-
-    public abstract class ToggleSwitch : AnywhereControl, IToggleSwitch
+    public abstract class ToggleSwitch : AnywhereControl
     {
         public ToggleSwitch()
         {
@@ -31,9 +16,16 @@ namespace AlohaKit.AnywhereControls
             UIElement.Height = 30;
         }
 
+        [DefaultValue(DefaultColor.White)]
         public abstract Color BackgroundColor { get; set; }
+
+        [DefaultValue(DefaultColor.Black)]
         public abstract Color ThumbColor { get; set; }
+
+        [DefaultValue(false)]
         public abstract bool IsOn { get; set; }
+
+        [DefaultValue(true)]
         public abstract bool HasShadow { get; set; }
 
         protected override IUIElement Build() =>

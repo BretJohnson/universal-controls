@@ -124,16 +124,22 @@ namespace AnywhereControls.SourceGenerator
                 return typeName.Substring(0, upperCasePrefixCharCount - 1).ToLower() + typeName.Substring(upperCasePrefixCharCount - 1);
         }
 
-        public static string GetInterfaceVariableName(ITypeSymbol typeSymbol)
+        public static string GeTypeVariableName(ITypeSymbol typeSymbol)
         {
             var name = typeSymbol.Name;
-            if (!name.StartsWith("I"))
+
+            string baseName = name;
+            if (typeSymbol.TypeKind == TypeKind.Interface)
             {
-                throw new InvalidOperationException($"Type name {name}, which should be an interface, unexpectedly doesn't start with an 'I'");
+                if (!name.StartsWith("I"))
+                {
+                    throw new InvalidOperationException($"Interface type name {name} unexpectedly doesn't start with an 'I'");
+                }
+                baseName = name.Substring(1);
             }
 
-            // e.g. ICanvas => canvas, IUIElement => uiElement
-            return PascalCaseToCamelCase(name.Substring(1));
+            // e.g. ICanvas => canvas, IUIElement => uiElement, MyControl => myControl
+            return PascalCaseToCamelCase(baseName);
         }
 
         public static bool IsTransformType(TypeSyntax type)

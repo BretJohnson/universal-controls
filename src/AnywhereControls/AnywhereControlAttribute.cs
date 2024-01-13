@@ -3,13 +3,12 @@
 namespace AnywhereControls
 {
     /// <summary>
-    /// Designate the interface as a .NET Anwhere Control. There should be a matching
-    /// implementation class.
+    /// Designate the class as a .NET Anwhere Control.
     /// 
-    /// Controls which are "abstract", not intended to be instantiated directly but only
-    /// serving as the ancestor type of other controls, shoulnd't have the attribute.
+    /// Control classes which are not intended to be instantiated directly but only
+    /// serving as the ancestor type of other controls shoulnd't have the attribute.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Interface)]
+    [AttributeUsage(AttributeTargets.Class)]
     public class AnywhereControlAttribute : Attribute
     {
     }

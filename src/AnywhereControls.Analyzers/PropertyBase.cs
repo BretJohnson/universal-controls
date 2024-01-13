@@ -5,7 +5,7 @@ namespace AnywhereControls.SourceGenerator
     public class PropertyBase
     {
         public Context Context { get; }
-        public Interface Interface { get; }
+        public UIObjectType UIObjectType { get; }
         public ISymbol Symbol { get; }
         public string Name { get; }
         public ITypeSymbol Type { get; }
@@ -14,10 +14,10 @@ namespace AnywhereControls.SourceGenerator
         public TypedConstant? SpecifiedDefaultValue { get; protected set; }
         public string FullPropertyName { get; }
 
-        public PropertyBase(Context context, Interface intface, ISymbol symbol, string name, ITypeSymbol type, bool isReadOnly, string containingTypeName)
+        public PropertyBase(Context context, UIObjectType uiObjectType, ISymbol symbol, string name, ITypeSymbol type, bool isReadOnly, string containingTypeName)
         {
             Context = context;
-            Interface = intface;
+            UIObjectType = uiObjectType;
             Symbol = symbol;
             Name = name;
             Type = type;

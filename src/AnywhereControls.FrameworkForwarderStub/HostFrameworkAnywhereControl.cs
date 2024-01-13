@@ -1,4 +1,5 @@
 ﻿using System;
+using AnywhereControls.Input;
 
 namespace AnywhereControls.Controls;
 
@@ -11,38 +12,40 @@ namespace AnywhereControls.Controls;
 /// </summary>
 public abstract class HostFrameworkAnywhereControl : IAnywhereControl
 {
-    void IUIObject.ClearValue(IUIProperty property) => throw NotSupportedException();
-    object IUIObject.GetValue(IUIProperty property) => throw NotSupportedException();
-    void IUIObject.SetValue(IUIProperty property, object value) => throw NotSupportedException();
+    void IUIObject.ClearValue(IUIProperty property) => throw CreateNotSupportedException();
+    object IUIObject.GetValue(IUIProperty property) => throw CreateNotSupportedException();
+    void IUIObject.SetValue(IUIProperty property, object? value) => throw CreateNotSupportedException();
 
-    double IUIElement.Width { get => throw NotSupportedException(); set => throw NotSupportedException(); }
-    double IUIElement.MinWidth { get => throw NotSupportedException(); set => throw NotSupportedException(); }
-    double IUIElement.MaxWidth { get => throw NotSupportedException(); set => throw NotSupportedException(); }
-    double IUIElement.Height { get => throw NotSupportedException(); set => throw NotSupportedException(); }
-    double IUIElement.MinHeight { get => throw NotSupportedException(); set => throw NotSupportedException(); }
-    double IUIElement.MaxHeight { get => throw NotSupportedException(); set => throw NotSupportedException(); }
-    Thickness IUIElement.Margin { get => throw NotSupportedException(); set => throw NotSupportedException(); }
-    HorizontalAlignment IUIElement.HorizontalAlignment { get => throw NotSupportedException(); set => throw NotSupportedException(); }
-    VerticalAlignment IUIElement.VerticalAlignment { get => throw NotSupportedException(); set => throw NotSupportedException(); }
-    FlowDirection IUIElement.FlowDirection { get => throw NotSupportedException(); set => throw NotSupportedException(); }
-    Rect IUIElement.Frame { get => throw NotSupportedException(); }
-    Size IUIElement.DesiredSize { get => throw NotSupportedException(); }
-    double IUIElement.ActualX { get => throw NotSupportedException(); }
-    double IUIElement.ActualY { get => throw NotSupportedException(); }
-    double IUIElement.ActualWidth { get => throw NotSupportedException(); }
-    double IUIElement.ActualHeight { get => throw NotSupportedException(); }
-    bool IUIElement.Visible { get => throw NotSupportedException(); set => throw NotSupportedException(); }
-    int IUIElement.VisualChildrenCount { get => throw NotSupportedException(); }
+    double IUIElement.Width { get => throw CreateNotSupportedException(); set => throw CreateNotSupportedException(); }
+    double IUIElement.MinWidth { get => throw CreateNotSupportedException(); set => throw CreateNotSupportedException(); }
+    double IUIElement.MaxWidth { get => throw CreateNotSupportedException(); set => throw CreateNotSupportedException(); }
+    double IUIElement.Height { get => throw CreateNotSupportedException(); set => throw CreateNotSupportedException(); }
+    double IUIElement.MinHeight { get => throw CreateNotSupportedException(); set => throw CreateNotSupportedException(); }
+    double IUIElement.MaxHeight { get => throw CreateNotSupportedException(); set => throw CreateNotSupportedException(); }
+    Thickness IUIElement.Margin { get => throw CreateNotSupportedException(); set => throw CreateNotSupportedException(); }
+    HorizontalAlignment IUIElement.HorizontalAlignment { get => throw CreateNotSupportedException(); set => throw CreateNotSupportedException(); }
+    VerticalAlignment IUIElement.VerticalAlignment { get => throw CreateNotSupportedException(); set => throw CreateNotSupportedException(); }
+    FlowDirection IUIElement.FlowDirection { get => throw CreateNotSupportedException(); set => throw CreateNotSupportedException(); }
+    Rect IUIElement.Frame { get => throw CreateNotSupportedException(); }
+    Size IUIElement.DesiredSize { get => throw CreateNotSupportedException(); }
+    double IUIElement.ActualX { get => throw CreateNotSupportedException(); }
+    double IUIElement.ActualY { get => throw CreateNotSupportedException(); }
+    double IUIElement.ActualWidth { get => throw CreateNotSupportedException(); }
+    double IUIElement.ActualHeight { get => throw CreateNotSupportedException(); }
+    bool IUIElement.Visible { get => throw CreateNotSupportedException(); set => throw CreateNotSupportedException(); }
+    int IUIElement.VisualChildrenCount { get => throw CreateNotSupportedException(); }
 
-    void IUIElement.Arrange(Rect finalRect) => throw NotSupportedException();
-    IUIElement IUIElement.GetVisualChild(int index) => throw NotSupportedException();
-    void IUIElement.Measure(Size availableSize) => throw NotSupportedException();
+    void IUIElement.Arrange(Rect finalRect) => throw CreateNotSupportedException();
+    IUIElement IUIElement.GetVisualChild(int index) => throw CreateNotSupportedException();
+    void IUIElement.Measure(Size availableSize) => throw CreateNotSupportedException();
 
-    protected virtual IUIElement? BuildContent => throw new NotSupportedException();
+    protected virtual IUIElement? BuildContent => throw CreateNotSupportedException();
+
     protected abstract IUIElement Build();
 
-    private Exception NotSupportedException()
-    {
-        return new NotImplementedException();
-    }
+    public abstract event PointerEventHandler PointerEntered;
+    public abstract event PointerEventHandler PointerExited;
+    public abstract event PointerEventHandler PointerMoved;
+
+    private Exception CreateNotSupportedException() => new NotImplementedException("This class shouldn't ever be instantiated, just used at build time. At runtime, HostFrameworkAnywhereControl should come from the host framework specific assembly");
 }

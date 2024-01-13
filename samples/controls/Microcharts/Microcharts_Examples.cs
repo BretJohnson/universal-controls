@@ -8,7 +8,7 @@ namespace Microcharts
     public class Microcharts_Examples
     {
         [UIExample("Bar Chart")]
-        public static IChart BarChart() =>
+        public static Chart BarChart() =>
             Chart()
                 .Width(300)
                 .Height(300)
@@ -17,7 +17,7 @@ namespace Microcharts
                 .Entries(CreateChartEntries());
 
         [UIExample("Point Chart")]
-        public static IChart PointChart() =>
+        public static Chart PointChart() =>
             Chart()
                 .Width(300)
                 .Height(300)

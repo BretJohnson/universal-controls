@@ -69,8 +69,8 @@ namespace AnywhereControls.SourceGenerator
         {
             UIFramework uiFramework = GetUIFramework(context);
 
-                var intface = new Interface(context, interfaceSymbol);
-                intface.Generate(uiFramework);
+            var uiObjectType = new UIObjectType(context, interfaceSymbol);
+            uiObjectType.Generate(uiFramework);
         }
 
         /// <summary>

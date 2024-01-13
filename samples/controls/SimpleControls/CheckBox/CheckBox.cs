@@ -8,19 +8,7 @@ using static AnywhereControls.AnywhereControlsStatics;
 namespace AlohaKit.AnywhereControls
 {
     [AnywhereControl]
-    public interface ICheckBox : IAnywhereControl
-    {
-        [DefaultValue(false)]
-        public bool IsChecked { get; set; }
-
-        [DefaultValue(DefaultColor.White)]
-        public Color CheckedColor { get; set; }
-
-        [DefaultValue(DefaultColor.Black)]
-        public Color UncheckedColor { get; set; }
-    }
-
-    public abstract class CheckBox : AnywhereControl, ICheckBox
+    public abstract class CheckBox : AnywhereControl
     {
         const int Radius = 4;
 
@@ -30,8 +18,13 @@ namespace AlohaKit.AnywhereControls
             UIElement.Height = 24;
         }
 
+        [DefaultValue(false)]
         public abstract bool IsChecked { get; set; }
+
+        [DefaultValue(DefaultColor.White)]
         public abstract Color CheckedColor { get; set; }
+
+        [DefaultValue(DefaultColor.Black)]
         public abstract Color UncheckedColor { get; set; }
 
         protected override IUIElement Build() =>

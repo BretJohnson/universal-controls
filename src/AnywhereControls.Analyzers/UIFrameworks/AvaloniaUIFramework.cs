@@ -27,7 +27,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
             classSource.StaticFields.AddLine(
                 $"public static readonly Avalonia.StyledProperty<{propertyType}> {PropertyDescriptorName(property)} = " +
-                $"AvaloniaProperty.Register<{property.Interface.FrameworkClassName}, {propertyType}>(nameof({property.Name}), {DefaultValue(property)});");
+                $"AvaloniaProperty.Register<{property.UIObjectType.FrameworkClassName}, {propertyType}>(nameof({property.Name}), {DefaultValue(property)});");
         }
 
         protected override void GenerateAttachedPropertyDescriptor(AttachedProperty attachedProperty, ClassSource mainClassSource, ClassSource attachedClassSource)
@@ -39,7 +39,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
             mainClassSource.StaticFields.AddLine(
                 $"public static readonly Avalonia.AttachedProperty<{propertyType}> {PropertyDescriptorName(attachedProperty)} = " +
-                $"AvaloniaProperty.RegisterAttached<{attachedProperty.Interface.FrameworkClassName}, {targetOutputTypeName}, {propertyType}>(\"{attachedProperty.Name}\", {DefaultValue(attachedProperty)});");
+                $"AvaloniaProperty.RegisterAttached<{attachedProperty.UIObjectType.FrameworkClassName}, {targetOutputTypeName}, {propertyType}>(\"{attachedProperty.Name}\", {DefaultValue(attachedProperty)});");
         }
 
         public override void GenerateStandardPanelLayoutMethods(string layoutManagerTypeName, Source methods)
@@ -75,11 +75,11 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                 "#endif");
         }
 
-        public override void GenerateDrawableObjectMethods(Interface intface, Source methods)
+        public override void GenerateDrawableObjectMethods(UIObjectType uiObjectType, Source methods)
         {
-            base.GenerateDrawableObjectMethods(intface, methods);
+            base.GenerateDrawableObjectMethods(uiObjectType, methods);
 
-            if (intface.IsThisType(KnownTypes.ITextBlock))
+            if (uiObjectType.IsThisType(KnownTypes.ITextBlock))
             {
                 methods.AddLine(
                     $"protected override Avalonia.Size MeasureOverride(Avalonia.Size constraint) =>");

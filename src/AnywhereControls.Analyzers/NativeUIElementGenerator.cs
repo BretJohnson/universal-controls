@@ -86,8 +86,8 @@ namespace AnywhereControls.SourceGenerator
 
                 ISet<string> noAutoGenerationProperties = GetNoAutoGenerationProperties(semanticModel, classDeclarationSyntax);
 
-                var intface = new Interface(context, interfaceType);
-                intface.GenerateNativeUIElementPartialClass(uiFramework, noAutoGenerationProperties, className, derivedFrom);
+                var uiObjectType = new UIObjectType(context, interfaceType);
+                uiObjectType.GenerateNativeUIElementPartialClass(uiFramework, noAutoGenerationProperties, className, derivedFrom);
             }
         }
     }

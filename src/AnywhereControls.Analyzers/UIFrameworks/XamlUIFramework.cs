@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using System.IO.MemoryMappedFiles;
+using Microsoft.CodeAnalysis;
 
 namespace AnywhereControls.SourceGenerator.UIFrameworks
 {
@@ -15,11 +16,11 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
         public override string UIElementCollectionOutputTypeName(ITypeSymbol elementType) => $"UIElementCollection<{NativeUIElementType},{elementType}>";
         public override string UIElementSubtypeCollectionOutputTypeName(ITypeSymbol elementType) => $"UIElementCollection<{OutputTypeName(elementType)},{elementType.Name}>";
 
-        public override void GenerateAttributes(Interface intface, ClassSource classSource)
+        public override void GenerateAttributes(UIObjectType uiObjectType, ClassSource classSource)
         {
-            if (intface.ContentPropertyName != null && ContentPropertyStyle == ContentPropertyStyle.ClassAttribute)
+            if (uiObjectType.ContentPropertyName != null && ContentPropertyStyle == ContentPropertyStyle.ClassAttribute)
             {
-                classSource.Attributes.AddLine($"[{ContentPropertyAttribute.AttributeName}(\"{intface.ContentPropertyName}\")]");
+                classSource.Attributes.AddLine($"[{ContentPropertyAttribute.AtributeFullName}(\"{uiObjectType.ContentPropertyName}\")]");
             }
         }
 
@@ -61,14 +62,14 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             string nonNullablePropertyType = Utils.ToNonnullableType(PropertyOutputTypeName(property));
 
             classSource.StaticFields.AddLine(
-                $"public static readonly {DependencyPropertyType.Name} {PropertyDescriptorName(property)} = PropertyUtils.Register(nameof({property.Name}), typeof({nonNullablePropertyType}), typeof({property.Interface.FrameworkClassName}), {DefaultValue(property)});");
+                $"public static readonly {DependencyPropertyType.Name} {PropertyDescriptorName(property)} = PropertyUtils.Register(nameof({property.Name}), typeof({nonNullablePropertyType}), typeof({property.UIObjectType.FrameworkClassName}), {DefaultValue(property)});");
         }
 
         private void GeneratePropertyMethods(Property property, Source source)
         {
             var usings = source.Usings;
             string propertyOutputTypeName = PropertyOutputTypeName(property);
-            InterfacePurpose purpose = property.Interface.Purpose;
+            UIObjectKind uiObjectKind = property.UIObjectType.UIObjectKind;
 
             // Add the type - for interface type and the framework type (if different)
             usings.AddTypeNamespace(property.Type);
@@ -101,7 +102,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                 getterValue = $"({propertyOutputTypeName}) GetValue({descriptorName})";
 
             string modifiers;
-            if (property.Interface.ContentPropertyName == property.Name && ContentPropertyStyle == ContentPropertyStyle.PropertyAttribute)
+            if (property.UIObjectType.ContentPropertyName == property.Name && ContentPropertyStyle == ContentPropertyStyle.PropertyAttribute)
             {
                 source.Usings.AddNamespace(ContentPropertyAttribute.Namespace);
                 modifiers = "[Content] public";
@@ -111,7 +112,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                 modifiers = "public";
             }
 
-            if (purpose == InterfacePurpose.AnywhereControl)
+            if (uiObjectKind == UIObjectKind.AnywhereControl)
             {
                 modifiers += " override";
             }
@@ -166,12 +167,12 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                 if (property.IsReadOnly)
                 {
                     source.AddLine(
-                        $"{property.TypeName} {property.Interface.Name}.{property.Name} => {otherGetterValue};");
+                        $"{property.TypeName} {property.UIObjectType.Name}.{property.Name} => {otherGetterValue};");
                 }
                 else
                 {
                     source.AddLines(
-                        $"{property.TypeName} {property.Interface.Name}.{property.Name}",
+                        $"{property.TypeName} {property.UIObjectType.Name}.{property.Name}",
                         "{");
                     using (source.Indent())
                     {
@@ -206,9 +207,9 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                 mainClassSource.StaticMethods.AddLine($"public static void Set{attachedProperty.Name}({targetOutputTypeName} {attachedProperty.TargetParameterName}, {propertyOutputTypeName} value) => {attachedProperty.TargetParameterName}.SetValue({descriptorName}, value);");
 
             attachedClassSource.NonstaticMethods.AddBlankLineIfNonempty();
-            attachedClassSource.NonstaticMethods.AddLine($"public {propertyOutputTypeName} Get{attachedProperty.Name}({attachedProperty.TargetTypeName} {attachedProperty.TargetParameterName}) => {attachedProperty.Interface.FrameworkClassName}.Get{attachedProperty.Name}({parameterAsAttachedTargetType});");
+            attachedClassSource.NonstaticMethods.AddLine($"public {propertyOutputTypeName} Get{attachedProperty.Name}({attachedProperty.TargetTypeName} {attachedProperty.TargetParameterName}) => {attachedProperty.UIObjectType.FrameworkClassName}.Get{attachedProperty.Name}({parameterAsAttachedTargetType});");
             if (attachedProperty.SetterMethod != null)
-                attachedClassSource.NonstaticMethods.AddLine($"public void Set{attachedProperty.Name}({attachedProperty.TargetTypeName} {attachedProperty.TargetParameterName}, {propertyOutputTypeName} value) => {attachedProperty.Interface.FrameworkClassName}.Set{attachedProperty.Name}({parameterAsAttachedTargetType}, value);");
+                attachedClassSource.NonstaticMethods.AddLine($"public void Set{attachedProperty.Name}({attachedProperty.TargetTypeName} {attachedProperty.TargetParameterName}, {propertyOutputTypeName} value) => {attachedProperty.UIObjectType.FrameworkClassName}.Set{attachedProperty.Name}({parameterAsAttachedTargetType}, value);");
         }
 
         protected virtual void GenerateAttachedPropertyDescriptor(AttachedProperty attachedProperty, ClassSource mainClassSource, ClassSource attachedClassSource)
@@ -223,6 +224,34 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
             mainClassSource.StaticFields.AddLine(
                 $"public static readonly {DependencyPropertyType.Name} {descriptorName} = PropertyUtils.RegisterAttached(\"{attachedProperty.Name}\", typeof({nonNullablePropertyType}), typeof({targetOutputTypeName}), {defaultValue});");
+        }
+
+        protected virtual void GenerateHostFrameworkMappedEvent(ClassSource classSource, string eventName, string handlerType, string hostFrameworkEvent, string hostFrameworkEventArgsType, string mappedEventArgsType)
+        {
+            string hotFrameworkHandler = $"On{hostFrameworkEvent}";
+
+            classSource.NonstaticMethods.AddBlankLineIfNonempty();
+            classSource.NonstaticMethods.Add($$"""
+                public event {{handlerType}} {{eventName}}
+                {
+                    add
+                    {
+                        if (AddRoutedEventHandler(InputEvents.{{eventName}}Event, value))
+                        {
+                            {{hostFrameworkEvent}} += {{hotFrameworkHandler}};
+                        }
+                    }
+                    remove
+                    {
+                        if (RemoveRoutedEventHandler(InputEvents.{{eventName}}Event, value))
+                        {
+                            {{hostFrameworkEvent}} -= {{hotFrameworkHandler}};
+                        }
+                    }
+                }
+                private void {{hotFrameworkHandler}}(object sender, {{hostFrameworkEventArgsType}} e) =>
+                    RaiseHandleableEvent(InputEvents.{{eventName}}Event, new {{mappedEventArgsType}}(e));
+                """);
         }
     }
 }

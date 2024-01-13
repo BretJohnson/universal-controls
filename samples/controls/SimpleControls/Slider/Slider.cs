@@ -7,28 +7,7 @@ using AnywhereControls.Shapes;
 namespace AlohaKit.AnywhereControls
 {
     [AnywhereControl]
-    public interface ISlider : IAnywhereControl
-    {
-        [DefaultValue(0d)]
-        public double Minimum { get; set; }
-
-        [DefaultValue(10d)]
-        public double Maximum { get; set; }
-
-        [DefaultValue(0d)]
-        public double Value { get; set; }
-
-        [DefaultValue(DefaultColor.LightGray)]
-        public Color MinimumColor { get; set; }
-
-        [DefaultValue(DefaultColor.Gray)]
-        public Color MaximumColor { get; set; }
-
-        [DefaultValue(DefaultColor.DarkGray)]
-        public Color ThumbColor { get; set; }
-    }
-
-    public abstract class Slider : AnywhereControl, ISlider
+    public abstract class Slider : AnywhereControl
     {
         const float TrackSize = 2f;
 
@@ -38,11 +17,22 @@ namespace AlohaKit.AnywhereControls
             UIElement.Height = 20;
         }
 
+        [DefaultValue(0d)]
         public abstract double Minimum { get; set; }
+
+        [DefaultValue(10d)]
         public abstract double Maximum { get; set; }
+
+        [DefaultValue(0d)]
         public abstract double Value { get; set; }
+
+        [DefaultValue(DefaultColor.LightGray)]
         public abstract Color MinimumColor { get; set; }
+
+        [DefaultValue(DefaultColor.Gray)]
         public abstract Color MaximumColor { get; set; }
+
+        [DefaultValue(DefaultColor.DarkGray)]
         public abstract Color ThumbColor { get; set; }
 
         protected override IUIElement Build() =>

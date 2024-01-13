@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using AnywhereControls.Input;
 
 namespace AnywhereControls;
 
@@ -124,4 +125,8 @@ public interface IUIElement : IUIObject
     public int VisualChildrenCount { get; }
 
     public IUIElement GetVisualChild(int index);
+
+    public event PointerEventHandler PointerEntered;
+    public event PointerEventHandler PointerExited;
+    public event PointerEventHandler PointerMoved;
 }
