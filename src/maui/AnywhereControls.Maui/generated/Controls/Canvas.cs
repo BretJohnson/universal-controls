@@ -17,10 +17,10 @@ namespace AnywhereControls.Maui.Controls
         public static double GetTop(Microsoft.Maui.Controls.View element) => (double) element.GetValue(TopProperty);
         public static void SetTop(Microsoft.Maui.Controls.View element, double value) => element.SetValue(TopProperty, value);
         
-        protected override Size MeasureOverride(double widthConstraint, double heightConstraint) =>
-            CanvasLayoutManager.Instance.MeasureOverride(this, widthConstraint, heightConstraint);
+        protected override Microsoft.Maui.Graphics.Size MeasureOverride(double widthConstraint, double heightConstraint) =>
+            CanvasLayoutManager.Instance.MeasureOverride(this, widthConstraint, heightConstraint).ToMauiSize();
         
-        protected override Size ArrangeOverride(Rect bounds) =>
-            CanvasLayoutManager.Instance.ArrangeOverride(this, bounds.Size);
+        protected override Microsoft.Maui.Graphics.Size ArrangeOverride(Microsoft.Maui.Graphics.Rect bounds) =>
+            CanvasLayoutManager.Instance.ArrangeOverride(this, bounds.Size.ToAnywhereControlsSize()).ToMauiSize();
     }
 }

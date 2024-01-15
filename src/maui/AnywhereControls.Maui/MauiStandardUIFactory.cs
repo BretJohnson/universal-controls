@@ -1,32 +1,25 @@
-using System;
-using System.Collections.Generic;
 using AnywhereControls.Controls;
+using AnywhereControls.Media;
+using AnywhereControls.Shapes;
 using AnywhereControls.Maui.Controls;
 using AnywhereControls.Maui.Media;
 using AnywhereControls.Maui.Shapes;
-using AnywhereControls.Media;
-using AnywhereControls.Shapes;
 
 namespace AnywhereControls.Maui
 {
-    internal class StandardUIFactory : IStandardUIFactory
+    public class StandardUIFactory : IAnywhereControlsUIFactory
     {
         /*** UI Elements ***/
 
         public ICanvas CreateCanvas() => new Canvas();
         public ICanvasAttached CanvasAttachedInstance => CanvasAttached.Instance;
-
-        public IGridAttached GridAttachedInstance
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
         public IStackPanel CreateStackPanel() => new StackPanel();
+        public IVerticalStack CreateVerticalStack() => new VerticalStack();
+        public IHorizontalStack CreateHorizontalStack() => new HorizontalStack();
         public IGrid CreateGrid() => new Grid();
-
+        public IGridAttached GridAttachedInstance => GridAttached.Instance;
+        public IRowDefinition CreateRowDefinition() => new RowDefinition();
+        public IColumnDefinition CreateColumnDefinition() => new ColumnDefinition();
         public IEllipse CreateEllipse() => new Ellipse();
         public ILine CreateLine() => new Line();
         public IPath CreatePath() => new Path();
@@ -42,40 +35,14 @@ namespace AnywhereControls.Maui
         public ILinearGradientBrush CreateLinearGradientBrush() => new LinearGradientBrush();
         public IRadialGradientBrush CreateRadialGradientBrush() => new RadialGradientBrush();
 
-        public IArcSegment CreateArcSegment(in Point point, in Size size, double rotationAngle, bool isLargeArc, SweepDirection sweepDirection) => throw new NotImplementedException();
-        public IBezierSegment CreateBezierSegment(in Point point1, in Point point2, in Point point3) => throw new NotImplementedException();
-        public ILineSegment CreateLineSegment(in Point point) => throw new NotImplementedException();
-        public IPathFigure CreatePathFigure(IEnumerable<IPathSegment> segments, Point startPoint, bool isClosed, bool isFilled) => throw new NotImplementedException();
-        public IPathGeometry CreatePathGeometry(ITransform? transform, IEnumerable<IPathFigure> figures, FillRule fillRule) => throw new NotImplementedException();
-        public IPolyBezierSegment CreatePolyBezierSegment(Points points) => throw new NotImplementedException();
-        public IPolyLineSegment CreatePolyLineSegment(Points points) => throw new NotImplementedException();
-        public IPolyQuadraticBezierSegment CreatePolyQuadraticBezierSegment(Points points) => throw new NotImplementedException();
-        public IQuadraticBezierSegment CreateQuadraticBezierSegment(in Point point1, in Point point2) => throw new NotImplementedException();
-
-        /*** Infrastructure objects ***/
-
-        public IUIPropertyMetadata CreatePropertyMetadata(object defaultValue) => throw new NotImplementedException();
-        public IUIPropertyMetadata CreatePropertyMetadata(object defaultValue, UIPropertyChangedCallback propertyChangedCallback) => throw new NotImplementedException();
-        public IUIProperty RegisterUIProperty(string name, Type propertyType, Type ownerType, IUIPropertyMetadata typeMetadata) => throw new NotImplementedException();
-
-        public IVerticalStack CreateVerticalStack()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IHorizontalStack CreateHorizontalStack()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IRowDefinition CreateRowDefinition()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IColumnDefinition CreateColumnDefinition()
-        {
-            throw new NotImplementedException();
-        }
+        public ILineSegment CreateLineSegment() => new LineSegment();
+        public IPolyLineSegment CreatePolyLineSegment() => new PolyLineSegment();
+        public IBezierSegment CreateBezierSegment() => new BezierSegment();
+        public IPolyBezierSegment CreatePolyBezierSegment() => new PolyBezierSegment();
+        public IQuadraticBezierSegment CreateQuadraticBezierSegment() => new QuadraticBezierSegment();
+        public IPolyQuadraticBezierSegment CreatePolyQuadraticBezierSegment() => new PolyQuadraticBezierSegment();
+        public IArcSegment CreateArcSegment() => new ArcSegment();
+        public IPathGeometry CreatePathGeometry() => new PathGeometry();
+        public IPathFigure CreatePathFigure() => new PathFigure();
     }
 }

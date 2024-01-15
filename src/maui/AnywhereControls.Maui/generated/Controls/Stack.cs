@@ -15,10 +15,10 @@ namespace AnywhereControls.Maui.Controls
             set => SetValue(OrientationProperty, value);
         }
         
-        protected override Size MeasureOverride(double widthConstraint, double heightConstraint) =>
-            StackLayoutManager.Instance.MeasureOverride(this, widthConstraint, heightConstraint);
+        protected override Microsoft.Maui.Graphics.Size MeasureOverride(double widthConstraint, double heightConstraint) =>
+            StackLayoutManager.Instance.MeasureOverride(this, widthConstraint, heightConstraint).ToMauiSize();
         
-        protected override Size ArrangeOverride(Rect bounds) =>
-            StackLayoutManager.Instance.ArrangeOverride(this, bounds.Size);
+        protected override Microsoft.Maui.Graphics.Size ArrangeOverride(Microsoft.Maui.Graphics.Rect bounds) =>
+            StackLayoutManager.Instance.ArrangeOverride(this, bounds.Size.ToAnywhereControlsSize()).ToMauiSize();
     }
 }

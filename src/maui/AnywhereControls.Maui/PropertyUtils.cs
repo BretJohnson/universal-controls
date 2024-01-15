@@ -15,7 +15,7 @@ namespace AnywhereControls.Maui
 
         private static void OnPropertyChanged(BindableObject obj, object oldValue, object newValue)
         {
-            if (!(obj is INotifyObjectOrSubobjectChanged parentObj))
+            if (obj is not INotifyObjectOrSubobjectChanged parentObj)
                 return;
 
             // The logic below cascades change notifications from subobjects up the object hierarchy, eventually causing the GraphicsCanvas

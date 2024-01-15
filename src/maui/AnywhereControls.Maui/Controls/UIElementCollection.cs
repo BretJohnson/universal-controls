@@ -1,41 +1,5 @@
 using System;
 using System.Collections;
-
-/* Unmerged change from project 'Microsoft.StandardUI.Maui (net6.0-android)'
-Before:
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-After:
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-*/
-
-/* Unmerged change from project 'Microsoft.StandardUI.Maui (net6.0-ios)'
-Before:
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-After:
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-*/
-
-/* Unmerged change from project 'Microsoft.StandardUI.Maui (net6.0-maccatalyst)'
-Before:
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-After:
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-*/
-
-/* Unmerged change from project 'Microsoft.StandardUI.Maui (net6.0-windows10.0.19041.0)'
-Before:
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-After:
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-*/
 using System.Collections.Generic;
 using Microsoft.Maui.Controls;
 

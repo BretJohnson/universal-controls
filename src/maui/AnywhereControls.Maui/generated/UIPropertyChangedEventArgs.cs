@@ -2,7 +2,7 @@
 
 namespace AnywhereControls.Maui
 {
-    public class UIPropertyChangedEventArgs : IUIPropertyChangedEventArgs
+    public class UIPropertyChangedEventArgs //: IUIPropertyChangedEventArgs
     {
     }
 }

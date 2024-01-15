@@ -19,11 +19,34 @@
 
         public override void AddTypeAliasUsingIfNeeded(Usings usings, string destinationTypeName)
         {
-            // These types are also defined in Maui, so add aliases to prefer the Standard UI type
+            // These types are also defined in Maui, so add aliases to prefer the Anywhere Controls type
             if (destinationTypeName == "Brush" || destinationTypeName == "Brush?")
                 usings.AddTypeAlias("Brush = AnywhereControls.Maui.Media.Brush");
+            else if (destinationTypeName == "Color")
+                usings.AddTypeAlias("Color = AnywhereControls.Color");
+            else if (destinationTypeName == "Colors")
+                usings.AddTypeAlias("Colors = AnywhereControls.Colors");
             else if (destinationTypeName == "SweepDirection")
                 usings.AddTypeAlias("SweepDirection = AnywhereControls.Media.SweepDirection");
+        }
+
+        public override void GenerateStandardPanelLayoutMethods(string layoutManagerTypeName, Source methods)
+        {
+            methods.AddBlankLineIfNonempty();
+            methods.AddLine($"protected override Microsoft.Maui.Graphics.Size MeasureOverride(double widthConstraint, double heightConstraint) =>");
+            using (methods.Indent())
+            {
+                methods.AddLine(
+                    $"{layoutManagerTypeName}.Instance.MeasureOverride(this, widthConstraint, heightConstraint).ToMauiSize();");
+            }
+
+            methods.AddBlankLine();
+            methods.AddLine($"protected override Microsoft.Maui.Graphics.Size ArrangeOverride(Microsoft.Maui.Graphics.Rect bounds) =>");
+            using (methods.Indent())
+            {
+                methods.AddLine(
+                    $"{layoutManagerTypeName}.Instance.ArrangeOverride(this, bounds.Size.ToAnywhereControlsSize()).ToMauiSize();");
+            }
         }
     }
 }

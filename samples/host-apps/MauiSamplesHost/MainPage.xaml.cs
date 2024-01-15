@@ -1,28 +1,77 @@
-﻿using System;
-using Microsoft.Maui.Accessibility;
-using Microsoft.Maui.Controls;
+﻿// Import our sample controls. This triggers source generation, turning them into WPF controls.
+// To see the generated source, in Solution Explorer look under
+// Dependencies / Analyzers / AnywhereControls.Analyzers / ImportControlLibraryGenerator
+using AnywhereControls;
+using Microcharts;
+using Microcharts.Maui;
+using SimpleControls;
+using SimpleControls.Maui;
+using AnywhereControls.Maui;
+using AnywhereControls.Maui.NativeVisualFramework;
+using ExampleFramework.Tooling;
 
-namespace MauiSamplesHost
+[assembly: ImportControlLibrary(typeof(SimpleControlsControlLibrary))]
+[assembly: ImportControlLibrary(typeof(MicrochartsControlLibrary))]
+
+namespace MauiHost
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
+            SimpleControlsLibrary.Initialize();
+            MicrochartsLibrary.Initialize();
+
             InitializeComponent();
+
+            InitalizeExamples();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        void InitalizeExamples()
         {
-            count++;
+            UIComponents uiComponents = new UIComponents();
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+            uiComponents.AddFromAssembly(typeof(SimpleControlsControlLibrary).Assembly);
+            uiComponents.AddFromAssembly(typeof(MicrochartsControlLibrary).Assembly);
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            int rowIndex = 0;
+            foreach (UIComponent uiComponent in uiComponents.Components)
+            {
+                foreach (UIExample uiExample in uiComponent.Examples)
+                {
+                    string? description = uiExample.Title;
+                    object control = uiExample.Create();
+
+                    if (control is not View controlUIElement)
+                        continue;
+
+                    var rowDefinition = new RowDefinition();
+                    Examples.RowDefinitions.Add(rowDefinition);
+
+                    var descriptionText = new Label()
+                    {
+                        Text = uiExample.Title,
+                        Padding = new Microsoft.Maui.Thickness(10.0),
+                        VerticalOptions = LayoutOptions.Center
+                    };
+                    Grid.SetRow(descriptionText, rowIndex);
+                    Grid.SetColumn(descriptionText, 0);
+                    Examples.Children.Add(descriptionText);
+
+                    Border controlBorder = new Border()
+                    {
+                        StrokeThickness = 0,
+                        Padding = new Microsoft.Maui.Thickness(10.0),
+                        Content = controlUIElement,
+                        VerticalOptions = LayoutOptions.Center
+                    };
+                    Grid.SetRow(controlBorder, rowIndex);
+                    Grid.SetColumn(controlBorder, 1);
+                    Examples.Children.Add(controlBorder);
+
+                    ++rowIndex;
+                }
+            }
         }
     }
 }

@@ -57,10 +57,10 @@ namespace AnywhereControls.Maui.Controls
             set => SetValue(RowSpacingProperty, value);
         }
         
-        protected override Size MeasureOverride(double widthConstraint, double heightConstraint) =>
-            GridLayoutManager.Instance.MeasureOverride(this, widthConstraint, heightConstraint);
+        protected override Microsoft.Maui.Graphics.Size MeasureOverride(double widthConstraint, double heightConstraint) =>
+            GridLayoutManager.Instance.MeasureOverride(this, widthConstraint, heightConstraint).ToMauiSize();
         
-        protected override Size ArrangeOverride(Rect bounds) =>
-            GridLayoutManager.Instance.ArrangeOverride(this, bounds.Size);
+        protected override Microsoft.Maui.Graphics.Size ArrangeOverride(Microsoft.Maui.Graphics.Rect bounds) =>
+            GridLayoutManager.Instance.ArrangeOverride(this, bounds.Size.ToAnywhereControlsSize()).ToMauiSize();
     }
 }

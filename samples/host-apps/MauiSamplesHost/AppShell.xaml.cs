@@ -1,6 +1,4 @@
-﻿using Microsoft.Maui.Controls;
-
-namespace MauiSamplesHost
+﻿namespace MauiHost
 {
     public partial class AppShell : Shell
     {

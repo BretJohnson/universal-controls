@@ -43,9 +43,10 @@ public abstract class HostFrameworkAnywhereControl : IAnywhereControl
 
     protected abstract IUIElement Build();
 
-    public abstract event PointerEventHandler PointerEntered;
-    public abstract event PointerEventHandler PointerExited;
-    public abstract event PointerEventHandler PointerMoved;
+    public abstract event PointerEventHandler? PointerEntered;
+    public abstract event PointerEventHandler? PointerExited;
+    public abstract event PointerEventHandler? PointerMoved;
 
-    private Exception CreateNotSupportedException() => new NotImplementedException("This class shouldn't ever be instantiated, just used at build time. At runtime, HostFrameworkAnywhereControl should come from the host framework specific assembly");
+    private Exception CreateNotSupportedException() =>
+        new InvalidOperationException("This class shouldn't ever be instantiated, just used at build time. At runtime, HostFrameworkAnywhereControl should come from the host framework specific assembly");
 }

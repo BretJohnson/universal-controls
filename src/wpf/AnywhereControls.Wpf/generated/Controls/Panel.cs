@@ -9,9 +9,9 @@ namespace AnywhereControls.Wpf.Controls
     public class Panel : BuiltInUIElement, IPanel
     {
         public static readonly DependencyProperty ChildrenProperty = PropertyUtils.Register(nameof(Children), typeof(UIElementCollection<System.Windows.FrameworkElement,AnywhereControls.IUIElement>), typeof(Panel), null);
-        
+
         private UIElementCollection<System.Windows.FrameworkElement,AnywhereControls.IUIElement> _children;
-        
+
         public Panel()
         {
             _children = new UIElementCollection<System.Windows.FrameworkElement,AnywhereControls.IUIElement>(this);

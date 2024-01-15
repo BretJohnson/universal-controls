@@ -7,7 +7,7 @@ namespace AnywhereControls.SourceGenerator
     public static class UserVisibleErrors
     {
         public static UserViewableException CouldNotIdentifyUIFramework() =>
-            CreateError(1, message: "No reference to AnywhereControls platform assembly found");
+            CreateError(1, message: "No reference to AnywhereControls.<host-framework> assembly found in project");
 
         public static UserViewableException AttachedTypeMethodMustStartWithGetOrSet(string className, string methodName) =>
             CreateError(2, message: $"Attached type method '{className}.{methodName}' doesn't start with Get or Set");
@@ -60,7 +60,7 @@ namespace AnywhereControls.SourceGenerator
             return Location.Create(syntaxReference.SyntaxTree, syntaxReference.Span);
         }
 
-        public static string ErrorIdFromInt(int id) => "SUI" + id.ToString("0000", CultureInfo.InvariantCulture);
+        public static string ErrorIdFromInt(int id) => "AC" + id.ToString("0000", CultureInfo.InvariantCulture);
 
         public static UserViewableException CreateError(int id, string message, Location? location = null) =>
             new UserViewableException(ErrorIdFromInt(id), message, location);

@@ -34,6 +34,11 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
             GeneratePropertyDescriptor(property, classSource);
 
+            if (defaultValue.StartsWith("Colors."))
+            {
+                AddTypeAliasUsingIfNeeded(classSource.Usings, "Colors");
+            }
+
             if (property.IsUICollection)
             {
                 string fieldName = PropertyFieldName(property);

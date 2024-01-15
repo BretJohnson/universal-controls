@@ -6,7 +6,7 @@ namespace AnywhereControls.Converters;
 
 public class TypeConverterBase : TypeConverter
 {
-    public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType) => sourceType == typeof(string);
+    public override bool CanConvertFrom(ITypeDescriptorContext? context, Type sourceType) => sourceType == typeof(string);
 
     public string GetValueAsString(object valueObject)
     {
@@ -19,8 +19,8 @@ public class TypeConverterBase : TypeConverter
         return value;
     }
 
-    public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType) => false;
+    public override bool CanConvertTo(ITypeDescriptorContext? context, Type destinationType) => false;
 
-    public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType) =>
+    public override object ConvertTo(ITypeDescriptorContext? context, CultureInfo culture, object value, Type destinationType) =>
         throw new InvalidOperationException($"ConvertTo isn't currently supported");
 }

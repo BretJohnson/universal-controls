@@ -1,7 +1,6 @@
-﻿using Microsoft.Maui.Controls.Hosting;
-using Microsoft.Maui.Hosting;
+﻿using Microsoft.Extensions.Logging;
 
-namespace MauiSamplesHost
+namespace MauiHost
 {
     public static class MauiProgram
     {
@@ -15,6 +14,10 @@ namespace MauiSamplesHost
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+#if DEBUG
+		builder.Logging.AddDebug();
+#endif
 
             return builder.Build();
         }
