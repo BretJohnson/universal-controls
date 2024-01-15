@@ -3,8 +3,6 @@
 	<PropertyGroup>
 		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
-		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
 		<RootNamespace>MauiHost</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -27,7 +25,6 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -57,6 +54,12 @@
     <ProjectReference Include="..\..\..\src\maui\AnywhereControls.FrameworkForwarder\AnywhereControls.FrameworkForwarder.csproj" />
     <ProjectReference Include="..\..\controls\Microcharts\Microcharts.csproj" />
     <ProjectReference Include="..\..\controls\SimpleControls\SimpleControls.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(UseLocalExampleFramework) == ''">
+  </ItemGroup>
+  <ItemGroup Condition="$(UseLocalExampleFramework) != ''">
+    <ProjectReference Include="..\..\..\..\example-framework\src\ExampleFramework.Tooling\ExampleFramework.Tooling.csproj" />
   </ItemGroup>
 
 </Project>

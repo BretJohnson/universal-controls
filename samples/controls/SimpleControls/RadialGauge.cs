@@ -7,16 +7,7 @@ using static AnywhereControls.AnywhereControlsStatics;
 namespace SimpleControls
 {
     [AnywhereControl]
-<<<<<<< HEAD
-    public interface IRadialGauge : IAnywhereControl
-    {
-
-    }
-
-    public abstract class RadialGauge : AnywhereControl, IRadialGauge
-=======
     public abstract class RadialGauge : AnywhereControl
->>>>>>> main
     {
         protected override IUIElement Build()
         {

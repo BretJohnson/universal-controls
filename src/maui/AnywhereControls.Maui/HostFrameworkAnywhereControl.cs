@@ -2,6 +2,7 @@
 using AnywhereControls.Maui.NativeVisualFramework;
 using System;
 using AnywhereControls.Maui;
+using AnywhereControls.Input;
 
 namespace AnywhereControls.Controls
 {
@@ -15,6 +16,7 @@ namespace AnywhereControls.Controls
         }
     }
 
+    // The rest of the implementation of this class is in HostFrameworkAnywhereControlGenerated.cs
     public abstract class HostFrameworkAnywhereControl : GraphicsView, IAnywhereControl
     {
         readonly HostFrameworkAnywhereControlDrawable _drawable;
@@ -27,7 +29,7 @@ namespace AnywhereControls.Controls
 
             if (!HostEnvironment.IsInitialized)
             {
-                MauiHostFramework.Init(new MauiNativeVisualFramework(_drawable.Canvas!));
+                MauiHostFramework.Init(new MauiNativeVisualFramework());
             }
         }
 
@@ -164,6 +166,45 @@ namespace AnywhereControls.Controls
         void Rebuild()
         { 
             _buildContent = Build();
+        }
+
+        event PointerEventHandler? IUIElement.PointerEntered
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event PointerEventHandler? IUIElement.PointerExited
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event PointerEventHandler? IUIElement.PointerMoved
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

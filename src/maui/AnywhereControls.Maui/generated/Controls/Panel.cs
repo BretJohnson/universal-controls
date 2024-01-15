@@ -19,6 +19,6 @@ namespace AnywhereControls.Maui.Controls
         }
 
         public UIElementCollection<Microsoft.Maui.Controls.View,AnywhereControls.IUIElement> Children => _children;
-        IUICollection<IUIElement> IPanel.Children => Children.ToAnywhereControlsUIElementCollection();
+        IUICollection<IUIElement> IPanel.Children => null; //  Children.ToAnywhereControlsUIElementCollection();
     }
 }

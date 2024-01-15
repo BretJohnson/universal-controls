@@ -1,4 +1,5 @@
 using System;
+using AnywhereControls.Input;
 using Microsoft.Maui.Controls;
 
 namespace AnywhereControls.Maui
@@ -14,7 +15,7 @@ namespace AnywhereControls.Maui
     }
 
     /// <summary>
-    /// This is the base for predefined Standard UI controls. 
+    /// This is the base for predefined Anywhere Controls controls. 
     /// </summary>
     public class BuiltInUIElement : GraphicsView, IUIElement
     {
@@ -23,6 +24,45 @@ namespace AnywhereControls.Maui
         public BuiltInUIElement()
         {
             Drawable = _drawable = new BuiltInUIElementDrawable();
+        }
+
+        event PointerEventHandler? IUIElement.PointerEntered
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event PointerEventHandler? IUIElement.PointerExited
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        event PointerEventHandler? IUIElement.PointerMoved
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public BuiltInUIElementDrawable BuiltInUIElementDrawable => _drawable;
@@ -120,6 +160,8 @@ namespace AnywhereControls.Maui
 
         public int VisualChildrenCount => throw new NotImplementedException();
 
+        int IUIElement.VisualChildrenCount => throw new NotImplementedException();
+
 #if TODO
         protected override void OnRender(DrawingContext drawingContextWpf)
         {
@@ -160,6 +202,11 @@ namespace AnywhereControls.Maui
         void IUIObject.ClearValue(IUIProperty property) => ClearValue(((UIProperty)property).BindableProperty);
 
         public IUIElement GetVisualChild(int index)
+        {
+            throw new NotImplementedException();
+        }
+
+        IUIElement IUIElement.GetVisualChild(int index)
         {
             throw new NotImplementedException();
         }

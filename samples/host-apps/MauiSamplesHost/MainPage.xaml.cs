@@ -8,7 +8,7 @@ using SimpleControls;
 using SimpleControls.Maui;
 using AnywhereControls.Maui;
 using AnywhereControls.Maui.NativeVisualFramework;
-using Microsoft.ComponentModelEx.Tooling;
+using ExampleFramework.Tooling;
 
 [assembly: ImportControlLibrary(typeof(SimpleControlsControlLibrary))]
 [assembly: ImportControlLibrary(typeof(MicrochartsControlLibrary))]
@@ -29,45 +29,48 @@ namespace MauiHost
 
         void InitalizeExamples()
         {
-            UIExamples uiExamples = new UIExamples();
+            UIComponents uiComponents = new UIComponents();
 
-            uiExamples.LoadFromAssembly(typeof(SimpleControlsControlLibrary).Assembly);
-            uiExamples.LoadFromAssembly(typeof(MicrochartsControlLibrary).Assembly);
+            uiComponents.AddFromAssembly(typeof(SimpleControlsControlLibrary).Assembly);
+            uiComponents.AddFromAssembly(typeof(MicrochartsControlLibrary).Assembly);
 
             int rowIndex = 0;
-            foreach (UIExample uiExample in uiExamples.Examples)
+            foreach (UIComponent uiComponent in uiComponents.Components)
             {
-                string description = uiExample.Description;
-                object control = uiExample.Create();
-
-                if (control is not View controlUIElement)
-                    continue;
-
-                var rowDefinition = new RowDefinition();
-                Examples.RowDefinitions.Add(rowDefinition);
-
-                var descriptionText = new Label()
+                foreach (UIExample uiExample in uiComponent.Examples)
                 {
-                    Text = uiExample.Description,
-                    Padding = new Microsoft.Maui.Thickness(10.0),
-                    VerticalOptions = LayoutOptions.Center
-                };
-                Grid.SetRow(descriptionText, rowIndex);
-                Grid.SetColumn(descriptionText, 0);
-                Examples.Children.Add(descriptionText);
+                    string? description = uiExample.Title;
+                    object control = uiExample.Create();
 
-                Border controlBorder = new Border()
-                {
-                    StrokeThickness = 0,
-                    Padding = new Microsoft.Maui.Thickness(10.0),
-                    Content = controlUIElement,
-                    VerticalOptions = LayoutOptions.Center
-                };
-                Grid.SetRow(controlBorder, rowIndex);
-                Grid.SetColumn(controlBorder, 1);
-                Examples.Children.Add(controlBorder);
+                    if (control is not View controlUIElement)
+                        continue;
 
-                ++rowIndex;
+                    var rowDefinition = new RowDefinition();
+                    Examples.RowDefinitions.Add(rowDefinition);
+
+                    var descriptionText = new Label()
+                    {
+                        Text = uiExample.Title,
+                        Padding = new Microsoft.Maui.Thickness(10.0),
+                        VerticalOptions = LayoutOptions.Center
+                    };
+                    Grid.SetRow(descriptionText, rowIndex);
+                    Grid.SetColumn(descriptionText, 0);
+                    Examples.Children.Add(descriptionText);
+
+                    Border controlBorder = new Border()
+                    {
+                        StrokeThickness = 0,
+                        Padding = new Microsoft.Maui.Thickness(10.0),
+                        Content = controlUIElement,
+                        VerticalOptions = LayoutOptions.Center
+                    };
+                    Grid.SetRow(controlBorder, rowIndex);
+                    Grid.SetColumn(controlBorder, 1);
+                    Examples.Children.Add(controlBorder);
+
+                    ++rowIndex;
+                }
             }
         }
     }

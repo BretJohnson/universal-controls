@@ -1,9 +1,7 @@
 ﻿using AnywhereControls.Controls;
 using AnywhereControls.Media;
 using AnywhereControls.Shapes;
-using System.Globalization;
 using System;
-using System.Reflection.Metadata;
 
 namespace AnywhereControls.Maui.NativeVisualFramework
 {

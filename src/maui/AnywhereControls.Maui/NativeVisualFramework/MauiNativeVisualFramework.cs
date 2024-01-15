@@ -5,14 +5,11 @@ namespace AnywhereControls.Maui.NativeVisualFramework
 {
     public class MauiNativeVisualFramework : IVisualFramework
     {
-        readonly Microsoft.Maui.Graphics.ICanvas _canvas;
-
-        public MauiNativeVisualFramework(Microsoft.Maui.Graphics.ICanvas canvas)
+        public MauiNativeVisualFramework()
         {
-            _canvas = canvas;
         }
 
-        public IDrawingContext CreateDrawingContext(IUIElement uiElement) => new MauiNativeDrawingContext(_canvas);
+        public IDrawingContext CreateDrawingContext(IUIElement uiElement) => new MauiNativeDrawingContext(null);
 
         public void RenderToBuffer(IVisual visual, IntPtr pixels, int width, int height, int rowBytes)
         {

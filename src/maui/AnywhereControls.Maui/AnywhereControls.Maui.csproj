@@ -23,6 +23,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\AnywhereControls.CommonTypes\AnywhereControls.CommonTypes.csproj" />
     <ProjectReference Include="..\..\AnywhereControls\AnywhereControls.csproj" />
   </ItemGroup>
 
@@ -32,6 +33,7 @@
     <Folder Include="Platforms\MacCatalyst\" />
     <Folder Include="Platforms\Tizen\" />
     <Folder Include="Platforms\Windows\" />
+    <Folder Include="Text\" />
   </ItemGroup>
 
 </Project>

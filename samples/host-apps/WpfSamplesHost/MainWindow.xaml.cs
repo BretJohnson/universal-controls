@@ -46,7 +46,6 @@ namespace WpfHost
             {
                 foreach (UIExample uiExample in uiComponent.Examples)
                 {
-                    string? description = uiExample.Title;
                     object control = uiExample.Create();
 
                     if (control is not UIElement controlUIElement)
