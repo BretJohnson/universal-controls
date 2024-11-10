@@ -5,14 +5,14 @@
     <UseWPF>true</UseWPF>
     <LangVersion>11.0</LangVersion>
     <Nullable>enable</Nullable>
-    <RootNamespace>AnywhereControls.Wpf</RootNamespace>
+    <RootNamespace>AnywhereUI.Wpf</RootNamespace>
 
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\..\AnywhereControls.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\..\AnywhereUI.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\AnywhereControls\AnywhereControls.csproj" />
+    <ProjectReference Include="..\..\AnywhereUI\AnywhereUI.csproj" />
   </ItemGroup>
 
 </Project>

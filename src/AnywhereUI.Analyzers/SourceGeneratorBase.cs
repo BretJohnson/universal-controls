@@ -225,15 +225,15 @@ namespace AnywhereControls.SourceGenerator
             {
                 string assemblyName = referencedAssembly.Name;
 
-                if (assemblyName == "AnywhereControls.Wpf")
+                if (assemblyName == "AnywhereUI.Wpf")
                     return new WpfUIFramework(context);
-                else if (assemblyName == "AnywhereControls.WinForms")
+                else if (assemblyName == "AnywhereUI.WinForms")
                     return new WinFormsUIFramework(context);
-                else if (assemblyName == "AnywhereControls.Blazor")
+                else if (assemblyName == "AnywhereUI.Blazor")
                     return new BlazorUIFramework(context);
-                else if (assemblyName == "AnywhereControls.Maui")
+                else if (assemblyName == "AnywhereUI.Maui")
                     return new MauiUIFramework(context);
-                else if (assemblyName == "AnywhereControls.Avalonia")
+                else if (assemblyName == "AnywhereUI.Avalonia")
                     return new AvaloniaUIFramework(context);
             }
 

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31813.321
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls", "src\AnywhereControls\AnywhereControls.csproj", "{752F4208-8318-4C57-9868-9921FF743AA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI", "src\AnywhereUI\AnywhereUI.csproj", "{752F4208-8318-4C57-9868-9921FF743AA9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.CommandLineSourceGenerator", "src\AnywhereControls.CommandLineSourceGenerator\AnywhereControls.CommandLineSourceGenerator.csproj", "{740943F5-2E99-4ED4-9022-BC14F480C3F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.CommandLineSourceGenerator", "src\AnywhereUI.CommandLineSourceGenerator\AnywhereUI.CommandLineSourceGenerator.csproj", "{740943F5-2E99-4ED4-9022-BC14F480C3F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{9B71283D-A4A6-480E-9A9B-AD446F08CCC5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.Analyzers", "src\AnywhereControls.Analyzers\AnywhereControls.Analyzers.csproj", "{26E564DA-4315-44EF-B287-A9B3BC87BF1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.Analyzers", "src\AnywhereUI.Analyzers\AnywhereUI.Analyzers.csproj", "{26E564DA-4315-44EF-B287-A9B3BC87BF1C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "controls", "controls", "{9FA8F699-79F5-48DB-A2D9-717CE875C5F0}"
 EndProject
@@ -31,31 +31,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "skia", "skia", "{705D949C-2C10-46AD-9007-37E62BC8FA7A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.SkiaVisualFramework", "src\skia\AnywhereControls.SkiaVisualFramework\AnywhereControls.SkiaVisualFramework.csproj", "{66AC78D8-0A73-41FC-925C-E2840EA2639F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.SkiaVisualFramework", "src\skia\AnywhereUI.SkiaVisualFramework\AnywhereUI.SkiaVisualFramework.csproj", "{66AC78D8-0A73-41FC-925C-E2840EA2639F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "wpf", "wpf", "{53F78F6D-A2D0-41D5-8A81-7D71C5763249}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.FrameworkForwarder", "src\wpf\AnywhereControls.FrameworkForwarder\AnywhereControls.FrameworkForwarder.csproj", "{29322FD8-3BA2-47E3-A8D9-E9C918979670}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.FrameworkForwarder", "src\wpf\AnywhereUI.FrameworkForwarder\AnywhereUI.FrameworkForwarder.csproj", "{29322FD8-3BA2-47E3-A8D9-E9C918979670}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.CommonTypes", "src\AnywhereControls.CommonTypes\AnywhereControls.CommonTypes.csproj", "{045EF11F-5494-426E-B7B3-660F1FCF23D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.CommonTypes", "src\AnywhereUI.CommonTypes\AnywhereUI.CommonTypes.csproj", "{045EF11F-5494-426E-B7B3-660F1FCF23D5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.Wpf", "src\wpf\AnywhereControls.Wpf\AnywhereControls.Wpf.csproj", "{E289961D-B4F4-4368-9402-A0057A009122}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.Wpf", "src\wpf\AnywhereUI.Wpf\AnywhereUI.Wpf.csproj", "{E289961D-B4F4-4368-9402-A0057A009122}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.FrameworkForwarderStub", "src\AnywhereControls.FrameworkForwarderStub\AnywhereControls.FrameworkForwarderStub.csproj", "{1DF10122-622E-4A4C-93C7-6172997D8332}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.FrameworkForwarderStub", "src\AnywhereUI.FrameworkForwarderStub\AnywhereUI.FrameworkForwarderStub.csproj", "{1DF10122-622E-4A4C-93C7-6172997D8332}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "maui", "maui", "{3EF85AAC-0972-46C4-BABE-FF568E7A9BE7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.Maui", "src\maui\AnywhereControls.Maui\AnywhereControls.Maui.csproj", "{069C0BDF-E992-443B-A1C0-216F18216BFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.Maui", "src\maui\AnywhereUI.Maui\AnywhereUI.Maui.csproj", "{069C0BDF-E992-443B-A1C0-216F18216BFE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.FrameworkForwarder", "src\maui\AnywhereControls.FrameworkForwarder\AnywhereControls.FrameworkForwarder.csproj", "{73A019ED-4595-4E33-A95A-F502071E32D7}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "avalonia", "avalonia", "{D4A45A87-89E1-41A4-8F2B-CD8FBDA04F1C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereControls.Avalonia", "src\avalonia\AnywhereControls.Avalonia\AnywhereControls.Avalonia.csproj", "{D7BE9009-7211-4BA7-9FB6-4DDD3BE3E094}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaSamplesHost", "samples\host-apps\AvaloniaSamplesHost\AvaloniaSamplesHost.csproj", "{234FC45F-391E-4501-8399-D97B6976E1DB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnywhereControls.FrameworkForwarder", "src\avalonia\AnywhereControls.FrameworkForwarder\AnywhereControls.FrameworkForwarder.csproj", "{D9845879-D33A-4CC7-AC92-71C16CC90BA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.FrameworkForwarder", "src\maui\AnywhereUI.FrameworkForwarder\AnywhereUI.FrameworkForwarder.csproj", "{73A019ED-4595-4E33-A95A-F502071E32D7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example-framework", "example-framework", "{C58E6DED-A59F-410B-96D9-BC7A30958BCC}"
 EndProject
@@ -131,18 +123,6 @@ Global
 		{73A019ED-4595-4E33-A95A-F502071E32D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73A019ED-4595-4E33-A95A-F502071E32D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73A019ED-4595-4E33-A95A-F502071E32D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7BE9009-7211-4BA7-9FB6-4DDD3BE3E094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7BE9009-7211-4BA7-9FB6-4DDD3BE3E094}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7BE9009-7211-4BA7-9FB6-4DDD3BE3E094}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7BE9009-7211-4BA7-9FB6-4DDD3BE3E094}.Release|Any CPU.Build.0 = Release|Any CPU
-		{234FC45F-391E-4501-8399-D97B6976E1DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{234FC45F-391E-4501-8399-D97B6976E1DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{234FC45F-391E-4501-8399-D97B6976E1DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{234FC45F-391E-4501-8399-D97B6976E1DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D9845879-D33A-4CC7-AC92-71C16CC90BA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D9845879-D33A-4CC7-AC92-71C16CC90BA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D9845879-D33A-4CC7-AC92-71C16CC90BA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D9845879-D33A-4CC7-AC92-71C16CC90BA8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CB2C4140-E5A0-4D6F-A31B-6358B217998A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CB2C4140-E5A0-4D6F-A31B-6358B217998A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB2C4140-E5A0-4D6F-A31B-6358B217998A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -175,9 +155,6 @@ Global
 		{E289961D-B4F4-4368-9402-A0057A009122} = {53F78F6D-A2D0-41D5-8A81-7D71C5763249}
 		{069C0BDF-E992-443B-A1C0-216F18216BFE} = {3EF85AAC-0972-46C4-BABE-FF568E7A9BE7}
 		{73A019ED-4595-4E33-A95A-F502071E32D7} = {3EF85AAC-0972-46C4-BABE-FF568E7A9BE7}
-		{D7BE9009-7211-4BA7-9FB6-4DDD3BE3E094} = {D4A45A87-89E1-41A4-8F2B-CD8FBDA04F1C}
-		{234FC45F-391E-4501-8399-D97B6976E1DB} = {63D6491B-37EA-4F36-8B9D-2AD526F74BB8}
-		{D9845879-D33A-4CC7-AC92-71C16CC90BA8} = {D4A45A87-89E1-41A4-8F2B-CD8FBDA04F1C}
 		{CB2C4140-E5A0-4D6F-A31B-6358B217998A} = {C58E6DED-A59F-410B-96D9-BC7A30958BCC}
 		{DADC2D93-6564-4097-BFFF-6E6922D4A10E} = {C58E6DED-A59F-410B-96D9-BC7A30958BCC}
 		{4C2A5126-48C6-4FD4-8595-1DB1D0A059C8} = {C58E6DED-A59F-410B-96D9-BC7A30958BCC}

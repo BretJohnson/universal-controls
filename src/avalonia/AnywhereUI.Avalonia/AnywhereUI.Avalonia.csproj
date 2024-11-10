@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\AnywhereControls\AnywhereControls.csproj" />
+    <ProjectReference Include="..\..\AnywhereUI\AnywhereUI.csproj" />
   </ItemGroup>
 
 </Project>

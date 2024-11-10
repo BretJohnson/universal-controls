@@ -7,12 +7,12 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\AnywhereControls.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\AnywhereUI.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AnywhereControls.CommonTypes\AnywhereControls.CommonTypes.csproj" />
-    <ProjectReference Include="..\AnywhereControls.FrameworkForwarderStub\AnywhereControls.FrameworkForwarderStub.csproj" Private="False" PrivateAssets="All" />
+    <ProjectReference Include="..\AnywhereUI.CommonTypes\AnywhereUI.CommonTypes.csproj" />
+    <ProjectReference Include="..\AnywhereUI.FrameworkForwarderStub\AnywhereUI.FrameworkForwarderStub.csproj" Private="False" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
