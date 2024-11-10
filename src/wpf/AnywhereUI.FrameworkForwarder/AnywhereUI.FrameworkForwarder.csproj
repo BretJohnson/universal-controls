@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <PackageId>AnywhereControls.FrameworkForwarderWpf</PackageId>
+    <PackageId>AnywhereUI.FrameworkForwarderWpf</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AnywhereControls.Wpf\AnywhereControls.Wpf.csproj" />
+    <ProjectReference Include="..\AnywhereUI.Wpf\AnywhereUI.Wpf.csproj" />
   </ItemGroup>
 
 </Project>

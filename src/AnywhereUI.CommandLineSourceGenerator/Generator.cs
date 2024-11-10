@@ -18,7 +18,7 @@ namespace AnywhereControls.CommandLineSourceGenerator
             {
                 if (args.Length != 1)
                 {
-                    throw new UserViewableException($"Usage: AnywhereControls.CommandLineSourceGenerator.exe <path-to-repo-root>");
+                    throw new UserViewableException($"Usage: AnywhereUI.CommandLineSourceGenerator.exe <path-to-repo-root>");
                 }
 
                 string rootDirectory = NormalizePath(args[0]);
@@ -28,22 +28,22 @@ namespace AnywhereControls.CommandLineSourceGenerator
                 using MSBuildWorkspace workspace = MSBuildWorkspace.Create();
                 workspace.WorkspaceFailed += (o, e) => Console.WriteLine(e.Diagnostic.Message);
 
-                string anywhereControlsProjectPath = Path.Combine(rootDirectory, "src", "AnywhereControls", "AnywhereControls.csproj");
-                Console.WriteLine($"Loading project '{anywhereControlsProjectPath}'");
-                Project anywhereControlsProject = await workspace.OpenProjectAsync(anywhereControlsProjectPath, new ConsoleProgressReporter());
+                string anywhereUIProjectPath = Path.Combine(rootDirectory, "src", "AnywhereUI", "AnywhereUI.csproj");
+                Console.WriteLine($"Loading project '{anywhereUIProjectPath}'");
+                Project anywhereControlsProject = await workspace.OpenProjectAsync(anywhereUIProjectPath, new ConsoleProgressReporter());
 
                 await GenerateClassesForProject(anywhereControlsProject, rootDirectory);
 
-                Project? anywhereControlsCommonTypesProject = anywhereControlsProject.ProjectReferences
+                Project? anywhereUICommonTypesProject = anywhereControlsProject.ProjectReferences
                     .Select(projectRef => workspace.CurrentSolution.GetProject(projectRef.ProjectId))
-                    .First(referencedProj => referencedProj?.Name == "AnywhereControls.CommonTypes");
+                    .First(referencedProj => referencedProj?.Name == "AnywhereUI.CommonTypes");
 
-                if (anywhereControlsCommonTypesProject == null)
+                if (anywhereUICommonTypesProject == null)
                 {
-                    throw new UserViewableException("Couldn't find referenced AnywhereControls.CommonTypes project");
+                    throw new UserViewableException("Couldn't find referenced AnywhereUI.CommonTypes project");
                 }
 
-                await GenerateClassesForProject(anywhereControlsCommonTypesProject, rootDirectory);
+                await GenerateClassesForProject(anywhereUICommonTypesProject, rootDirectory);
             }
             catch (UserViewableException e)
             {

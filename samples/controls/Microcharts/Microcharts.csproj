@@ -34,9 +34,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\AnywhereControls.Analyzers\AnywhereControls.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    <ProjectReference Include="..\..\..\src\AnywhereControls\AnywhereControls.csproj" />
-    <ProjectReference Include="..\..\..\src\AnywhereControls.FrameworkForwarderStub\AnywhereControls.FrameworkForwarderStub.csproj" Private="False" PrivateAssets="All"  />
+    <ProjectReference Include="..\..\..\src\AnywhereUI.Analyzers\AnywhereUI.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\..\..\src\AnywhereUI\AnywhereUI.csproj" />
+    <ProjectReference Include="..\..\..\src\AnywhereUI.FrameworkForwarderStub\AnywhereUI.FrameworkForwarderStub.csproj" Private="False" PrivateAssets="All"  />
   </ItemGroup>
 
   <ItemGroup Condition="$(UseLocalExampleFramework) == ''">

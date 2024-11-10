@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<ProjectReference Include="..\..\src\AnywhereControls\AnywhereControls.csproj" />
+	<ProjectReference Include="..\..\src\AnywhereUI\AnywhereUI.csproj" />
    </ItemGroup>
 
 </Project>

@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AnywhereControls.Avalonia\AnywhereControls.Avalonia.csproj" />
+    <ProjectReference Include="..\AnywhereUI.Avalonia\AnywhereUI.Avalonia.csproj" />
   </ItemGroup>
 
 </Project>

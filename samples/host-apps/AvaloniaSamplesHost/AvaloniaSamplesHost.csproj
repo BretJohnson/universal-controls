@@ -18,8 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\AnywhereControls.Analyzers\AnywhereControls.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    <ProjectReference Include="..\..\..\src\avalonia\AnywhereControls.FrameworkForwarder\AnywhereControls.FrameworkForwarder.csproj" />
+    <ProjectReference Include="..\..\..\src\AnywhereUI.Analyzers\AnywhereUI.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     <ProjectReference Include="..\..\controls\Microcharts\Microcharts.csproj" />
     <ProjectReference Include="..\..\controls\SimpleControls\SimpleControls.csproj" />
   </ItemGroup>
