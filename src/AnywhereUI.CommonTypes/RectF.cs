@@ -5,29 +5,29 @@ namespace AnywhereControls;
 /// <summary>
 /// Contains number values that represent the location and size of a rectangle.
 /// </summary>
-public struct Rect
+public struct RectF
 {
     /// <summary>
     /// Gets or sets the x-axis value of the left side of the rectangle.
     /// </summary>
-    public double X { get; set; }
+    public float X { get; set; }
 
     /// <summary>
     /// Gets or sets the y-axis value of the top side of the rectangle.
     /// </summary>
-    public double Y { get; set; }
+    public float Y { get; set; }
 
     /// <summary>
     /// Gets or sets the width of the rectangle.
     /// </summary>
-    public double Width { get; set; }
+    public float Width { get; set; }
 
     /// <summary>
     /// Gets or sets the height of the rectangle.
     /// </summary>
-    public double Height { get; set; }
+    public float Height { get; set; }
 
-    public Rect(double x, double y, double width, double height)
+    public RectF(float x, float y, float width, float height)
     {
         X = x;
         Y = y;
@@ -35,7 +35,7 @@ public struct Rect
         Height = height;
     }
 
-    public Rect(Point location, Size size)
+    public RectF(PointF location, SizeF size)
     {
         X = location.X;
         Y = location.Y;
@@ -46,49 +46,49 @@ public struct Rect
     /// <summary>
     /// Gets the x-axis value of the left side of the rectangle.
     /// </summary>
-    public double Left => X;
+    public float Left => X;
 
     /// <summary>
     /// Gets the y-axis position of the top of the rectangle.
     /// </summary>
-    public double Top => Y;
+    public float Top => Y;
 
     /// <summary>
     /// Gets the x-axis value of the right side of the rectangle.
     /// </summary>
-    public double Right => X + Width;
+    public float Right => X + Width;
 
     /// <summary>
     /// Gets the y-axis value of the bottom of the rectangle.
     /// </summary>
-    public double Bottom => Y + Height;
+    public float Bottom => Y + Height;
 
     /// <summary>
     /// Gets the position of the top-left corner of the rectangle.
     /// </summary>
-    public Point TopLeft => new Point(Left, Top);
+    public PointF TopLeft => new PointF(Left, Top);
 
     /// <summary>
     /// Gets the position of the top-right corner of the rectangle.
     /// </summary>
-    public Point TopRight => new Point(Right, Top);
+    public PointF TopRight => new PointF(Right, Top);
 
     /// <summary>
     /// Gets the position of the bottom-left corner of the rectangle.
     /// </summary>
-    public Point BottomLeft => new Point(Left, Bottom);
+    public PointF BottomLeft => new PointF(Left, Bottom);
 
     /// <summary>
     /// Gets the position of the bottom-right corner of the rectangle.
     /// </summary>
-    public Point BottomRight => new Point(Right, Bottom);
+    public PointF BottomRight => new PointF(Right, Bottom);
 
     /// <summary>
     /// Gets or sets the width and height of the rectangle.
     /// </summary>
-    public Size Size
+    public SizeF Size
     {
-        get => new Size(Width, Height);
+        get => new SizeF(Width, Height);
         set
         {
             Width = value.Width;
@@ -99,17 +99,17 @@ public struct Rect
     /// <summary>
     /// Expands the rectangle represented by the current Rect exactly enough to contain the specified rectangle.
     /// </summary>
-    public void Union(Rect rect)
+    public void Union(RectF rect)
     {
-        double left = Math.Min(Left, rect.Left);
-        double top = Math.Min(Top, rect.Top);
+        float left = Math.Min(Left, rect.Left);
+        float top = Math.Min(Top, rect.Top);
 
-        //  Max with 0 to prevent double weirdness from causing us to be (-epsilon..0)
-        double maxRight = Math.Max(Right, rect.Right);
+        //  Max with 0 to prevent float weirdness from causing us to be (-epsilon..0)
+        float maxRight = Math.Max(Right, rect.Right);
         Width = Math.Max(maxRight - left, 0);
 
-        //  Max with 0 to prevent double weirdness from causing us to be (-epsilon..0)
-        double maxBottom = Math.Max(Bottom, rect.Bottom);
+        //  Max with 0 to prevent float weirdness from causing us to be (-epsilon..0)
+        float maxBottom = Math.Max(Bottom, rect.Bottom);
         Height = Math.Max(maxBottom - top, 0);
 
         X = left;
@@ -119,8 +119,8 @@ public struct Rect
     /// <summary>
     /// Expands the rectangle represented by the current Rect exactly enough to contain the specified point.
     /// </summary>
-    public void Union(Point point)
+    public void Union(PointF point)
     {
-        Union(new Rect(point.X, point.Y, 0, 0));
+        Union(new RectF(point.X, point.Y, 0, 0));
     }
 }

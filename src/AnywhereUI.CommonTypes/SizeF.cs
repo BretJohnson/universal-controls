@@ -1,47 +1,44 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Globalization;
-using AnywhereControls.Converters;
 
 namespace AnywhereControls;
 
 /// <summary>
 /// Represents number values that specify a height and width.
 /// </summary>
-[TypeConverter(typeof(SizeTypeConverter))]
-public readonly struct Size
+public readonly struct SizeF
 {
-    private readonly double _width;
-    private readonly double _height;
+    private readonly float _width;
+    private readonly float _height;
 
-    public static readonly Size Zero;
-    public static readonly Size Infinity = new Size(double.PositiveInfinity, double.PositiveInfinity);
-    public static readonly Size Default = Zero;
+    public static readonly SizeF Zero;
+    public static readonly SizeF Infinity = new SizeF(float.PositiveInfinity, float.PositiveInfinity);
+    public static readonly SizeF Default = Zero;
 
-    public Size(double width, double height)
+    public SizeF(float width, float height)
     {
-        if (double.IsNaN(width))
+        if (float.IsNaN(width))
             throw new ArgumentException("NaN is not a valid value for width");
-        if (double.IsNaN(height))
+        if (float.IsNaN(height))
             throw new ArgumentException("NaN is not a valid value for height");
         _width = width;
         _height = height;
     }
 
-    public double Width => _width;
-    public double Height => _height;
+    public float Width => _width;
+    public float Height => _height;
 
-    public static bool operator ==(Size s1, Size s2)
+    public static bool operator ==(SizeF s1, SizeF s2)
     {
         return s1._width == s2._width && s1._height == s2._height;
     }
 
-    public static bool operator !=(Size s1, Size s2)
+    public static bool operator !=(SizeF s1, SizeF s2)
     {
         return s1._width != s2._width || s1._height != s2._height;
     }
 
-    public bool Equals(Size other)
+    public bool Equals(SizeF other)
     {
         return _width.Equals(other._width) && _height.Equals(other._height);
     }
