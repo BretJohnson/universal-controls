@@ -1,4 +1,4 @@
-﻿namespace AnywhereControls;
+﻿namespace AnywhereUI;
 
 /// <summary>
 /// Specifies the direction in which text and other UI elements flow

@@ -1,4 +1,4 @@
-﻿namespace AnywhereControls.Controls;
+﻿namespace AnywhereUI.Controls;
 
 public interface IAnywhereControl : IUIElement
 {

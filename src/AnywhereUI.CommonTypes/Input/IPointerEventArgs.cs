@@ -1,4 +1,4 @@
-namespace AnywhereControls.Input;
+namespace AnywhereUI.Input;
 
 public interface IPointerEventArgs : IHandleableRoutedEventArgs
 {

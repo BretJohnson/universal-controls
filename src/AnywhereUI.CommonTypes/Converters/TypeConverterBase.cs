@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Globalization;
 
-namespace AnywhereControls.Converters;
+namespace AnywhereUI.Converters;
 
 public class TypeConverterBase : TypeConverter
 {

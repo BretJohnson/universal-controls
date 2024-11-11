@@ -1,6 +1,6 @@
 using System;
 
-namespace AnywhereControls.Input;
+namespace AnywhereUI.Input;
 
 public interface IRoutedEventArgs
 {

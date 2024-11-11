@@ -2,7 +2,7 @@ using System;
 using System.Globalization;
 using System.Text;
 
-namespace AnywhereControls.Converters
+namespace AnywhereUI.Converters
 {
     public static class PointConverter
     {
