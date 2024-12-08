@@ -1,0 +1,3 @@
+[submodule "external/example-framework"]
+	path = external/example-framework
+	url = https://github.com/BretJohnson/example-framework.git
