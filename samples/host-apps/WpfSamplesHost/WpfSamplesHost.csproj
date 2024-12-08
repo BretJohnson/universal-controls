@@ -13,16 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\external\example-framework\src\ExampleFramework.App\ExampleFramework.App.csproj" />
     <ProjectReference Include="..\..\..\src\AnywhereUI.Analyzers\AnywhereUI.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     <ProjectReference Include="..\..\..\src\wpf\AnywhereUI.FrameworkForwarder\AnywhereUI.FrameworkForwarder.csproj" />
     <ProjectReference Include="..\..\controls\Microcharts\Microcharts.csproj" />
     <ProjectReference Include="..\..\controls\SimpleControls\SimpleControls.csproj" />
-  </ItemGroup>
-
-  <ItemGroup Condition="$(UseLocalExampleFramework) == ''">
-  </ItemGroup>
-  <ItemGroup Condition="$(UseLocalExampleFramework) != ''">
-    <ProjectReference Include="..\..\..\..\example-framework\src\ExampleFramework.App\ExampleFramework.App.csproj" />
   </ItemGroup>
 
 </Project>
