@@ -3,13 +3,13 @@ using System.Collections.Immutable;
 using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using AnywhereControls.SourceGenerator.UIFrameworks;
+using AnywhereUI.SourceGenerator.UIFrameworks;
 
-namespace AnywhereControls.SourceGenerator
+namespace AnywhereUI.SourceGenerator
 {
     public static class Utils
     {
-        public const string AnywhereControlsRootNamespace = "AnywhereControls";
+        public const string AnywhereControlsRootNamespace = "AnywhereUI";
 
         public static readonly SymbolDisplayFormat TypeFullNameSymbolDisplayFormat =
             new SymbolDisplayFormat(typeQualificationStyle: SymbolDisplayTypeQualificationStyle.NameAndContainingTypesAndNamespaces);
@@ -181,9 +181,9 @@ namespace AnywhereControls.SourceGenerator
         public static string GetNamespaceFullName(INamespaceSymbol namespce) => namespce.ToDisplayString(TypeFullNameSymbolDisplayFormat);
 
         /// <summary>
-        /// Return true if the namespace is under the specified prefix (e.g. "AnywhereControls.Shapes" is
-        /// under "AnywhereControls"). Also returns true if the namespace is the prefix itself
-        /// (e.g. "AnywhereControls" is under "AnywhereControls").
+        /// Return true if the namespace is under the specified prefix (e.g. "AnywhereUI.Shapes" is
+        /// under "AnywhereUI"). Also returns true if the namespace is the prefix itself
+        /// (e.g. "AnywhereUI" is under "AnywhereUI").
         /// </summary>
         /// <param name="namespaceName">namespace in question</param>
         /// <param name="prefixNamespaceName">potential namespace prefix</param>

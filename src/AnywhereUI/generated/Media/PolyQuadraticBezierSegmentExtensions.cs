@@ -1,6 +1,6 @@
 // This file is generated from IPolyQuadraticBezierSegment.cs. Update the source file to change its contents.
 
-namespace AnywhereControls.Media
+namespace AnywhereUI.Media
 {
     public static class PolyQuadraticBezierSegmentExtensions
     {

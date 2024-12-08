@@ -1,9 +1,9 @@
 // This file is generated from IBorder.cs. Update the source file to change its contents.
 
-using AnywhereControls.DefaultImplementations;
-using AnywhereControls.Media;
-using AnywhereControls.Mac.Media;
-using AnywhereControls.Controls;
+using AnywhereUI.DefaultImplementations;
+using AnywhereUI.Media;
+using AnywhereUI.Mac.Media;
+using AnywhereUI.Controls;
 
 namespace AnywhereControls.Mac.Controls
 {

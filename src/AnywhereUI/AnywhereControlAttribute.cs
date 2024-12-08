@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnywhereControls
+namespace AnywhereUI
 {
     /// <summary>
     /// Designate the class as a .NET Anwhere Control.

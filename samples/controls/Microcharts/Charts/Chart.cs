@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
-using AnywhereControls;
-using AnywhereControls.Controls;
+using AnywhereUI;
+using AnywhereUI.Controls;
 
 namespace Microcharts
 {

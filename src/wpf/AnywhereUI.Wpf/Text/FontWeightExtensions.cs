@@ -1,6 +1,6 @@
-using AnywhereControls.Text;
+using AnywhereUI.Text;
 
-namespace AnywhereControls.Wpf.Text
+namespace AnywhereUI.Wpf.Text
 {
     public static class FontWeightExtensions
     {

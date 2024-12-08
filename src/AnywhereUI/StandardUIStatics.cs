@@ -1,11 +1,11 @@
-using AnywhereControls.Controls;
-using AnywhereControls.Media;
-using AnywhereControls.Shapes;
-using ICanvas = AnywhereControls.Controls.ICanvas;
+using AnywhereUI.Controls;
+using AnywhereUI.Media;
+using AnywhereUI.Shapes;
+using ICanvas = AnywhereUI.Controls.ICanvas;
 
-namespace AnywhereControls
+namespace AnywhereUI
 {
-    public static class AnywhereControlsStatics
+    public static class AnywhereUIStatics
     {
         /*** UI Elements ***/
 

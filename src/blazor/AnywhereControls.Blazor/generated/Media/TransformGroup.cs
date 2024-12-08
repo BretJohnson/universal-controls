@@ -1,8 +1,8 @@
 // This file is generated from ITransformGroup.cs. Update the source file to change its contents.
 
-using AnywhereControls.DefaultImplementations;
+using AnywhereUI.DefaultImplementations;
 using System.Collections.Generic;
-using AnywhereControls.Media;
+using AnywhereUI.Media;
 
 namespace AnywhereControls.Blazor.Media
 {

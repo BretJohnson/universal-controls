@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace AnywhereControls.Controls
+namespace AnywhereUI.Controls
 {
     [StandardPanel]
     public interface IStack : IStackBase

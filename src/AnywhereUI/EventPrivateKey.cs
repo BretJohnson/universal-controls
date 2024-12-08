@@ -1,6 +1,6 @@
 // This code was adapted from the WPF source here: https://github.com/dotnet/wpf/blob/e6a8177202c8c584c4b8d532dd8bc95388d3a07b/src/Microsoft.DotNet.Wpf/src/PresentationCore/System/Windows/EventPrivateKey.cs
 
-namespace AnywhereControls;
+namespace AnywhereUI;
 
 /// <summary>
 ///     This class is meant to provide identification for Clr events whose handlers are stored into EventHandlersStore

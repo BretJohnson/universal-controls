@@ -1,6 +1,6 @@
 // This file is generated from IBrush.cs. Update the source file to change its contents.
 
-using AnywhereControls.Media;
+using AnywhereUI.Media;
 
 namespace AnywhereControls.Mac.Media
 {

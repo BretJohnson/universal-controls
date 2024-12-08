@@ -1,4 +1,4 @@
-﻿namespace AnywhereControls.Media
+﻿namespace AnywhereUI.Media
 {
     [UIModelObject]
     public interface IPolyLineSegment : IPathSegment

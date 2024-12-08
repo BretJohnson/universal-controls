@@ -2,7 +2,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace AnywhereControls.Wpf
+namespace AnywhereUI.Wpf
 {
     internal struct SizeInPixels
     {

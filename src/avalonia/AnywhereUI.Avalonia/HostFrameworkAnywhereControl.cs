@@ -1,5 +1,5 @@
-﻿using AnywhereControlsAvalonia;
-using AnywhereControlsAvalonia.NativeVisualFramework;
+﻿using AnywhereUIAvalonia;
+using AnywhereUIAvalonia.NativeVisualFramework;
 using Avalonia.Controls;
 
 namespace AnywhereControls.Controls;

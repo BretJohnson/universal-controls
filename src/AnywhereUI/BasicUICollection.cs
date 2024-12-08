@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-namespace AnywhereControls
+namespace AnywhereUI
 {
     public class BasicUICollection<T> : IUICollection<T>, IList
     {

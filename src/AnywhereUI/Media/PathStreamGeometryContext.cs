@@ -10,10 +10,10 @@
 
 using System.Collections.Generic;
 using System.Diagnostics;
-using static AnywhereControls.AnywhereControlsStatics;
+using static AnywhereUI.AnywhereUIStatics;
 
 
-namespace AnywhereControls.Media
+namespace AnywhereUI.Media
 {
     public class PathStreamGeometryContext : StreamGeometryContext
     {

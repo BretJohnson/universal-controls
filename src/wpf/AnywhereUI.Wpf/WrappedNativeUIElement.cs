@@ -1,8 +1,8 @@
 ﻿using System;
-using AnywhereControls.Input;
+using AnywhereUI.Input;
 using FrameworkElement = System.Windows.FrameworkElement;
 
-namespace AnywhereControls.Wpf
+namespace AnywhereUI.Wpf
 {
     /// <summary>
     /// This class is for UI controls passed in from the host, for native WPF controls (not

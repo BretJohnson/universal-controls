@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace AnywhereControls.SourceGenerator
+namespace AnywhereUI.SourceGenerator
 {
     public class Context
     {

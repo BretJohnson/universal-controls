@@ -1,4 +1,4 @@
-﻿namespace AnywhereControls
+﻿namespace AnywhereUI
 {
     /// <summary>
     /// These names must match the CommonUI.Colors statics.

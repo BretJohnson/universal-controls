@@ -1,9 +1,9 @@
 using System.ComponentModel;
 using System.Globalization;
-using AnywhereControls.Converters;
-using AnywhereControls.Maui.Media;
+using AnywhereUI.Converters;
+using AnywhereUI.Maui.Media;
 
-namespace AnywhereControls.Maui.Converters
+namespace AnywhereUI.Maui.Converters
 {
     public class BrushTypeConverter : TypeConverterBase
     {

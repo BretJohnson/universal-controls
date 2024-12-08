@@ -1,9 +1,9 @@
 // This file is generated from IShape.cs. Update the source file to change its contents.
 
-using AnywhereControls;
-using AnywhereControls.Media;
-using AnywhereControlsAvalonia.Media;
-using AnywhereControls.Shapes;
+using AnywhereUI;
+using AnywhereUI.Media;
+using AnywhereUIAvalonia.Media;
+using AnywhereUI.Shapes;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
 namespace AnywhereControlsAvalonia.Shapes

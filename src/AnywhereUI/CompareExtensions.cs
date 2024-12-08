@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnywhereControls
+namespace AnywhereUI
 {
     public static class CompareExtensions
     {

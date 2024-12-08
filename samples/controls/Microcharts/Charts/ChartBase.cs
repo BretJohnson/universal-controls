@@ -9,13 +9,13 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-using AnywhereControls;
-using AnywhereControls.Controls;
-using AnywhereControls.Media;
-using AnywhereControls.Shapes;
+using AnywhereUI;
+using AnywhereUI.Controls;
+using AnywhereUI.Media;
+using AnywhereUI.Shapes;
 using SkiaSharp;
-using static AnywhereControls.AnywhereControlsStatics;
-using ICanvas = AnywhereControls.Controls.ICanvas;
+using static AnywhereUI.AnywhereUIStatics;
+using ICanvas = AnywhereUI.Controls.ICanvas;
 
 namespace Microcharts
 {

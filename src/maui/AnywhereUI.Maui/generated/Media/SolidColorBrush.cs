@@ -1,11 +1,11 @@
 // This file is generated from ISolidColorBrush.cs. Update the source file to change its contents.
 
-using AnywhereControls.Media;
+using AnywhereUI.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 using Colors = AnywhereControls.Colors;
 using Color = AnywhereControls.Color;
 
-namespace AnywhereControls.Maui.Media
+namespace AnywhereUI.Maui.Media
 {
     public class SolidColorBrush : Brush, ISolidColorBrush
     {

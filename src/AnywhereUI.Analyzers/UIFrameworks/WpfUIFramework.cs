@@ -1,4 +1,4 @@
-namespace AnywhereControls.SourceGenerator.UIFrameworks
+namespace AnywhereUI.SourceGenerator.UIFrameworks
 {
     public class WpfUIFramework : XamlUIFramework
     {
@@ -15,7 +15,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
 
         public override string NativeUIElementType => "System.Windows.FrameworkElement";
         public override string WrapperSuffix => "Wpf";
-        protected override string FontFamilyDefaultValue => "AnywhereControls.Wpf.Text.FontFamilyExtensions.DefaultFontFamily";
+        protected override string FontFamilyDefaultValue => "AnywhereUI.Wpf.Text.FontFamilyExtensions.DefaultFontFamily";
 
 
         public override void GenerateStandardPanelLayoutMethods(string layoutManagerTypeName, Source methods)
@@ -67,7 +67,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
         public override void GenerateBuiltInIUIElementPartialClasses()
         {
             GenerateBuiltInIUIElementPartialClass(new TypeName(RootNamespace, "BuiltInUIElement"));
-            GenerateBuiltInIUIElementPartialClass(new TypeName("AnywhereControls.Controls", "HostFrameworkAnywhereControl"));
+            GenerateBuiltInIUIElementPartialClass(new TypeName("AnywhereUI.Controls", "HostFrameworkAnywhereControl"));
         }
 
         private void GenerateBuiltInIUIElementPartialClass(TypeName typeName)
@@ -87,7 +87,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             Source methods = classSource.NonstaticMethods;
 
             classSource.Usings.AddTypeAlias("Visibility = System.Windows.Visibility");
-            classSource.Usings.AddNamespace("AnywhereControls.Wpf");
+            classSource.Usings.AddNamespace("AnywhereUI.Wpf");
 
             // TODO: Error if appropriate when set to Visibility.Hidden
 
@@ -143,8 +143,8 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             GenerateEventHandlersStoreSupport(classSource);
 
             classSource.Usings.AddNamespace("System.Windows.Input");
-            classSource.Usings.AddNamespace("AnywhereControls.Input");
-            classSource.Usings.AddNamespace("AnywhereControls.Wpf.Input");
+            classSource.Usings.AddNamespace("AnywhereUI.Input");
+            classSource.Usings.AddNamespace("AnywhereUI.Wpf.Input");
 
             GenerateHostFrameworkMappedEvent(classSource, eventName: "PointerEntered", handlerType: "PointerEventHandler",
                 hostFrameworkEvent: "MouseEnter", hostFrameworkEventArgsType: "MouseEventArgs", mappedEventArgsType: "MousePointerEventArgs");

@@ -1,4 +1,4 @@
-namespace AnywhereControls.Media
+namespace AnywhereUI.Media
 {
     public enum GradientSpreadMethod
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace AnywhereControls
+namespace AnywhereUI
 {
     /// <summary>
     /// Describes the kind of value that a GridLength object is holding.

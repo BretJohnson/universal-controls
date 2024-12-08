@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace AnywhereControls.Converters
+namespace AnywhereUI.Converters
 {
     public static class PointsConverter
     {

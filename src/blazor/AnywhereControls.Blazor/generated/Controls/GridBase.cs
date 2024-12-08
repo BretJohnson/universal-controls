@@ -1,8 +1,8 @@
 // This file is generated from IGridBase.cs. Update the source file to change its contents.
 
-using AnywhereControls.DefaultImplementations;
+using AnywhereUI.DefaultImplementations;
 using Microsoft.AspNetCore.Components;
-using AnywhereControls.Controls;
+using AnywhereUI.Controls;
 
 namespace AnywhereControls.Blazor.Controls
 {

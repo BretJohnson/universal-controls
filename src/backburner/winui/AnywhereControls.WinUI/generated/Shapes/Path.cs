@@ -1,8 +1,8 @@
 // This file is generated from IPath.cs. Update the source file to change its contents.
 
-using AnywhereControls.Media;
-using AnywhereControls.WinUI.Media;
-using AnywhereControls.Shapes;
+using AnywhereUI.Media;
+using AnywhereUI.WinUI.Media;
+using AnywhereUI.Shapes;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
 namespace AnywhereControls.WinUI.Shapes

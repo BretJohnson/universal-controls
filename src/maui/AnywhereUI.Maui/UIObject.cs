@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Maui.Controls;
 
-namespace AnywhereControls.Maui
+namespace AnywhereUI.Maui
 {
     /// <summary>
     /// This is the base for predefined non-view bindable objects

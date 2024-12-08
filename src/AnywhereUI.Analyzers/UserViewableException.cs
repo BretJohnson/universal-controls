@@ -1,7 +1,7 @@
 using System;
 using Microsoft.CodeAnalysis;
 
-namespace AnywhereControls.SourceGenerator
+namespace AnywhereUI.SourceGenerator
 {
     public class UserViewableException : Exception
     {

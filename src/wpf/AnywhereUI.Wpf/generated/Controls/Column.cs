@@ -1,9 +1,9 @@
 // This file is generated from IColumn.cs. Update the source file to change its contents.
 
-using AnywhereControls.Controls;
+using AnywhereUI.Controls;
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace AnywhereControls.Wpf.Controls
+namespace AnywhereUI.Wpf.Controls
 {
     public class Column : Panel, IColumn
     {

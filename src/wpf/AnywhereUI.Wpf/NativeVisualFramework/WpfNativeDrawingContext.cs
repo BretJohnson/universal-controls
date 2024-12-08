@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Media;
-using AnywhereControls.Controls;
-using AnywhereControls.Media;
-using AnywhereControls.Media.Wpf;
-using AnywhereControls.Shapes;
-using AnywhereControls.Wpf.Media;
-using AnywhereControls.Wpf.Text;
-using Pen = AnywhereControls.Media.Pen;
+using AnywhereUI.Controls;
+using AnywhereUI.Media;
+using AnywhereUI.Media.Wpf;
+using AnywhereUI.Shapes;
+using AnywhereUI.Wpf.Media;
+using AnywhereUI.Wpf.Text;
+using Pen = AnywhereUI.Media.Pen;
 
-namespace AnywhereControls.Wpf.NativeVisualFramework
+namespace AnywhereUI.Wpf.NativeVisualFramework
 {
     public class WpfNativeDrawingContext : IDrawingContext
     {

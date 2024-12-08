@@ -1,7 +1,7 @@
 using System.ComponentModel;
-using AnywhereControls.Media;
+using AnywhereUI.Media;
 
-namespace AnywhereControls.Controls
+namespace AnywhereUI.Controls
 {
     [UIModelObject]
     public interface IBorder : IUIElement

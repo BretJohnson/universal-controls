@@ -1,9 +1,9 @@
 // This file is generated from IBorder.cs. Update the source file to change its contents.
 
-using AnywhereControls;
-using AnywhereControls.Media;
-using AnywhereControlsAvalonia.Media;
-using AnywhereControls.Controls;
+using AnywhereUI;
+using AnywhereUI.Media;
+using AnywhereUIAvalonia.Media;
+using AnywhereUI.Controls;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
 namespace AnywhereControlsAvalonia.Controls

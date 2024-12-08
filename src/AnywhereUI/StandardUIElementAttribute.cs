@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnywhereControls
+namespace AnywhereUI
 {
     /// <summary>
     /// Designate interface as a Standard UI Element, triggering source generation

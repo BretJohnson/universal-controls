@@ -1,4 +1,4 @@
-﻿namespace AnywhereControls.SourceGenerator.UIFrameworks
+﻿namespace AnywhereUI.SourceGenerator.UIFrameworks
 {
 #if LATER
     public class DataModelUIFramework : UIFramework
@@ -8,7 +8,7 @@
         }
 
         public override string ProjectBaseDirectory => Path.Combine("StandardUI", "DataModel");
-        public override string RootNamespace => "AnywhereControls.DataModel";
+        public override string RootNamespace => "AnywhereUI.DataModel";
         public override string FrameworkTypeForUIElementAttachedTarget => "ObjectWithCascadingNotifications";
         public override string NativeUIElementType => "ObjectWithCascadingNotifications";
         //public override string? DefaultBaseClassName => "ObjectWithCascadingNotifications";

@@ -1,9 +1,9 @@
 // This file is generated from IPath.cs. Update the source file to change its contents.
 
-using AnywhereControls.DefaultImplementations;
-using AnywhereControls.Media;
-using AnywhereControls.WinForms.Media;
-using AnywhereControls.Shapes;
+using AnywhereUI.DefaultImplementations;
+using AnywhereUI.Media;
+using AnywhereUI.WinForms.Media;
+using AnywhereUI.Shapes;
 
 namespace AnywhereControls.WinForms.Shapes
 {

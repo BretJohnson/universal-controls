@@ -1,4 +1,4 @@
-using AnywhereControls;
+using AnywhereUI;
 
 namespace AnywhereControlsAvalonia
 {

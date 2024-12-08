@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Globalization;
 using Microsoft.CodeAnalysis;
 
-namespace AnywhereControls.SourceGenerator.UIFrameworks
+namespace AnywhereUI.SourceGenerator.UIFrameworks
 {
     public abstract class UIFramework
     {
@@ -18,8 +18,8 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
         public virtual bool UseNewNamingConvention => false;
         public abstract string Name { get; }
         public virtual string NamespaceSuffix => Name;
-        public virtual string ProjectBaseDirectory => $"AnywhereControls.{Name}";
-        public string RootNamespace => UseNewNamingConvention ? $"AnywhereControls{NamespaceSuffix}" : $"AnywhereControls.{NamespaceSuffix}";
+        public virtual string ProjectBaseDirectory => $"AnywhereUI.{Name}";
+        public string RootNamespace => UseNewNamingConvention ? $"AnywhereUI{NamespaceSuffix}" : $"AnywhereUI.{NamespaceSuffix}";
         public abstract string FrameworkTypeForUIElementAttachedTarget { get; }
         public abstract string NativeUIElementType { get; }
         public virtual TypeName BuiltInUIElementBaseClassType => new(RootNamespace, "BuiltInUIElement");
@@ -56,8 +56,8 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             if (!Utils.IsNamespaceUnder(namespaceName, Utils.AnywhereControlsRootNamespace))
                 return UseNewNamingConvention ? $"{namespaceName}{NamespaceSuffix}" : $"{namespaceName}.{NamespaceSuffix}";
 
-            // Map e.g. AnywhereControls.Media source namespace => AnywhereControls.Wpf.Media destination namespace
-            // If the source namespace is just AnywhereControls, don't change anything here
+            // Map e.g. AnywhereUI.Media source namespace => AnywhereUI.Wpf.Media destination namespace
+            // If the source namespace is just AnywhereUI, don't change anything here
             string? childNamespaceName = Utils.GetChildNamespaceName(namespaceName);
             if (childNamespaceName == null)
                 return RootNamespace;
@@ -164,7 +164,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                 {
                     if (value is string stringArgumentValue)
                     {
-                        if (typeFullName == "AnywhereControls.Point" && stringArgumentValue == "0.5,0.5")
+                        if (typeFullName == "AnywhereUI.Point" && stringArgumentValue == "0.5,0.5")
                             return $"{OutputTypeName(propertyType)}.CenterDefault";
                         else if (stringArgumentValue == "")
                             return "\"\"";
@@ -203,9 +203,9 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
                     // with UI framework type names.
                     string fullTypeName = Utils.GetTypeFullName(type);
                     string typeName = fullTypeName;
-                    if (fullTypeName.StartsWith("AnywhereControls"))
+                    if (fullTypeName.StartsWith("AnywhereUI"))
                     {
-                        if (fullTypeName != "AnywhereControls.TextWrapping")
+                        if (fullTypeName != "AnywhereUI.TextWrapping")
                             typeName = type.Name;
                     }
 
@@ -227,20 +227,20 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             if (Utils.IsUICollectionType(Context, propertyType))
                 return "null";
 
-            if (typeFullName == "AnywhereControls.Point")
+            if (typeFullName == "AnywhereUI.Point")
                 return "default(Point)";
-            else if (typeFullName == "AnywhereControls.Size")
+            else if (typeFullName == "AnywhereUI.Size")
                 return "default(Size)";
-            else if (typeFullName == "AnywhereControls.Points" ||
-                typeFullName == "AnywhereControls.Thickness" ||
-                typeFullName == "AnywhereControls.CornerRadius" ||
-                typeFullName == "AnywhereControls.Text.FontWeight" ||
-                typeFullName == "AnywhereControls.GridLength")
+            else if (typeFullName == "AnywhereUI.Points" ||
+                typeFullName == "AnywhereUI.Thickness" ||
+                typeFullName == "AnywhereUI.CornerRadius" ||
+                typeFullName == "AnywhereUI.Text.FontWeight" ||
+                typeFullName == "AnywhereUI.GridLength")
             {
                 return $"{GetTypeNameWrapIfNeeded(propertyType)}.Default";
             }
 
-            if (typeFullName == "AnywhereControls.Media.FontFamily")
+            if (typeFullName == "AnywhereUI.Media.FontFamily")
                 return FontFamilyDefaultValue;
 
             // TODO: Implement this

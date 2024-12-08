@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace AnywhereControls.SourceGenerator
+namespace AnywhereUI.SourceGenerator
 {
     public class Source
     {

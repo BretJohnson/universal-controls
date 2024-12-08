@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.CodeAnalysis;
 
-namespace AnywhereControls.SourceGenerator
+namespace AnywhereUI.SourceGenerator
 {
     public static class UserVisibleErrors
     {

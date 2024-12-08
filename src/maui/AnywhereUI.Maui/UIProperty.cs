@@ -1,6 +1,6 @@
 using Microsoft.Maui.Controls;
 
-namespace AnywhereControls.Maui
+namespace AnywhereUI.Maui
 {
     public class UIProperty : IUIProperty
     {

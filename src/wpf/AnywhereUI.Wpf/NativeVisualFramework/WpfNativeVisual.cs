@@ -1,6 +1,6 @@
 using System.Windows.Media;
 
-namespace AnywhereControls.Wpf.NativeVisualFramework
+namespace AnywhereUI.Wpf.NativeVisualFramework
 {
     public class WpfNativeVisual : IVisual
     {

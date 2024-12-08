@@ -1,9 +1,9 @@
 // This file is generated from IRadialGradientBrush.cs. Update the source file to change its contents.
 
-using AnywhereControls.Media;
+using AnywhereUI.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace AnywhereControls.Maui.Media
+namespace AnywhereUI.Maui.Media
 {
     public class RadialGradientBrush : GradientBrush, IRadialGradientBrush
     {

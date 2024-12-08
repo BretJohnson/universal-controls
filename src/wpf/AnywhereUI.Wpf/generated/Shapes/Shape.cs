@@ -1,11 +1,11 @@
 // This file is generated from IShape.cs. Update the source file to change its contents.
 
-using AnywhereControls.Media;
-using AnywhereControls.Wpf.Media;
-using AnywhereControls.Shapes;
+using AnywhereUI.Media;
+using AnywhereUI.Wpf.Media;
+using AnywhereUI.Shapes;
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace AnywhereControls.Wpf.Shapes
+namespace AnywhereUI.Wpf.Shapes
 {
     public class Shape : BuiltInUIElement, IShape
     {

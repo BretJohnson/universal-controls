@@ -1,9 +1,9 @@
 // This file is generated from IRectangle.cs. Update the source file to change its contents.
 
-using AnywhereControls.Shapes;
+using AnywhereUI.Shapes;
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace AnywhereControls.Wpf.Shapes
+namespace AnywhereUI.Wpf.Shapes
 {
     public class Rectangle : Shape, IRectangle, IDrawable
     {

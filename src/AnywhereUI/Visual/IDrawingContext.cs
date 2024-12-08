@@ -1,9 +1,9 @@
 using System;
-using AnywhereControls.Controls;
-using AnywhereControls.Media;
-using AnywhereControls.Shapes;
+using AnywhereUI.Controls;
+using AnywhereUI.Media;
+using AnywhereUI.Shapes;
 
-namespace AnywhereControls
+namespace AnywhereUI
 {
     /// <summary>
     /// A IDrawingContext turns cross platform vector graphics into an IVisual, a platform specific representation those graphics.

@@ -1,4 +1,4 @@
-﻿namespace AnywhereControls.Controls
+﻿namespace AnywhereUI.Controls
 {
     [StandardPanel]
     public interface ICanvas : IPanel

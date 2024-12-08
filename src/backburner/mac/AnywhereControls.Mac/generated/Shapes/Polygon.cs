@@ -1,8 +1,8 @@
 // This file is generated from IPolygon.cs. Update the source file to change its contents.
 
-using AnywhereControls.DefaultImplementations;
-using AnywhereControls.Media;
-using AnywhereControls.Shapes;
+using AnywhereUI.DefaultImplementations;
+using AnywhereUI.Media;
+using AnywhereUI.Shapes;
 
 namespace AnywhereControls.Mac.Shapes
 {

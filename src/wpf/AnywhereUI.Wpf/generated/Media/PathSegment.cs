@@ -1,8 +1,8 @@
 // This file is generated from IPathSegment.cs. Update the source file to change its contents.
 
-using AnywhereControls.Media;
+using AnywhereUI.Media;
 
-namespace AnywhereControls.Wpf.Media
+namespace AnywhereUI.Wpf.Media
 {
     public class PathSegment : UIObject, IPathSegment
     {

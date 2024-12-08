@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using AnywhereControls.Controls;
-using AnywhereControls.Media;
-using AnywhereControls.Shapes;
-using AnywhereControls.Mac.Controls;
-using AnywhereControls.Mac.Media;
-using AnywhereControls.Mac.Shapes;
+using AnywhereUI.Controls;
+using AnywhereUI.Media;
+using AnywhereUI.Shapes;
+using AnywhereUI.Mac.Controls;
+using AnywhereUI.Mac.Media;
+using AnywhereUI.Mac.Shapes;
 
 namespace AnywhereControls.Mac
 {

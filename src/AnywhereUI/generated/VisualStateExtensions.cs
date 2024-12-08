@@ -1,6 +1,6 @@
 // This file is generated from IVisualState.cs. Update the source file to change its contents.
 
-namespace AnywhereControls
+namespace AnywhereUI
 {
     public static class VisualStateExtensions
     {

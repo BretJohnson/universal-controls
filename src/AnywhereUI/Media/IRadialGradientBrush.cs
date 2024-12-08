@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace AnywhereControls.Media
+namespace AnywhereUI.Media
 {
     [UIModelObject]
     public interface IRadialGradientBrush : IGradientBrush

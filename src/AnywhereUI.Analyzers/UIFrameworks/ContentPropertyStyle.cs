@@ -1,4 +1,4 @@
-﻿namespace AnywhereControls.SourceGenerator.UIFrameworks;
+﻿namespace AnywhereUI.SourceGenerator.UIFrameworks;
 
 public enum ContentPropertyStyle
 {

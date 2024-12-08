@@ -1,4 +1,4 @@
-﻿namespace AnywhereControls.Maui
+﻿namespace AnywhereUI.Maui
 {
     public class MauiHostFramework : IHostFramework
     {

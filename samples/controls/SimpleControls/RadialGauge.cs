@@ -1,8 +1,8 @@
-﻿using AnywhereControls;
-using AnywhereControls.Controls;
-using AnywhereControls.Media;
-using AnywhereControls.Shapes;
-using static AnywhereControls.AnywhereControlsStatics;
+﻿using AnywhereUI;
+using AnywhereUI.Controls;
+using AnywhereUI.Media;
+using AnywhereUI.Shapes;
+using static AnywhereUI.AnywhereUIStatics;
 
 namespace SimpleControls
 {

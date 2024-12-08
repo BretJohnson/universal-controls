@@ -2,7 +2,7 @@
 
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace AnywhereControls.Maui
+namespace AnywhereUI.Maui
 {
     public class VisualState : UIObject, IVisualState
     {

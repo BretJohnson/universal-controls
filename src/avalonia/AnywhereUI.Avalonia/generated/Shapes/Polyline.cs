@@ -1,8 +1,8 @@
 // This file is generated from IPolyline.cs. Update the source file to change its contents.
 
-using AnywhereControls;
-using AnywhereControls.Media;
-using AnywhereControls.Shapes;
+using AnywhereUI;
+using AnywhereUI.Media;
+using AnywhereUI.Shapes;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
 namespace AnywhereControlsAvalonia.Shapes

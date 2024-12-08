@@ -1,11 +1,11 @@
 // This file is generated from IBorder.cs. Update the source file to change its contents.
 
-using AnywhereControls.Media;
-using AnywhereControls.Wpf.Media;
-using AnywhereControls.Controls;
+using AnywhereUI.Media;
+using AnywhereUI.Wpf.Media;
+using AnywhereUI.Controls;
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace AnywhereControls.Wpf.Controls
+namespace AnywhereUI.Wpf.Controls
 {
     public class Border : BuiltInUIElement, IBorder
     {

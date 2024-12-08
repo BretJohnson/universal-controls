@@ -1,6 +1,6 @@
 using System;
 
-namespace AnywhereControls.Media.Wpf
+namespace AnywhereUI.Media.Wpf
 {
     public static class TransformExtensions
     {

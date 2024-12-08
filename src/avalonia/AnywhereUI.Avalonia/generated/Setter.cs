@@ -1,6 +1,6 @@
 // This file is generated from ISetter.cs. Update the source file to change its contents.
 
-using AnywhereControls;
+using AnywhereUI;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
 namespace AnywhereControlsAvalonia

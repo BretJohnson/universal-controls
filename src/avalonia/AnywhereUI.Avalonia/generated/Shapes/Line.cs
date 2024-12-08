@@ -1,7 +1,7 @@
 // This file is generated from ILine.cs. Update the source file to change its contents.
 
-using AnywhereControls;
-using AnywhereControls.Shapes;
+using AnywhereUI;
+using AnywhereUI.Shapes;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
 namespace AnywhereControlsAvalonia.Shapes

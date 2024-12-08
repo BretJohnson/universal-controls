@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnywhereControls
+namespace AnywhereUI
 {
     [AttributeUsage(AttributeTargets.Interface)]
     public class UIObjectAttribute : Attribute

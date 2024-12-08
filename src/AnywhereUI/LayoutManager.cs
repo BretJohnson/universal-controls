@@ -1,6 +1,6 @@
 using System;
 
-namespace AnywhereControls.Controls
+namespace AnywhereUI.Controls
 {
     public abstract class LayoutManager<TContainerUIElement> where TContainerUIElement : IUIElement
     {

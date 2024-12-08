@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Input;
-using AnywhereControls.Input;
+using AnywhereUI.Input;
 
-namespace AnywhereControls.Wpf.Input;
+namespace AnywhereUI.Wpf.Input;
 
 internal class MousePointerEventArgs : HandleableRoutedEventArgs<MouseEventArgs>, IPointerEventArgs
 {
