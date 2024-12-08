@@ -1,8 +1,8 @@
 // This file is generated from IPanel.cs. Update the source file to change its contents.
 
-using AnywhereControls;
+using AnywhereUI;
 using Avalonia.Metadata;
-using AnywhereControls.Controls;
+using AnywhereUI.Controls;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
 namespace AnywhereControlsAvalonia.Controls

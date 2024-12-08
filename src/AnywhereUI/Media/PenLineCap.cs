@@ -1,4 +1,4 @@
-namespace AnywhereControls.Media
+namespace AnywhereUI.Media
 {
     /// <summary>
     /// Describes the shape at the end of a line or segment.

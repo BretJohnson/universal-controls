@@ -1,9 +1,9 @@
 // This file is generated from ILine.cs. Update the source file to change its contents.
 
-using AnywhereControls.Shapes;
+using AnywhereUI.Shapes;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace AnywhereControls.Maui.Shapes
+namespace AnywhereUI.Maui.Shapes
 {
     public class Line : Shape, ILine, IDrawable
     {

@@ -1,8 +1,8 @@
 // This file is generated from IPolyline.cs. Update the source file to change its contents.
 
-using AnywhereControls.Media;
+using AnywhereUI.Media;
 
-namespace AnywhereControls.Shapes
+namespace AnywhereUI.Shapes
 {
     public static class PolylineExtensions
     {

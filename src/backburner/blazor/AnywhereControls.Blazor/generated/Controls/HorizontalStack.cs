@@ -1,7 +1,7 @@
 // This file is generated from IHorizontalStack.cs. Update the source file to change its contents.
 
 using CommonUI;
-using AnywhereControls.Controls;
+using AnywhereUI.Controls;
 
 namespace AnywhereControls.Blazor.Controls
 {

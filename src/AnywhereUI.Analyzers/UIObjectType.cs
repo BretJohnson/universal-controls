@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.CodeAnalysis;
-using AnywhereControls.SourceGenerator.UIFrameworks;
+using AnywhereUI.SourceGenerator.UIFrameworks;
 
-namespace AnywhereControls.SourceGenerator
+namespace AnywhereUI.SourceGenerator
 {
     public class UIObjectType
     {
@@ -163,7 +163,7 @@ namespace AnywhereControls.SourceGenerator
 
             if (IsDrawableObject)
             {
-                mainClassSource.Usings.AddNamespace("AnywhereControls");
+                mainClassSource.Usings.AddNamespace("AnywhereUI");
                 mainClassSource.DerivedFrom += ", IDrawable";
             }
 
@@ -289,9 +289,9 @@ namespace AnywhereControls.SourceGenerator
         private static void GenerateTypeProperties(UIObjectType uiObjectType, UIFramework uiFramework, ISet<string>? noAutoGenerationProperties,
             List<Property> properties, ClassSource classSource)
         {
-            if (uiObjectType.IsThisType("AnywhereControls.Controls.ICanvas"))
+            if (uiObjectType.IsThisType("AnywhereUI.Controls.ICanvas"))
             {
-                classSource.Usings.AddTypeAlias("ICanvas = AnywhereControls.Controls.ICanvas");
+                classSource.Usings.AddTypeAlias("ICanvas = AnywhereUI.Controls.ICanvas");
             }
 
             foreach (IPropertySymbol propertySymbol in uiObjectType.Type.GetMembers().Where(member => member.Kind == SymbolKind.Property))

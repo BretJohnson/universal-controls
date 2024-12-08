@@ -1,6 +1,6 @@
 // This file is generated from IRowDefinition.cs. Update the source file to change its contents.
 
-using AnywhereControls.Controls;
+using AnywhereUI.Controls;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
 namespace AnywhereControls.WinUI.Controls

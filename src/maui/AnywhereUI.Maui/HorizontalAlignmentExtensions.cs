@@ -1,6 +1,6 @@
 using System;
 
-namespace AnywhereControls.Maui
+namespace AnywhereUI.Maui
 {
     public static class HorizontalAlignmentExtensions
     {

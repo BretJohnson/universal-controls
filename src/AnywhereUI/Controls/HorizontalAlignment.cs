@@ -1,4 +1,4 @@
-﻿namespace AnywhereControls.Controls
+﻿namespace AnywhereUI.Controls
 {
     /// <summary>
     /// The different orientations that a control or layout can have.

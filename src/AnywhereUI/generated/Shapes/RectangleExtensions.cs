@@ -1,6 +1,6 @@
 // This file is generated from IRectangle.cs. Update the source file to change its contents.
 
-namespace AnywhereControls.Shapes
+namespace AnywhereUI.Shapes
 {
     public static class RectangleExtensions
     {

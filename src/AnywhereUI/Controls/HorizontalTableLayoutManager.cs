@@ -1,4 +1,4 @@
-namespace AnywhereControls.Controls
+namespace AnywhereUI.Controls
 {
 #if false
     public class HorizontalTableLayoutManager : GridBaseLayoutManager<IHorizontalTable>

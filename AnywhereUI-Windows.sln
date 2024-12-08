@@ -59,6 +59,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisualTestUtils.AppConnecto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisualTestUtils", "..\example-framework\src\visual-test-utils\VisualTestUtils\VisualTestUtils.csproj", "{1582DD9A-A487-4B52-8C4C-5472A719E147}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleFramework.App", "..\example-framework\src\ExampleFramework.App\ExampleFramework.App.csproj", "{B0F087E8-B945-4716-8375-73CE90A048E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +141,10 @@ Global
 		{1582DD9A-A487-4B52-8C4C-5472A719E147}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1582DD9A-A487-4B52-8C4C-5472A719E147}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1582DD9A-A487-4B52-8C4C-5472A719E147}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0F087E8-B945-4716-8375-73CE90A048E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0F087E8-B945-4716-8375-73CE90A048E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0F087E8-B945-4716-8375-73CE90A048E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0F087E8-B945-4716-8375-73CE90A048E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -159,6 +165,7 @@ Global
 		{DADC2D93-6564-4097-BFFF-6E6922D4A10E} = {C58E6DED-A59F-410B-96D9-BC7A30958BCC}
 		{4C2A5126-48C6-4FD4-8595-1DB1D0A059C8} = {C58E6DED-A59F-410B-96D9-BC7A30958BCC}
 		{1582DD9A-A487-4B52-8C4C-5472A719E147} = {C58E6DED-A59F-410B-96D9-BC7A30958BCC}
+		{B0F087E8-B945-4716-8375-73CE90A048E8} = {C58E6DED-A59F-410B-96D9-BC7A30958BCC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5981247F-FDA6-460F-8B83-6AFBEE114226}

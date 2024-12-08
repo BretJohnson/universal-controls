@@ -2,12 +2,13 @@ using System.Windows;
 using System.Windows.Controls;
 using Microcharts;
 using Microcharts.Wpf;
-using AnywhereControls;
-using AnywhereControls.Wpf;
-using AnywhereControls.Wpf.NativeVisualFramework;
+using AnywhereUI;
+using AnywhereUI.Wpf;
+using AnywhereUI.Wpf.NativeVisualFramework;
 using SimpleControls;
 using SimpleControls.Wpf;
-using ExampleFramework.Tooling;
+using ExampleFramework;
+using ExampleFramework.App;
 
 // Import our sample controls. This triggers source generation, turning them into WPF controls.
 // To see the generated source, in Solution Explorer look under
@@ -36,15 +37,15 @@ namespace WpfHost
 
         private void InitalizeExamples()
         {
-            UIComponents uiComponents = new UIComponents();
+            AppUIComponents uiComponents = new AppUIComponents();
 
             uiComponents.AddFromAssembly(typeof(SimpleControlsControlLibrary).Assembly);
             uiComponents.AddFromAssembly(typeof(MicrochartsControlLibrary).Assembly);
 
             int rowIndex = 0;
-            foreach (UIComponent uiComponent in uiComponents.Components)
+            foreach (AppUIComponent uiComponent in uiComponents.Components)
             {
-                foreach (UIExample uiExample in uiComponent.Examples)
+                foreach (AppUIExample uiExample in uiComponent.Examples)
                 {
                     object control = uiExample.Create();
 
@@ -56,7 +57,7 @@ namespace WpfHost
 
                     var descriptionText = new TextBlock()
                     {
-                        Text = uiExample.Title,
+                        Text = uiExample.DisplayName,
                         Padding = new System.Windows.Thickness(10.0),
                         VerticalAlignment = System.Windows.VerticalAlignment.Center,
                     };

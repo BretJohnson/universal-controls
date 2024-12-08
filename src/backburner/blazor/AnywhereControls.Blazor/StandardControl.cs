@@ -1,5 +1,5 @@
 using System;
-using AnywhereControls.Controls;
+using AnywhereUI.Controls;
 using CommonUI;
 
 namespace AnywhereControls.Blazor.NativeVisualFramework

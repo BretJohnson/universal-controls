@@ -1,10 +1,10 @@
 // This file is generated from ICanvas.cs. Update the source file to change its contents.
 
-using AnywhereControls.Controls;
-using ICanvas = AnywhereControls.Controls.ICanvas;
+using AnywhereUI.Controls;
+using ICanvas = AnywhereUI.Controls.ICanvas;
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace AnywhereControls.Wpf.Controls
+namespace AnywhereUI.Wpf.Controls
 {
     public class Canvas : Panel, ICanvas
     {

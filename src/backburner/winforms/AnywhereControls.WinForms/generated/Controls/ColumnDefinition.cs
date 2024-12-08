@@ -1,7 +1,7 @@
 // This file is generated from IColumnDefinition.cs. Update the source file to change its contents.
 
-using AnywhereControls.DefaultImplementations;
-using AnywhereControls.Controls;
+using AnywhereUI.DefaultImplementations;
+using AnywhereUI.Controls;
 
 namespace AnywhereControls.WinForms.Controls
 {

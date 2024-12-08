@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AnywhereControls;
+namespace AnywhereUI;
 
 public readonly struct Points
 {

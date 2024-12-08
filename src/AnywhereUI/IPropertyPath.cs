@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace AnywhereControls
+namespace AnywhereUI
 {
     /// <summary>
     /// Implements a data structure for describing a property as a path below another property, or

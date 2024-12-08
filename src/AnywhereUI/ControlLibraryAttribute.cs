@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnywhereControls
+namespace AnywhereUI
 {
     /// <summary>
     /// Designate the assembly as containing .NET Anywhere Controls and specify

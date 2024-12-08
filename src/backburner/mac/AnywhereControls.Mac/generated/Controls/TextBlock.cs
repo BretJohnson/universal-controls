@@ -1,10 +1,10 @@
 // This file is generated from ITextBlock.cs. Update the source file to change its contents.
 
-using AnywhereControls.DefaultImplementations;
-using AnywhereControls.Media;
-using AnywhereControls.Mac.Media;
-using AnywhereControls.Text;
-using AnywhereControls.Controls;
+using AnywhereUI.DefaultImplementations;
+using AnywhereUI.Media;
+using AnywhereUI.Mac.Media;
+using AnywhereUI.Text;
+using AnywhereUI.Controls;
 
 namespace AnywhereControls.Mac.Controls
 {

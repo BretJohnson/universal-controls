@@ -1,7 +1,7 @@
 ﻿using System;
-using AnywhereControls.Media;
+using AnywhereUI.Media;
 
-namespace AnywhereControls.Wpf
+namespace AnywhereUI.Wpf
 {
     public static class BrushExtensions
     {

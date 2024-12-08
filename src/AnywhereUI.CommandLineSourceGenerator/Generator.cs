@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 using Microsoft.Build.Locator;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.MSBuild;
-using AnywhereControls.SourceGenerator;
-using AnywhereControls.SourceGenerator.UIFrameworks;
+using AnywhereUI.SourceGenerator;
+using AnywhereUI.SourceGenerator.UIFrameworks;
 using System.Linq;
 
-namespace AnywhereControls.CommandLineSourceGenerator
+namespace AnywhereUI.CommandLineSourceGenerator
 {
     public static class Generator
     {

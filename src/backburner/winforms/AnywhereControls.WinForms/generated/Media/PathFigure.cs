@@ -1,7 +1,7 @@
 // This file is generated from IPathFigure.cs. Update the source file to change its contents.
 
-using AnywhereControls.DefaultImplementations;
-using AnywhereControls.Media;
+using AnywhereUI.DefaultImplementations;
+using AnywhereUI.Media;
 
 namespace AnywhereControls.WinForms.Media
 {

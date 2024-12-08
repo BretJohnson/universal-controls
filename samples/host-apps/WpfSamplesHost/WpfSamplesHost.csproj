@@ -22,7 +22,7 @@
   <ItemGroup Condition="$(UseLocalExampleFramework) == ''">
   </ItemGroup>
   <ItemGroup Condition="$(UseLocalExampleFramework) != ''">
-    <ProjectReference Include="..\..\..\..\example-framework\src\ExampleFramework.Tooling\ExampleFramework.Tooling.csproj" />
+    <ProjectReference Include="..\..\..\..\example-framework\src\ExampleFramework.App\ExampleFramework.App.csproj" />
   </ItemGroup>
 
 </Project>

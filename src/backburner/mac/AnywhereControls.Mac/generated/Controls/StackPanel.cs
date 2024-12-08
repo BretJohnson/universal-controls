@@ -1,6 +1,6 @@
 // This file is generated from IStackPanel.cs. Update the source file to change its contents.
 
-using AnywhereControls.Controls;
+using AnywhereUI.Controls;
 
 namespace AnywhereControls.Mac.Controls
 {

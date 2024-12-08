@@ -1,10 +1,10 @@
 // This file is generated from IBorder.cs. Update the source file to change its contents.
 
-using AnywhereControls.DefaultImplementations;
-using AnywhereControls.Media;
-using AnywhereControls.Blazor.Media;
+using AnywhereUI.DefaultImplementations;
+using AnywhereUI.Media;
+using AnywhereUI.Blazor.Media;
 using Microsoft.AspNetCore.Components;
-using AnywhereControls.Controls;
+using AnywhereUI.Controls;
 
 namespace AnywhereControls.Blazor.Controls
 {

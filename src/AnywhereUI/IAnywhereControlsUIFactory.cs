@@ -1,8 +1,8 @@
-using AnywhereControls.Controls;
-using AnywhereControls.Media;
-using AnywhereControls.Shapes;
+using AnywhereUI.Controls;
+using AnywhereUI.Media;
+using AnywhereUI.Shapes;
 
-namespace AnywhereControls
+namespace AnywhereUI
 {
     public interface IAnywhereControlsUIFactory
     {

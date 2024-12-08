@@ -1,4 +1,4 @@
-﻿namespace AnywhereControls.SourceGenerator.UIFrameworks
+﻿namespace AnywhereUI.SourceGenerator.UIFrameworks
 {
     public class MauiUIFramework : XamlUIFramework
     {
@@ -21,13 +21,13 @@
         {
             // These types are also defined in Maui, so add aliases to prefer the Anywhere Controls type
             if (destinationTypeName == "Brush" || destinationTypeName == "Brush?")
-                usings.AddTypeAlias("Brush = AnywhereControls.Maui.Media.Brush");
+                usings.AddTypeAlias("Brush = AnywhereUI.Maui.Media.Brush");
             else if (destinationTypeName == "Color")
-                usings.AddTypeAlias("Color = AnywhereControls.Color");
+                usings.AddTypeAlias("Color = AnywhereUI.Color");
             else if (destinationTypeName == "Colors")
-                usings.AddTypeAlias("Colors = AnywhereControls.Colors");
+                usings.AddTypeAlias("Colors = AnywhereUI.Colors");
             else if (destinationTypeName == "SweepDirection")
-                usings.AddTypeAlias("SweepDirection = AnywhereControls.Media.SweepDirection");
+                usings.AddTypeAlias("SweepDirection = AnywhereUI.Media.SweepDirection");
         }
 
         public override void GenerateStandardPanelLayoutMethods(string layoutManagerTypeName, Source methods)

@@ -1,7 +1,7 @@
 ﻿using System.IO.MemoryMappedFiles;
 using Microsoft.CodeAnalysis;
 
-namespace AnywhereControls.SourceGenerator.UIFrameworks
+namespace AnywhereUI.SourceGenerator.UIFrameworks
 {
     public abstract class XamlUIFramework : UIFramework
     {
@@ -29,7 +29,7 @@ namespace AnywhereControls.SourceGenerator.UIFrameworks
             string descriptorName = PropertyDescriptorName(property);
             string defaultValue = DefaultValue(property);
 
-            classSource.Usings.AddNamespace("AnywhereControls");
+            classSource.Usings.AddNamespace("AnywhereUI");
             classSource.Usings.AddNamespace(RootNamespace);
 
             GeneratePropertyDescriptor(property, classSource);

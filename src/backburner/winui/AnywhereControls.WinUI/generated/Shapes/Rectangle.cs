@@ -1,6 +1,6 @@
 // This file is generated from IRectangle.cs. Update the source file to change its contents.
 
-using AnywhereControls.Shapes;
+using AnywhereUI.Shapes;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
 namespace AnywhereControls.WinUI.Shapes

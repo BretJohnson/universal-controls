@@ -1,4 +1,4 @@
-﻿namespace AnywhereControls.SourceGenerator;
+﻿namespace AnywhereUI.SourceGenerator;
 
 public enum UIObjectKind
 {

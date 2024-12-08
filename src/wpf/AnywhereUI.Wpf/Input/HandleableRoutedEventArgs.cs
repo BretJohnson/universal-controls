@@ -1,7 +1,7 @@
 ﻿using System;
-using AnywhereControls.Input;
+using AnywhereUI.Input;
 
-namespace AnywhereControls.Wpf.Input;
+namespace AnywhereUI.Wpf.Input;
 
 internal abstract class HandleableRoutedEventArgs<THostFrameworkEventArgs> : IHandleableRoutedEventArgs where THostFrameworkEventArgs : System.Windows.RoutedEventArgs
 {

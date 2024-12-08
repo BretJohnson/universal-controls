@@ -1,5 +1,5 @@
-﻿using AnywhereControls;
-using AnywhereControls.Controls;
+﻿using AnywhereUI;
+using AnywhereUI.Controls;
 using ExampleFramework;
 using static SimpleControls.SimpleControlsStatics;
 

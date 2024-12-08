@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using Visibility = System.Windows.Visibility;
 
-namespace AnywhereControls.Wpf;
+namespace AnywhereUI.Wpf;
 
 /// <summary>
 /// This is the base for predefined UI elements. Some of the methods in this class are handwritten,

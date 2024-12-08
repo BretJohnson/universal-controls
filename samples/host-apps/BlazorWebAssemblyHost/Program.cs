@@ -1,8 +1,8 @@
 using BlazorWebAssemblyHost;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using AnywhereControls.Blazor;
-using AnywhereControls.SkiaVisualFramework.Blazor;
+using AnywhereUI.Blazor;
+using AnywhereUI.SkiaVisualFramework.Blazor;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");

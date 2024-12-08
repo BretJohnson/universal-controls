@@ -1,6 +1,6 @@
-using static AnywhereControls.AnywhereControlsStatics;
+using static AnywhereUI.AnywhereUIStatics;
 
-namespace AnywhereControls.Shapes
+namespace AnywhereUI.Shapes
 {
     public static class ShapeHelperExtensions
     {

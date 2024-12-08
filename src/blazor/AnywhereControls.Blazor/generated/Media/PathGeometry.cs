@@ -1,7 +1,7 @@
 // This file is generated from IPathGeometry.cs. Update the source file to change its contents.
 
-using AnywhereControls.DefaultImplementations;
-using AnywhereControls.Media;
+using AnywhereUI.DefaultImplementations;
+using AnywhereUI.Media;
 using Microsoft.AspNetCore.Components;
 
 namespace AnywhereControls.Blazor.Media

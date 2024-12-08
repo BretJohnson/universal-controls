@@ -1,11 +1,11 @@
-using AnywhereControls.Controls;
-using AnywhereControls.Media;
-using AnywhereControls.Shapes;
-using AnywhereControls.Maui.Controls;
-using AnywhereControls.Maui.Media;
-using AnywhereControls.Maui.Shapes;
+using AnywhereUI.Controls;
+using AnywhereUI.Media;
+using AnywhereUI.Shapes;
+using AnywhereUI.Maui.Controls;
+using AnywhereUI.Maui.Media;
+using AnywhereUI.Maui.Shapes;
 
-namespace AnywhereControls.Maui
+namespace AnywhereUI.Maui
 {
     public class StandardUIFactory : IAnywhereControlsUIFactory
     {

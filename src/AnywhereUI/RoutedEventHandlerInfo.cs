@@ -1,9 +1,9 @@
 // This was adapted from the WPF source here: https://github.com/dotnet/wpf/blob/137b671131455a5c252a297747725ddce5a21c63/src/Microsoft.DotNet.Wpf/src/PresentationCore/System/Windows/RoutedEventHandlerInfo.cs
 
 using System;
-using AnywhereControls.Input;
+using AnywhereUI.Input;
 
-namespace AnywhereControls;
+namespace AnywhereUI;
 
 /// <summary>
 ///     Container for handler instance and other invocation preferences for this handler instance

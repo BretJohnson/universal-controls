@@ -1,10 +1,10 @@
 // This file is generated from IShape.cs. Update the source file to change its contents.
 
-using AnywhereControls.DefaultImplementations;
-using AnywhereControls.Media;
-using AnywhereControls.Blazor.Media;
+using AnywhereUI.DefaultImplementations;
+using AnywhereUI.Media;
+using AnywhereUI.Blazor.Media;
 using Microsoft.AspNetCore.Components;
-using AnywhereControls.Shapes;
+using AnywhereUI.Shapes;
 
 namespace AnywhereControls.Blazor.Shapes
 {

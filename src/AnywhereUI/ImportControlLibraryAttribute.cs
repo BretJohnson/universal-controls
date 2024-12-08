@@ -1,6 +1,6 @@
 using System;
 
-namespace AnywhereControls
+namespace AnywhereUI
 {
     [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
     public sealed class ImportControlLibraryAttribute : Attribute

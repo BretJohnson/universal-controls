@@ -12,8 +12,8 @@ public struct RectF
     /// </summary>
     public float X { get; set; }
 
-    /// <summary>
     /// Gets or sets the y-axis value of the top side of the rectangle.
+    /// <summary>
     /// </summary>
     public float Y { get; set; }
 

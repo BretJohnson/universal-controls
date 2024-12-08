@@ -1,4 +1,4 @@
-﻿namespace AnywhereControls
+﻿namespace AnywhereUI
 {
     [ControlLibrary]
     public static class StandardUIControlLibrary

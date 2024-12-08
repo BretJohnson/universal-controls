@@ -1,6 +1,6 @@
 using System;
 
-namespace AnywhereControls.Controls
+namespace AnywhereUI.Controls
 {
     public abstract class StackBaseLayoutManager<TStack> : LayoutManager<TStack> where TStack : IStackBase
     {

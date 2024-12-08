@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace AnywhereControls.Shapes
+namespace AnywhereUI.Shapes
 {
     [UIModelObject]
     public interface IRectangle : IShape

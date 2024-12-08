@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace AnywhereControls
+namespace AnywhereUI
 {
     [UIModelObject]
     public interface IVisualStateGroup : IUIObject

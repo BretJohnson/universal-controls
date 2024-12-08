@@ -1,7 +1,7 @@
 ﻿using System;
-using AnywhereControls.Media;
+using AnywhereUI.Media;
 
-namespace AnywhereControls.Maui
+namespace AnywhereUI.Maui
 {
     public static class BrushExtensions
     {

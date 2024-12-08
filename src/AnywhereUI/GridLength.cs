@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnywhereControls
+namespace AnywhereUI
 {
     /// <summary>
     /// Represents a measurement for control logic that explicitly supports Star (*) sizing and Auto sizing.

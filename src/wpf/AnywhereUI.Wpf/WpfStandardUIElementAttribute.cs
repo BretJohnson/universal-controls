@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnywhereControls.Wpf
+namespace AnywhereUI.Wpf
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class WpfStandardUIElementAttribute : Attribute

@@ -1,8 +1,8 @@
 using System;
-using AnywhereControls.Controls;
+using AnywhereUI.Controls;
 using SkiaSharp;
 
-namespace AnywhereControls.SkiaVisualFramework
+namespace AnywhereUI.SkiaVisualFramework
 {
     public abstract class SkiaVisualFramework : IVisualFramework
     {

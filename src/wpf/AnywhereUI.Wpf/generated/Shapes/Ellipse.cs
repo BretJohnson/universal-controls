@@ -1,8 +1,8 @@
 // This file is generated from IEllipse.cs. Update the source file to change its contents.
 
-using AnywhereControls.Shapes;
+using AnywhereUI.Shapes;
 
-namespace AnywhereControls.Wpf.Shapes
+namespace AnywhereUI.Wpf.Shapes
 {
     public class Ellipse : Shape, IEllipse, IDrawable
     {

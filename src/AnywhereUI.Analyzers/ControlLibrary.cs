@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.CodeAnalysis;
-using AnywhereControls.SourceGenerator.UIFrameworks;
+using AnywhereUI.SourceGenerator.UIFrameworks;
 
-namespace AnywhereControls.SourceGenerator
+namespace AnywhereUI.SourceGenerator
 {
     public class ControlLibrary
     {
@@ -21,10 +21,10 @@ namespace AnywhereControls.SourceGenerator
             gatherTypesVisitor.Visit(assembly.GlobalNamespace);
             //assembly.Accept(gatherTypesVisitor);
 
-            if (assembly.Name == "AnywhereControls.CommonTypes")
+            if (assembly.Name == "AnywhereUI.CommonTypes")
             {
-                LibraryName = "AnywhereControlsCommonTypes";
-                LibraryNamespace = "AnywhereControls";
+                LibraryName = "AnywhereUICommonTypes";
+                LibraryNamespace = "AnywhereUI";
             }
             else
             {
@@ -71,7 +71,7 @@ namespace AnywhereControls.SourceGenerator
             Source members = factoryClassSource.StaticMethods;
 
             usings.AddNamespace("System");
-            usings.AddNamespace("AnywhereControls");
+            usings.AddNamespace("AnywhereUI");
 
             members.AddLines(
                 "private static Func<T> UninitializedCreator<T>() =>");

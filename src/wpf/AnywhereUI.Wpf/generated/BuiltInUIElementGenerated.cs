@@ -2,11 +2,11 @@
 
 using System;
 using System.Windows.Input;
-using AnywhereControls.Input;
-using AnywhereControls.Wpf.Input;
+using AnywhereUI.Input;
+using AnywhereUI.Wpf.Input;
 using Visibility = System.Windows.Visibility;
 
-namespace AnywhereControls.Wpf
+namespace AnywhereUI.Wpf
 {
     public partial class BuiltInUIElement
     {

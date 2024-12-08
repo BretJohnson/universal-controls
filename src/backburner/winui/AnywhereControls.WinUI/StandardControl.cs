@@ -1,6 +1,6 @@
 using System;
-using AnywhereControls.Controls;
-using AnywhereControls.WinUI.NativeVisualFramework;
+using AnywhereUI.Controls;
+using AnywhereUI.WinUI.NativeVisualFramework;
 using Microsoft.UI.Xaml;
 using Visibility = Microsoft.UI.Xaml.Visibility;
 

@@ -1,6 +1,6 @@
-using AnywhereControls;
-using AnywhereControlsAvalonia;
-using AnywhereControlsAvalonia.NativeVisualFramework;
+using AnywhereUI;
+using AnywhereUIAvalonia;
+using AnywhereUIAvalonia.NativeVisualFramework;
 using Avalonia.Controls;
 using Microcharts;
 using Microsoft.ComponentModelEx.Tooling;

@@ -1,9 +1,9 @@
 // This file is generated from IPanel.cs. Update the source file to change its contents.
 
-using AnywhereControls.Controls;
+using AnywhereUI.Controls;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace AnywhereControls.Maui.Controls
+namespace AnywhereUI.Maui.Controls
 {
     [Microsoft.Maui.Controls.ContentProperty("Children")]
     public class Panel : BuiltInUIElement, IPanel

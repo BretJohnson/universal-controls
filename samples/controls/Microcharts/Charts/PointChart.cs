@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using AnywhereControls;
-using AnywhereControls.Controls;
-using AnywhereControls.Media;
-using AnywhereControls.Shapes;
-using static AnywhereControls.AnywhereControlsStatics;
-using ICanvas = AnywhereControls.Controls.ICanvas;
+using AnywhereUI;
+using AnywhereUI.Controls;
+using AnywhereUI.Media;
+using AnywhereUI.Shapes;
+using static AnywhereUI.AnywhereUIStatics;
+using ICanvas = AnywhereUI.Controls.ICanvas;
 
 namespace Microcharts
 {

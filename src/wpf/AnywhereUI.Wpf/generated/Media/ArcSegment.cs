@@ -1,9 +1,9 @@
 // This file is generated from IArcSegment.cs. Update the source file to change its contents.
 
-using AnywhereControls.Media;
+using AnywhereUI.Media;
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace AnywhereControls.Wpf.Media
+namespace AnywhereUI.Wpf.Media
 {
     public class ArcSegment : PathSegment, IArcSegment
     {

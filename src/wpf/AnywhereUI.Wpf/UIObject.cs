@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace AnywhereControls.Wpf
+namespace AnywhereUI.Wpf
 {
     /// <summary>
     /// This is the base for predefined Anywhere Controls UI objects

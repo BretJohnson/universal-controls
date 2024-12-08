@@ -1,8 +1,8 @@
 // This file is generated from IPolyBezierSegment.cs. Update the source file to change its contents.
 
-using AnywhereControls.DefaultImplementations;
+using AnywhereUI.DefaultImplementations;
 using Microsoft.AspNetCore.Components;
-using AnywhereControls.Media;
+using AnywhereUI.Media;
 
 namespace AnywhereControls.Blazor.Media
 {

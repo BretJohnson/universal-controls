@@ -1,7 +1,7 @@
 // This file is generated from ILine.cs. Update the source file to change its contents.
 
-using AnywhereControls.DefaultImplementations;
-using AnywhereControls.Shapes;
+using AnywhereUI.DefaultImplementations;
+using AnywhereUI.Shapes;
 
 namespace AnywhereControls.WinForms.Shapes
 {

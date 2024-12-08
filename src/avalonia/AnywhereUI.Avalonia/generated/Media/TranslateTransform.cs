@@ -1,7 +1,7 @@
 // This file is generated from ITranslateTransform.cs. Update the source file to change its contents.
 
-using AnywhereControls;
-using AnywhereControls.Media;
+using AnywhereUI;
+using AnywhereUI.Media;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
 namespace AnywhereControlsAvalonia.Media

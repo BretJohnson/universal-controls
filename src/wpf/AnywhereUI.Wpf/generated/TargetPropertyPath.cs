@@ -2,7 +2,7 @@
 
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace AnywhereControls.Wpf
+namespace AnywhereUI.Wpf
 {
     public class TargetPropertyPath : UIObject, ITargetPropertyPath
     {

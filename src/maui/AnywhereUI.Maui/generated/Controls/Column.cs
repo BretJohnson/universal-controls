@@ -1,9 +1,9 @@
 // This file is generated from IColumn.cs. Update the source file to change its contents.
 
-using AnywhereControls.Controls;
+using AnywhereUI.Controls;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace AnywhereControls.Maui.Controls
+namespace AnywhereUI.Maui.Controls
 {
     public class Column : Panel, IColumn
     {

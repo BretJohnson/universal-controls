@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace AnywhereControls.DefaultImplementations
+namespace AnywhereUI.DefaultImplementations
 {
     public static class AttachedPropertiesValues
     {

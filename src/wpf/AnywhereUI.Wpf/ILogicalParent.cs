@@ -1,4 +1,4 @@
-namespace AnywhereControls.Wpf
+namespace AnywhereUI.Wpf
 {
     public interface ILogicalParent
     {

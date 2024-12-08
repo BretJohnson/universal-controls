@@ -1,4 +1,4 @@
-using AnywhereControls.Text;
+using AnywhereUI.Text;
 
 namespace AnywhereControls.WinUI.Text
 {

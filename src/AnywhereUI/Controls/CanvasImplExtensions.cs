@@ -1,4 +1,4 @@
-﻿namespace AnywhereControls.Controls
+﻿namespace AnywhereUI.Controls
 {
     public static class CanvasImplExtensions
     {

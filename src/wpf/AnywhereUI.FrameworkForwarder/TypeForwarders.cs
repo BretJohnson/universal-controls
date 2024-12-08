@@ -1,4 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using AnywhereControls.Controls;
+using AnywhereUI.Controls;
 
 [assembly: TypeForwardedTo(typeof(HostFrameworkAnywhereControl))]

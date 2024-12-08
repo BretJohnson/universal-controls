@@ -10,7 +10,7 @@
 
 using System.Collections.Generic;
 
-namespace AnywhereControls.Media
+namespace AnywhereUI.Media
 {
     public abstract class StreamGeometryContext
     {

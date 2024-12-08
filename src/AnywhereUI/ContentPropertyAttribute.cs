@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnywhereControls;
+namespace AnywhereUI;
 
 /// <summary>
 /// An attribute that specifies which property the direct content of a XAML

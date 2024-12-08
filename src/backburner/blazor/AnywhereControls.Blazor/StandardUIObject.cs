@@ -1,4 +1,4 @@
-using AnywhereControls.DefaultImplementations;
+using AnywhereUI.DefaultImplementations;
 
 namespace AnywhereControls.Blazor
 {

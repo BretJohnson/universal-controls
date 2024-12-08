@@ -1,10 +1,10 @@
 // This file is generated from IPolyline.cs. Update the source file to change its contents.
 
-using AnywhereControls.Media;
-using AnywhereControls.Shapes;
+using AnywhereUI.Media;
+using AnywhereUI.Shapes;
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace AnywhereControls.Wpf.Shapes
+namespace AnywhereUI.Wpf.Shapes
 {
     public class Polyline : Shape, IPolyline, IDrawable
     {

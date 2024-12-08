@@ -1,10 +1,10 @@
 // This file is generated from IPolyline.cs. Update the source file to change its contents.
 
-using AnywhereControls.Media;
-using AnywhereControls.Shapes;
+using AnywhereUI.Media;
+using AnywhereUI.Shapes;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace AnywhereControls.Maui.Shapes
+namespace AnywhereUI.Maui.Shapes
 {
     public class Polyline : Shape, IPolyline, IDrawable
     {

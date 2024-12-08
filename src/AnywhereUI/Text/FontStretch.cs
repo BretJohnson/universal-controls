@@ -1,4 +1,4 @@
-﻿namespace AnywhereControls.Text
+﻿namespace AnywhereUI.Text
 {
     /// <summary>
     /// The degree to which a font has been stretched, compared to the normal aspect ratio of that font.

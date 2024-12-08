@@ -1,6 +1,6 @@
-﻿using static AnywhereControls.AnywhereControlsStatics;
+﻿using static AnywhereUI.AnywhereUIStatics;
 
-namespace AnywhereControls.Controls
+namespace AnywhereUI.Controls
 {
     public static class GridHelperExtensions
     {

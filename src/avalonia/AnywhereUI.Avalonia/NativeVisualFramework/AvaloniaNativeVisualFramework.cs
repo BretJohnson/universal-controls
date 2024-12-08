@@ -1,8 +1,8 @@
 using System.Globalization;
-using AnywhereControls.Controls;
+using AnywhereUI.Controls;
 using Avalonia.Media;
-using AnywhereControls;
-using AnywhereControlsAvalonia.Text;
+using AnywhereUI;
+using AnywhereUIAvalonia.Text;
 
 namespace AnywhereControlsAvalonia.NativeVisualFramework
 {
