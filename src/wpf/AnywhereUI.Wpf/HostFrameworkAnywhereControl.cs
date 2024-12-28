@@ -4,13 +4,13 @@ using AnywhereUI.Wpf.NativeVisualFramework;
 
 namespace AnywhereUI.Controls
 {
-    // The rest of the implementation of this class is in HostFrameworkAnywhereControlGenerated.cs
-    public abstract partial class HostFrameworkAnywhereControl : System.Windows.Controls.Control, IAnywhereControl, ILogicalParent
+    // The rest of the implementation of this class is in HostFrameworkAnywhereUIElementGenerated.cs
+    public abstract partial class HostFrameworkAnywhereUIElement : System.Windows.Controls.Control, IAnywhereControl, ILogicalParent
     {
         protected IUIElement? _buildContent;
         private bool _invalid = true;
 
-        public HostFrameworkAnywhereControl()
+        public HostFrameworkAnywhereUIElement()
         {
             if (!HostEnvironment.IsInitialized)
             {

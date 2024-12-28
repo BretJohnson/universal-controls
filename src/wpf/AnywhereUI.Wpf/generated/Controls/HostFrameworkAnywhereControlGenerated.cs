@@ -9,7 +9,7 @@ using Visibility = System.Windows.Visibility;
 
 namespace AnywhereUI.Controls
 {
-    public partial class HostFrameworkAnywhereControl
+    public partial class HostFrameworkAnywhereUIElement
     {
         private EventHandlersStore? _eventHandlersStore;
         

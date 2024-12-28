@@ -67,7 +67,7 @@ namespace AnywhereUI.SourceGenerator.UIFrameworks
         public override void GenerateBuiltInIUIElementPartialClasses()
         {
             GenerateBuiltInIUIElementPartialClass(new TypeName(RootNamespace, "BuiltInUIElement"));
-            GenerateBuiltInIUIElementPartialClass(new TypeName("AnywhereUI.Controls", "HostFrameworkAnywhereControl"));
+            GenerateBuiltInIUIElementPartialClass(new TypeName("AnywhereUI", "HostFrameworkAnywhereUIElement"));
         }
 
         private void GenerateBuiltInIUIElementPartialClass(TypeName typeName)

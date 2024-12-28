@@ -6,7 +6,7 @@ using AnywhereUI.Input;
 
 namespace AnywhereUI.Controls
 {
-    public class HostFrameworkAnywhereControlDrawable : Microsoft.Maui.Graphics.IDrawable
+    public class HostFrameworkAnywhereUIElementDrawable : Microsoft.Maui.Graphics.IDrawable
     {
         public Microsoft.Maui.Graphics.ICanvas? Canvas { get; set; }
 
@@ -16,16 +16,16 @@ namespace AnywhereUI.Controls
         }
     }
 
-    // The rest of the implementation of this class is in HostFrameworkAnywhereControlGenerated.cs
-    public abstract class HostFrameworkAnywhereControl : GraphicsView, IAnywhereControl
+    // The rest of the implementation of this class is in HostFrameworkAnywhereUIElementGenerated.cs
+    public abstract class HostFrameworkAnywhereUIElement : GraphicsView, IAnywhereControl
     {
-        readonly HostFrameworkAnywhereControlDrawable _drawable;
+        readonly HostFrameworkAnywhereUIElementDrawable _drawable;
         protected IUIElement? _buildContent;
         bool _invalid = true;
 
-        public HostFrameworkAnywhereControl()
+        public HostFrameworkAnywhereUIElement()
         {
-            Drawable = _drawable = new HostFrameworkAnywhereControlDrawable();
+            Drawable = _drawable = new HostFrameworkAnywhereUIElementDrawable();
 
             if (!HostEnvironment.IsInitialized)
             {
