@@ -1,11 +1,11 @@
 // This file is generated from ITransformGroup.cs. Update the source file to change its contents.
 
 using AnywhereUI;
-using System.Collections.Generic;
 using AnywhereUI.Media;
+using System.Collections.Generic;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
-namespace AnywhereControlsAvalonia.Media
+namespace AnywhereUIAvalonia.Media
 {
     public class TransformGroup : Transform, ITransformGroup
     {

@@ -37,7 +37,7 @@ namespace AnywhereUI.Wpf
 
         HorizontalAlignment IUIElement.HorizontalAlignment
         {
-            get => _frameworkElement.HorizontalAlignment.ToStandardUIHorizontalAlignment();
+            get => _frameworkElement.HorizontalAlignment.ToAnywhereUIHorizontalAlignment();
             set => _frameworkElement.HorizontalAlignment = value.ToWpfHorizontalAlignment();
         }
 
@@ -49,7 +49,7 @@ namespace AnywhereUI.Wpf
 
         FlowDirection IUIElement.FlowDirection
         {
-            get => _frameworkElement.FlowDirection.ToStandardUIFlowDirection();
+            get => _frameworkElement.FlowDirection.ToAnywhereUIFlowDirection();
             set => _frameworkElement.FlowDirection = value.ToWpfFlowDirection();
         }
 

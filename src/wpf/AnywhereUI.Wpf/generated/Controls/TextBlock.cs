@@ -1,9 +1,10 @@
 // This file is generated from ITextBlock.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
-using AnywhereUI.Wpf.Media;
-using AnywhereUI.Text;
 using AnywhereUI.Controls;
+using AnywhereUI.Media;
+using AnywhereUI.Text;
+using AnywhereUI.VisualFramework;
+using AnywhereUI.Wpf.Media;
 using DependencyProperty = System.Windows.DependencyProperty;
 
 namespace AnywhereUI.Wpf.Controls

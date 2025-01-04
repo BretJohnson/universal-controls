@@ -2,6 +2,7 @@
 
 using AnywhereUI.Media;
 using AnywhereUI.Shapes;
+using AnywhereUI.VisualFramework;
 using DependencyProperty = System.Windows.DependencyProperty;
 
 namespace AnywhereUI.Wpf.Shapes

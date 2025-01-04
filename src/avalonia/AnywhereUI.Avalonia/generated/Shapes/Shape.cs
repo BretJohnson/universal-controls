@@ -2,11 +2,11 @@
 
 using AnywhereUI;
 using AnywhereUI.Media;
-using AnywhereUIAvalonia.Media;
 using AnywhereUI.Shapes;
+using AnywhereUIAvalonia.Media;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
-namespace AnywhereControlsAvalonia.Shapes
+namespace AnywhereUIAvalonia.Shapes
 {
     public class Shape : BuiltInUIElement, IShape
     {

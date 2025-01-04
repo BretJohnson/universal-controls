@@ -2,7 +2,7 @@
 
 using AnywhereUI.Media;
 
-namespace AnywhereControlsAvalonia.Media
+namespace AnywhereUIAvalonia.Media
 {
     public class PathSegment : UIObject, IPathSegment
     {

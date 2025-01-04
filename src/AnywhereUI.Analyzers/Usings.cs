@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using Microsoft.CodeAnalysis;
 
 namespace AnywhereUI.SourceGenerator
@@ -63,14 +63,14 @@ namespace AnywhereUI.SourceGenerator
 
         public Source Generate()
         {
-            Source source = new Source(Context);
+            var source = new Source(Context);
 
-            foreach (string usingLine in _usings)
+            foreach (string usingLine in _usings.OrderBy(u => u))
             {
                 source.AddLine($"using {usingLine};");
             }
 
-            foreach (string typeAliasLine in _typeAliases)
+            foreach (string typeAliasLine in _typeAliases.OrderBy(u => u))
             {
                 source.AddLine($"using {typeAliasLine};");
             }

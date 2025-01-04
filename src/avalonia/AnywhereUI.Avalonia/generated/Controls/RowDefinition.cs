@@ -4,7 +4,7 @@ using AnywhereUI;
 using AnywhereUI.Controls;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
-namespace AnywhereControlsAvalonia.Controls
+namespace AnywhereUIAvalonia.Controls
 {
     public class RowDefinition : UIObject, IRowDefinition
     {

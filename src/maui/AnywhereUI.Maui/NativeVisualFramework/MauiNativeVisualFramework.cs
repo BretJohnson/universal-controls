@@ -1,4 +1,5 @@
 ﻿using AnywhereUI.Controls;
+using AnywhereUI.VisualFramework;
 using System;
 
 namespace AnywhereUI.Maui.NativeVisualFramework
@@ -16,7 +17,7 @@ namespace AnywhereUI.Maui.NativeVisualFramework
             throw new NotImplementedException();
         }
 
-        public RenderLayer CreateRenderLayer(IUIElement rootElement, object? arg1 = null, object? arg2 = null, object? arg3 = null) =>
+        public Renderer CreateRenderer(IUIElement rootElement, object? arg1 = null, object? arg2 = null, object? arg3 = null) =>
             throw new NotImplementedException();
 
         public Size MeasureTextBlock(ITextBlock textBlock)

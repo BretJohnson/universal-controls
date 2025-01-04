@@ -126,7 +126,7 @@ public interface IUIElement : IUIObject
 
     public IUIElement GetVisualChild(int index);
 
-    public event PointerEventHandler? PointerEntered;
-    public event PointerEventHandler? PointerExited;
-    public event PointerEventHandler? PointerMoved;
+    public event PointerEventHandler PointerEntered;
+    public event PointerEventHandler PointerExited;
+    public event PointerEventHandler PointerMoved;
 }

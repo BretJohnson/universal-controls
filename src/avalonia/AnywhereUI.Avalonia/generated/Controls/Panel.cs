@@ -1,25 +1,25 @@
 // This file is generated from IPanel.cs. Update the source file to change its contents.
 
 using AnywhereUI;
-using Avalonia.Metadata;
 using AnywhereUI.Controls;
+using Avalonia.Metadata;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
-namespace AnywhereControlsAvalonia.Controls
+namespace AnywhereUIAvalonia.Controls
 {
     public class Panel : BuiltInUIElement, IPanel
     {
-        public static readonly Avalonia.StyledProperty<UIElementCollection<Avalonia.Controls.Control,AnywhereControls.IUIElement>> ChildrenProperty = AvaloniaProperty.Register<Panel, UIElementCollection<Avalonia.Controls.Control,AnywhereControls.IUIElement>>(nameof(Children), null);
+        public static readonly Avalonia.StyledProperty<UIElementCollection<Avalonia.Controls.Control,AnywhereUI.IUIElement>> ChildrenProperty = AvaloniaProperty.Register<Panel, UIElementCollection<Avalonia.Controls.Control,AnywhereUI.IUIElement>>(nameof(Children), null);
         
-        private UIElementCollection<Avalonia.Controls.Control,AnywhereControls.IUIElement> _children;
+        private UIElementCollection<Avalonia.Controls.Control,AnywhereUI.IUIElement> _children;
         
         public Panel()
         {
-            _children = new UIElementCollection<Avalonia.Controls.Control,AnywhereControls.IUIElement>(this);
+            _children = new UIElementCollection<Avalonia.Controls.Control,AnywhereUI.IUIElement>(this);
             SetValue(ChildrenProperty, _children);
         }
         
-        [Content] public UIElementCollection<Avalonia.Controls.Control,AnywhereControls.IUIElement> Children => _children;
+        [Content] public UIElementCollection<Avalonia.Controls.Control,AnywhereUI.IUIElement> Children => _children;
         IUICollection<IUIElement> IPanel.Children => Children.ToAnywhereControlsUIElementCollection();
         
         #if LATER

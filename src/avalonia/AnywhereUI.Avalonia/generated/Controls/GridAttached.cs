@@ -1,9 +1,9 @@
 // This file is generated from IGrid.cs. Update the source file to change its contents.
 
-using AnywhereUI.Controls;
 using AnywhereUI;
+using AnywhereUI.Controls;
 
-namespace AnywhereControlsAvalonia.Controls
+namespace AnywhereUIAvalonia.Controls
 {
     public class GridAttached : IGridAttached
     {

@@ -2,8 +2,8 @@
 
 using AnywhereUI.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
-using Colors = AnywhereControls.Colors;
-using Color = AnywhereControls.Color;
+using Color = AnywhereUI.Color;
+using Colors = AnywhereUI.Colors;
 
 namespace AnywhereUI.Maui.Media
 {

@@ -1,8 +1,9 @@
 // This file is generated from IPath.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
 using AnywhereUI.Maui.Media;
+using AnywhereUI.Media;
 using AnywhereUI.Shapes;
+using AnywhereUI.VisualFramework;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace AnywhereUI.Maui.Shapes

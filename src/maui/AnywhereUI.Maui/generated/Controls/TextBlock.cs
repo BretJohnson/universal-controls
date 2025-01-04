@@ -1,11 +1,12 @@
 // This file is generated from ITextBlock.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
-using AnywhereUI.Maui.Media;
-using AnywhereUI.Text;
 using AnywhereUI.Controls;
+using AnywhereUI.Maui.Media;
+using AnywhereUI.Media;
+using AnywhereUI.Text;
+using AnywhereUI.VisualFramework;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
-using Brush = AnywhereControls.Maui.Media.Brush;
+using Brush = AnywhereUI.Maui.Media.Brush;
 
 namespace AnywhereUI.Maui.Controls
 {

@@ -164,6 +164,7 @@ namespace AnywhereUI.SourceGenerator
             if (IsDrawableObject)
             {
                 mainClassSource.Usings.AddNamespace("AnywhereUI");
+                mainClassSource.Usings.AddNamespace("AnywhereUI.VisualFramework");
                 mainClassSource.DerivedFrom += ", IDrawable";
             }
 

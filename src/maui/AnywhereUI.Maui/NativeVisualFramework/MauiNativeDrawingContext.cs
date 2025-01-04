@@ -1,6 +1,7 @@
 ﻿using AnywhereUI.Controls;
 using AnywhereUI.Media;
 using AnywhereUI.Shapes;
+using AnywhereUI.VisualFramework;
 using System;
 
 namespace AnywhereUI.Maui.NativeVisualFramework

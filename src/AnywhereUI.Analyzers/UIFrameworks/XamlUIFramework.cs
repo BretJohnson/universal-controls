@@ -67,7 +67,7 @@ namespace AnywhereUI.SourceGenerator.UIFrameworks
 
         private void GeneratePropertyMethods(Property property, Source source)
         {
-            var usings = source.Usings;
+            Usings usings = source.Usings;
             string propertyOutputTypeName = PropertyOutputTypeName(property);
             UIObjectKind uiObjectKind = property.UIObjectType.UIObjectKind;
 

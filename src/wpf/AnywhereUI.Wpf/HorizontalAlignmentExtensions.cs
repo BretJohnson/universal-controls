@@ -14,7 +14,7 @@ namespace AnywhereUI.Wpf
                 _ => throw new ArgumentOutOfRangeException(nameof(horizontalAligmnet), $"Invalid HorizontalAlignment value: {horizontalAligmnet}"),
             };
 
-        public static HorizontalAlignment ToStandardUIHorizontalAlignment(this System.Windows.HorizontalAlignment horizontalAlignment) =>
+        public static HorizontalAlignment ToAnywhereUIHorizontalAlignment(this System.Windows.HorizontalAlignment horizontalAlignment) =>
             horizontalAlignment switch
             {
                 System.Windows.HorizontalAlignment.Left => HorizontalAlignment.Left,

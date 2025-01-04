@@ -2,7 +2,7 @@
 
 using AnywhereUI.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
-using SweepDirection = AnywhereControls.Media.SweepDirection;
+using SweepDirection = AnywhereUI.Media.SweepDirection;
 
 namespace AnywhereUI.Maui.Media
 {

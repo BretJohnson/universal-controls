@@ -2,6 +2,7 @@
 
 using AnywhereUI.Media;
 using AnywhereUI.Shapes;
+using AnywhereUI.VisualFramework;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
 namespace AnywhereUI.Maui.Shapes

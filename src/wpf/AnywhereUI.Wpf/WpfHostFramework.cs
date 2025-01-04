@@ -1,3 +1,5 @@
+using AnywhereUI.VisualFramework;
+
 namespace AnywhereUI.Wpf
 {
     public class WpfHostFramework : IHostFramework

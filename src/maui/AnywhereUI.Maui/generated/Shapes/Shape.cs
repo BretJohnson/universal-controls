@@ -1,10 +1,10 @@
 // This file is generated from IShape.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
 using AnywhereUI.Maui.Media;
+using AnywhereUI.Media;
 using AnywhereUI.Shapes;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
-using Brush = AnywhereControls.Maui.Media.Brush;
+using Brush = AnywhereUI.Maui.Media.Brush;
 
 namespace AnywhereUI.Maui.Shapes
 {

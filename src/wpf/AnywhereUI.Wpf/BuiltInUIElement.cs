@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Media;
+using AnywhereUI.VisualFramework;
 using Visibility = System.Windows.Visibility;
 
 namespace AnywhereUI.Wpf;

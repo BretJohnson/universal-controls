@@ -2,7 +2,7 @@
 
 using AnywhereUI.Controls;
 
-namespace AnywhereControlsAvalonia.Controls
+namespace AnywhereUIAvalonia.Controls
 {
     public class HorizontalStack : StackBase, IHorizontalStack
     {
