@@ -3,7 +3,7 @@
 using AnywhereUI;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
-namespace AnywhereControlsAvalonia
+namespace AnywhereUIAvalonia
 {
     public class VisualState : UIObject, IVisualState
     {

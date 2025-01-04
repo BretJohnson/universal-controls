@@ -1,9 +1,9 @@
 // This file is generated. Update the source to change its contents.
 
-using System;
-using System.Windows.Input;
 using AnywhereUI.Input;
 using AnywhereUI.Wpf.Input;
+using System;
+using System.Windows.Input;
 using Visibility = System.Windows.Visibility;
 
 namespace AnywhereUI.Wpf
@@ -26,7 +26,7 @@ namespace AnywhereUI.Wpf
         
         HorizontalAlignment IUIElement.HorizontalAlignment
         {
-            get => HorizontalAlignment.ToStandardUIHorizontalAlignment();
+            get => HorizontalAlignment.ToAnywhereUIHorizontalAlignment();
             set => HorizontalAlignment = value.ToWpfHorizontalAlignment();
         }
         
@@ -38,7 +38,7 @@ namespace AnywhereUI.Wpf
         
         FlowDirection IUIElement.FlowDirection
         {
-            get => FlowDirection.ToStandardUIFlowDirection();
+            get => FlowDirection.ToAnywhereUIFlowDirection();
             set => FlowDirection = value.ToWpfFlowDirection();
         }
         

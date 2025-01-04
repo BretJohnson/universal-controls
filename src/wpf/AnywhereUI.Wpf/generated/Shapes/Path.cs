@@ -1,8 +1,9 @@
 // This file is generated from IPath.cs. Update the source file to change its contents.
 
 using AnywhereUI.Media;
-using AnywhereUI.Wpf.Media;
 using AnywhereUI.Shapes;
+using AnywhereUI.VisualFramework;
+using AnywhereUI.Wpf.Media;
 using DependencyProperty = System.Windows.DependencyProperty;
 
 namespace AnywhereUI.Wpf.Shapes

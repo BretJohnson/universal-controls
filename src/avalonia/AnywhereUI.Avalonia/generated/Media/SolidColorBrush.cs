@@ -4,7 +4,7 @@ using AnywhereUI;
 using AnywhereUI.Media;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
-namespace AnywhereControlsAvalonia.Media
+namespace AnywhereUIAvalonia.Media
 {
     public class SolidColorBrush : Brush, ISolidColorBrush
     {

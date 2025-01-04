@@ -3,9 +3,10 @@
 using AnywhereUI;
 using AnywhereUI.Media;
 using AnywhereUI.Shapes;
+using AnywhereUI.VisualFramework;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
-namespace AnywhereControlsAvalonia.Shapes
+namespace AnywhereUIAvalonia.Shapes
 {
     public class Polygon : Shape, IPolygon, IDrawable
     {

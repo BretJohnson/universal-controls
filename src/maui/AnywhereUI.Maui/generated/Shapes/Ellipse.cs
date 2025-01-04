@@ -1,6 +1,7 @@
 // This file is generated from IEllipse.cs. Update the source file to change its contents.
 
 using AnywhereUI.Shapes;
+using AnywhereUI.VisualFramework;
 
 namespace AnywhereUI.Maui.Shapes
 {

@@ -1,10 +1,10 @@
 // This file is generated from ICanvas.cs. Update the source file to change its contents.
 
 using AnywhereUI.Controls;
-using ICanvas = AnywhereControls.Controls.ICanvas;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
+using ICanvas = AnywhereUI.Controls.ICanvas;
 
-namespace AnywhereControlsAvalonia.Controls
+namespace AnywhereUIAvalonia.Controls
 {
     public class Canvas : Panel, ICanvas
     {

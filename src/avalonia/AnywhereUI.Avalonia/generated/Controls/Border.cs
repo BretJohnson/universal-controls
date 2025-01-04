@@ -1,12 +1,12 @@
 // This file is generated from IBorder.cs. Update the source file to change its contents.
 
 using AnywhereUI;
+using AnywhereUI.Controls;
 using AnywhereUI.Media;
 using AnywhereUIAvalonia.Media;
-using AnywhereUI.Controls;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
-namespace AnywhereControlsAvalonia.Controls
+namespace AnywhereUIAvalonia.Controls
 {
     public class Border : BuiltInUIElement, IBorder
     {

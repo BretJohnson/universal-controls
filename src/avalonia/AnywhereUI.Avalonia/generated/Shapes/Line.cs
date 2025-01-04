@@ -2,9 +2,10 @@
 
 using AnywhereUI;
 using AnywhereUI.Shapes;
+using AnywhereUI.VisualFramework;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
-namespace AnywhereControlsAvalonia.Shapes
+namespace AnywhereUIAvalonia.Shapes
 {
     public class Line : Shape, ILine, IDrawable
     {

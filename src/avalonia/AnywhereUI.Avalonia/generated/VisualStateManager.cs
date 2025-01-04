@@ -2,7 +2,7 @@
 
 using AnywhereUI;
 
-namespace AnywhereControlsAvalonia
+namespace AnywhereUIAvalonia
 {
     public class VisualStateManager : IVisualStateManager
     {

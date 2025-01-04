@@ -2,8 +2,9 @@
 
 using AnywhereUI;
 using AnywhereUI.Shapes;
+using AnywhereUI.VisualFramework;
 
-namespace AnywhereControlsAvalonia.Shapes
+namespace AnywhereUIAvalonia.Shapes
 {
     public class Ellipse : Shape, IEllipse, IDrawable
     {

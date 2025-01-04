@@ -1,13 +1,14 @@
 // This file is generated from ITextBlock.cs. Update the source file to change its contents.
 
 using AnywhereUI;
-using AnywhereUI.Media;
-using AnywhereUIAvalonia.Media;
-using AnywhereUI.Text;
 using AnywhereUI.Controls;
+using AnywhereUI.Media;
+using AnywhereUI.Text;
+using AnywhereUI.VisualFramework;
+using AnywhereUIAvalonia.Media;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
-namespace AnywhereControlsAvalonia.Controls
+namespace AnywhereUIAvalonia.Controls
 {
     public class TextBlock : BuiltInUIElement, ITextBlock, IDrawable
     {
