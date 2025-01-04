@@ -67,7 +67,7 @@ namespace AnywhereUI.SourceGenerator.UIFrameworks
         public override void GenerateBuiltInIUIElementPartialClasses()
         {
             GenerateBuiltInIUIElementPartialClass(new TypeName(RootNamespace, "BuiltInUIElement"));
-            GenerateBuiltInIUIElementPartialClass(new TypeName("AnywhereUI.Controls", "HostFrameworkAnywhereControl"));
+            //GenerateBuiltInIUIElementPartialClass(new TypeName("AnywhereUI", "HostFrameworkAnywhereUIElement"));
         }
 
         private void GenerateBuiltInIUIElementPartialClass(TypeName typeName)
@@ -102,11 +102,11 @@ namespace AnywhereUI.SourceGenerator.UIFrameworks
 
             methods.AddProperty("Thickness IUIElement.Margin", "Margin.ToAnywhereControlsThickness()", "Margin = value.ToWpfThickness()");
             methods.AddBlankLine();
-            methods.AddProperty("HorizontalAlignment IUIElement.HorizontalAlignment", "HorizontalAlignment.ToStandardUIHorizontalAlignment()", "HorizontalAlignment = value.ToWpfHorizontalAlignment()");
+            methods.AddProperty("HorizontalAlignment IUIElement.HorizontalAlignment", "HorizontalAlignment.ToAnywhereUIHorizontalAlignment()", "HorizontalAlignment = value.ToWpfHorizontalAlignment()");
             methods.AddBlankLine();
             methods.AddProperty("VerticalAlignment IUIElement.VerticalAlignment", "VerticalAlignment.ToAnywhereControlsVerticalAlignment()", "VerticalAlignment = value.ToWpfVerticalAlignment()");
             methods.AddBlankLine();
-            methods.AddProperty("FlowDirection IUIElement.FlowDirection", "FlowDirection.ToStandardUIFlowDirection()", "FlowDirection = value.ToWpfFlowDirection()");
+            methods.AddProperty("FlowDirection IUIElement.FlowDirection", "FlowDirection.ToAnywhereUIFlowDirection()", "FlowDirection = value.ToWpfFlowDirection()");
             methods.AddBlankLine();
             methods.AddProperty("bool IUIElement.Visible", "Visibility != Visibility.Collapsed", "Visibility = value ? Visibility.Visible : Visibility.Collapsed");
             methods.AddBlankLine();

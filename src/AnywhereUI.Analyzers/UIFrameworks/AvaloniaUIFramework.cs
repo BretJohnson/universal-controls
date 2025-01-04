@@ -108,13 +108,13 @@ namespace AnywhereUI.SourceGenerator.UIFrameworks
                 "double IUIElement.ActualX => throw new System.NotImplementedException();",
                 "double IUIElement.ActualY => throw new System.NotImplementedException();",
                 "");
-            methods.AddProperty("Thickness IUIElement.Margin", "Margin.ToStandardUIThickness()", "Margin = value.ToAvaloniaThickness()");
+            methods.AddProperty("Thickness IUIElement.Margin", "Margin.ToAnywhereUIThickness()", "Margin = value.ToAvaloniaThickness()");
             methods.AddBlankLine();
-            methods.AddProperty("HorizontalAlignment IUIElement.HorizontalAlignment", "HorizontalAlignment.ToStandardUIHorizontalAlignment()", "HorizontalAlignment = value.ToAvaloniaHorizontalAlignment()");
+            methods.AddProperty("HorizontalAlignment IUIElement.HorizontalAlignment", "HorizontalAlignment.ToAnywhereUIHorizontalAlignment()", "HorizontalAlignment = value.ToAvaloniaHorizontalAlignment()");
             methods.AddBlankLine();
             methods.AddProperty("VerticalAlignment IUIElement.VerticalAlignment", "VerticalAlignment.ToAnywhereControlsVerticalAlignment()", "VerticalAlignment = value.ToAvaloniaVerticalAlignment()");
             methods.AddBlankLine();
-            methods.AddProperty("FlowDirection IUIElement.FlowDirection", "FlowDirection.ToStandardUIFlowDirection()", "FlowDirection = value.ToAvaloniaFlowDirection()");
+            methods.AddProperty("FlowDirection IUIElement.FlowDirection", "FlowDirection.ToAnywhereUIFlowDirection()", "FlowDirection = value.ToAvaloniaFlowDirection()");
             methods.AddBlankLine();
             methods.AddProperty("bool IUIElement.Visible", "Visibility != Visibility.Collapsed", "Visibility = value ? Visibility.Visible : Visibility.Collapsed");
             methods.AddBlankLine();
