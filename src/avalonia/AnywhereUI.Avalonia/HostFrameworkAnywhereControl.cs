@@ -4,12 +4,12 @@ using Avalonia.Controls;
 
 namespace AnywhereControls.Controls;
 
-public abstract class HostFrameworkAnywhereControl : Control, IAnywhereControl, ILogicalParent
+public abstract class HostFrameworkAnywhereUIElement : Control, IAnywhereControl, ILogicalParent
 {
     protected IUIElement? _buildContent;
     private bool _invalid = true;
 
-    public HostFrameworkAnywhereControl()
+    public HostFrameworkAnywhereUIElement()
     {
         if (!HostEnvironment.IsInitialized)
         {

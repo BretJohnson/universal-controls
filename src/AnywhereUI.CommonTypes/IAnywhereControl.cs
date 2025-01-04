@@ -2,4 +2,5 @@
 
 public interface IAnywhereControl : IUIElement
 {
+    IUIElement? Content { get; }
 }

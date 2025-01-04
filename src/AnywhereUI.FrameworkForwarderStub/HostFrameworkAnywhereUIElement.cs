@@ -1,16 +1,16 @@
 ﻿using System;
 using AnywhereUI.Input;
 
-namespace AnywhereUI.Controls;
+namespace AnywhereUI;
 
 /// <summary>
 /// This class is only used at build time, not runtime. At runtime, the
 /// host UI framework assembly (AnywhereControls.Wpf, AnywhereControls.Maui, etc.)
 /// provides its own implementation of this class, loaded by a matching
-/// AnywhereControls.FrameworkFordwarder.dll assembly that has a TypeForwardedTo
+/// AnywhereUI.FrameworkFordwarder.dll assembly that has a TypeForwardedTo
 /// to that implementation.
 /// </summary>
-public abstract class HostFrameworkAnywhereControl : IAnywhereControl
+public abstract class HostFrameworkAnywhereUIElement : IUIElement
 {
     void IUIObject.ClearValue(IUIProperty property) => throw CreateNotSupportedException();
     object IUIObject.GetValue(IUIProperty property) => throw CreateNotSupportedException();
@@ -39,14 +39,52 @@ public abstract class HostFrameworkAnywhereControl : IAnywhereControl
     IUIElement IUIElement.GetVisualChild(int index) => throw CreateNotSupportedException();
     void IUIElement.Measure(Size availableSize) => throw CreateNotSupportedException();
 
+    protected virtual IUIElement? SingleChild => null;
+
+    protected virtual void OnSingleChildChanged(IUIElement? oldChild, IUIElement? newChild) => throw CreateNotSupportedException();
+
+    /*
     protected virtual IUIElement? BuildContent => throw CreateNotSupportedException();
 
     protected abstract IUIElement Build();
+    */
 
-    public abstract event PointerEventHandler? PointerEntered;
-    public abstract event PointerEventHandler? PointerExited;
-    public abstract event PointerEventHandler? PointerMoved;
+    public event PointerEventHandler PointerEntered
+    {
+        add
+        {
+            throw CreateNotSupportedException();
+        }
+        remove
+        {
+            throw CreateNotSupportedException();
+        }
+    }
+
+    public event PointerEventHandler PointerExited
+    {
+        add
+        {
+            throw CreateNotSupportedException();
+        }
+        remove
+        {
+            throw CreateNotSupportedException();
+        }
+    }
+
+    public event PointerEventHandler PointerMoved
+    {
+        add
+        {
+            throw CreateNotSupportedException();
+        }
+        remove
+        {
+            throw CreateNotSupportedException();
+        }
+    }
 
     private Exception CreateNotSupportedException() =>
-        new InvalidOperationException("This class shouldn't ever be instantiated, just used at build time. At runtime, HostFrameworkAnywhereControl should come from the host framework specific assembly");
+        new InvalidOperationException("This class shouldn't ever be instantiated, just used at build time. At runtime, HostFrameworkAnywhereUIElement should come from the host framework specific assembly");
 }
