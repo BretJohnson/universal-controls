@@ -3,45 +3,23 @@ using SkiaSharp.HarfBuzz;
 
 namespace AnywhereUI.VisualFramwork.Skia.Text;
 
-public class SkiaTextShaper : ITextShaper
+public class SkiaTextShaper : SKShaper, ISkiaTextShaper
 {
-    private bool _disposed;
-
-    public SkiaTextShaper(SkiaTypeface skiaTypeface)
+    public SkiaTextShaper(SkiaTypeface skiaTypeface) :
+        base(skiaTypeface.SKTypeface)
     {
         SkiaTypeface = skiaTypeface;
-        SKShaper = new SKShaper(SkiaTypeface.SKTypeface);
     }
 
     public SkiaTypeface SkiaTypeface { get; }
 
-    public SKShaper SKShaper { get; }
+    ITypeface ITextShaper.Typeface => SkiaTypeface;
 
-    public ITypeface Typeface => SkiaTypeface;
-
-    public ITextShapeResult Shape(string text, float xOffset, float yOffset, IFont font)
+    ITextShapeResult ITextShaper.Shape(string text, float xOffset, float yOffset, IFont font)
     {
-        SKShaper.Result result = SKShaper.Shape(text, xOffset, yOffset, ((SkiaFont)font).SKFont);
-
+        Result result = Shape(text, xOffset, yOffset, (SkiaFont)font);
         return new SkiaTextShapeResult(result);
     }
 
-    protected virtual void Dispose(bool disposing)
-    {
-        if (!_disposed)
-        {
-            if (disposing)
-            {
-                SKShaper.Dispose();
-            }
-
-            _disposed = true;
-        }
-    }
-
-    public void Dispose()
-    {
-        Dispose(disposing: true);
-        System.GC.SuppressFinalize(this);
-    }
+    SKShaper ISkiaTextShaper.SKShaper => this;
 }

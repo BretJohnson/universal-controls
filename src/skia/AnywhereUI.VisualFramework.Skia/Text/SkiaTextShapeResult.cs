@@ -6,20 +6,22 @@ using SkiaSharp.HarfBuzz;
 
 namespace AnywhereUI.VisualFramwork.Skia.Text;
 
-public class SkiaTextShapeResult : ITextShapeResult
+public class SkiaTextShapeResult : ISkiaTextShapeResult
 {
+    private readonly SKShaper.Result _skResult;
+
     public SkiaTextShapeResult(SKShaper.Result skResult)
     {
-        SKResult = skResult;
+        _skResult = skResult;
     }
 
-    public SKShaper.Result SKResult { get; }
+    ReadOnlySpan<uint> ITextShapeResult.Codepoints => _skResult.Codepoints;
 
-    public ReadOnlySpan<uint> Codepoints => SKResult.Codepoints;
+    ReadOnlySpan<uint> ITextShapeResult.Clusters => _skResult.Clusters;
 
-    public ReadOnlySpan<uint> Clusters => SKResult.Clusters;
+    ReadOnlySpan<PointF> ITextShapeResult.Points => MemoryMarshal.Cast<SKPoint, PointF>(_skResult.Points);
 
-    public ReadOnlySpan<PointF> Points => MemoryMarshal.Cast<SKPoint, PointF>(SKResult.Points);
+    float ITextShapeResult.Width => _skResult.Width;
 
-    public float Width => SKResult.Width;
+    SKShaper.Result ISkiaTextShapeResult.SKResult => _skResult;
 }
