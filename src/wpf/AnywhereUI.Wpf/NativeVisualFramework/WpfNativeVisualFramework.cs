@@ -2,6 +2,7 @@ using System;
 using System.Globalization;
 using System.Windows.Media;
 using AnywhereUI.Controls;
+using AnywhereUI.VisualFramework;
 using AnywhereUI.Wpf.Text;
 
 namespace AnywhereUI.Wpf.NativeVisualFramework
@@ -15,7 +16,7 @@ namespace AnywhereUI.Wpf.NativeVisualFramework
             throw new NotImplementedException();
         }
 
-        public RenderLayer CreateRenderLayer(IUIElement rootElement, object? arg1 = null, object? arg2 = null, object? arg3 = null) =>
+        public Renderer CreateRenderer(IUIElement rootElement, object? arg1 = null, object? arg2 = null, object? arg3 = null) =>
             throw new NotImplementedException();
 
         public Size MeasureTextBlock(ITextBlock textBlock)
@@ -42,5 +43,8 @@ namespace AnywhereUI.Wpf.NativeVisualFramework
                 brush,
                 1.0); // TODO: Set this appropriately
         }
+
+        public IUIElement CreateRendererUIElement(IUIElement rootElement, object? arg1 = null, object? arg2 = null, object? arg3 = null)
+            => throw new NotImplementedException();
     }
 }

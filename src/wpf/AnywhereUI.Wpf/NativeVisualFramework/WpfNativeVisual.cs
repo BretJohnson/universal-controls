@@ -1,4 +1,5 @@
 using System.Windows.Media;
+using AnywhereUI.VisualFramework;
 
 namespace AnywhereUI.Wpf.NativeVisualFramework
 {

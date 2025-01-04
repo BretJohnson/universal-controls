@@ -12,7 +12,7 @@ namespace AnywhereUI.Wpf
                 _ => throw new ArgumentOutOfRangeException(nameof(flowDirection), $"Invalid FlowDirection value: {flowDirection}"),
             };
 
-        public static FlowDirection ToStandardUIFlowDirection(this System.Windows.FlowDirection flowDirection) =>
+        public static FlowDirection ToAnywhereUIFlowDirection(this System.Windows.FlowDirection flowDirection) =>
             flowDirection switch
             {
                 System.Windows.FlowDirection.LeftToRight => FlowDirection.LeftToRight,

@@ -1,4 +1,6 @@
-﻿namespace AnywhereUI.Maui
+﻿using AnywhereUI.VisualFramework;
+
+namespace AnywhereUI.Maui
 {
     public class MauiHostFramework : IHostFramework
     {

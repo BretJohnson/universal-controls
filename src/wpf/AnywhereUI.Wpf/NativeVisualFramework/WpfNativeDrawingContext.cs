@@ -5,6 +5,7 @@ using AnywhereUI.Controls;
 using AnywhereUI.Media;
 using AnywhereUI.Media.Wpf;
 using AnywhereUI.Shapes;
+using AnywhereUI.VisualFramework;
 using AnywhereUI.Wpf.Media;
 using AnywhereUI.Wpf.Text;
 using Pen = AnywhereUI.Media.Pen;
