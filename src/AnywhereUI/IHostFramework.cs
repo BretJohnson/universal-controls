@@ -1,3 +1,5 @@
+using AnywhereUI.VisualFramework;
+
 namespace AnywhereUI
 {
     public interface IHostFramework
