@@ -1,7 +1,7 @@
 using System.Globalization;
-using AnywhereUI.Controls;
+using UniversalUI.Controls;
 using Avalonia.Media;
-using AnywhereUI;
+using UniversalUI;
 using AnywhereUIAvalonia.Text;
 
 namespace AnywhereControlsAvalonia.NativeVisualFramework

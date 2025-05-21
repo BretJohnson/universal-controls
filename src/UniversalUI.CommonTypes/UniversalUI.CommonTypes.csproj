@@ -5,8 +5,8 @@
     <LangVersion>11.0</LangVersion>
     <Nullable>enable</Nullable>
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\AnywhereUI.snk</AssemblyOriginatorKeyFile>
-    <RootNamespace>AnywhereUI</RootNamespace>
+    <AssemblyOriginatorKeyFile>..\UniversalUI.snk</AssemblyOriginatorKeyFile>
+    <RootNamespace>UniversalUI</RootNamespace>
   </PropertyGroup>
 
 </Project>

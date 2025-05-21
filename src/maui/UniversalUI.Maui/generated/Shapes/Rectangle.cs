@@ -1,9 +1,9 @@
 // This file is generated from IRectangle.cs. Update the source file to change its contents.
 
-using AnywhereUI.Shapes;
+using UniversalUI.Shapes;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace AnywhereUI.Maui.Shapes
+namespace UniversalUI.Maui.Shapes
 {
     public class Rectangle : Shape, IRectangle, IDrawable
     {

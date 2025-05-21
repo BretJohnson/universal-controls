@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace AnywhereUI
+namespace UniversalUI
 {
     [UIModelObject]
     public interface IVisualStateGroup : IUIObject

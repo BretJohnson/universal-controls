@@ -1,8 +1,8 @@
 ﻿using System;
-using AnywhereUI.Wpf;
-using AnywhereUI.Wpf.NativeVisualFramework;
+using UniversalUI.Wpf;
+using UniversalUI.Wpf.NativeVisualFramework;
 
-namespace AnywhereUI.Controls
+namespace UniversalUI.Controls
 {
     // The rest of the implementation of this class is in HostFrameworkAnywhereControlGenerated.cs
     public abstract partial class HostFrameworkAnywhereControl : System.Windows.Controls.Control, IAnywhereControl, ILogicalParent

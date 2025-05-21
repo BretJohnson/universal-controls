@@ -2,7 +2,7 @@
 
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace AnywhereUI.Maui
+namespace UniversalUI.Maui
 {
     public class TargetPropertyPath : UIObject, ITargetPropertyPath
     {

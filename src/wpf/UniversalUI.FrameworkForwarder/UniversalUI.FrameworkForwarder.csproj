@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <PackageId>AnywhereUI.FrameworkForwarderWpf</PackageId>
+    <PackageId>UniversalUI.FrameworkForwarderWpf</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AnywhereUI.Wpf\AnywhereUI.Wpf.csproj" />
+    <ProjectReference Include="..\UniversalUI.Wpf\UniversalUI.Wpf.csproj" />
   </ItemGroup>
 
 </Project>

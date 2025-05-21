@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Globalization;
-using AnywhereUI.Converters;
+using UniversalUI.Converters;
 
-namespace AnywhereUI;
+namespace UniversalUI;
 
 /// <summary>
 /// Represents number values that specify a height and width.

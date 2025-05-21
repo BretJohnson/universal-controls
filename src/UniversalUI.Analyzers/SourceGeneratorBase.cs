@@ -4,9 +4,9 @@ using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using AnywhereUI.SourceGenerator.UIFrameworks;
+using UniversalUI.SourceGenerator.UIFrameworks;
 
-namespace AnywhereUI.SourceGenerator
+namespace UniversalUI.SourceGenerator
 {
     /// <summary>
     /// Generates framework-specific implementations of StandardUI control interfaces. The
@@ -225,15 +225,15 @@ namespace AnywhereUI.SourceGenerator
             {
                 string assemblyName = referencedAssembly.Name;
 
-                if (assemblyName == "AnywhereUI.Wpf")
+                if (assemblyName == "UniversalUI.Wpf")
                     return new WpfUIFramework(context);
-                else if (assemblyName == "AnywhereUI.WinForms")
+                else if (assemblyName == "UniversalUI.WinForms")
                     return new WinFormsUIFramework(context);
-                else if (assemblyName == "AnywhereUI.Blazor")
+                else if (assemblyName == "UniversalUI.Blazor")
                     return new BlazorUIFramework(context);
-                else if (assemblyName == "AnywhereUI.Maui")
+                else if (assemblyName == "UniversalUI.Maui")
                     return new MauiUIFramework(context);
-                else if (assemblyName == "AnywhereUI.Avalonia")
+                else if (assemblyName == "UniversalUI.Avalonia")
                     return new AvaloniaUIFramework(context);
             }
 

@@ -1,7 +1,7 @@
 ﻿using System.IO;
-using AnywhereUI.SourceGenerator.UIFrameworks;
+using UniversalUI.SourceGenerator.UIFrameworks;
 
-namespace AnywhereUI.SourceGenerator
+namespace UniversalUI.SourceGenerator
 {
     public class DirectoryOutput : Output
     {
@@ -16,7 +16,7 @@ namespace AnywhereUI.SourceGenerator
         {
             string outputDirectory = uiFramework != null
                 ? Path.Combine(RootDirectory, "src", uiFramework.Name.ToLower(), uiFramework.ProjectBaseDirectory, "generated")
-                : Path.Combine(RootDirectory, "src", "AnywhereUI", "generated");
+                : Path.Combine(RootDirectory, "src", "UniversalUI", "generated");
 
             if (namespaceName != null)
             {

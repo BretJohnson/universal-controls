@@ -3,7 +3,7 @@
 using System;
 using System.Collections;
 
-namespace AnywhereUI;
+namespace UniversalUI;
 
 internal static class GlobalEventManager
 {

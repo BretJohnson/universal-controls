@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AnywhereUI.Media
+namespace UniversalUI.Media
 {
     [UIModelObject]
     public interface ITransformGroup : ITransform

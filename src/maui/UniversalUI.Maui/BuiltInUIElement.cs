@@ -1,8 +1,8 @@
 using System;
-using AnywhereUI.Input;
+using UniversalUI.Input;
 using Microsoft.Maui.Controls;
 
-namespace AnywhereUI.Maui
+namespace UniversalUI.Maui
 {
     public class BuiltInUIElementDrawable : Microsoft.Maui.Graphics.IDrawable
     {

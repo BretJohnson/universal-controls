@@ -1,9 +1,9 @@
 using System;
-using AnywhereUI.Controls;
-using AnywhereUI.Media;
-using AnywhereUI.Shapes;
+using UniversalUI.Controls;
+using UniversalUI.Media;
+using UniversalUI.Shapes;
 
-namespace AnywhereUI
+namespace UniversalUI
 {
     public class UnintializedAnywhereControlsUIFactory : IAnywhereControlsUIFactory
     {

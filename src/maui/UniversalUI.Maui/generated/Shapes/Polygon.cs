@@ -1,10 +1,10 @@
 // This file is generated from IPolygon.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
-using AnywhereUI.Shapes;
+using UniversalUI.Media;
+using UniversalUI.Shapes;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace AnywhereUI.Maui.Shapes
+namespace UniversalUI.Maui.Shapes
 {
     public class Polygon : Shape, IPolygon, IDrawable
     {

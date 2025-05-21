@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI.Wpf
+﻿namespace UniversalUI.Wpf
 {
 #if false
     public partial class WpfAnywhereControl : System.Windows.Controls.Control, IAnywhereControl, IAnywhereControlEnvironmentPeer, ILogicalParent

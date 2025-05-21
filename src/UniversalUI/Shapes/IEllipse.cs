@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI.Shapes
+﻿namespace UniversalUI.Shapes
 {
     [UIModelObject]
     public interface IEllipse : IShape

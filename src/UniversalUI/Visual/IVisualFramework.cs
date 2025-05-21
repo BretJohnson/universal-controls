@@ -1,8 +1,8 @@
 using System;
-using AnywhereUI.Controls;
-using AnywhereUI;
+using UniversalUI.Controls;
+using UniversalUI;
 
-namespace AnywhereUI
+namespace UniversalUI
 {
     /// <summary>
     /// The visual environment is responsible for drawing things on the screen, or to a bitmap,

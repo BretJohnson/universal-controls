@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace AnywhereUI.Controls
+namespace UniversalUI.Controls
 {
     public abstract class GridBaseLayoutManager<TGridBase> : LayoutManager<TGridBase> where TGridBase : IGrid
     {

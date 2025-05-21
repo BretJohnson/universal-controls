@@ -1,9 +1,9 @@
 // This file is generated from IShape.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
-using AnywhereUI.Media;
-using AnywhereUI.Mac.Media;
-using AnywhereUI.Shapes;
+using UniversalUI.DefaultImplementations;
+using UniversalUI.Media;
+using UniversalUI.Mac.Media;
+using UniversalUI.Shapes;
 
 namespace AnywhereControls.Mac.Shapes
 {

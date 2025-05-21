@@ -1,8 +1,8 @@
 using System.ComponentModel;
 using System.Globalization;
-using AnywhereUI.Converters;
+using UniversalUI.Converters;
 
-namespace AnywhereUI.Wpf.Converters
+namespace UniversalUI.Wpf.Converters
 {
     public class GeometryTypeConverter : TypeConverterBase
     {

@@ -1,7 +1,7 @@
 // This file is generated from IGradientBrush.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
-using AnywhereUI.Media;
+using UniversalUI.DefaultImplementations;
+using UniversalUI.Media;
 
 namespace AnywhereControls.Mac.Media
 {

@@ -1,6 +1,6 @@
 using System;
 
-namespace AnywhereUI.Input;
+namespace UniversalUI.Input;
 
 public interface IRoutedEventArgs
 {

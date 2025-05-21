@@ -1,11 +1,11 @@
 // This file is generated from IPath.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
-using AnywhereUI.Maui.Media;
-using AnywhereUI.Shapes;
+using UniversalUI.Media;
+using UniversalUI.Maui.Media;
+using UniversalUI.Shapes;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace AnywhereUI.Maui.Shapes
+namespace UniversalUI.Maui.Shapes
 {
     public class Path : Shape, IPath, IDrawable
     {

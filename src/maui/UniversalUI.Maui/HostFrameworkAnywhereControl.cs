@@ -1,10 +1,10 @@
 ﻿using Microsoft.Maui.Controls;
-using AnywhereUI.Maui.NativeVisualFramework;
+using UniversalUI.Maui.NativeVisualFramework;
 using System;
-using AnywhereUI.Maui;
-using AnywhereUI.Input;
+using UniversalUI.Maui;
+using UniversalUI.Input;
 
-namespace AnywhereUI.Controls
+namespace UniversalUI.Controls
 {
     public class HostFrameworkAnywhereControlDrawable : Microsoft.Maui.Graphics.IDrawable
     {

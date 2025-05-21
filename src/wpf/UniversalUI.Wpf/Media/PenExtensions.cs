@@ -1,6 +1,6 @@
-using AnywhereUI.Media;
+using UniversalUI.Media;
 
-namespace AnywhereUI.Wpf.Media
+namespace UniversalUI.Wpf.Media
 {
     public static class PenExtensions
     {

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31813.321
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI", "src\AnywhereUI\AnywhereUI.csproj", "{752F4208-8318-4C57-9868-9921FF743AA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversalUI", "src\UniversalUI\UniversalUI.csproj", "{752F4208-8318-4C57-9868-9921FF743AA9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.CommandLineSourceGenerator", "src\AnywhereUI.CommandLineSourceGenerator\AnywhereUI.CommandLineSourceGenerator.csproj", "{740943F5-2E99-4ED4-9022-BC14F480C3F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversalUI.CommandLineSourceGenerator", "src\UniversalUI.CommandLineSourceGenerator\UniversalUI.CommandLineSourceGenerator.csproj", "{740943F5-2E99-4ED4-9022-BC14F480C3F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{9B71283D-A4A6-480E-9A9B-AD446F08CCC5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.Analyzers", "src\AnywhereUI.Analyzers\AnywhereUI.Analyzers.csproj", "{26E564DA-4315-44EF-B287-A9B3BC87BF1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversalUI.Analyzers", "src\UniversalUI.Analyzers\UniversalUI.Analyzers.csproj", "{26E564DA-4315-44EF-B287-A9B3BC87BF1C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "controls", "controls", "{9FA8F699-79F5-48DB-A2D9-717CE875C5F0}"
 EndProject
@@ -31,29 +31,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "skia", "skia", "{705D949C-2C10-46AD-9007-37E62BC8FA7A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.SkiaVisualFramework", "src\skia\AnywhereUI.SkiaVisualFramework\AnywhereUI.SkiaVisualFramework.csproj", "{66AC78D8-0A73-41FC-925C-E2840EA2639F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversalUI.SkiaVisualFramework", "src\skia\UniversalUI.SkiaVisualFramework\UniversalUI.SkiaVisualFramework.csproj", "{66AC78D8-0A73-41FC-925C-E2840EA2639F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "wpf", "wpf", "{53F78F6D-A2D0-41D5-8A81-7D71C5763249}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.FrameworkForwarder", "src\wpf\AnywhereUI.FrameworkForwarder\AnywhereUI.FrameworkForwarder.csproj", "{29322FD8-3BA2-47E3-A8D9-E9C918979670}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversalUI.FrameworkForwarder", "src\wpf\UniversalUI.FrameworkForwarder\UniversalUI.FrameworkForwarder.csproj", "{29322FD8-3BA2-47E3-A8D9-E9C918979670}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.CommonTypes", "src\AnywhereUI.CommonTypes\AnywhereUI.CommonTypes.csproj", "{045EF11F-5494-426E-B7B3-660F1FCF23D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversalUI.CommonTypes", "src\UniversalUI.CommonTypes\UniversalUI.CommonTypes.csproj", "{045EF11F-5494-426E-B7B3-660F1FCF23D5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.Wpf", "src\wpf\AnywhereUI.Wpf\AnywhereUI.Wpf.csproj", "{E289961D-B4F4-4368-9402-A0057A009122}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversalUI.Wpf", "src\wpf\UniversalUI.Wpf\UniversalUI.Wpf.csproj", "{E289961D-B4F4-4368-9402-A0057A009122}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.FrameworkForwarderStub", "src\AnywhereUI.FrameworkForwarderStub\AnywhereUI.FrameworkForwarderStub.csproj", "{1DF10122-622E-4A4C-93C7-6172997D8332}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversalUI.FrameworkForwarderStub", "src\UniversalUI.FrameworkForwarderStub\UniversalUI.FrameworkForwarderStub.csproj", "{1DF10122-622E-4A4C-93C7-6172997D8332}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "maui", "maui", "{3EF85AAC-0972-46C4-BABE-FF568E7A9BE7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.Maui", "src\maui\AnywhereUI.Maui\AnywhereUI.Maui.csproj", "{069C0BDF-E992-443B-A1C0-216F18216BFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversalUI.Maui", "src\maui\UniversalUI.Maui\UniversalUI.Maui.csproj", "{069C0BDF-E992-443B-A1C0-216F18216BFE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnywhereUI.FrameworkForwarder", "src\maui\AnywhereUI.FrameworkForwarder\AnywhereUI.FrameworkForwarder.csproj", "{73A019ED-4595-4E33-A95A-F502071E32D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversalUI.FrameworkForwarder", "src\maui\UniversalUI.FrameworkForwarder\UniversalUI.FrameworkForwarder.csproj", "{73A019ED-4595-4E33-A95A-F502071E32D7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "external", "external", "{634ED71E-3E71-4F43-B9A2-11536F91EAA8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example-framework", "example-framework", "{2383D6A4-790C-4661-A5A4-70C051F3DDD4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleFramework.App", "external\example-framework\src\ExampleFramework.App\ExampleFramework.App.csproj", "{C2138322-5F1B-4DC8-8CD1-5E7BE745CC5E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleFramework", "external\example-framework\src\ExampleFramework\ExampleFramework.csproj", "{11E03881-DB12-47D2-B517-BAA3D0CCE7F6}"
 EndProject
@@ -125,10 +123,6 @@ Global
 		{73A019ED-4595-4E33-A95A-F502071E32D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73A019ED-4595-4E33-A95A-F502071E32D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73A019ED-4595-4E33-A95A-F502071E32D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2138322-5F1B-4DC8-8CD1-5E7BE745CC5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2138322-5F1B-4DC8-8CD1-5E7BE745CC5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2138322-5F1B-4DC8-8CD1-5E7BE745CC5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2138322-5F1B-4DC8-8CD1-5E7BE745CC5E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{11E03881-DB12-47D2-B517-BAA3D0CCE7F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{11E03881-DB12-47D2-B517-BAA3D0CCE7F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11E03881-DB12-47D2-B517-BAA3D0CCE7F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -158,7 +152,6 @@ Global
 		{069C0BDF-E992-443B-A1C0-216F18216BFE} = {3EF85AAC-0972-46C4-BABE-FF568E7A9BE7}
 		{73A019ED-4595-4E33-A95A-F502071E32D7} = {3EF85AAC-0972-46C4-BABE-FF568E7A9BE7}
 		{2383D6A4-790C-4661-A5A4-70C051F3DDD4} = {634ED71E-3E71-4F43-B9A2-11536F91EAA8}
-		{C2138322-5F1B-4DC8-8CD1-5E7BE745CC5E} = {2383D6A4-790C-4661-A5A4-70C051F3DDD4}
 		{11E03881-DB12-47D2-B517-BAA3D0CCE7F6} = {2383D6A4-790C-4661-A5A4-70C051F3DDD4}
 		{56BE1E11-9CC5-4F03-807F-E77A5F7710C3} = {2383D6A4-790C-4661-A5A4-70C051F3DDD4}
 		{94911763-A899-4C80-87C8-61CF09448DCB} = {2383D6A4-790C-4661-A5A4-70C051F3DDD4}

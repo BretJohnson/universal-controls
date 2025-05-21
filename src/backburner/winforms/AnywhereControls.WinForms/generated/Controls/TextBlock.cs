@@ -1,10 +1,10 @@
 // This file is generated from ITextBlock.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
-using AnywhereUI.Media;
-using AnywhereUI.WinForms.Media;
-using AnywhereUI.Text;
-using AnywhereUI.Controls;
+using UniversalUI.DefaultImplementations;
+using UniversalUI.Media;
+using UniversalUI.WinForms.Media;
+using UniversalUI.Text;
+using UniversalUI.Controls;
 
 namespace AnywhereControls.WinForms.Controls
 {

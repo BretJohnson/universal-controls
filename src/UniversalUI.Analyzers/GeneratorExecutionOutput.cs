@@ -1,8 +1,8 @@
 using System.IO;
 using Microsoft.CodeAnalysis;
-using AnywhereUI.SourceGenerator.UIFrameworks;
+using UniversalUI.SourceGenerator.UIFrameworks;
 
-namespace AnywhereUI.SourceGenerator
+namespace UniversalUI.SourceGenerator
 {
     public class GeneratorExecutionOutput : Output
     {

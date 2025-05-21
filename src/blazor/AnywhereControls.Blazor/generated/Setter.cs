@@ -1,6 +1,6 @@
 // This file is generated from ISetter.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
+using UniversalUI.DefaultImplementations;
 using Microsoft.AspNetCore.Components;
 
 namespace AnywhereControls.Blazor

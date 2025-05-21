@@ -1,4 +1,4 @@
-namespace AnywhereUI.Maui
+namespace UniversalUI.Maui
 {
     public static class ThicknessExtensions
     {

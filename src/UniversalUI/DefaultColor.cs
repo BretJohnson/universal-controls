@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI
+﻿namespace UniversalUI
 {
     /// <summary>
     /// These names must match the CommonUI.Colors statics.

@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\AnywhereUI\AnywhereUI.csproj" />
+    <ProjectReference Include="..\..\UniversalUI\UniversalUI.csproj" />
   </ItemGroup>
 
 </Project>

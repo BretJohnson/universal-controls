@@ -1,7 +1,7 @@
 using System.ComponentModel;
-using AnywhereUI.Input;
+using UniversalUI.Input;
 
-namespace AnywhereUI;
+namespace UniversalUI;
 
 public interface IUIElement : IUIObject
 {

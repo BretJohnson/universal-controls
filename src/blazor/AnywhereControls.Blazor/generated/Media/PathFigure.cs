@@ -1,7 +1,7 @@
 // This file is generated from IPathFigure.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
-using AnywhereUI.Media;
+using UniversalUI.DefaultImplementations;
+using UniversalUI.Media;
 using Microsoft.AspNetCore.Components;
 
 namespace AnywhereControls.Blazor.Media

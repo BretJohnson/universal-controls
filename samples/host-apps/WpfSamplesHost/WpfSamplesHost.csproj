@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-	  <TargetFramework>net8.0-windows</TargetFramework>
-    <LangVersion>9.0</LangVersion>
+	  <TargetFramework>net9.0-windows</TargetFramework>
+    <LangVersion>13.0</LangVersion>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\external\example-framework\src\ExampleFramework.App\ExampleFramework.App.csproj" />
-    <ProjectReference Include="..\..\..\src\AnywhereUI.Analyzers\AnywhereUI.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    <ProjectReference Include="..\..\..\src\wpf\AnywhereUI.FrameworkForwarder\AnywhereUI.FrameworkForwarder.csproj" />
+    <ProjectReference Include="..\..\..\external\example-framework\src\ExampleFramework\ExampleFramework.csproj" />
+    <ProjectReference Include="..\..\..\src\UniversalUI.Analyzers\UniversalUI.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\..\..\src\wpf\UniversalUI.FrameworkForwarder\UniversalUI.FrameworkForwarder.csproj" />
     <ProjectReference Include="..\..\controls\Microcharts\Microcharts.csproj" />
     <ProjectReference Include="..\..\controls\SimpleControls\SimpleControls.csproj" />
   </ItemGroup>

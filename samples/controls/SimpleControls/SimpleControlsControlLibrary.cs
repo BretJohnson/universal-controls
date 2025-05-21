@@ -1,4 +1,4 @@
-﻿using AnywhereUI;
+﻿using UniversalUI;
 
 namespace SimpleControls
 {

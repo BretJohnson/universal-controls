@@ -1,8 +1,8 @@
 // This file is generated from IBorder.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
+using UniversalUI.Media;
 
-namespace AnywhereUI.Controls
+namespace UniversalUI.Controls
 {
     public static class BorderExtensions
     {

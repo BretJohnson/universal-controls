@@ -2,12 +2,12 @@
 using System.Linq;
 using Microsoft.CodeAnalysis;
 
-namespace AnywhereUI.SourceGenerator
+namespace UniversalUI.SourceGenerator
 {
     public static class UserVisibleErrors
     {
         public static UserViewableException CouldNotIdentifyUIFramework() =>
-            CreateError(1, message: "No reference to AnywhereUI.<host-framework> assembly found in project");
+            CreateError(1, message: "No reference to UniversalUI.<host-framework> assembly found in project");
 
         public static UserViewableException AttachedTypeMethodMustStartWithGetOrSet(string className, string methodName) =>
             CreateError(2, message: $"Attached type method '{className}.{methodName}' doesn't start with Get or Set");

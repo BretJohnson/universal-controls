@@ -1,10 +1,10 @@
 // This file is generated from ITextBlock.cs. Update the source file to change its contents.
 
-using AnywhereUI;
-using AnywhereUI.Media;
+using UniversalUI;
+using UniversalUI.Media;
 using AnywhereUIAvalonia.Media;
-using AnywhereUI.Text;
-using AnywhereUI.Controls;
+using UniversalUI.Text;
+using UniversalUI.Controls;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
 namespace AnywhereControlsAvalonia.Controls

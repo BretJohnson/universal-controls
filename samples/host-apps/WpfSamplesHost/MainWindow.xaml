@@ -10,7 +10,7 @@
     Height="450"
     mc:Ignorable="d">
     <a:VerticalStack Margin="20" HorizontalAlignment="Stretch">
-        <Label Content=".NET Anywhere Controls Examples" FontSize="24" />
+        <Label Content=".NET Universal Controls Examples" FontSize="24" />
         <Grid
             Name="Examples"
             Margin="10"

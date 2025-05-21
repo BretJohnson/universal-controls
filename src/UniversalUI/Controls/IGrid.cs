@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace AnywhereUI.Controls
+namespace UniversalUI.Controls
 {
     [StandardPanel]
     public interface IGrid : IPanel

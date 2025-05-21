@@ -41,7 +41,7 @@ using System.Collections.Generic;
 // CA1812:AvoidUninstantiatedInternalClasses
 //
 
-namespace AnywhereUI.Utility;
+namespace UniversalUI.Utility;
 
 // These classes implement a frugal storage model for lists of <T>.
 // Performance measurements show that many lists contain a single item.

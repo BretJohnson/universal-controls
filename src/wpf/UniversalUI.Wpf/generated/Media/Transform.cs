@@ -1,8 +1,8 @@
 // This file is generated from ITransform.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
+using UniversalUI.Media;
 
-namespace AnywhereUI.Wpf.Media
+namespace UniversalUI.Wpf.Media
 {
     public class Transform : UIObject, ITransform
     {

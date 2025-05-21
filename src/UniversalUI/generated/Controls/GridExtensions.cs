@@ -2,7 +2,7 @@
 
 using System;
 
-namespace AnywhereUI.Controls
+namespace UniversalUI.Controls
 {
     public static class GridExtensions
     {

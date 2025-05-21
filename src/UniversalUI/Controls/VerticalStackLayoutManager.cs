@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI.Controls
+﻿namespace UniversalUI.Controls
 {
     public class VerticalStackLayoutManager : StackBaseLayoutManager<IVerticalStack>
     {

@@ -1,9 +1,9 @@
 // This file is generated from IScaleTransform.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
+using UniversalUI.Media;
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace AnywhereUI.Wpf.Media
+namespace UniversalUI.Wpf.Media
 {
     public class ScaleTransform : Transform, IScaleTransform
     {

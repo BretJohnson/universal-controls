@@ -19,7 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\AnywhereUI.Analyzers\AnywhereUI.Analyzers.csproj" />
+		<ProjectReference Include="..\UniversalUI.Analyzers\UniversalUI.Analyzers.csproj" />
 	</ItemGroup>
 
 </Project>

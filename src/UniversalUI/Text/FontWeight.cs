@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI.Text
+﻿namespace UniversalUI.Text
 {
     /// <summary>
     /// Expresses the density of a typeface, in terms of the lightness or heaviness of the strokes.

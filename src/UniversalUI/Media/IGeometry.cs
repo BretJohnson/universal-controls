@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace AnywhereUI.Media
+namespace UniversalUI.Media
 {
     [UIModelObject]
     public interface IGeometry : IUIObject

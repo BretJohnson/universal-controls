@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI;
+﻿namespace UniversalUI;
 
 
 /// <summary>

@@ -2,7 +2,7 @@
 
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace AnywhereUI.Wpf
+namespace UniversalUI.Wpf
 {
     public class VisualState : UIObject, IVisualState
     {

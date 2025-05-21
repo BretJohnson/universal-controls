@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace AnywhereUI.Wpf
+namespace UniversalUI.Wpf
 {
     public static class PropertyUtils
     {

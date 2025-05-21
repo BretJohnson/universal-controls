@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using CommonUI;
-using AnywhereUI.DefaultImplementations;
+using UniversalUI.DefaultImplementations;
 
 namespace AnywhereControls.Blazor
 {

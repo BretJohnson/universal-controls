@@ -1,7 +1,7 @@
 // This file is generated from IHorizontalStack.cs. Update the source file to change its contents.
 
 using CommonUI;
-using AnywhereUI.Controls;
+using UniversalUI.Controls;
 
 namespace AnywhereControls.Mac.Controls
 {

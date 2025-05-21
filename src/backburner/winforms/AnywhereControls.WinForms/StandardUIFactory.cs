@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using AnywhereUI.Controls;
-using AnywhereUI.Media;
-using AnywhereUI.Shapes;
-using AnywhereUI.WinForms.Controls;
-using AnywhereUI.WinForms.Media;
-using AnywhereUI.WinForms.Shapes;
+using UniversalUI.Controls;
+using UniversalUI.Media;
+using UniversalUI.Shapes;
+using UniversalUI.WinForms.Controls;
+using UniversalUI.WinForms.Media;
+using UniversalUI.WinForms.Shapes;
 
 namespace AnywhereControls.WinForms
 {

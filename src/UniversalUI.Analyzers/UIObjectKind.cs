@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI.SourceGenerator;
+﻿namespace UniversalUI.SourceGenerator;
 
 public enum UIObjectKind
 {

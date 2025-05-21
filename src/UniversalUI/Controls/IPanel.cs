@@ -1,4 +1,4 @@
-namespace AnywhereUI.Controls
+namespace UniversalUI.Controls
 {
     [UIModelObject]
     [ContentProperty(nameof(Children))]

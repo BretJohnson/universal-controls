@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI;
+﻿namespace UniversalUI;
 
 /// <summary>
 /// Indicates where an element should be displayed on the horizontal axis relative to the allocated layout slot of the parent element.

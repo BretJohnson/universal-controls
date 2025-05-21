@@ -1,7 +1,7 @@
 using System;
-using AnywhereUI.Text;
+using UniversalUI.Text;
 
-namespace AnywhereUI.Wpf.Text
+namespace UniversalUI.Wpf.Text
 {
     public static class FontStyleExtensions
     {

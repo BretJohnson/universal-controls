@@ -1,8 +1,8 @@
 // This file is generated from ITransformGroup.cs. Update the source file to change its contents.
 
-using AnywhereUI;
+using UniversalUI;
 using System.Collections.Generic;
-using AnywhereUI.Media;
+using UniversalUI.Media;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
 namespace AnywhereControlsAvalonia.Media

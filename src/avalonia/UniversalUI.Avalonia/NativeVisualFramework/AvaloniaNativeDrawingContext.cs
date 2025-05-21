@@ -1,12 +1,12 @@
 ﻿using System.Globalization;
-using AnywhereUI.Controls;
-using AnywhereUI.Shapes;
+using UniversalUI.Controls;
+using UniversalUI.Shapes;
 using AnywhereUIAvalonia.Media;
 using Pen = AnywhereControls.Media.Pen;
 using Avalonia.Media;
 using IBrush = AnywhereControls.Media.IBrush;
 using ITransform = AnywhereControls.Media.ITransform;
-using AnywhereUI;
+using UniversalUI;
 using AnywhereUIAvalonia.Text;
 
 namespace AnywhereControlsAvalonia.NativeVisualFramework

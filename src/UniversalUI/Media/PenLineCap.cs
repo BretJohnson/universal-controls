@@ -1,4 +1,4 @@
-namespace AnywhereUI.Media
+namespace UniversalUI.Media
 {
     /// <summary>
     /// Describes the shape at the end of a line or segment.

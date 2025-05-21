@@ -1,8 +1,8 @@
 // This file is generated from IShape.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
-using AnywhereUI.WinUI.Media;
-using AnywhereUI.Shapes;
+using UniversalUI.Media;
+using UniversalUI.WinUI.Media;
+using UniversalUI.Shapes;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
 namespace AnywhereControls.WinUI.Shapes

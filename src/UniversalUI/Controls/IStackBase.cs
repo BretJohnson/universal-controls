@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace AnywhereUI.Controls
+namespace UniversalUI.Controls
 {
     [UIModelObject]
     public interface IStackBase : IPanel

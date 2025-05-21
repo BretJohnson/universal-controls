@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI;
+﻿namespace UniversalUI;
 
 /// <summary>
 /// Describes how a child element is vertically positioned or stretched within a parent's layout slot.

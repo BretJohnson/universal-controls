@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnywhereUI;
+namespace UniversalUI;
 
 /// <summary>
 /// Contains number values that represent the location and size of a rectangle.

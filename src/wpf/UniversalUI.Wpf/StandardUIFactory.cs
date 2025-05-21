@@ -1,11 +1,11 @@
-using AnywhereUI.Controls;
-using AnywhereUI.Media;
-using AnywhereUI.Shapes;
-using AnywhereUI.Wpf.Controls;
-using AnywhereUI.Wpf.Media;
-using AnywhereUI.Wpf.Shapes;
+using UniversalUI.Controls;
+using UniversalUI.Media;
+using UniversalUI.Shapes;
+using UniversalUI.Wpf.Controls;
+using UniversalUI.Wpf.Media;
+using UniversalUI.Wpf.Shapes;
 
-namespace AnywhereUI.Wpf
+namespace UniversalUI.Wpf
 {
     public class StandardUIFactory : IAnywhereControlsUIFactory
     {

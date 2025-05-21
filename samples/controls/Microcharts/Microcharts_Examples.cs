@@ -1,5 +1,5 @@
-﻿using AnywhereUI;
-using AnywhereUI.Controls;
+﻿using UniversalUI;
+using UniversalUI.Controls;
 using ExampleFramework;
 using static Microcharts.MicrochartsStatics;
 
@@ -7,7 +7,7 @@ namespace Microcharts
 {
     public class Microcharts_Examples
     {
-        [UIExample("Bar Chart")]
+        [Example("Bar Chart")]
         public static Chart BarChart() =>
             Chart()
                 .Width(300)
@@ -16,7 +16,7 @@ namespace Microcharts
                 .LabelColor(Colors.Blue)
                 .Entries(CreateChartEntries());
 
-        [UIExample("Point Chart")]
+        [Example("Point Chart")]
         public static Chart PointChart() =>
             Chart()
                 .Width(300)

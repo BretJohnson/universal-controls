@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI
+﻿namespace UniversalUI
 {
     /// <summary>
     /// Describes the characteristics of a rounded corner, such as can be applied to a Border.

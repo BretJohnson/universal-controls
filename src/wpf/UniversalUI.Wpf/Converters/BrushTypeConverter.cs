@@ -1,9 +1,9 @@
 using System.ComponentModel;
 using System.Globalization;
-using AnywhereUI.Wpf.Media;
-using AnywhereUI.Converters;
+using UniversalUI.Wpf.Media;
+using UniversalUI.Converters;
 
-namespace AnywhereUI.Wpf.Converters
+namespace UniversalUI.Wpf.Converters
 {
     public class BrushTypeConverter : TypeConverterBase
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace AnywhereUI
+namespace UniversalUI
 {
     [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
     public sealed class ImportAnywhereControlAttribute : Attribute

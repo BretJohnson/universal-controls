@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI.Controls
+﻿namespace UniversalUI.Controls
 {
     [StandardPanel]
     public interface IVerticalStack : IStackBase

@@ -1,13 +1,13 @@
 ﻿// Import our sample controls. This triggers source generation, turning them into WPF controls.
 // To see the generated source, in Solution Explorer look under
-// Dependencies / Analyzers / AnywhereUI.Analyzers / ImportControlLibraryGenerator
-using AnywhereUI;
+// Dependencies / Analyzers / UniversalUI.Analyzers / ImportControlLibraryGenerator
+using UniversalUI;
 using Microcharts;
 using Microcharts.Maui;
 using SimpleControls;
 using SimpleControls.Maui;
-using AnywhereUI.Maui;
-using AnywhereUI.Maui.NativeVisualFramework;
+using UniversalUI.Maui;
+using UniversalUI.Maui.NativeVisualFramework;
 using ExampleFramework.Tooling;
 
 [assembly: ImportControlLibrary(typeof(SimpleControlsControlLibrary))]

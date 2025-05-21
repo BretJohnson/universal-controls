@@ -1,7 +1,7 @@
 using System.ComponentModel;
-using AnywhereUI.Media;
+using UniversalUI.Media;
 
-namespace AnywhereUI.Shapes
+namespace UniversalUI.Shapes
 {
     [UIModelObject]
     public interface IPath : IShape

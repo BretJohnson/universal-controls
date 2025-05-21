@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI.Controls
+﻿namespace UniversalUI.Controls
 {
     public interface IUserControl : IAnywhereControl
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace AnywhereUI.DefaultImplementations
+namespace UniversalUI.DefaultImplementations
 {
     public static class AttachedPropertiesValues
     {

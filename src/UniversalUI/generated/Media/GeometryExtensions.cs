@@ -1,6 +1,6 @@
 // This file is generated from IGeometry.cs. Update the source file to change its contents.
 
-namespace AnywhereUI.Media
+namespace UniversalUI.Media
 {
     public static class GeometryExtensions
     {

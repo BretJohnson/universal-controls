@@ -1,6 +1,6 @@
 // This file is generated from ITransform.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
+using UniversalUI.Media;
 
 namespace AnywhereControls.Mac.Media
 {

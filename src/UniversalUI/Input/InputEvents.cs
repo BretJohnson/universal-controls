@@ -1,4 +1,4 @@
-namespace AnywhereUI.Input;
+namespace UniversalUI.Input;
 
 public static class InputEvents
 {

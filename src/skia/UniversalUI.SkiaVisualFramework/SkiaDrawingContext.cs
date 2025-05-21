@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using AnywhereUI.Controls;
-using AnywhereUI.Media;
-using AnywhereUI.Shapes;
+using UniversalUI.Controls;
+using UniversalUI.Media;
+using UniversalUI.Shapes;
 using SkiaSharp;
 
-namespace AnywhereUI.SkiaVisualFramework
+namespace UniversalUI.SkiaVisualFramework
 {
     public class SkiaDrawingContext : IDrawingContext
     {

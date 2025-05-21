@@ -1,8 +1,8 @@
-﻿using AnywhereUI.Controls;
-using AnywhereUI;
+﻿using UniversalUI.Controls;
+using UniversalUI;
 using System.ComponentModel;
-using static AnywhereUI.AnywhereUIStatics;
-using AnywhereUI.Shapes;
+using static UniversalUI.UniversalUIStatics;
+using UniversalUI.Shapes;
 
 namespace AlohaKit.AnywhereControls
 {

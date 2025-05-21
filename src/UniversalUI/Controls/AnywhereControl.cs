@@ -1,6 +1,6 @@
 using System;
 
-namespace AnywhereUI.Controls
+namespace UniversalUI.Controls
 {
     public abstract class AnywhereControl : HostFrameworkAnywhereControl, IUIElement
     {

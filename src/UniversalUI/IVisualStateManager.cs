@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI
+﻿namespace UniversalUI
 {
     [UIModelObject]
     public interface IVisualStateManager

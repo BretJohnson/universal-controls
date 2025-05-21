@@ -1,9 +1,9 @@
 // This file is generated from ITextBlock.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
-using AnywhereUI.Text;
+using UniversalUI.Media;
+using UniversalUI.Text;
 
-namespace AnywhereUI.Controls
+namespace UniversalUI.Controls
 {
     public static class TextBlockExtensions
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnywhereUI
+namespace UniversalUI
 {
     /// <summary>
     /// Designate interface as a Standard UI Element, triggering source generation

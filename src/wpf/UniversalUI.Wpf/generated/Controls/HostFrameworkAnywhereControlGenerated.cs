@@ -1,13 +1,13 @@
 // This file is generated. Update the source to change its contents.
 
-using AnywhereUI.Wpf;
+using UniversalUI.Wpf;
 using System;
 using System.Windows.Input;
-using AnywhereUI.Input;
-using AnywhereUI.Wpf.Input;
+using UniversalUI.Input;
+using UniversalUI.Wpf.Input;
 using Visibility = System.Windows.Visibility;
 
-namespace AnywhereUI.Controls
+namespace UniversalUI.Controls
 {
     public partial class HostFrameworkAnywhereControl
     {

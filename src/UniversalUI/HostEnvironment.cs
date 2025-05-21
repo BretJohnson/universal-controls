@@ -1,6 +1,6 @@
 using System;
 
-namespace AnywhereUI
+namespace UniversalUI
 {
     public static class HostEnvironment
     {

@@ -1,10 +1,10 @@
 // This code was adapted from the WPF source here: https://github.com/dotnet/wpf/blob/e6a8177202c8c584c4b8d532dd8bc95388d3a07b/src/Microsoft.DotNet.Wpf/src/PresentationCore/System/Windows/EventHandlersStore.cs
 
 using System;
-using AnywhereUI.Input;
-using AnywhereUI.Utility;
+using UniversalUI.Input;
+using UniversalUI.Utility;
 
-namespace AnywhereUI;
+namespace UniversalUI;
 
 /// <summary>
 ///     Container for the event handlers

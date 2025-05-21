@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI
+﻿namespace UniversalUI
 {
     public abstract class RenderLayer
     {

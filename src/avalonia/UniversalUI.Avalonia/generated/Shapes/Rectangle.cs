@@ -1,7 +1,7 @@
 // This file is generated from IRectangle.cs. Update the source file to change its contents.
 
-using AnywhereUI;
-using AnywhereUI.Shapes;
+using UniversalUI;
+using UniversalUI.Shapes;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
 namespace AnywhereControlsAvalonia.Shapes

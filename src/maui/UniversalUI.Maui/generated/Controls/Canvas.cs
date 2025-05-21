@@ -1,10 +1,10 @@
 // This file is generated from ICanvas.cs. Update the source file to change its contents.
 
-using AnywhereUI.Controls;
-using ICanvas = AnywhereUI.Controls.ICanvas;
+using UniversalUI.Controls;
+using ICanvas = UniversalUI.Controls.ICanvas;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace AnywhereUI.Maui.Controls
+namespace UniversalUI.Maui.Controls
 {
     public class Canvas : Panel, ICanvas
     {

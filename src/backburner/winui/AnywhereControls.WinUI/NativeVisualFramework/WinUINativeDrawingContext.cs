@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Numerics;
-using AnywhereUI.Controls;
-using AnywhereUI.Media;
-using AnywhereUI.Shapes;
+using UniversalUI.Controls;
+using UniversalUI.Media;
+using UniversalUI.Shapes;
 using Microsoft.UI.Composition;
 using Microsoft.UI.Xaml.Hosting;
 using PenLineCap = Microsoft.StandardUI.Media.PenLineCap;

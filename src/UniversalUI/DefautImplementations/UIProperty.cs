@@ -1,4 +1,4 @@
-namespace AnywhereUI.DefaultImplementations
+namespace UniversalUI.DefaultImplementations
 {
     public class UIProperty : IUIProperty
     {

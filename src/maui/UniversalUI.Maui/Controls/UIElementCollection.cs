@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Maui.Controls;
 
-namespace AnywhereUI.Maui
+namespace UniversalUI.Maui
 {
     public class UIElementCollection<TNativeUIElment, TStandardUIElement> : IList<TNativeUIElment>
         where TNativeUIElment : View where TStandardUIElement : IUIElement

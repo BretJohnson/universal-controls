@@ -1,10 +1,10 @@
 // This file is generated from IPanel.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
+using UniversalUI.DefaultImplementations;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using System.Collections;
-using AnywhereUI.Controls;
+using UniversalUI.Controls;
 
 namespace AnywhereControls.Blazor.Controls
 {

@@ -1,9 +1,9 @@
 using System;
-using AnywhereUI.Controls;
-using AnywhereUI.Media;
-using AnywhereUI.Shapes;
+using UniversalUI.Controls;
+using UniversalUI.Media;
+using UniversalUI.Shapes;
 
-namespace AnywhereUI
+namespace UniversalUI
 {
     /// <summary>
     /// A IDrawingContext turns cross platform vector graphics into an IVisual, a platform specific representation those graphics.

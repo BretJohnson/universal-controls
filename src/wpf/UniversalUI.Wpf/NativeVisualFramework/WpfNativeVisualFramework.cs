@@ -1,10 +1,10 @@
 using System;
 using System.Globalization;
 using System.Windows.Media;
-using AnywhereUI.Controls;
-using AnywhereUI.Wpf.Text;
+using UniversalUI.Controls;
+using UniversalUI.Wpf.Text;
 
-namespace AnywhereUI.Wpf.NativeVisualFramework
+namespace UniversalUI.Wpf.NativeVisualFramework
 {
     public class WpfNativeVisualFramework : IVisualFramework
     {

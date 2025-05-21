@@ -1,5 +1,5 @@
-﻿using AnywhereUI;
-using AnywhereUI.Controls;
+﻿using UniversalUI;
+using UniversalUI.Controls;
 using ExampleFramework;
 using static SimpleControls.SimpleControlsStatics;
 
@@ -7,7 +7,7 @@ namespace AlohaKit.AnywhereControls
 {
     public class ToggleSwitch_Examples
     {
-        [UIExample("ToggleSwitch")]
+        [Example("ToggleSwitch")]
         public static ToggleSwitch SimpleToggleSwitch() =>
             SimpleControls.SimpleControlsStatics.ToggleSwitch()
                 .Width(40)
@@ -15,7 +15,7 @@ namespace AlohaKit.AnywhereControls
                 .BackgroundColor(Colors.Gray)
                 .ThumbColor(Colors.Red);
 
-        [UIExample("ToggleSwitch with green thumb")]
+        [Example("ToggleSwitch with green thumb")]
         public static ToggleSwitch ToggleSwitchWithGreenThumb() =>
             ToggleSwitch()
                 .Width(40)

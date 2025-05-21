@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI.Media
+﻿namespace UniversalUI.Media
 {
     public class FontFamily
     {

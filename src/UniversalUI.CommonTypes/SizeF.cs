@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace AnywhereUI;
+namespace UniversalUI;
 
 /// <summary>
 /// Represents number values that specify a height and width.

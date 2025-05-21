@@ -1,4 +1,4 @@
-using AnywhereUI.Media;
+using UniversalUI.Media;
 
 namespace AnywhereControlsAvalonia.Text
 {

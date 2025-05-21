@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI
+﻿namespace UniversalUI
 {
     /// <summary>
     /// Specifies whether text is centered, left-aligned, or right-aligned.

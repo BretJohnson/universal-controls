@@ -1,9 +1,9 @@
-﻿using AnywhereUI.Controls;
-using AnywhereUI.Media;
-using AnywhereUI.Shapes;
+﻿using UniversalUI.Controls;
+using UniversalUI.Media;
+using UniversalUI.Shapes;
 using System;
 
-namespace AnywhereUI.Maui.NativeVisualFramework
+namespace UniversalUI.Maui.NativeVisualFramework
 {
     public class MauiNativeDrawingContext : IDrawingContext
     {

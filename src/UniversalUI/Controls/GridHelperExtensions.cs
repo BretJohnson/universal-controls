@@ -1,6 +1,6 @@
-﻿using static AnywhereUI.AnywhereUIStatics;
+﻿using static UniversalUI.UniversalUIStatics;
 
-namespace AnywhereUI.Controls
+namespace UniversalUI.Controls
 {
     public static class GridHelperExtensions
     {

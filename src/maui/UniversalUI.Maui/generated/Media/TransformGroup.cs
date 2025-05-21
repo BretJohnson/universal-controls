@@ -1,10 +1,10 @@
 // This file is generated from ITransformGroup.cs. Update the source file to change its contents.
 
 using System.Collections.Generic;
-using AnywhereUI.Media;
+using UniversalUI.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace AnywhereUI.Maui.Media
+namespace UniversalUI.Maui.Media
 {
     public class TransformGroup : Transform, ITransformGroup
     {

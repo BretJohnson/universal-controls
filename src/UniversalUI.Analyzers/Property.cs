@@ -1,6 +1,6 @@
 using Microsoft.CodeAnalysis;
 
-namespace AnywhereUI.SourceGenerator
+namespace UniversalUI.SourceGenerator
 {
     public class Property : PropertyBase
     {

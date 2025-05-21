@@ -1,4 +1,4 @@
-using AnywhereUI;
+using UniversalUI;
 using Avalonia.Controls;
 
 namespace AnywhereControlsAvalonia;

@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace AnywhereUI.SourceGenerator
+namespace UniversalUI.SourceGenerator
 {
     public class SourceLine
     {

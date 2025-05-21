@@ -1,8 +1,8 @@
 using System.ComponentModel;
-using AnywhereUI.Media;
-using AnywhereUI.Text;
+using UniversalUI.Media;
+using UniversalUI.Text;
 
-namespace AnywhereUI.Controls
+namespace UniversalUI.Controls
 {
     [UIModelObject]
     public interface ITextBlock : IUIElement

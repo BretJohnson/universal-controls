@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI.FrameworkForwarder
+﻿namespace UniversalUI.FrameworkForwarder
 {
     // All the code in this file is only included on iOS.
     public class PlatformClass1

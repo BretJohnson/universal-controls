@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\..\AnywhereUI.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\..\UniversalUI.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\AnywhereUI\AnywhereUI.csproj" />
+    <ProjectReference Include="..\..\UniversalUI\UniversalUI.csproj" />
   </ItemGroup>
 
 </Project>

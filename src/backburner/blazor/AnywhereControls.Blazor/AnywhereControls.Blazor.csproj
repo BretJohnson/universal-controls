@@ -4,15 +4,15 @@
     <TargetFramework>net6.0</TargetFramework>
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
-    <RootNamespace>AnywhereUI.Blazor</RootNamespace>
+    <RootNamespace>UniversalUI.Blazor</RootNamespace>
 
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\AnywhereUI.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\UniversalUI.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AnywhereUI.Analyzers\AnywhereUI.Analyzers.csproj" />
-    <ProjectReference Include="..\AnywhereUI\AnywhereUI.csproj" />
+    <ProjectReference Include="..\UniversalUI.Analyzers\UniversalUI.Analyzers.csproj" />
+    <ProjectReference Include="..\UniversalUI\UniversalUI.csproj" />
   </ItemGroup>
 
   <ItemGroup>

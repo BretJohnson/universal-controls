@@ -1,4 +1,4 @@
-namespace AnywhereUI.Wpf
+namespace UniversalUI.Wpf
 {
     public class WpfHostFramework : IHostFramework
     {

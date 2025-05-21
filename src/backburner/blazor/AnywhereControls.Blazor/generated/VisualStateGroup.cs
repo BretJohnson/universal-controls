@@ -1,6 +1,6 @@
 // This file is generated from IVisualStateGroup.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
+using UniversalUI.DefaultImplementations;
 
 namespace AnywhereControls.Blazor
 {

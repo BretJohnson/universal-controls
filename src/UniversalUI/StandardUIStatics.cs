@@ -1,11 +1,11 @@
-using AnywhereUI.Controls;
-using AnywhereUI.Media;
-using AnywhereUI.Shapes;
-using ICanvas = AnywhereUI.Controls.ICanvas;
+using UniversalUI.Controls;
+using UniversalUI.Media;
+using UniversalUI.Shapes;
+using ICanvas = UniversalUI.Controls.ICanvas;
 
-namespace AnywhereUI
+namespace UniversalUI
 {
-    public static class AnywhereUIStatics
+    public static class UniversalUIStatics
     {
         /*** UI Elements ***/
 

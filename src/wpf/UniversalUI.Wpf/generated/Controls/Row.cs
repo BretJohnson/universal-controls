@@ -1,9 +1,9 @@
 // This file is generated from IRow.cs. Update the source file to change its contents.
 
-using AnywhereUI.Controls;
+using UniversalUI.Controls;
 using DependencyProperty = System.Windows.DependencyProperty;
 
-namespace AnywhereUI.Wpf.Controls
+namespace UniversalUI.Wpf.Controls
 {
     public class Row : Panel, IRow
     {

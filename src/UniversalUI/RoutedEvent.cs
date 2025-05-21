@@ -1,9 +1,9 @@
 // This was adapted from the WPF source here: https://github.com/dotnet/wpf/blob/b47e1312c9bfe069a689d1f53f3b8caa09018265/src/Microsoft.DotNet.Wpf/src/PresentationCore/System/Windows/RoutedEvent.cs
 
 using System;
-using AnywhereUI.Input;
+using UniversalUI.Input;
 
-namespace AnywhereUI;
+namespace UniversalUI;
 
 /// <summary>
 ///     RoutedEvent is a unique identifier for any registered RoutedEvent

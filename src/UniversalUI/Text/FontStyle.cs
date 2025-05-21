@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI.Text
+﻿namespace UniversalUI.Text
 {
     /// <summary>
     /// Represents the style of a font face (for example, normal or italic).

@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace AnywhereUI
+namespace UniversalUI
 {
     /// <summary>
     /// Represents the path to a property on a target element.

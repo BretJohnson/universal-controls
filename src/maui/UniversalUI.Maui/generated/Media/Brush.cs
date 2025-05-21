@@ -1,8 +1,8 @@
 // This file is generated from IBrush.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
+using UniversalUI.Media;
 
-namespace AnywhereUI.Maui.Media
+namespace UniversalUI.Maui.Media
 {
     public class Brush : UIObject, IBrush
     {

@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI.Media
+﻿namespace UniversalUI.Media
 {
     [UIModelObject]
     public interface IQuadraticBezierSegment : IPathSegment

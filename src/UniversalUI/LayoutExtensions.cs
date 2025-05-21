@@ -1,7 +1,7 @@
 ﻿using System;
-using static AnywhereUI.Dimension;
+using static UniversalUI.Dimension;
 
-namespace AnywhereUI
+namespace UniversalUI
 {
     public static class LayoutExtensions
     {

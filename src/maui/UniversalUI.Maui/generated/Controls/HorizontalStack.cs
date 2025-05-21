@@ -1,8 +1,8 @@
 // This file is generated from IHorizontalStack.cs. Update the source file to change its contents.
 
-using AnywhereUI.Controls;
+using UniversalUI.Controls;
 
-namespace AnywhereUI.Maui.Controls
+namespace UniversalUI.Maui.Controls
 {
     public class HorizontalStack : StackBase, IHorizontalStack
     {

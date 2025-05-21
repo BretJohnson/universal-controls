@@ -1,9 +1,9 @@
 // This file is generated from ITranslateTransform.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
+using UniversalUI.Media;
 using BindableProperty = Microsoft.Maui.Controls.BindableProperty;
 
-namespace AnywhereUI.Maui.Media
+namespace UniversalUI.Maui.Media
 {
     public class TranslateTransform : Transform, ITranslateTransform
     {

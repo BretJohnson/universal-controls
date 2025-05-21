@@ -1,6 +1,6 @@
-using static AnywhereUI.AnywhereUIStatics;
+using static UniversalUI.UniversalUIStatics;
 
-namespace AnywhereUI.Shapes
+namespace UniversalUI.Shapes
 {
     public static class ShapeHelperExtensions
     {

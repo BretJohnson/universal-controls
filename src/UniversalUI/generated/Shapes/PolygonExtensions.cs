@@ -1,8 +1,8 @@
 // This file is generated from IPolygon.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
+using UniversalUI.Media;
 
-namespace AnywhereUI.Shapes
+namespace UniversalUI.Shapes
 {
     public static class PolygonExtensions
     {

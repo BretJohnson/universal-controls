@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace AnywhereUI.Utility;
+namespace UniversalUI.Utility;
 
 // These classes implement a frugal storage model for key/value pair data
 // structures. The keys are integers, and the values objects.

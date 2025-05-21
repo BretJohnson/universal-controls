@@ -1,6 +1,6 @@
 // This file is generated from IVisualState.cs. Update the source file to change its contents.
 
-using AnywhereUI;
+using UniversalUI;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
 namespace AnywhereControlsAvalonia

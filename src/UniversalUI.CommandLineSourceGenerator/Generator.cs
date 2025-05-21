@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 using Microsoft.Build.Locator;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.MSBuild;
-using AnywhereUI.SourceGenerator;
-using AnywhereUI.SourceGenerator.UIFrameworks;
+using UniversalUI.SourceGenerator;
+using UniversalUI.SourceGenerator.UIFrameworks;
 using System.Linq;
 
-namespace AnywhereUI.CommandLineSourceGenerator
+namespace UniversalUI.CommandLineSourceGenerator
 {
     public static class Generator
     {
@@ -18,7 +18,7 @@ namespace AnywhereUI.CommandLineSourceGenerator
             {
                 if (args.Length != 1)
                 {
-                    throw new UserViewableException($"Usage: AnywhereUI.CommandLineSourceGenerator.exe <path-to-repo-root>");
+                    throw new UserViewableException($"Usage: UniversalUI.CommandLineSourceGenerator.exe <path-to-repo-root>");
                 }
 
                 string rootDirectory = NormalizePath(args[0]);
@@ -28,7 +28,7 @@ namespace AnywhereUI.CommandLineSourceGenerator
                 using MSBuildWorkspace workspace = MSBuildWorkspace.Create();
                 workspace.WorkspaceFailed += (o, e) => Console.WriteLine(e.Diagnostic.Message);
 
-                string anywhereUIProjectPath = Path.Combine(rootDirectory, "src", "AnywhereUI", "AnywhereUI.csproj");
+                string anywhereUIProjectPath = Path.Combine(rootDirectory, "src", "UniversalUI", "UniversalUI.csproj");
                 Console.WriteLine($"Loading project '{anywhereUIProjectPath}'");
                 Project anywhereControlsProject = await workspace.OpenProjectAsync(anywhereUIProjectPath, new ConsoleProgressReporter());
 
@@ -36,11 +36,11 @@ namespace AnywhereUI.CommandLineSourceGenerator
 
                 Project? anywhereUICommonTypesProject = anywhereControlsProject.ProjectReferences
                     .Select(projectRef => workspace.CurrentSolution.GetProject(projectRef.ProjectId))
-                    .First(referencedProj => referencedProj?.Name == "AnywhereUI.CommonTypes");
+                    .First(referencedProj => referencedProj?.Name == "UniversalUI.CommonTypes");
 
                 if (anywhereUICommonTypesProject == null)
                 {
-                    throw new UserViewableException("Couldn't find referenced AnywhereUI.CommonTypes project");
+                    throw new UserViewableException("Couldn't find referenced UniversalUI.CommonTypes project");
                 }
 
                 await GenerateClassesForProject(anywhereUICommonTypesProject, rootDirectory);

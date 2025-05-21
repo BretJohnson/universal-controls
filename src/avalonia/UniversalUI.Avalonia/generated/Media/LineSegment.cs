@@ -1,7 +1,7 @@
 // This file is generated from ILineSegment.cs. Update the source file to change its contents.
 
-using AnywhereUI;
-using AnywhereUI.Media;
+using UniversalUI;
+using UniversalUI.Media;
 using AvaloniaProperty = Avalonia.AvaloniaProperty;
 
 namespace AnywhereControlsAvalonia.Media

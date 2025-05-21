@@ -1,6 +1,6 @@
-using AnywhereUI.Controls;
+using UniversalUI.Controls;
 
-namespace AnywhereUI.Maui
+namespace UniversalUI.Maui
 {
     public class ControlTemplateXamarinForms : IControlTemplate
     {

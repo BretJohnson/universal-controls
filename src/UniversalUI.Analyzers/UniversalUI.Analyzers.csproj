@@ -5,10 +5,10 @@
     <LangVersion>11.0</LangVersion>
     <Nullable>enable</Nullable>
     <IsRoslynComponent>true</IsRoslynComponent>
-    <RootNamespace>AnywhereUI.SourceGenerator</RootNamespace>
+    <RootNamespace>UniversalUI.SourceGenerator</RootNamespace>
     
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\AnywhereUI.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\UniversalUI.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>

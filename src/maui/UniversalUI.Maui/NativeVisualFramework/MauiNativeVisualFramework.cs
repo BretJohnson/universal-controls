@@ -1,7 +1,7 @@
-﻿using AnywhereUI.Controls;
+﻿using UniversalUI.Controls;
 using System;
 
-namespace AnywhereUI.Maui.NativeVisualFramework
+namespace UniversalUI.Maui.NativeVisualFramework
 {
     public class MauiNativeVisualFramework : IVisualFramework
     {

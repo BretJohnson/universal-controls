@@ -1,6 +1,6 @@
 // This file is generated from IPanel.cs. Update the source file to change its contents.
 
-namespace AnywhereUI.Controls
+namespace UniversalUI.Controls
 {
     public static class PanelExtensions
     {

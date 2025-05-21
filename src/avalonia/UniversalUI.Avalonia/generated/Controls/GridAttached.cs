@@ -1,7 +1,7 @@
 // This file is generated from IGrid.cs. Update the source file to change its contents.
 
-using AnywhereUI.Controls;
-using AnywhereUI;
+using UniversalUI.Controls;
+using UniversalUI;
 
 namespace AnywhereControlsAvalonia.Controls
 {

@@ -1,4 +1,4 @@
-﻿namespace AnywhereUI.Maui.NativeVisualFramework
+﻿namespace UniversalUI.Maui.NativeVisualFramework
 {
     public class MauiNativeVisual : IVisual
     {

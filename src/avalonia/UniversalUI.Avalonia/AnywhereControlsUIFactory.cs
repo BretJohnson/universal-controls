@@ -1,7 +1,7 @@
-using AnywhereUI;
-using AnywhereUI.Controls;
-using AnywhereUI.Media;
-using AnywhereUI.Shapes;
+using UniversalUI;
+using UniversalUI.Controls;
+using UniversalUI.Media;
+using UniversalUI.Shapes;
 using AnywhereUIAvalonia.Controls;
 using AnywhereUIAvalonia.Media;
 using AnywhereUIAvalonia.Shapes;

@@ -1,5 +1,5 @@
 using System;
-using AnywhereUI.Media;
+using UniversalUI.Media;
 
 namespace AnywhereControls.WinUI.Text
 {

@@ -1,7 +1,7 @@
 ﻿using System;
-using AnywhereUI.Input;
+using UniversalUI.Input;
 
-namespace AnywhereUI.Controls;
+namespace UniversalUI.Controls;
 
 /// <summary>
 /// This class is only used at build time, not runtime. At runtime, the

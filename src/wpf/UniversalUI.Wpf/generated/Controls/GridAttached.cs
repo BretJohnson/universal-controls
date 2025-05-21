@@ -1,8 +1,8 @@
 // This file is generated from IGrid.cs. Update the source file to change its contents.
 
-using AnywhereUI.Controls;
+using UniversalUI.Controls;
 
-namespace AnywhereUI.Wpf.Controls
+namespace UniversalUI.Wpf.Controls
 {
     public class GridAttached : IGridAttached
     {
