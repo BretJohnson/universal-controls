@@ -1,8 +1,8 @@
 // This file is generated from IColumnDefinition.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
+using UniversalUI.DefaultImplementations;
 using Microsoft.AspNetCore.Components;
-using AnywhereUI.Controls;
+using UniversalUI.Controls;
 
 namespace AnywhereControls.Blazor.Controls
 {

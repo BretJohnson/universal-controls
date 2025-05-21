@@ -1,8 +1,8 @@
 // This file is generated from IRectangle.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
+using UniversalUI.DefaultImplementations;
 using Microsoft.AspNetCore.Components;
-using AnywhereUI.Shapes;
+using UniversalUI.Shapes;
 
 namespace AnywhereControls.Blazor.Shapes
 {

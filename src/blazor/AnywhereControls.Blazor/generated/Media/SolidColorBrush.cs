@@ -1,8 +1,8 @@
 // This file is generated from ISolidColorBrush.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
+using UniversalUI.DefaultImplementations;
 using Microsoft.AspNetCore.Components;
-using AnywhereUI.Media;
+using UniversalUI.Media;
 
 namespace AnywhereControls.Blazor.Media
 {

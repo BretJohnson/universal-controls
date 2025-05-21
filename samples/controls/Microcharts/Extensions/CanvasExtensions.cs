@@ -1,14 +1,14 @@
 ﻿// Copyright (c) Aloïs DENIEL. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using AnywhereUI;
-using AnywhereUI.Controls;
-using AnywhereUI.Media;
-using AnywhereUI.Shapes;
+using UniversalUI;
+using UniversalUI.Controls;
+using UniversalUI.Media;
+using UniversalUI.Shapes;
 using SkiaSharp;
-using static AnywhereUI.AnywhereUIStatics;
-using FontWeights = AnywhereUI.Text.FontWeights;
-using ICanvas = AnywhereUI.Controls.ICanvas;
+using static UniversalUI.UniversalUIStatics;
+using FontWeights = UniversalUI.Text.FontWeights;
+using ICanvas = UniversalUI.Controls.ICanvas;
 
 namespace Microcharts
 {
@@ -95,7 +95,7 @@ namespace Microcharts
         /// <param name="color">The fill color.</param>
         /// <param name="size">The point size.</param>
         /// <param name="mode">The point mode.</param>
-        public static void DrawPoint(this AnywhereUI.Controls.ICanvas canvas, Point point, Color color, float size, PointMode mode)
+        public static void DrawPoint(this UniversalUI.Controls.ICanvas canvas, Point point, Color color, float size, PointMode mode)
         {
             IShape shape;
             if (mode == PointMode.Square)

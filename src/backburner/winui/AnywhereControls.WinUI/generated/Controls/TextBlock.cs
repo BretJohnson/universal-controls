@@ -1,10 +1,10 @@
 // This file is generated from ITextBlock.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
-using AnywhereUI.WinUI.Media;
-using AnywhereUI.Text;
-using AnywhereUI.WinUI.Text;
-using AnywhereUI.Controls;
+using UniversalUI.Media;
+using UniversalUI.WinUI.Media;
+using UniversalUI.Text;
+using UniversalUI.WinUI.Text;
+using UniversalUI.Controls;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
 namespace AnywhereControls.WinUI.Controls

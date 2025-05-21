@@ -5,11 +5,11 @@ namespace AlohaKit.AnywhereControls
 {
     public class CheckBox_Examples
     {
-        [UIExample("UnChecked CheckBox")]
+        [Example("UnChecked CheckBox")]
         public static CheckBox UnCheckedCheckBox() =>
             CheckBox();
 
-        [UIExample("Checked CheckBox")]
+        [Example("Checked CheckBox")]
         public static CheckBox CheckedCheckBox() =>
             CheckBox()
                 .IsChecked(true);

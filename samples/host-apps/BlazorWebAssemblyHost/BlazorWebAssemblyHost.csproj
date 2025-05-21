@@ -12,10 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\AnywhereUI.Analyzers\AnywhereUI.Analyzers.csproj" />
-    <ProjectReference Include="..\..\..\src\AnywhereUI.Blazor\AnywhereUI.Blazor.csproj" />
-    <ProjectReference Include="..\..\..\src\AnywhereUI\AnywhereUI.csproj" />
-    <ProjectReference Include="..\..\..\src\skia\AnywhereUI.SkiaVisualFramework.Blazor\AnywhereUI.SkiaVisualFramework.Blazor.csproj" />
+    <ProjectReference Include="..\..\..\src\UniversalUI.Analyzers\UniversalUI.Analyzers.csproj" />
+    <ProjectReference Include="..\..\..\src\UniversalUI.Blazor\UniversalUI.Blazor.csproj" />
+    <ProjectReference Include="..\..\..\src\UniversalUI\UniversalUI.csproj" />
+    <ProjectReference Include="..\..\..\src\skia\UniversalUI.SkiaVisualFramework.Blazor\UniversalUI.SkiaVisualFramework.Blazor.csproj" />
   </ItemGroup>
 
 </Project>

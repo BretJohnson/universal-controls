@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using AnywhereUI.Blazor.Controls;
-using AnywhereUI.Blazor.Media;
-using AnywhereUI.Blazor.Shapes;
-using AnywhereUI.Controls;
-using AnywhereUI.Media;
-using AnywhereUI.Shapes;
+using UniversalUI.Blazor.Controls;
+using UniversalUI.Blazor.Media;
+using UniversalUI.Blazor.Shapes;
+using UniversalUI.Controls;
+using UniversalUI.Media;
+using UniversalUI.Shapes;
 
 namespace AnywhereControls.Blazor
 {

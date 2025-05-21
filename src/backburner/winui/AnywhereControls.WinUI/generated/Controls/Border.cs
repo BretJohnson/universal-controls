@@ -1,8 +1,8 @@
 // This file is generated from IBorder.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
-using AnywhereUI.WinUI.Media;
-using AnywhereUI.Controls;
+using UniversalUI.Media;
+using UniversalUI.WinUI.Media;
+using UniversalUI.Controls;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
 namespace AnywhereControls.WinUI.Controls

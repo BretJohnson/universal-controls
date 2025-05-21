@@ -1,6 +1,6 @@
 // This file is generated from IVerticalStack.cs. Update the source file to change its contents.
 
-using AnywhereUI.Controls;
+using UniversalUI.Controls;
 
 namespace AnywhereControls.WinUI.Controls
 {

@@ -5,11 +5,11 @@
     <UseWindowsForms>true</UseWindowsForms>
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
-    <RootNamespace>AnywhereUI.WinForms</RootNamespace>
+    <RootNamespace>UniversalUI.WinForms</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AnywhereUI\AnywhereUI.csproj" />
+    <ProjectReference Include="..\UniversalUI\UniversalUI.csproj" />
   </ItemGroup>
 
 </Project>

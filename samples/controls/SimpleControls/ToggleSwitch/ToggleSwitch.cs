@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
-using AnywhereUI;
-using AnywhereUI.Controls;
-using AnywhereUI.Media;
-using AnywhereUI.Shapes;
-using static AnywhereUI.AnywhereUIStatics;
+using UniversalUI;
+using UniversalUI.Controls;
+using UniversalUI.Media;
+using UniversalUI.Shapes;
+using static UniversalUI.UniversalUIStatics;
 
 namespace AlohaKit.AnywhereControls
 {

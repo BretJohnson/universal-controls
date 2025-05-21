@@ -1,6 +1,6 @@
 // This file is generated from IQuadraticBezierSegment.cs. Update the source file to change its contents.
 
-using AnywhereUI.Media;
+using UniversalUI.Media;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
 namespace AnywhereControls.WinUI.Media

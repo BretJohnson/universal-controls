@@ -1,11 +1,11 @@
 // This file is generated from ITextBlock.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
-using AnywhereUI.Media;
-using AnywhereUI.Blazor.Media;
+using UniversalUI.DefaultImplementations;
+using UniversalUI.Media;
+using UniversalUI.Blazor.Media;
 using Microsoft.AspNetCore.Components;
-using AnywhereUI.Text;
-using AnywhereUI.Controls;
+using UniversalUI.Text;
+using UniversalUI.Controls;
 
 namespace AnywhereControls.Blazor.Controls
 {

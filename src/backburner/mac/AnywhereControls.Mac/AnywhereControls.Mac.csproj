@@ -116,7 +116,7 @@
     <None Include="StandardUI.Mac.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AnywhereUI\AnywhereUI.csproj">
+    <ProjectReference Include="..\UniversalUI\UniversalUI.csproj">
       <Project>{752F4208-8318-4C57-9868-9921FF743AA9}</Project>
       <Name>StandardUI</Name>
     </ProjectReference>

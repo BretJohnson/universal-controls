@@ -1,8 +1,8 @@
 // This file is generated from ICanvas.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
+using UniversalUI.DefaultImplementations;
 using CommonUI;
-using AnywhereUI.Controls;
+using UniversalUI.Controls;
 using ICanvas = AnywhereControls.Controls.ICanvas;
 
 namespace AnywhereControls.Mac.Controls

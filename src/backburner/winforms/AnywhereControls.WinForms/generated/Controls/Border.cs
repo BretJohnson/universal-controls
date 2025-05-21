@@ -1,9 +1,9 @@
 // This file is generated from IBorder.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
-using AnywhereUI.Media;
-using AnywhereUI.WinForms.Media;
-using AnywhereUI.Controls;
+using UniversalUI.DefaultImplementations;
+using UniversalUI.Media;
+using UniversalUI.WinForms.Media;
+using UniversalUI.Controls;
 
 namespace AnywhereControls.WinForms.Controls
 {

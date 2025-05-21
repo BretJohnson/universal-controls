@@ -1,7 +1,7 @@
 // This file is generated from IHorizontalTable.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
-using AnywhereUI.Controls;
+using UniversalUI.DefaultImplementations;
+using UniversalUI.Controls;
 
 namespace AnywhereControls.Mac.Controls
 {

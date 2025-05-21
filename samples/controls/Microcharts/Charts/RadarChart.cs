@@ -3,12 +3,12 @@
 
 using System;
 using System.Linq;
-using AnywhereUI;
-using AnywhereUI.Controls;
-using AnywhereUI.Media;
-using AnywhereUI.Shapes;
-using static AnywhereUI.AnywhereUIStatics;
-using ICanvas = AnywhereUI.Controls.ICanvas;
+using UniversalUI;
+using UniversalUI.Controls;
+using UniversalUI.Media;
+using UniversalUI.Shapes;
+using static UniversalUI.UniversalUIStatics;
+using ICanvas = UniversalUI.Controls.ICanvas;
 
 namespace Microcharts
 {

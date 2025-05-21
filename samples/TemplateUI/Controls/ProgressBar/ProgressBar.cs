@@ -1,6 +1,6 @@
-﻿using AnywhereUI;
-using AnywhereUI.Controls;
-using AnywhereUI.Media;
+﻿using UniversalUI;
+using UniversalUI.Controls;
+using UniversalUI.Media;
 using static AnywhereControls.FactoryStatics;
 
 namespace TemplateStandardUI.Controls

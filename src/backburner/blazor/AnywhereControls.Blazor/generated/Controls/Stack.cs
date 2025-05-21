@@ -1,7 +1,7 @@
 // This file is generated from IStack.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
-using AnywhereUI.Controls;
+using UniversalUI.DefaultImplementations;
+using UniversalUI.Controls;
 using Microsoft.AspNetCore.Components;
 using CommonUI;
 

@@ -7,10 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\external\example-framework\src\ExampleFramework.App\ExampleFramework.App.csproj" />
-    <ProjectReference Include="..\..\..\src\AnywhereUI.Analyzers\AnywhereUI.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="False" />
-    <ProjectReference Include="..\..\..\src\AnywhereUI\AnywhereUI.csproj" />
-    <ProjectReference Include="..\..\..\src\AnywhereUI.FrameworkForwarderStub\AnywhereUI.FrameworkForwarderStub.csproj" Private="False" PrivateAssets="All" />
+    <ProjectReference Include="..\..\..\external\example-framework\src\ExampleFramework\ExampleFramework.csproj" />
+    <ProjectReference Include="..\..\..\src\UniversalUI.Analyzers\UniversalUI.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="False" />
+    <ProjectReference Include="..\..\..\src\UniversalUI\UniversalUI.csproj" />
+    <ProjectReference Include="..\..\..\src\UniversalUI.FrameworkForwarderStub\UniversalUI.FrameworkForwarderStub.csproj" Private="False" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup Condition="$(UseLocalExampleFramework) == ''">

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>11.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\UniversalUI.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UniversalUI.CommonTypes\UniversalUI.CommonTypes.csproj" />
+    <ProjectReference Include="..\UniversalUI.FrameworkForwarderStub\UniversalUI.FrameworkForwarderStub.csproj" Private="False" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>

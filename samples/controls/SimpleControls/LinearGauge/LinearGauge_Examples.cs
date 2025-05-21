@@ -1,5 +1,5 @@
-﻿using AnywhereUI;
-using AnywhereUI.Controls;
+﻿using UniversalUI;
+using UniversalUI.Controls;
 using ExampleFramework;
 using static SimpleControls.SimpleControlsStatics;
 
@@ -7,7 +7,7 @@ namespace AlohaKit.AnywhereControls
 {
     public class LinearGauge_Examples
     {
-        [UIExample("LinearGauge")]
+        [Example("LinearGauge")]
         public static LinearGauge SimpleLinearGauge() =>
             LinearGauge()
                 .Width(60)

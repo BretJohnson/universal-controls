@@ -1,14 +1,13 @@
 using System.Windows;
 using System.Windows.Controls;
+using ExampleFramework.App;
 using Microcharts;
 using Microcharts.Wpf;
-using AnywhereUI;
-using AnywhereUI.Wpf;
-using AnywhereUI.Wpf.NativeVisualFramework;
 using SimpleControls;
 using SimpleControls.Wpf;
-using ExampleFramework;
-using ExampleFramework.App;
+using UniversalUI;
+using UniversalUI.Wpf;
+using UniversalUI.Wpf.NativeVisualFramework;
 
 // Import our sample controls. This triggers source generation, turning them into WPF controls.
 // To see the generated source, in Solution Explorer look under
@@ -37,17 +36,17 @@ namespace WpfHost
 
         private void InitalizeExamples()
         {
-            AppUIComponents uiComponents = new AppUIComponents();
+            var uiComponentsManager = new UIComponentsManagerReflection(null, [], null);
 
-            uiComponents.AddFromAssembly(typeof(SimpleControlsControlLibrary).Assembly);
-            uiComponents.AddFromAssembly(typeof(MicrochartsControlLibrary).Assembly);
+            uiComponentsManager.AddUIComponentsFromAssembly(typeof(SimpleControlsControlLibrary).Assembly);
+            uiComponentsManager.AddUIComponentsFromAssembly(typeof(MicrochartsControlLibrary).Assembly);
 
             int rowIndex = 0;
-            foreach (AppUIComponent uiComponent in uiComponents.Components)
+            foreach (UIComponentReflection uiComponent in uiComponentsManager.UIComponents)
             {
-                foreach (AppUIExample uiExample in uiComponent.Examples)
+                foreach (ExampleReflection example in uiComponent.Examples)
                 {
-                    object control = uiExample.Create();
+                    object control = example.Create();
 
                     if (control is not UIElement controlUIElement)
                         continue;
@@ -57,7 +56,7 @@ namespace WpfHost
 
                     var descriptionText = new TextBlock()
                     {
-                        Text = uiExample.DisplayName,
+                        Text = example.DisplayName,
                         Padding = new System.Windows.Thickness(10.0),
                         VerticalAlignment = System.Windows.VerticalAlignment.Center,
                     };
@@ -65,7 +64,7 @@ namespace WpfHost
                     Grid.SetColumn(descriptionText, 0);
                     Examples.Children.Add(descriptionText);
 
-                    Border controlBorder = new Border()
+                    var controlBorder = new Border()
                     {
                         Padding = new System.Windows.Thickness(10.0),
                         Child = controlUIElement,

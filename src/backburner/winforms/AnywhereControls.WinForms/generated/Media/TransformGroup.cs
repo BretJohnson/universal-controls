@@ -1,8 +1,8 @@
 // This file is generated from ITransformGroup.cs. Update the source file to change its contents.
 
-using AnywhereUI.DefaultImplementations;
+using UniversalUI.DefaultImplementations;
 using System.Collections.Generic;
-using AnywhereUI.Media;
+using UniversalUI.Media;
 
 namespace AnywhereControls.WinForms.Media
 {

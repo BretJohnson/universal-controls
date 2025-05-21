@@ -1,7 +1,7 @@
 // This file is generated from IPanel.cs. Update the source file to change its contents.
 
 using Microsoft.UI.Xaml.Markup;
-using AnywhereUI.Controls;
+using UniversalUI.Controls;
 using DependencyProperty = Microsoft.UI.Xaml.DependencyProperty;
 
 namespace AnywhereControls.WinUI.Controls
