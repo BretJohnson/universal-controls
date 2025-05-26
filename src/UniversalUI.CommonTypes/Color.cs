@@ -1,141 +1,168 @@
-﻿using System;
-using UniversalUI.Converters;
-using System.ComponentModel;
+﻿// This file is copied, with modifications, from the Uno project.
+
+using System;
+using System.Runtime.InteropServices;
 
 namespace UniversalUI;
 
-/// <summary>
-/// Describes a color in terms of alpha, red, green, and blue channels.
-/// </summary>
-[TypeConverter(typeof(ColorTypeConverter))]
-public struct Color
+[StructLayout(LayoutKind.Explicit)]
+public struct Color : IFormattable
 {
-    public static readonly Color Default = new Color(0, 0, 0, 0);
+	/// <summary>
+	/// Alias individual fields to avoid bitshifting and GetHashCode / compare costs
+	/// </summary>
+	[FieldOffset(0)]
+	private uint _color;
+
+	//
+	// This memory layout assumes that the system uses little-endianness.
+	//
+	[FieldOffset(3)]
+	private byte _a;
+	[FieldOffset(2)]
+	private byte _r;
+	[FieldOffset(1)]
+	private byte _g;
+	[FieldOffset(0)]
+	private byte _b;
+
+	public byte A { get => _a; set => _a = value; }
+
+	public byte B { get => _b; set => _b = value; }
+
+	public byte G { get => _g; set => _g = value; }
+
+	public byte R { get => _r; set => _r = value; }
+
+	public bool IsTransparent => _a == 0;
+
+	public static Color FromArgb(byte a, byte r, byte g, byte b) => new Color(a, r, g, b);
 
     /// <summary>
-    /// Gets or sets the sRGB alpha channel value of the color.
+    /// Takes a color code as an ARGB, RGB, #ARGB, #RGB string and returns a color.
+    ///
+    /// Remark: if single digits are used to define the color, they will
+    /// be duplicated (example: FFD8 will become FFFFDD88)
     /// </summary>
-    public byte A { get; set; }
-
-    /// <summary>
-    /// Gets or sets the sRGB blue channel value of the color.
-    /// </summary>
-    public byte B { get; set; }
-
-    /// <summary>
-    /// Gets or sets the sRGB green channel value of the color.
-    /// </summary>
-    public byte G { get; set; }
-
-    /// <summary>
-    /// Gets or sets the sRGB red channel value of the color.
-    /// </summary>
-    public byte R { get; set; }
-
-    public static Color FromArgb(byte a, byte r, byte g, byte b) => new Color(a, r, g, b);
-
-    public static Color FromRgb(byte r, byte g, byte b) => FromArgb(255, r, g, b);
-
-    public static Color FromHex(string hex)
+    /// <param name="colorCode"></param>
+    /// <returns></returns>
+    public static Color FromArgb(string colorCode)
     {
-        if (!FromHex(hex, out Color value))
-            throw new System.FormatException($"Color '{hex}' isn't a valid hex color");
+        byte a, r, b, g;
 
-        return value;
-    }
+        int len = colorCode.Length;
+        // skip a starting `#` if present
+        int offset = (len > 0 && colorCode[0] == '#' ? 1 : 0);
+        len -= offset;
 
-    /// <summary>
-    /// Creates a Color structure from a 32-bit RGBA value
-    /// </summary>
-    public static Color FromRgba(int rgba)
-    {
-        byte[] bytes = BitConverter.GetBytes(rgba);
-        return FromArgb(bytes[3], bytes[0], bytes[1], bytes[2]);
-    }
-
-    public static bool FromHex(string hex, out Color color)
-    {
-        color = Color.Default;
-
-        if (hex.Length < 3)
-            return false;
-
-        int idx = (hex[0] == '#') ? 1 : 0;
-
-        switch (hex.Length - idx)
+        // deal with an optional alpha value
+        if (len == 4)
         {
-            case 3: //#rgb => ffrrggbb
-                byte t1 = ToHexD(hex[idx++]);
-                byte t2 = ToHexD(hex[idx++]);
-                byte t3 = ToHexD(hex[idx]);
-                color = FromRgb(t1, t2, t3);
-                return true;
+            a = ToByte(colorCode[offset++]);
+            a = (byte)(a << 4 + a);
+            len = 3;
+        }
+        else if (len == 8)
+        {
+            a = (byte)((ToByte(colorCode[offset++]) << 4) + ToByte(colorCode[offset++]));
+            len = 6;
+        }
+        else
+        {
+            a = 0xFF;
+        }
 
-            case 4: //#argb => aarrggbb
-                byte f1 = ToHexD(hex[idx++]);
-                byte f2 = ToHexD(hex[idx++]);
-                byte f3 = ToHexD(hex[idx++]);
-                byte f4 = ToHexD(hex[idx]);
-                color = FromArgb(f1, f2, f3, f4);
-                return true;
+        // then process the required R G and B values
+        if (len == 3)
+        {
+            r = ToByte(colorCode[offset++]);
+            r = (byte)(r << 4 + r);
+            g = ToByte(colorCode[offset++]);
+            g = (byte)(g << 4 + g);
+            b = ToByte(colorCode[offset++]);
+            b = (byte)(b << 4 + b);
+        }
+        else if (len == 6)
+        {
+            r = (byte)((ToByte(colorCode[offset++]) << 4) + ToByte(colorCode[offset++]));
+            g = (byte)((ToByte(colorCode[offset++]) << 4) + ToByte(colorCode[offset++]));
+            b = (byte)((ToByte(colorCode[offset++]) << 4) + ToByte(colorCode[offset++]));
+        }
+        else
+        {
+            throw new ArgumentException($"Cannot parse color '{colorCode}'.");
+        }
 
-            case 6: //#rrggbb => ffrrggbb
-                color = FromRgb(
-                    (byte)(ToHex(hex[idx++]) << 4 | ToHex(hex[idx++])),
-                    (byte)(ToHex(hex[idx++]) << 4 | ToHex(hex[idx++])),
-                    (byte)(ToHex(hex[idx++]) << 4 | ToHex(hex[idx])));
-                return true;
+        return new Color(a, r, g, b);
+    }
 
-            case 8: //#aarrggbb
-                byte a1 = (byte)(ToHex(hex[idx++]) << 4 | ToHex(hex[idx++]));
-                color = FromArgb(
-                    a1,
-                    (byte)(ToHex(hex[idx++]) << 4 | ToHex(hex[idx++])),
-                    (byte)(ToHex(hex[idx++]) << 4 | ToHex(hex[idx++])),
-                    (byte)(ToHex(hex[idx++]) << 4 | ToHex(hex[idx])));
-                return true;
-
-            default: //everything else will result in unexpected results
-                return false;
+    private static byte ToByte(char c)
+    {
+        if (c >= '0' && c <= '9')
+        {
+            return (byte)(c - '0');
+        }
+        else if (c >= 'a' && c <= 'f')
+        {
+            return (byte)(c - 'a' + 10);
+        }
+        else if (c >= 'A' && c <= 'F')
+        {
+            return (byte)(c - 'A' + 10);
+        }
+        else
+        {
+            throw new FormatException($"The character {c} is not valid for a Color string");
         }
     }
 
-    public Color(byte a, byte r, byte g, byte b)
-    {
-        A = a;
-        R = r;
-        G = g;
-        B = b;
-    }
+	public Color(byte a, byte r, byte g, byte b)
+	{
+		// Required for field initialization rules in C#
+		_color = 0;
 
-    public Color WithA(byte a) => new Color(a, R, G, B);
+		_b = b;
+		_g = g;
+		_r = r;
+		_a = a;
+	}
 
-    public Color WithR(byte r) => new Color(A, r, G, B);
+	internal Color(uint color)
+	{
+		// Required for field initialization rules in C#
+		_b = 0;
+		_g = 0;
+		_r = 0;
+		_a = 0;
 
-    public Color WithG(byte g) => new Color(A, R, g, B);
+		_color = color;
+	}
 
-    public Color WithB(byte b) => new Color(A, R, G, b);
+	public override bool Equals(object? o) => o is Color color && Equals(color);
 
-    private static byte ToHex(char c)
-    {
-        ushort x = (ushort)c;
-        if (x >= '0' && x <= '9')
-            return (byte)(x - '0');
+	public bool Equals(Color color) =>
+		color._color == _color;
 
-        x |= 0x20;
-        if (x >= 'a' && x <= 'f')
-            return (byte)(x - 'a' + 10);
-        return 0;
-    }
+	public override int GetHashCode() => (int)_color;
 
-    private static byte ToHexD(char c)
-    {
-        byte j = ToHex(c);
-        return (byte)((j << 4) | j);
-    }
+	public override string ToString() => ToString(null);
 
-    public Color WithA(float v)
-    {
-        throw new NotImplementedException();
-    }
+	public static bool operator ==(Color color1, Color color2) => color1.Equals(color2);
+
+	public static bool operator !=(Color color1, Color color2) => !color1.Equals(color2);
+
+	/// <summary>
+	/// Returns value indicating color's luminance.
+	/// Values lower than 0.5 mean dark color, above 0.5 light color.
+	/// </summary>
+	internal double Luminance => (0.299 * _r + 0.587 * _g + 0.114 * _b) / 255;
+
+	// Note: This method has an equivalent in Toolkit.ColorExtensions for usage with Windows
+	internal Color WithOpacity(double opacity) => new((byte)(_a * opacity), _r, _g, _b);
+
+	internal uint AsUInt32() => _color;
+
+	string IFormattable.ToString(string format, IFormatProvider formatProvider) => ToString(formatProvider);
+
+	private string ToString(IFormatProvider? formatProvider) => string.Format(formatProvider, "#{0:X2}{1:X2}{2:X2}{3:X2}", _a, _r, _g, _b);
 }
