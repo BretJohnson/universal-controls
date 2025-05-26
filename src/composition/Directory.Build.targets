@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project>
+
+	<PropertyGroup>
+		<SkiaSharpVersion>3.119.0-preview.1.2</SkiaSharpVersion>
+		<HarfbuzzSharpVersion>8.3.1.1-preview.1.2</HarfbuzzSharpVersion>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<IsCrossruntime>false</IsCrossruntime>
+		<IsCrossruntime Condition="'$(UniversalUIRuntimeIdentifier)'=='Skia' or '$(UniversalUIRuntimeIdentifier)'=='WebAssembly' or '$(UniversalUIRuntimeIdentifier)'=='Reference'">true</IsCrossruntime>
+
+		<_IsUnitTests>false</_IsUnitTests>
+		<_IsUnitTests Condition="$(MSBuildProjectName.Contains('.Tests'))">true</_IsUnitTests>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="**\*.wasm.cs" Exclude="bin\**\*.wasm.cs;obj\**\*.wasm.cs" Condition="'$(UniversalUIRuntimeIdentifier)'!='WebAssembly'" />
+		<Compile Remove="**\*.wasm.cs" Condition="'$(UniversalUIRuntimeIdentifier)'!='WebAssembly'" />
+
+		<None Include="**\*.skia.cs" Exclude="bin\**\*.skia.cs;obj\**\*.skia.cs" Condition="'$(UniversalUIRuntimeIdentifier)'!='Skia'" />
+		<Compile Remove="**\*.skia.cs" Condition="'$(UniversalUIRuntimeIdentifier)'!='Skia'" />
+
+		<None Include="**\*.reference.cs" Exclude="bin\**\*.reference.cs;obj\**\*.reference.cs" Condition="'$(UniversalUIRuntimeIdentifier)'!='Reference'" />
+		<Compile Remove="**\*.reference.cs" Condition="'$(UniversalUIRuntimeIdentifier)'!='Reference'" />
+
+		<None Include="**\*.unittests.cs" Exclude="bin\**\*.unittests.cs;obj\**\*.unittests.cs" Condition="!$(_IsUnitTests)" />
+		<Compile Remove="**\*.unittests.cs" Condition="!$(_IsUnitTests)" />
+	</ItemGroup>
+
+	<!--
+  List of known constants:
+  - __SKIA__: Used when building for the Skia backend
+  - __WASM__: Used when building for the WebAssembly backend
+  - UNO_REFERENCE_API: Used when the Reference API is used (it's true for Skia, Wasm, and Reference).
+  - __CROSSRUNTIME__: Currently have the same semantics as UNO_REFERENCE_API
+  - __NETSTD_REFERENCE__: Used when building the reference assemblies (only true for Reference)
+  - UNO_HAS_UIELEMENT_IMPLICIT_PINNING: Used to mark targets that have specific constraints on
+										UIElements. On iOS, this means additional weak references
+										backed fields to handle opaque native reference pinning and avoid
+										memory leaks.
+  - UNO_HAS_MANAGED_SCROLL_PRESENTER: Determines if the platforms supports managed scroll presenter which
+									  uses render transforms instead of native scroll feature (if any)
+  - UNO_HAS_MANAGED_POINTERS: Determines if the pointer events are dispatched by uno instead of the system (if any).
+  - HAS_NATIVE_IMPLICIT_POINTER_CAPTURE: Indicate if the OS once a pointer is pressed, OS will send all pointer event to the same target (a.k.a. OriginalSource)
+  - HAS_RENDER_TARGET_BITMAP : Determines if the render target bitmap is implemented (and can be used to take screenshot in runtime tests)
+  - UNO_HAS_BORDER_VISUAL: Determine if borders are rendered using compostion APIs by Uno (or using native promitives)
+  - HAS_COMPOSITION_API : Determines if teh composition APIs (i.e. UIElement.Visual) are supported or not.
+
+  - Constants for Xamarin backends and SDK versions: https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/building-cross-platform-applications/platform-divergence-abstraction-divergent-implementation#conditional-compilation
+  -->
+
+	<PropertyGroup Condition="$(IsCrossruntime)">
+		<DefineConstants>$(DefineConstants);__CROSSRUNTIME__;UNO_REFERENCE_API</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(UniversalUIRuntimeIdentifier)'=='WebAssembly'">
+		<DefineConstants>$(DefineConstants);__WASM__;UNO_HAS_ENHANCED_LIFECYCLE;UNO_HAS_MANAGED_POINTERS;HAS_INPUT_INJECTOR</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(UniversalUIRuntimeIdentifier)'=='Skia'">
+		<DefineConstants>$(DefineConstants);__SKIA__;SUPPORTS_RTL;UNO_SUPPORTS_NATIVEHOST;UNO_HAS_ENHANCED_LIFECYCLE</DefineConstants>
+		<DefineConstants>$(DefineConstants);UNO_HAS_MANAGED_POINTERS;UNO_HAS_MANAGED_SCROLL_PRESENTER;HAS_INPUT_INJECTOR</DefineConstants>
+		<DefineConstants>$(DefineConstants);HAS_COMPOSITION_API;UNO_HAS_BORDER_VISUAL</DefineConstants>
+		<DefineConstants>$(DefineConstants);HAS_RENDER_TARGET_BITMAP</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(UniversalUIRuntimeIdentifier)'=='Reference'">
+		<DefineConstants>$(DefineConstants);__NETSTD_REFERENCE__</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(CI_Build)'!='' OR '$(TF_BUILD)' == 'true'">
+		<DefineConstants>$(DefineConstants);IS_CI</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(CI_Build)'!='' OR '$(TF_BUILD)' == 'true' OR '$(Configuration)'=='Debug'">
+		<DefineConstants>$(DefineConstants);IS_CI_OR_DEBUG</DefineConstants>
+	</PropertyGroup>
+
+</Project>

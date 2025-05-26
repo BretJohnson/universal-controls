@@ -1,9 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFrameworks>$(NetSkiaPreviousAndCurrent)</TargetFrameworks>
-	</PropertyGroup>
-
-	<Import Project="../targetframework-override.props" />
+		<TargetFramework>net8.0</TargetFramework>
+    <LangVersion>13.0</LangVersion>
+  </PropertyGroup>
 
 	<PropertyGroup>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -18,7 +17,7 @@
 		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
 		<Deterministic>true</Deterministic>
 
-		<UnoRuntimeIdentifier>Skia</UnoRuntimeIdentifier>
+    <UniversalUIRuntimeIdentifier>Skia</UniversalUIRuntimeIdentifier>
 		<PlatformItemsBasePath>.\</PlatformItemsBasePath>
 
 		<UseCommonOverridePackage>true</UseCommonOverridePackage>
@@ -30,22 +29,25 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="SkiaSharp" />
+		<PackageReference Include="SkiaSharp" Version="$(SkiaSharpVersion)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\..\UniversalUI.CommonTypes\UniversalUI.CommonTypes.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Disposables\" />
+	  <Folder Include="Generated\3.0.0.0\Microsoft.UI.Composition.Scenes\" />
+	</ItemGroup>
+
+  <!--
 	<ItemGroup>
 		<ProjectReference Include="..\Uno.UWP\Uno.Reference.csproj" Condition="'$(SyncGeneratorRunning)'!='true'" />
 		<ProjectReference Include="..\Uno.UWP\Uno.Skia.csproj" Condition="'$(SyncGeneratorRunning)'=='true'" />
 		<ProjectReference Include="..\Uno.Foundation\Uno.Foundation.Reference.csproj" Condition="'$(SyncGeneratorRunning)'!='true'" />
 		<ProjectReference Include="..\Uno.Foundation\Uno.Foundation.Skia.csproj" Condition="'$(SyncGeneratorRunning)'=='true'" />
 	</ItemGroup>
-
-	<ItemGroup>
-		<Compile Include="..\Uno.UI\UI\Xaml\CornerRadius.cs" />
-		<Compile Include="..\Uno.UI\UI\Xaml\FullCornerRadius.cs" />
-		<Compile Include="..\Uno.UI\UI\Xaml\NonUniformCornerRadius.cs" />
-		<Compile Include="..\Uno.UI\UI\Xaml\NonUniformCornerRadius.skia.cs" />
-		<Compile Include="..\Uno.UI\UI\Xaml\Thickness.cs" />
-	</ItemGroup>
+  -->
 
 </Project>
