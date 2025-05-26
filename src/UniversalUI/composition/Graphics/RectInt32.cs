@@ -37,7 +37,7 @@ public partial struct RectInt32
 	/// </summary>
 	public int Height;
 
-	public override bool Equals(object obj) => obj is RectInt32 @int && X == @int.X && Y == @int.Y && Width == @int.Width && Height == @int.Height;
+	public override bool Equals(object? obj) => obj is RectInt32 @int && X == @int.X && Y == @int.Y && Width == @int.Width && Height == @int.Height;
 
 	public override int GetHashCode() => HashCode.Combine(X, Y, Width, Height);
 
