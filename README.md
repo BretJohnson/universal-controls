@@ -24,7 +24,7 @@ In response to events, you can update the control state and regenerate the contr
 shape UI objects used for retained mode drawn UI or other controls that are composed together. The control
 defines what this tree is, and updates it, in order to define its visual look.
 
-3. Now say a user wants to use an Universal Control in their .NET MAUI app. So, like any other control, they start by
+3. Now say a user wants to use a Universal Control in their .NET MAUI app. So, like any other control, they start by
 adding the assembly to their client app, say via NuGet. At the point the magic of source generators comes into play,
 generating the MAUI specific glue code, where the control properties turn into MAUI BindableProperties,
 to be a proper native MAUI control. The Universal Control is just a .NET Standard assembly - it works
