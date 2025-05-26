@@ -27,8 +27,4 @@
 	  <ProjectReference Include="..\..\UniversalUI.CommonTypes\UniversalUI.CommonTypes.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Generated\3.0.0.0\Microsoft.UI.Composition.Effects\" />
-	</ItemGroup>
-
 </Project>

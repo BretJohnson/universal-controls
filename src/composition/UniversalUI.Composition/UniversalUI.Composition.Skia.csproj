@@ -38,7 +38,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Disposables\" />
-	  <Folder Include="Generated\3.0.0.0\Microsoft.UI.Composition.Scenes\" />
 	</ItemGroup>
 
   <!--
