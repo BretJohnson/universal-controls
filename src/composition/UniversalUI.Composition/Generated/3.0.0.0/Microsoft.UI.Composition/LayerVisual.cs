@@ -24,20 +24,6 @@ namespace UniversalUI.Composition
 			}
 		}
 #endif
-#if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
-		[global::UniversalUI.NotImplemented("__ANDROID__", "__IOS__", "__TVOS__", "IS_UNIT_TESTS", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
-		public global::UniversalUI.Composition.CompositionShadow Shadow
-		{
-			get
-			{
-				throw new global::System.NotImplementedException("The member CompositionShadow LayerVisual.Shadow is not implemented. For more information, visit https://aka.platform.uno/notimplemented#m=CompositionShadow%20LayerVisual.Shadow");
-			}
-			set
-			{
-				global::Windows.Foundation.Metadata.ApiInformation.TryRaiseNotImplemented("UniversalUI.Composition.LayerVisual", "CompositionShadow LayerVisual.Shadow");
-			}
-		}
-#endif
 		// Forced skipping of method UniversalUI.Composition.LayerVisual.Effect.get
 		// Forced skipping of method UniversalUI.Composition.LayerVisual.Effect.set
 		// Forced skipping of method UniversalUI.Composition.LayerVisual.Shadow.set

@@ -71,27 +71,6 @@ namespace UniversalUI.Composition
 		// Forced skipping of method UniversalUI.Composition.Compositor.GlobalPlaybackRate.set
 #if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
 		[global::UniversalUI.NotImplemented("__ANDROID__", "__IOS__", "__TVOS__", "IS_UNIT_TESTS", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
-		public global::UniversalUI.Composition.BounceScalarNaturalMotionAnimation CreateBounceScalarAnimation()
-		{
-			throw new global::System.NotImplementedException("The member BounceScalarNaturalMotionAnimation Compositor.CreateBounceScalarAnimation() is not implemented. For more information, visit https://aka.platform.uno/notimplemented#m=BounceScalarNaturalMotionAnimation%20Compositor.CreateBounceScalarAnimation%28%29");
-		}
-#endif
-#if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
-		[global::UniversalUI.NotImplemented("__ANDROID__", "__IOS__", "__TVOS__", "IS_UNIT_TESTS", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
-		public global::UniversalUI.Composition.BounceVector2NaturalMotionAnimation CreateBounceVector2Animation()
-		{
-			throw new global::System.NotImplementedException("The member BounceVector2NaturalMotionAnimation Compositor.CreateBounceVector2Animation() is not implemented. For more information, visit https://aka.platform.uno/notimplemented#m=BounceVector2NaturalMotionAnimation%20Compositor.CreateBounceVector2Animation%28%29");
-		}
-#endif
-#if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
-		[global::UniversalUI.NotImplemented("__ANDROID__", "__IOS__", "__TVOS__", "IS_UNIT_TESTS", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
-		public global::UniversalUI.Composition.BounceVector3NaturalMotionAnimation CreateBounceVector3Animation()
-		{
-			throw new global::System.NotImplementedException("The member BounceVector3NaturalMotionAnimation Compositor.CreateBounceVector3Animation() is not implemented. For more information, visit https://aka.platform.uno/notimplemented#m=BounceVector3NaturalMotionAnimation%20Compositor.CreateBounceVector3Animation%28%29");
-		}
-#endif
-#if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
-		[global::UniversalUI.NotImplemented("__ANDROID__", "__IOS__", "__TVOS__", "IS_UNIT_TESTS", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
 		public global::UniversalUI.Composition.CompositionContainerShape CreateContainerShape()
 		{
 			throw new global::System.NotImplementedException("The member CompositionContainerShape Compositor.CreateContainerShape() is not implemented. For more information, visit https://aka.platform.uno/notimplemented#m=CompositionContainerShape%20Compositor.CreateContainerShape%28%29");
@@ -101,13 +80,6 @@ namespace UniversalUI.Composition
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateLineGeometry()
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreatePathGeometry()
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreatePathGeometry(UniversalUI.Composition.CompositionPath)
-#if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
-		[global::UniversalUI.NotImplemented("__ANDROID__", "__IOS__", "__TVOS__", "IS_UNIT_TESTS", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
-		public global::UniversalUI.Composition.PathKeyFrameAnimation CreatePathKeyFrameAnimation()
-		{
-			throw new global::System.NotImplementedException("The member PathKeyFrameAnimation Compositor.CreatePathKeyFrameAnimation() is not implemented. For more information, visit https://aka.platform.uno/notimplemented#m=PathKeyFrameAnimation%20Compositor.CreatePathKeyFrameAnimation%28%29");
-		}
-#endif
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateRectangleGeometry()
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateRoundedRectangleGeometry()
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateShapeVisual()
@@ -115,13 +87,6 @@ namespace UniversalUI.Composition
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateSpriteShape(UniversalUI.Composition.CompositionGeometry)
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateViewBox()
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateLinearEasingFunction()
-#if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
-		[global::UniversalUI.NotImplemented("__ANDROID__", "__IOS__", "__TVOS__", "IS_UNIT_TESTS", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
-		public global::UniversalUI.Composition.SpringVector3NaturalMotionAnimation CreateSpringVector3Animation()
-		{
-			throw new global::System.NotImplementedException("The member SpringVector3NaturalMotionAnimation Compositor.CreateSpringVector3Animation() is not implemented. For more information, visit https://aka.platform.uno/notimplemented#m=SpringVector3NaturalMotionAnimation%20Compositor.CreateSpringVector3Animation%28%29");
-		}
-#endif
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateRedirectVisual()
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateRedirectVisual(UniversalUI.Composition.Visual)
 #if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
@@ -171,13 +136,6 @@ namespace UniversalUI.Composition
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateInsetClip(float, float, float, float)
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateGeometricClip(UniversalUI.Composition.CompositionGeometry)
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreatePropertySet()
-#if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
-		[global::UniversalUI.NotImplemented("__ANDROID__", "__IOS__", "__TVOS__", "IS_UNIT_TESTS", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
-		public global::UniversalUI.Composition.QuaternionKeyFrameAnimation CreateQuaternionKeyFrameAnimation()
-		{
-			throw new global::System.NotImplementedException("The member QuaternionKeyFrameAnimation Compositor.CreateQuaternionKeyFrameAnimation() is not implemented. For more information, visit https://aka.platform.uno/notimplemented#m=QuaternionKeyFrameAnimation%20Compositor.CreateQuaternionKeyFrameAnimation%28%29");
-		}
-#endif
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateScalarKeyFrameAnimation()
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateScopedBatch(UniversalUI.Composition.CompositionBatchTypes)
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateSpriteVisual()
@@ -194,13 +152,6 @@ namespace UniversalUI.Composition
 		}
 #endif
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateBackdropBrush()
-#if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
-		[global::UniversalUI.NotImplemented("__ANDROID__", "__IOS__", "__TVOS__", "IS_UNIT_TESTS", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
-		public global::UniversalUI.Composition.DropShadow CreateDropShadow()
-		{
-			throw new global::System.NotImplementedException("The member DropShadow Compositor.CreateDropShadow() is not implemented. For more information, visit https://aka.platform.uno/notimplemented#m=DropShadow%20Compositor.CreateDropShadow%28%29");
-		}
-#endif
 #if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
 		[global::UniversalUI.NotImplemented("__ANDROID__", "__IOS__", "__TVOS__", "IS_UNIT_TESTS", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
 		public global::UniversalUI.Composition.ImplicitAnimationCollection CreateImplicitAnimationCollection()
@@ -222,20 +173,6 @@ namespace UniversalUI.Composition
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateColorGradientStop()
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateColorGradientStop(float, UniversalUI.Color)
 		// Skipping already declared method UniversalUI.Composition.Compositor.CreateLinearGradientBrush()
-#if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
-		[global::UniversalUI.NotImplemented("__ANDROID__", "__IOS__", "__TVOS__", "IS_UNIT_TESTS", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
-		public global::UniversalUI.Composition.SpringScalarNaturalMotionAnimation CreateSpringScalarAnimation()
-		{
-			throw new global::System.NotImplementedException("The member SpringScalarNaturalMotionAnimation Compositor.CreateSpringScalarAnimation() is not implemented. For more information, visit https://aka.platform.uno/notimplemented#m=SpringScalarNaturalMotionAnimation%20Compositor.CreateSpringScalarAnimation%28%29");
-		}
-#endif
-#if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
-		[global::UniversalUI.NotImplemented("__ANDROID__", "__IOS__", "__TVOS__", "IS_UNIT_TESTS", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
-		public global::UniversalUI.Composition.SpringVector2NaturalMotionAnimation CreateSpringVector2Animation()
-		{
-			throw new global::System.NotImplementedException("The member SpringVector2NaturalMotionAnimation Compositor.CreateSpringVector2Animation() is not implemented. For more information, visit https://aka.platform.uno/notimplemented#m=SpringVector2NaturalMotionAnimation%20Compositor.CreateSpringVector2Animation%28%29");
-		}
-#endif
 		// Skipping already declared method UniversalUI.Composition.Compositor.Compositor()
 		// Forced skipping of method UniversalUI.Composition.Compositor.Compositor()
 		// Forced skipping of method UniversalUI.Composition.Compositor.MaxGlobalPlaybackRate.get

@@ -11,20 +11,6 @@ namespace UniversalUI.Composition
 	public partial class SpriteVisual : global::UniversalUI.Composition.ContainerVisual
 	{
 		// Skipping already declared property Brush
-#if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
-		[global::UniversalUI.NotImplemented("__ANDROID__", "__IOS__", "__TVOS__", "IS_UNIT_TESTS", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
-		public global::UniversalUI.Composition.CompositionShadow Shadow
-		{
-			get
-			{
-				throw new global::System.NotImplementedException("The member CompositionShadow SpriteVisual.Shadow is not implemented. For more information, visit https://aka.platform.uno/notimplemented#m=CompositionShadow%20SpriteVisual.Shadow");
-			}
-			set
-			{
-				global::Windows.Foundation.Metadata.ApiInformation.TryRaiseNotImplemented("UniversalUI.Composition.SpriteVisual", "CompositionShadow SpriteVisual.Shadow");
-			}
-		}
-#endif
 		// Forced skipping of method UniversalUI.Composition.SpriteVisual.Brush.get
 		// Forced skipping of method UniversalUI.Composition.SpriteVisual.Shadow.set
 		// Forced skipping of method UniversalUI.Composition.SpriteVisual.Brush.set

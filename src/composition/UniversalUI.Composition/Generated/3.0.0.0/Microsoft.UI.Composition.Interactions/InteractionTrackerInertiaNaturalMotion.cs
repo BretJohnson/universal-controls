@@ -17,20 +17,6 @@ namespace UniversalUI.Composition.Interactions
 #endif
 #if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
 		[global::UniversalUI.NotImplemented("__ANDROID__", "__IOS__", "__TVOS__", "IS_UNIT_TESTS", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
-		public global::UniversalUI.Composition.ScalarNaturalMotionAnimation NaturalMotion
-		{
-			get
-			{
-				throw new global::System.NotImplementedException("The member ScalarNaturalMotionAnimation InteractionTrackerInertiaNaturalMotion.NaturalMotion is not implemented. For more information, visit https://aka.platform.uno/notimplemented#m=ScalarNaturalMotionAnimation%20InteractionTrackerInertiaNaturalMotion.NaturalMotion");
-			}
-			set
-			{
-				global::Windows.Foundation.Metadata.ApiInformation.TryRaiseNotImplemented("UniversalUI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion", "ScalarNaturalMotionAnimation InteractionTrackerInertiaNaturalMotion.NaturalMotion");
-			}
-		}
-#endif
-#if __ANDROID__ || __IOS__ || __TVOS__ || IS_UNIT_TESTS || __WASM__ || __SKIA__ || __NETSTD_REFERENCE__
-		[global::UniversalUI.NotImplemented("__ANDROID__", "__IOS__", "__TVOS__", "IS_UNIT_TESTS", "__WASM__", "__SKIA__", "__NETSTD_REFERENCE__")]
 		public global::UniversalUI.Composition.ExpressionAnimation Condition
 		{
 			get
