@@ -10,11 +10,8 @@ public class TypeConverterBase : TypeConverter
 
     public string GetValueAsString(object valueObject)
     {
-        if (valueObject is null)
-            throw new InvalidOperationException("Cannot convert from null");
-
-        if (!(valueObject is string value))
-            throw new InvalidOperationException($"Cannot convert from type {valueObject.GetType()}");
+        if (valueObject is not string value)
+            throw new InvalidOperationException($"Cannot convert from type {valueObject?.GetType()}");
 
         return value;
     }
