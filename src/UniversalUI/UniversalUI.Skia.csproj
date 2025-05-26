@@ -2,11 +2,12 @@
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
     <LangVersion>13.0</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
 	<PropertyGroup>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<AssemblyName>UniversalUI.Composition</AssemblyName>
+		<AssemblyName>UniversalUI</AssemblyName>
 		<DefineConstants>$(DefineConstants);IS_UNO_COMPOSITION</DefineConstants>
 	</PropertyGroup>
 
@@ -25,6 +26,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Disposables\**" />
+	  <EmbeddedResource Remove="Disposables\**" />
+	  <None Remove="Disposables\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Remove="AssemblyInfo.skia.cs" />
 	</ItemGroup>
 
@@ -33,11 +40,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\UniversalUI.CommonTypes\UniversalUI.CommonTypes.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Disposables\" />
+	  <ProjectReference Include="..\UniversalUI.CommonTypes\UniversalUI.CommonTypes.csproj" />
 	</ItemGroup>
 
   <!--
