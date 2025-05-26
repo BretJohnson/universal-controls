@@ -1,6 +1,6 @@
-# .NET Anywhere Controls
+# .NET Universal Controls
 
-.NET Anywhere Controls is an experimental project that enables building controls, primarily with drawn UI,
+.NET Universal Controls is an experimental project that enables building controls, primarily with drawn UI,
 that can be used "anywhere", on multiple .NET UI frameworks. Frameworks that can eventually be supported
 include .NET MAUI, WPF, WinUI, WinForms, Avalonia, Uno, and Blazor. 
 
@@ -10,32 +10,32 @@ need to write their own abstraction layer. Many do that, but it's a pain and new
 automatically supported.  Rather than everyone writing their own abstraction layer, it would be better
 if there's a standard set of APIs, where if you use those to author your control it'll
 work anywhere. That's the intention of this project. Controls written using these standard APIs,
-that can work anywhere, are called .NET Anywhere Controls.
+that can work anywhere, are called .NET Universal Controls.
 
 Here's how it works:
-1. You create a .NET Anywhere Control by defining an interface for the control's public API, including
+1. You create a .NET Universal Control by defining an interface for the control's public API, including
 properties exposed and events emitted.
 
 2. You also provide a control implementation class, which provides the core functionality of the control.
 There you can respond to input events, using standard event APIs (based on those in WPF/WinUI/MAUI today, but standardized).
 In response to events, you can update the control state and regenerate the control visual output.
 
-    Anywhere Control visuals follow the same model as WPF/WinUI/MAUI today - a control is basically a tree of UI objects,
+    Universal Control visuals follow the same model as WPF/WinUI/MAUI today - a control is basically a tree of UI objects,
 shape UI objects used for retained mode drawn UI or other controls that are composed together. The control
 defines what this tree is, and updates it, in order to define its visual look.
 
-3. Now say a user wants to use an Anywhere Control in their .NET MAUI app. So, like any other control, they start by
+3. Now say a user wants to use a Universal Control in their .NET MAUI app. So, like any other control, they start by
 adding the assembly to their client app, say via NuGet. At the point the magic of source generators comes into play,
 generating the MAUI specific glue code, where the control properties turn into MAUI BindableProperties,
-to be a proper native MAUI control. The Anywhere Control is just a .NET Standard assembly - it works
+to be a proper native MAUI control. The Universal Control is just a .NET Standard assembly - it works
 everywhere (normally, though it can use multitargetting and include framework specific code if needed). It's the source
-generator that turns the Anywhere Control into a MAUI native control, functioning like any other MAUI native control.
+generator that turns the Universal Control into a MAUI native control, functioning like any other MAUI native control.
 
     At that point, the user can use the control in their MAUI XAML, set control properties including thru bindings,
     define control styles, etc. It works like any other MAUI native control, because it is. But because it's an
-Anywhere control, it can also be used in WPF, WinForms, and other frameworks, acting like native controls there too.
+Universal control, it can also be used in WPF, WinForms, and other frameworks, acting like native controls there too.
 
-.NET Anywhere Controls aims to help solve these problems:
+.NET Universal Controls aims to help solve these problems:
 
 **Grow the .NET UI control ecosystem** - Writing a single control that can target several UI
 frameworks means it's easier to write controls and they can target a bigger set of users. This
@@ -65,10 +65,10 @@ Doc is a work in progress. The latest doc is here (though currently only accessi
 
 **How is this different than other embedding approaches, like XAML islands?**
 
-Anywhere Controls interoperate much more seamlessly with the host platform - they act like native controls because they are. XAML based host platforms, like WPF and MAUI, can set Anywhere Control properties in XAML and use bindings and styles to set properties, just like normal controls. VS tools like the (design time) property editor and (runtime) live property explorer all work, same as native controls.
+Universal Controls interoperate much more seamlessly with the host platform - they act like native controls because they are. XAML based host platforms, like WPF and MAUI, can set Universal Control properties in XAML and use bindings and styles to set properties, just like normal controls. VS tools like the (design time) property editor and (runtime) live property explorer all work, same as native controls.
 
-Importantly, Anywhere Controls embrace **composability** - native UI can contain (compose) Anywhere Controls and Standard Controls can
-contain (compose) native UI - you can mix and match in the visual tree. For example, a button Anywhere Control can have a Content property
+Importantly, Universal Controls embrace **composability** - native UI can contain (compose) Universal Controls and Standard Controls can
+contain (compose) native UI - you can mix and match in the visual tree. For example, a button Universal Control can have a Content property
 for the content of the button, drawn inside the button border. When the control is used in WPF XAML, the Content property XAML can
 use native WPF controls, just like a normal WPF button.
 
