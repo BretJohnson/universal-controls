@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SkiaSharp;
 
-namespace Windows.Graphics.Effects.Interop;
+namespace UniversalUI.Graphics.Effects.Interop;
 
 internal static partial class EffectHelpers
 {

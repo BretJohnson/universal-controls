@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using SkiaSharp;
 using Uno.UI.Composition;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class CompositionNineGridBrush : CompositionBrush, IOnlineBrush
 	{

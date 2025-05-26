@@ -6,9 +6,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Threading;
 using SkiaSharp;
-using Uno.Foundation.Logging;
+using UniversalUI.Logging;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 internal sealed class SingleFrameProvider : IFrameProvider
 {

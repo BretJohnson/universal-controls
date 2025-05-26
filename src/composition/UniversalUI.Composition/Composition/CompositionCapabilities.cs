@@ -5,9 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.Foundation;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class CompositionCapabilities
 	{

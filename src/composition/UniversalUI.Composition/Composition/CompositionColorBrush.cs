@@ -1,11 +1,10 @@
 ﻿#nullable enable
 
 using System;
-using Windows.UI;
 
-using static Microsoft.UI.Composition.SubPropertyHelpers;
+using static UniversalUI.Composition.SubPropertyHelpers;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class CompositionColorBrush : CompositionBrush
 	{

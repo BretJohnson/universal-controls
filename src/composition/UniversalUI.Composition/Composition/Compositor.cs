@@ -5,10 +5,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Numerics;
 using System.Runtime.CompilerServices;
-using Windows.Graphics.Effects;
-using Windows.UI;
+using UniversalUI.Graphics.Effects;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class Compositor : global::System.IDisposable
 	{
@@ -57,9 +56,6 @@ namespace Microsoft.UI.Composition
 
 		public ScalarKeyFrameAnimation CreateScalarKeyFrameAnimation()
 			=> new ScalarKeyFrameAnimation(this);
-
-		public CompositionScopedBatch CreateScopedBatch(CompositionBatchTypes batchType)
-			=> new CompositionScopedBatch(this, batchType);
 
 		public ShapeVisual CreateShapeVisual()
 			=> new ShapeVisual(this);

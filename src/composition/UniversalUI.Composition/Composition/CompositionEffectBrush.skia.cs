@@ -2,16 +2,13 @@
 
 using System;
 using SkiaSharp;
-using Windows.UI;
-using Microsoft.UI;
 using System.Numerics;
 using Uno.UI.Composition;
-using Windows.Graphics.Effects;
-using Windows.Graphics.Effects.Interop;
-using System.Diagnostics;
+using UniversalUI.Graphics.Effects;
+using UniversalUI.Graphics.Effects.Interop;
 using System.Runtime.CompilerServices;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class CompositionEffectBrush : CompositionBrush
 {
@@ -184,7 +181,7 @@ $$"""
 				uniform shader input;
 				uniform vec4 color;
 
-				half4 main() 
+				half4 main()
 				{
 					return {{(clamp ? "clamp(" : String.Empty)}}sample(input) * color{{(clamp ? ", 0.0, 1.0)" : String.Empty)}};
 				}
@@ -388,21 +385,21 @@ $$"""
 					half a2 = 2 * c2;
 					half b1 = s;
 					half a1 = -a2;
-    
+
 					half3 lowResult = color.rgb * (color.rgb * a1 + b1);
 					half3 highResult = color.rgb * (color.rgb * a2 + b2) + c2;
-    
+
 					half3 comparisonResult = half3(0.0);
 					comparisonResult.r = (color.rgb.r < 0.5) ? 1.0 : 0.0;
 					comparisonResult.g = (color.rgb.g < 0.5) ? 1.0 : 0.0;
 					comparisonResult.b = (color.rgb.b < 0.5) ? 1.0 : 0.0;
 
 					color.rgb = mix(lowResult, highResult, comparisonResult);
-    
+
 					return Premultiply(color);
 				}
 
-				half4 main() 
+				half4 main()
 				{
 					return Contrast({{(clamp ? "clamp(" : String.Empty)}}sample(input){{(clamp ? ", 0.0, 1.0)" : String.Empty)}}, contrastValue);
 				}
@@ -585,7 +582,7 @@ $$"""
 					uniform shader input;
 					uniform half crossfade;
 
-					half4 main() 
+					half4 main()
 					{
 						half4 inputColor = sample(input);
 						return inputColor - (inputColor * crossfade);
@@ -1415,7 +1412,7 @@ $$"""
 					}
 
 
-					half4 main(float2 coords) 
+					half4 main(float2 coords)
 					{
 						float2 coord = coords * 0.81 * frequency + offset;
 						float2 px00 = floor(coord - 0.5) + 0.5;

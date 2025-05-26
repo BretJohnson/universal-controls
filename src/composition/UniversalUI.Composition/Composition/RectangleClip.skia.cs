@@ -1,10 +1,8 @@
 ﻿#nullable enable
 
 using SkiaSharp;
-using Uno.Extensions;
-using Windows.Foundation;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 partial class RectangleClip
 {

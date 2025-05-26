@@ -2,7 +2,7 @@
 
 using SkiaSharp;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class CompositionLinearGradientBrush
 	{

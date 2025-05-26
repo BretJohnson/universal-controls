@@ -2,9 +2,9 @@
 
 using System;
 using SkiaSharp;
-using Windows.Graphics;
+using UniversalUI.Graphics;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	internal class SkiaGeometrySource2D : IGeometrySource2D, IDisposable
 	{

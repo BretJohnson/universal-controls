@@ -2,9 +2,9 @@
 
 using SkiaSharp;
 using System.Numerics;
-using Windows.Graphics;
+using UniversalUI.Graphics;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class CompositionRoundedRectangleGeometry : CompositionGeometry
 	{

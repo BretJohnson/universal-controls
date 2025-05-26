@@ -1,15 +1,6 @@
 ﻿#nullable enable
 
-
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using Uno.Extensions;
-using Uno.Foundation.Logging;
-using Windows.Graphics;
-
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	internal partial class SkiaCompositionSurface : ICompositionSurface
 	{

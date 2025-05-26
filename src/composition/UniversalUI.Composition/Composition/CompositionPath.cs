@@ -1,8 +1,8 @@
 ﻿#nullable enable
 
-using Windows.Graphics;
+using UniversalUI.Graphics;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class CompositionPath : IGeometrySource2D
 	{

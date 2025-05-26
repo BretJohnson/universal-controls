@@ -1,8 +1,8 @@
 ﻿#nullable enable
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
-	public partial class LayerVisual : global::Microsoft.UI.Composition.ContainerVisual
+	public partial class LayerVisual : global::UniversalUI.Composition.ContainerVisual
 	{
 		internal LayerVisual()
 		{

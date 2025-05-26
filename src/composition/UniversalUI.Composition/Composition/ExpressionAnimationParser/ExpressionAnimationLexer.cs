@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 internal sealed class ExpressionAnimationLexer
 {

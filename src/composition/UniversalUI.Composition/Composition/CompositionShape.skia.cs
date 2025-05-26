@@ -1,13 +1,8 @@
 ﻿#nullable enable
 
-using SkiaSharp;
-using System;
 using System.Numerics;
-using Windows.Foundation;
-using Uno.Extensions;
-using Uno.UI.Composition;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class CompositionShape
 {

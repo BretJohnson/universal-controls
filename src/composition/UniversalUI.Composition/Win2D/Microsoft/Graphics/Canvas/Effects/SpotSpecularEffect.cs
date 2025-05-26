@@ -3,9 +3,9 @@
 using System;
 using System.Numerics;
 using System.Runtime.InteropServices;
-using Windows.Graphics.Effects;
-using Windows.Graphics.Effects.Interop;
-using Windows.UI;
+using UniversalUI;
+using UniversalUI.Graphics.Effects;
+using UniversalUI.Graphics.Effects.Interop;
 
 namespace Microsoft.Graphics.Canvas.Effects;
 

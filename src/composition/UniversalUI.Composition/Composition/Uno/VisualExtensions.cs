@@ -5,7 +5,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 internal static class VisualExtensions
 {

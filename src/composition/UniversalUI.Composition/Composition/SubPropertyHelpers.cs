@@ -3,9 +3,8 @@
 using System;
 using System.Globalization;
 using System.Numerics;
-using Windows.UI;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 internal static class SubPropertyHelpers
 {

@@ -1,7 +1,7 @@
 using SkiaSharp;
 using Windows.Foundation;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 partial class InsetClip
 {

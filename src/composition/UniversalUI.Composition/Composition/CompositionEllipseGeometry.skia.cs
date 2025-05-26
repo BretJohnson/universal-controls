@@ -1,9 +1,8 @@
 ﻿#nullable enable
 
-using System.Windows.Input;
-using Windows.Graphics;
+using UniversalUI.Graphics;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class CompositionEllipseGeometry : CompositionGeometry
 	{

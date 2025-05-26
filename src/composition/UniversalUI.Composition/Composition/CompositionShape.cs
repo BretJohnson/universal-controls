@@ -2,10 +2,10 @@
 
 using System;
 using System.Numerics;
-using Uno.Extensions;
+using UniversalUI.Extensions;
 using Uno.UI.Composition;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class CompositionShape : CompositionObject, I2DTransformableObject
 {

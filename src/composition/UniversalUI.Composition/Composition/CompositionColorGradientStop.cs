@@ -1,8 +1,6 @@
 ﻿#nullable enable
 
-using Windows.UI;
-
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class CompositionColorGradientStop : CompositionObject
 	{

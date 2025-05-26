@@ -6,12 +6,12 @@ using System.Numerics;
 using SkiaSharp;
 using Uno.UI.Composition;
 using Windows.Foundation;
-using Windows.Graphics;
+using UniversalUI.Graphics;
 using Windows.Graphics.Interop;
-using static Uno.FoundationFeatureConfiguration;
-using Windows.Graphics.Interop.Direct2D;
+using UniversalUI.Extensions;
+using UniversalUI.Graphics.Interop.Direct2D;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class CompositionPathGeometry : CompositionGeometry, ID2D1GeometrySink
 {

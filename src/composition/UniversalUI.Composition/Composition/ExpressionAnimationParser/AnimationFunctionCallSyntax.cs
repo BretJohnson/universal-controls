@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Numerics;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 internal class AnimationFunctionCallSyntax : AnimationExpressionSyntax
 {

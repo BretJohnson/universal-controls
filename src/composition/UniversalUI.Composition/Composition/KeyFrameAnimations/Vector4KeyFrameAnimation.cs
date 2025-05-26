@@ -7,7 +7,7 @@ using System.Linq;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class Vector4KeyFrameAnimation : KeyFrameAnimation
 {

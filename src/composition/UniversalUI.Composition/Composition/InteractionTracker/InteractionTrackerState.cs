@@ -2,10 +2,8 @@
 
 using System;
 using System.Numerics;
-using Uno.UI.Dispatching;
-using Windows.Foundation;
 
-namespace Microsoft.UI.Composition.Interactions;
+namespace UniversalUI.Composition.Interactions;
 
 internal abstract class InteractionTrackerState : IDisposable
 {
@@ -15,7 +13,8 @@ internal abstract class InteractionTrackerState : IDisposable
 	public InteractionTrackerState(InteractionTracker interactionTracker)
 	{
 		_interactionTracker = interactionTracker;
-		NativeDispatcher.Main.Enqueue(() => EnterState(interactionTracker.Owner));
+        // TODO: Handler this when needed
+		//NativeDispatcher.Main.Enqueue(() => EnterState(interactionTracker.Owner));
 	}
 
 	protected abstract void EnterState(IInteractionTrackerOwner? owner);

@@ -1,9 +1,9 @@
 ﻿#nullable enable
 
-using Windows.Graphics.Effects;
+using UniversalUI.Graphics.Effects;
 using System.Collections.Generic;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class CompositionEffectBrush : CompositionBrush
 {

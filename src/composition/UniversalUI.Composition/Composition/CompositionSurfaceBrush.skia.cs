@@ -4,12 +4,10 @@ using System;
 using System.Numerics;
 using Uno.UI.Composition;
 using SkiaSharp;
-using Windows.Foundation;
 using System.Diagnostics.CodeAnalysis;
-using Windows.Graphics.Display;
-using Uno.Extensions;
+using UniversalUI.Extensions;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class CompositionSurfaceBrush : CompositionBrush, IOnlineBrush, ISizedBrush
 	{
@@ -211,9 +209,9 @@ namespace Microsoft.UI.Composition
 			vec4 main(vec2 texCoords){
 				vec4 finalColor = vec4(0.0);
 				float totalWeight = 0.0;
-			   
+
 				// A window size of 5 was empirically selected
-				// Theoretically, we would want to sample as wide as 3*sigma 
+				// Theoretically, we would want to sample as wide as 3*sigma
 				// in all directions where sigma is the resizing ratio (new size / old size)
 				// but SKSL (and GLSL) don't allow variable-length loops.
 				for (float x = -2; x <= 2; x += 1.0) {

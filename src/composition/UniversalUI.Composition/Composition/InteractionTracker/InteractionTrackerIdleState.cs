@@ -1,9 +1,8 @@
 #nullable enable
 
 using System.Numerics;
-using Windows.Foundation;
 
-namespace Microsoft.UI.Composition.Interactions;
+namespace UniversalUI.Composition.Interactions;
 
 internal sealed class InteractionTrackerIdleState : InteractionTrackerState
 {

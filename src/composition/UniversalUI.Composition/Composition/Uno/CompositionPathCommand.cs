@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Graphics.Interop.Direct2D;
+using UniversalUI;
+using UniversalUI.Graphics.Interop.Direct2D;
 
 namespace Uno.UI.Composition;
 

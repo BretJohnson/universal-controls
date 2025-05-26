@@ -1,9 +1,9 @@
 ﻿#nullable enable
 
 using System;
-using Microsoft.UI.Composition;
+using UniversalUI.Composition;
 using SkiaSharp;
-using Windows.UI;
+using UniversalUI;
 
 namespace Uno.UI.Composition.Composition;
 

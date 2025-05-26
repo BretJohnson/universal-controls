@@ -4,10 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
-using Windows.Storage.Streams;
-using Color = Windows.UI.Color;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class CompositionPropertySet : CompositionObject
 	{

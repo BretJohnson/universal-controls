@@ -1,7 +1,7 @@
 #nullable enable
 
 using System;
-using Microsoft.UI.Composition;
+using UniversalUI.Composition;
 
 namespace Uno.Helpers;
 

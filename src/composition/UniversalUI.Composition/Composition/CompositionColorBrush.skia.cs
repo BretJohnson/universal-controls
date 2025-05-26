@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using SkiaSharp;
-using Uno.Disposables;
-using Windows.UI;
+﻿using SkiaSharp;
 
-namespace Microsoft.UI.Composition
+
+namespace UniversalUI.Composition
 {
 	public partial class CompositionColorBrush
 	{

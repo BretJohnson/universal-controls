@@ -1,12 +1,12 @@
 using System;
-using System.Collections.Generic;
-using Microsoft.UI.Composition.Interactions;
+using UniversalUI.Composition.Interactions;
+using UniversalUI.Input;
 
 namespace Uno.UI.Composition;
 
 internal interface ICompositionTarget
 {
-	void TryRedirectForManipulation(Windows.UI.Input.PointerPoint pointerPoint, InteractionTracker tracker);
+	void TryRedirectForManipulation(IPointerPoint pointerPoint, InteractionTracker tracker);
 
 	double RasterizationScale { get; }
 

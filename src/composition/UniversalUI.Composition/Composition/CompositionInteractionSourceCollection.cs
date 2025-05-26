@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Microsoft.UI.Composition.Interactions;
+namespace UniversalUI.Composition.Interactions;
 
 public partial class CompositionInteractionSourceCollection : CompositionObject, IEnumerable<ICompositionInteractionSource>
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Numerics;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 internal sealed class AnimationUnaryExpressionSyntax : AnimationExpressionSyntax
 {

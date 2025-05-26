@@ -5,14 +5,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using SkiaSharp;
-using Uno.Foundation.Logging;
+using UniversalUI.Logging;
 using Uno.UI.Composition;
-using Uno.UI.Dispatching;
-using Windows.ApplicationModel.Core;
-using Windows.UI;
-using Windows.UI.Composition;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class Compositor
 {

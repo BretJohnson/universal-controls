@@ -2,10 +2,10 @@
 
 using System;
 using System.Collections.Generic;
-using Windows.Graphics.Effects;
-using Windows.Graphics.Effects.Interop;
+using UniversalUI.Graphics.Effects;
+using UniversalUI.Graphics.Effects.Interop;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class CompositionEffectFactory : CompositionObject
 {

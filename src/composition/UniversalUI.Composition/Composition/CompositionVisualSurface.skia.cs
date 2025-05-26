@@ -3,10 +3,10 @@
 using System;
 using System.Numerics;
 using SkiaSharp;
-using Uno.Disposables;
+using UniversalUI.Utilities.Disposables;
 using Uno.UI.Composition;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class CompositionVisualSurface : CompositionObject, ICompositionSurface, ISkiaSurface
 	{

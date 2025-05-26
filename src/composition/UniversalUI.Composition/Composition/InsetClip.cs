@@ -2,9 +2,9 @@
 
 using System;
 
-using static Microsoft.UI.Composition.SubPropertyHelpers;
+using static UniversalUI.Composition.SubPropertyHelpers;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class InsetClip : CompositionClip
 	{

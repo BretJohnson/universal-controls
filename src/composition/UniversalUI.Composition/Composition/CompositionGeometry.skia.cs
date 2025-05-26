@@ -4,13 +4,13 @@ using System;
 using System.Numerics;
 using SkiaSharp;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class CompositionGeometry : CompositionObject
 	{
 		/// <summary>
 		/// Kappa = (sqrt(2) - 1) * 4/3;
-		//  Used to calculate bezier control points for each of the circle four arcs. 
+		//  Used to calculate bezier control points for each of the circle four arcs.
 		//  - Approximating a 1/4 circle with a bezier curve.
 		/// </summary>
 		private const double CIRCLE_BEZIER_KAPPA = 0.552284749830793398402251632279597438092895833835930764235;

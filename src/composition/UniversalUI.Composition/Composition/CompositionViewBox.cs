@@ -1,9 +1,8 @@
 ﻿#nullable enable
 
 using System.Numerics;
-using Windows.Foundation;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class CompositionViewBox : CompositionObject
 {

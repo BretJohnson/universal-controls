@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.Graphics.Effects;
-using Windows.Graphics.Effects.Interop;
+using UniversalUI.Graphics.Effects;
+using UniversalUI.Graphics.Effects.Interop;
 
 namespace Microsoft.Graphics.Canvas.Effects;
 

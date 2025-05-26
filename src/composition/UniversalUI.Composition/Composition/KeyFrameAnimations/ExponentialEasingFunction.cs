@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Uno.UI.Composition;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class ExponentialEasingFunction
 {

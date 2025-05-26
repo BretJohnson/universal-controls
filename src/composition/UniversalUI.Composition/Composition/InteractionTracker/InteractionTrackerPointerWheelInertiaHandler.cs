@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Numerics;
 using System.Threading;
 
-namespace Microsoft.UI.Composition.Interactions;
+namespace UniversalUI.Composition.Interactions;
 
 internal class InteractionTrackerPointerWheelInertiaHandler : IInteractionTrackerInertiaHandler
 {

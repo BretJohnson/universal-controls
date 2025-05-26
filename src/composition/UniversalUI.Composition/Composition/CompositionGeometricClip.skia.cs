@@ -2,10 +2,8 @@
 
 using System;
 using SkiaSharp;
-using Windows.ApplicationModel.Contacts;
-using Windows.Foundation;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 partial class CompositionGeometricClip
 {

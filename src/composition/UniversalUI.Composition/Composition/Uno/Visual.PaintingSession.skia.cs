@@ -3,7 +3,7 @@ using System.Numerics;
 using SkiaSharp;
 using Uno.UI.Composition;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class Visual
 {

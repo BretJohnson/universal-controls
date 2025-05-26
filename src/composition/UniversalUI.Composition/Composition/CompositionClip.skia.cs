@@ -1,11 +1,8 @@
 ﻿#nullable enable
-using System;
-using System.Linq;
 using SkiaSharp;
-using Uno.Extensions;
-using Windows.Foundation;
+using UniversalUI.Extensions;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 partial class CompositionClip
 {

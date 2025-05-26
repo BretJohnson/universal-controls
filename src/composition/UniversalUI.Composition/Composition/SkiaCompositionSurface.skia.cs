@@ -2,19 +2,10 @@
 
 using SkiaSharp;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Uno.Extensions;
-using Uno.Foundation.Logging;
-using Uno.UI.Dispatching;
-using Windows.Graphics;
+using UniversalUI.Logging;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	internal partial class SkiaCompositionSurface : CompositionObject, ICompositionSurface
 	{

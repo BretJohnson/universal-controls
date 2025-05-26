@@ -2,7 +2,7 @@
 
 using System;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 internal abstract class AnimationExpressionSyntax : IDisposable
 {

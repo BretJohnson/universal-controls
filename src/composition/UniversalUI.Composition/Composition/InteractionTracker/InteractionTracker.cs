@@ -3,12 +3,10 @@
 using System;
 using System.Numerics;
 using System.Threading;
-using Uno.UI.Dispatching;
-using Windows.Foundation;
+using UniversalUI.Dispatching;
+using static UniversalUI.Composition.SubPropertyHelpers;
 
-using static Microsoft.UI.Composition.SubPropertyHelpers;
-
-namespace Microsoft.UI.Composition.Interactions;
+namespace UniversalUI.Composition.Interactions;
 
 public partial class InteractionTracker : CompositionObject
 {
@@ -59,7 +57,9 @@ public partial class InteractionTracker : CompositionObject
 		if (_position != newPosition)
 		{
 			_position = newPosition;
-			NativeDispatcher.Main.Enqueue(() =>
+            // TODO: Get main dispatcher
+            IDispatcher mainDispatcher = null!;
+            mainDispatcher.TryEnqueue(() =>
 			{
 				Owner?.ValuesChanged(this, new InteractionTrackerValuesChangedArgs(newPosition, Scale, requestId));
 				OnPropertyChanged(nameof(Position), isSubPropertyChange: false);

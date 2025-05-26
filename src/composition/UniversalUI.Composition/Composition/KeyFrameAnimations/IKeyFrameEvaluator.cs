@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 internal interface IKeyFrameEvaluator
 {

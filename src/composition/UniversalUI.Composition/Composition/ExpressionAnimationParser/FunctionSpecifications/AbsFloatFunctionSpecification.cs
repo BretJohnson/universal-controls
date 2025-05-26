@@ -3,7 +3,7 @@
 using System;
 using System.Globalization;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 internal sealed class AbsFloatFunctionSpecification : IAnimationFunctionSpecification
 {

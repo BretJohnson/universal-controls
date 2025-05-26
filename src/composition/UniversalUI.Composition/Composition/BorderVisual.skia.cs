@@ -2,11 +2,11 @@
 
 using System;
 using System.Numerics;
-using Windows.Foundation;
 using SkiaSharp;
-using Uno.UI.Composition;
+using UniversalUI.Composition.Extensions;
+using UniversalUI.Extensions;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 /// <summary>
 /// A Visual that has a border and a background.
@@ -15,7 +15,7 @@ internal class BorderVisual(Compositor compositor) : ContainerVisual(compositor)
 {
 	private static readonly SKPath _sparePrePaintingClippingPath = new SKPath();
 
-	// state set from outside and used inside the class
+    // state set from outside and used inside the class
 	private CornerRadius _cornerRadius;
 	private Thickness _borderThickness;
 	private bool _useInnerBorderBoundsAsAreaForBackground = true;

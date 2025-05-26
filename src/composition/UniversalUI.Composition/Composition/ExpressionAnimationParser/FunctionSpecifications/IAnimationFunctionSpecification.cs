@@ -3,7 +3,7 @@
 using System;
 using System.Diagnostics;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 // See https://learn.microsoft.com/en-us/uwp/api/windows.ui.composition.expressionanimation?view=winrt-22621#expression-functions-per-type
 // Each function stated in this doc page is represented as a class that implements this interface.

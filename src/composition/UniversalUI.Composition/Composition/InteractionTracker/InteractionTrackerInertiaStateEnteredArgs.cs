@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace Microsoft.UI.Composition.Interactions;
+namespace UniversalUI.Composition.Interactions;
 
 public partial class InteractionTrackerInertiaStateEnteredArgs
 {

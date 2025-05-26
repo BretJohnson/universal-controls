@@ -1,6 +1,6 @@
 #nullable enable
 
-namespace Microsoft.UI.Composition.Interactions;
+namespace UniversalUI.Composition.Interactions;
 
 public enum InteractionSourceMode
 {

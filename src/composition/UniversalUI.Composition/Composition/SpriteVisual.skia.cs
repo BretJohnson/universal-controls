@@ -3,9 +3,7 @@
 using SkiaSharp;
 using Uno.UI.Composition;
 
-using Color = global::Windows/*Intentional space for WinUI upgrade tool*/.UI.Color;
-
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class SpriteVisual : ContainerVisual
 	{

@@ -2,16 +2,12 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 using Uno.UI.Composition;
-using Windows.Foundation;
-using Windows.Foundation.Metadata;
+using UniversalUI;
 using Windows.Graphics.Interop;
-using Windows.Graphics.Interop.Direct2D;
+using UniversalUI.Extensions;
+using UniversalUI.Graphics.Interop.Direct2D;
 
 namespace Microsoft.Graphics.Canvas.Geometry;
 
@@ -69,7 +65,7 @@ internal class CanvasPathBuilder : IDisposable
 		{
 			Point = endPoint.ToPoint(),
 			Size = new(radiusX, radiusY),
-			RotationAngle = Uno.Extensions.MathEx.ToDegree(rotationAngle),
+			RotationAngle = MathEx.ToDegree(rotationAngle),
 			SweepDirection = (D2D1SweepDirection)sweepDirection,
 			ArcSize = (D2D1ArcSize)arcSize
 		};

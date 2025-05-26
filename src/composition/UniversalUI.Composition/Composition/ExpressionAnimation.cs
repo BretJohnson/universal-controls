@@ -2,7 +2,7 @@
 
 using System;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class ExpressionAnimation : CompositionAnimation
 {

@@ -2,13 +2,13 @@
 
 using System;
 using System.Numerics;
-using Microsoft.UI.Composition.Interactions;
-using Uno.Extensions;
+using UniversalUI.Extensions;
+using UniversalUI.Composition.Interactions;
 using Uno.UI.Composition;
 
-using static Microsoft.UI.Composition.SubPropertyHelpers;
+using static UniversalUI.Composition.SubPropertyHelpers;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class Visual : CompositionObject, I3DTransformableObject
 	{

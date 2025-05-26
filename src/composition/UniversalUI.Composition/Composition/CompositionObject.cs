@@ -2,17 +2,14 @@
 
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Numerics;
 using System.Runtime.CompilerServices;
-using Uno.Foundation.Logging;
 using Windows.Foundation.Metadata;
-using Windows.UI;
-using Windows.UI.Core;
+using UniversalUI.Dispatching;
+using UniversalUI.Logging;
+using static UniversalUI.Composition.SubPropertyHelpers;
 
-using static Microsoft.UI.Composition.SubPropertyHelpers;
-
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class CompositionObject : IDisposable
 	{
@@ -39,7 +36,8 @@ namespace Microsoft.UI.Composition
 
 		public Compositor Compositor { get; }
 
-		public CoreDispatcher Dispatcher => CoreDispatcher.Main;
+        /// TODO: Provide this
+		public IDispatcher Dispatcher => null; // CoreDispatcher.Main;
 
 		public string? Comment { get; set; }
 
@@ -251,14 +249,14 @@ namespace Microsoft.UI.Composition
 
 		private protected virtual void DisposeInternal()
 		{
-			if (Dispatching.DispatcherQueue.Main.HasThreadAccess)
+			if (Dispatcher.HasThreadAccess)
 			{
 				StopAllAnimations();
 			}
 			else
 			{
 				// For now, Composition is Dispatcher affine
-				Dispatching.DispatcherQueue.Main.TryEnqueue(StopAllAnimations);
+				Dispatcher.TryEnqueue(StopAllAnimations);
 			}
 		}
 

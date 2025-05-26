@@ -2,9 +2,9 @@
 
 using System;
 using System.Runtime.InteropServices;
-using Windows.UI;
-using Windows.Graphics.Effects;
-using Windows.Graphics.Effects.Interop;
+using UniversalUI;
+using UniversalUI.Graphics.Effects;
+using UniversalUI.Graphics.Effects.Interop;
 using System.Numerics;
 
 namespace Microsoft.Graphics.Canvas.Effects;

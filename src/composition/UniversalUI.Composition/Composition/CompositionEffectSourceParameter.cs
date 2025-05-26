@@ -1,8 +1,8 @@
 ﻿#nullable enable
 
-using Windows.Graphics.Effects;
+using UniversalUI.Graphics.Effects;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class CompositionEffectSourceParameter : IGraphicsEffectSource
 {

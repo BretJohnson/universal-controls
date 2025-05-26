@@ -5,10 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
-using Windows.Foundation;
-using Windows.UI;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public static class SkiaExtensions
 	{

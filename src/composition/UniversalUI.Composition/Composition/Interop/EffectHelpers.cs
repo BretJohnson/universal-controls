@@ -3,7 +3,7 @@
 using System;
 using System.Numerics;
 
-namespace Windows.Graphics.Effects.Interop;
+namespace UniversalUI.Graphics.Effects.Interop;
 
 internal static partial class EffectHelpers
 {
@@ -157,11 +157,6 @@ internal static partial class EffectHelpers
 		}
 
 		// Composition
-
-		if (effectId.Equals(new Guid("91BB5E52-95D1-4F8B-9A5A-6408B24B8C6A")))
-		{
-			return EffectType.SceneLightingEffect;
-		}
 
 		if (effectId.Equals(new Guid("6152DFC6-9FBA-4810-8CBA-B280AA27BFF6")))
 		{

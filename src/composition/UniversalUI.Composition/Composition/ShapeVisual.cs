@@ -1,6 +1,6 @@
 ﻿#nullable enable
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class ShapeVisual : ContainerVisual
 {

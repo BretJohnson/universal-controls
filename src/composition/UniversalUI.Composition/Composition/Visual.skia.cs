@@ -2,22 +2,19 @@
 //#define TRACE_COMPOSITION
 
 using System;
-using System.Buffers;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Numerics;
 using System.Runtime.CompilerServices;
-using Microsoft.CodeAnalysis.PooledObjects;
 using SkiaSharp;
-using Uno.Disposables;
-using Uno.Extensions;
+using UniversalUI.Utilities;
+using UniversalUI.Utilities.Disposables;
 using Uno.Helpers;
-using Uno.UI.Composition;
 using Uno.UI.Composition.Composition;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
-public partial class Visual : global::Microsoft.UI.Composition.CompositionObject
+public partial class Visual : global::UniversalUI.Composition.CompositionObject
 {
 	private static readonly ObjectPool<SKPath> _pathPool = new(() => new SKPath());
 	private static readonly SKPath _spareRenderPath = new SKPath();

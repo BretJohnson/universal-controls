@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 using SkiaSharp;
 using Windows.Foundation;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class ContainerVisual : Visual
 {

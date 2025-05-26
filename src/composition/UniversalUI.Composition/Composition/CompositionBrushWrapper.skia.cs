@@ -1,9 +1,6 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using SkiaSharp;
-using Windows.ApplicationModel.VoiceCommands;
+﻿using SkiaSharp;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 internal partial class CompositionBrushWrapper : CompositionBrush
 {

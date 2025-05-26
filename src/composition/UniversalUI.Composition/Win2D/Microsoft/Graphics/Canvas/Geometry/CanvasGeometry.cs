@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Uno.UI.Composition;
-using Windows.Foundation;
-using Windows.Graphics;
+using UniversalUI;
 using Windows.Graphics.Interop;
-using Windows.Graphics.Interop.Direct2D;
+using UniversalUI.Extensions;
+using UniversalUI.Graphics;
+using UniversalUI.Graphics.Interop.Direct2D;
 
 namespace Microsoft.Graphics.Canvas.Geometry;
 

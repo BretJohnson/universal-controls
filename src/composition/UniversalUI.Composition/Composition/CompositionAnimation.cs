@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using Uno;
 
-namespace Microsoft.UI.Composition;
+namespace UniversalUI.Composition;
 
 public partial class CompositionAnimation
 {

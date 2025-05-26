@@ -1,12 +1,9 @@
 ﻿#nullable enable
 
-using Windows.Foundation;
 using SkiaSharp;
-using Uno;
-using Uno.Disposables;
-using Uno.Extensions;
+using UniversalUI.Extensions;
 
-namespace Microsoft.UI.Composition
+namespace UniversalUI.Composition
 {
 	public partial class CompositionSpriteShape : CompositionShape
 	{

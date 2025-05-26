@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SkiaSharp;
-using Windows.Foundation;
+using UniversalUI;
 
-namespace Windows.Graphics.Interop.Direct2D;
+namespace UniversalUI.Graphics.Interop.Direct2D;
 
 internal static partial class D2D1Helpers
 {
