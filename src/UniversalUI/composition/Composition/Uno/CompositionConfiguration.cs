@@ -1,4 +1,6 @@
-﻿// This file is copied, with modifications, from the Uno project
+// This file is copied, with modifications, from the Uno project
+
+#nullable disable
 
 using System;
 using System.Linq;

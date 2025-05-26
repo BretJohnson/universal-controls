@@ -1,5 +1,7 @@
 // This file is copied, with modifications, from the Uno project
 
+#nullable disable
+
 using SkiaSharp;
 using Windows.Foundation;
 

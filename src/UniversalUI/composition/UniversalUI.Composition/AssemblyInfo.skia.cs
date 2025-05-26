@@ -1,5 +1,7 @@
 // This file is copied, with modifications, from the Uno project
 
+#nullable disable
+
 using global::System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Uno.UI.Runtime.Skia.MacOS")]
