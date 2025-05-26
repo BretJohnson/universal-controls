@@ -1,5 +1,3 @@
-﻿#nullable enable
-
 using System;
 using System.Numerics;
 using Uno.UI.Composition;

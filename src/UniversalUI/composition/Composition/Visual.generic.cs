@@ -1,6 +1,4 @@
-﻿// This file is copied, with modifications, from the Uno project
-
-#nullable enable
+// This file is copied, with modifications, from the Uno project
 
 #if !__APPLE_UIKIT__ && !__SKIA__ && !__WASM__ && !__ANDROID__ && !NETFRAMEWORK
 using System.Numerics;

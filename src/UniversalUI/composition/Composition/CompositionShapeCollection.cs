@@ -1,6 +1,4 @@
-﻿// This file is copied, with modifications, from the Uno project
-
-#nullable enable
+// This file is copied, with modifications, from the Uno project
 
 using System;
 using System.Collections;

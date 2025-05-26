@@ -1,6 +1,5 @@
-﻿// This file is copied, with modifications, from the Uno project
+// This file is copied, with modifications, from the Uno project
 
-#nullable enable
 using System;
 
 namespace UniversalUI.Logging
