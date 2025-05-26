@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.CodeAnalysis;
 using UniversalUI.SourceGenerator.UIFrameworks;
 
@@ -21,9 +21,9 @@ namespace UniversalUI.SourceGenerator
             gatherTypesVisitor.Visit(assembly.GlobalNamespace);
             //assembly.Accept(gatherTypesVisitor);
 
-            if (assembly.Name == "UniversalUI.CommonTypes")
+            if (assembly.Name == "UniversalUI.Foundation")
             {
-                LibraryName = "UniversalUICommonTypes";
+                LibraryName = "UniversalUIFoundation";
                 LibraryNamespace = "UniversalUI";
             }
             else

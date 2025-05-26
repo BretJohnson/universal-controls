@@ -23,7 +23,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\UniversalUI.CommonTypes\UniversalUI.CommonTypes.csproj" />
+    <ProjectReference Include="..\..\UniversalUI.Foundation\UniversalUI.Foundation.csproj" />
     <ProjectReference Include="..\..\UniversalUI\UniversalUI.csproj" />
   </ItemGroup>
 

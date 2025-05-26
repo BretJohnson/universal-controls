@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UniversalUI.CommonTypes\UniversalUI.CommonTypes.csproj" />
+    <ProjectReference Include="..\UniversalUI.Foundation\UniversalUI.Foundation.csproj" />
     <ProjectReference Include="..\UniversalUI.FrameworkForwarderStub\UniversalUI.FrameworkForwarderStub.csproj" Private="False" PrivateAssets="All" />
   </ItemGroup>
 
