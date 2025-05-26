@@ -1,4 +1,6 @@
-﻿using System;
+﻿// This file is copied, with modifications, from the Uno project
+
+using System;
 
 namespace UniversalUI.Graphics.Interop.Direct2D;
 

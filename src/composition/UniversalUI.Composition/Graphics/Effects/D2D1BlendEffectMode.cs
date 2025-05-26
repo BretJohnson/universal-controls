@@ -1,4 +1,6 @@
-﻿namespace UniversalUI.Graphics.Effects;
+﻿// This file is copied, with modifications, from the Uno project
+
+namespace UniversalUI.Graphics.Effects;
 
 /// <summary>
 /// This enum specifies Direct2D blend modes supported by Composition APIs<br/>

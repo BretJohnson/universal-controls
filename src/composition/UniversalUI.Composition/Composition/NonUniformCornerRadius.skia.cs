@@ -1,4 +1,6 @@
-﻿using SkiaSharp;
+﻿// This file is copied, with modifications, from the Uno project
+
+using SkiaSharp;
 
 namespace UniversalUI.Composition;
 

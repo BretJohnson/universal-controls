@@ -1,4 +1,6 @@
-﻿// This class is a counterpart of VectorExtensions class in microsoft.windows.sdk.net.ref\WinRT.Runtime.dll
+﻿// This file is copied, with modifications, from the Uno project
+
+// This class is a counterpart of VectorExtensions class in microsoft.windows.sdk.net.ref\WinRT.Runtime.dll
 // Please do not remove it as third-parties may depend on it.
 
 using System.Numerics;

@@ -1,4 +1,6 @@
-﻿namespace UniversalUI.Graphics.Effects.Interop;
+﻿// This file is copied, with modifications, from the Uno project
+
+namespace UniversalUI.Graphics.Effects.Interop;
 
 public enum GraphicsEffectPropertyMapping
 {

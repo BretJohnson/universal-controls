@@ -1,3 +1,5 @@
+// This file is copied, with modifications, from the Uno project
+
 #nullable enable
 
 // Mostly inspired from Minsk (https://github.com/terrajobst/minsk/)

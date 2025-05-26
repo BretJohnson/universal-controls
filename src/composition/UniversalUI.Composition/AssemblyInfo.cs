@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿// This file is copied, with modifications, from the Uno project
+
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 

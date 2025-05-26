@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿// This file is copied, with modifications, from the Uno project
+
+using System.Diagnostics;
 
 namespace Windows.Foundation.Metadata;
 
@@ -21,7 +23,7 @@ public partial class ApiInformation
 
 			case "Windows.Phone.PhoneContract":
 				// See C:\Program Files (x86)\Windows Kits\10\References\[version]\Windows.Phone.PhoneContract
-				return majorVersion <= 1; // SDK 10.0.22000.0					
+				return majorVersion <= 1; // SDK 10.0.22000.0
 
 			case "Windows.Networking.Connectivity.WwanContract":
 				// See C:\Program Files (x86)\Windows Kits\10\References\[version]\Windows.Networking.Connectivity.WwanContract

@@ -1,3 +1,5 @@
+// This file is copied, with modifications, from the Uno project
+
 using System.Numerics;
 
 namespace UniversalUI.Composition.Interactions;

@@ -1,4 +1,6 @@
-﻿namespace UniversalUI.Graphics.Effects.Interop;
+﻿// This file is copied, with modifications, from the Uno project
+
+namespace UniversalUI.Graphics.Effects.Interop;
 
 /// <summary>
 /// This enum specifies effects supported by Composition APIs<br/><br/>

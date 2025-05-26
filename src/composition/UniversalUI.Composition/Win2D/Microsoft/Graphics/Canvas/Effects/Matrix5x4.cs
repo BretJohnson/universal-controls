@@ -1,4 +1,6 @@
-﻿#nullable enable
+﻿// This file is copied, with modifications, from the Uno project
+
+#nullable enable
 
 namespace Microsoft.Graphics.Canvas.Effects;
 

@@ -1,3 +1,5 @@
+// This file is copied, with modifications, from the Uno project
+
 using global::System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Uno.UI.Runtime.Skia.MacOS")]
