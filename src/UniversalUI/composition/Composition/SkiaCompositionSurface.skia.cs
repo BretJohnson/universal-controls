@@ -3,6 +3,8 @@
 using SkiaSharp;
 using System;
 using System.IO;
+using UniversalUI.ApplicationModel.Core;
+using UniversalUI.Dispatching;
 using UniversalUI.Logging;
 
 namespace UniversalUI.Composition
@@ -72,7 +74,7 @@ namespace UniversalUI.Composition
 			{
 				try
 				{
-					var onFrameChanged = () => NativeDispatcher.Main.Enqueue(() => OnPropertyChanged(nameof(Image), isSubPropertyChange: false), NativeDispatcherPriority.High);
+                    Action onFrameChanged = () => Application.Current.Dispatcher.TryEnqueue(DispatcherPriority.High, () => OnPropertyChanged(nameof(Image), isSubPropertyChange: false));
 					if (!FrameProviderFactory.TryCreate(stream, onFrameChanged, out var provider))
 					{
 						SetFrameProviderAndOnFrameChanged(null, null);

@@ -2,9 +2,9 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using SkiaSharp;
+using UniversalUI.ApplicationModel.Core;
 using UniversalUI.Logging;
 using Uno.UI.Composition;
 
@@ -50,7 +50,7 @@ public partial class Compositor
 					this.Log().Trace($"Register running targets {target.GetHashCode():X8}={count} Animations={_runningAnimations.Count}");
 				}
 
-				CoreApplication.SetContinuousRender(target, true);
+				Application.Current.SetContinuousRender(target, true);
 			}
 		}
 	}
@@ -74,7 +74,7 @@ public partial class Compositor
 					{
 						_runningTargets.Remove(target);
 
-						CoreApplication.SetContinuousRender(target, false);
+                        Application.Current.SetContinuousRender(target, false);
 					}
 					else
 					{
@@ -198,7 +198,7 @@ public partial class Compositor
 
 		if (_runningAnimations.Count > 0 || transitionsCount > 0)
 		{
-			CoreApplication.QueueInvalidateRender(rootVisual.CompositionTarget);
+			Application.Current.QueueInvalidateRender(rootVisual.CompositionTarget);
 		}
 	}
 
@@ -206,6 +206,6 @@ public partial class Compositor
 	{
 		visual.SetMatrixDirty(); // TODO: only invalidate matrix when specific properties are changed
 		visual.InvalidatePaint(); // TODO: only repaint when "dependent" properties are changed
-		CoreApplication.QueueInvalidateRender(visual.CompositionTarget);
+		Application.Current.QueueInvalidateRender(visual.CompositionTarget);
 	}
 }

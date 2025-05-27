@@ -17,4 +17,12 @@ public interface IDispatcher
     /// <param name="callback">A delegate to the task to execute.</param>
     /// <returns>True if the task was added to the queue. Otherwise, false.</returns>
     public bool TryEnqueue(Action callback);
+
+    /// <summary>
+    /// Adds a task to the dispatcher queue that will be executed on the thread associated with the dispatcher with the specified priority.
+    /// </summary>
+    /// <param name="callback">A delegate to the task to execute.</param>
+    /// <param name="priority">The priority of the task.</param>
+    /// <returns>True if the task was added to the queue. Otherwise, false.</returns>
+    public bool TryEnqueue(DispatcherPriority priority, Action callback);
 }
