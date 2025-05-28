@@ -10,7 +10,7 @@ namespace UniversalUI.Controls;
 /// AnywhereControls.FrameworkFordwarder.dll assembly that has a TypeForwardedTo
 /// to that implementation.
 /// </summary>
-public abstract class HostFrameworkAnywhereControl : IAnywhereControl
+public abstract class HostFrameworkUniversalControl : IUniversalControl
 {
     void IUIObject.ClearValue(IUIProperty property) => throw CreateNotSupportedException();
     object IUIObject.GetValue(IUIProperty property) => throw CreateNotSupportedException();

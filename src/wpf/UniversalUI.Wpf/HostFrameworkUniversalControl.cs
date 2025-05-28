@@ -5,12 +5,12 @@ using UniversalUI.Wpf.NativeVisualFramework;
 namespace UniversalUI.Controls
 {
     // The rest of the implementation of this class is in HostFrameworkAnywhereControlGenerated.cs
-    public abstract partial class HostFrameworkAnywhereControl : System.Windows.Controls.Control, IAnywhereControl, ILogicalParent
+    public abstract partial class HostFrameworkUniversalControl : System.Windows.Controls.Control, IUniversalControl, ILogicalParent
     {
         protected IUIElement? _buildContent;
         private bool _invalid = true;
 
-        public HostFrameworkAnywhereControl()
+        public HostFrameworkUniversalControl()
         {
             if (!HostEnvironment.IsInitialized)
             {

@@ -1,6 +1,6 @@
 ﻿namespace UniversalUI.Controls
 {
-    public interface IUserControl : IAnywhereControl
+    public interface IUserControl : IUniversalControl
     {
         public IUIElement? Content { get; set; }
     }

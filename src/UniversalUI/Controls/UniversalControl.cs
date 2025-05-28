@@ -6,12 +6,12 @@ using UniversalUI.Composition;
 
 namespace UniversalUI.Controls
 {
-    public abstract class AnywhereControl : HostFrameworkAnywhereControl, IUIElement
+    public abstract class UniversalControl : HostFrameworkUniversalControl, IUIElement
     {
         private protected ContainerVisual? _visual;
         private Size _desiredSize;
 
-        public AnywhereControl()
+        public UniversalControl()
         {
         }
 

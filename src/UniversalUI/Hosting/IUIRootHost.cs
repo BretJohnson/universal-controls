@@ -12,7 +12,7 @@ public interface IUIRootHost
 {
 	IUIElement? RootElement { get; }
 
-    ContainerVisual? RootElementVisual => (RootElement as AnywhereControl)?.Visual;
+    ContainerVisual? RootElementVisual => (RootElement as UniversalControl)?.Visual;
 
     void InvalidateRender();
 
