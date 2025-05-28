@@ -1,9 +1,14 @@
+// This file contains some code copied from the Uno project.
+
 using System;
+using System.Diagnostics;
+using UniversalUI.Composition;
 
 namespace UniversalUI.Controls
 {
     public abstract class AnywhereControl : HostFrameworkAnywhereControl, IUIElement
     {
+        private protected ContainerVisual? _visual;
         private Size _desiredSize;
 
         public AnywhereControl()
@@ -77,6 +82,28 @@ namespace UniversalUI.Controls
 
             return finalSize;
         }
+
+        internal ContainerVisual Visual
+        {
+            get
+            {
+
+                if (_visual is null)
+                {
+                    _visual = CreateElementVisual();
+                    Debug.Assert(this is not IBorderInfoProvider || _visual is BorderVisual,
+                        "Border info providers are expected to override CreateElementVisual and return BorderVisual, and types returning BorderVisual should be IBorderInfoProviders");
+#if ENABLE_CONTAINER_VISUAL_TRACKING
+					_visual.Comment = $"{this.GetDebugDepth():D2}-{this.GetDebugName()}";
+#endif
+                    _visual.Owner = new WeakReference(this);
+                }
+
+                return _visual;
+            }
+        }
+
+        private protected virtual ContainerVisual CreateElementVisual() => Compositor.GetSharedCompositor().CreateContainerVisual();
     }
 
     /*

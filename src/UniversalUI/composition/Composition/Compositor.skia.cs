@@ -24,7 +24,7 @@ public partial class Compositor
 		UnoSkiaApi.Initialize();
 	}
 
-	internal bool? IsSoftwareRenderer { get; set; }
+	public bool? IsSoftwareRenderer { get; set; }
 
 	internal bool IsAnimating => _runningAnimations.Count > 0;
 

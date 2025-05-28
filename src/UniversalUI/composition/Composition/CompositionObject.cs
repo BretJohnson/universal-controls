@@ -36,8 +36,7 @@ namespace UniversalUI.Composition
 
 		public Compositor Compositor { get; }
 
-        /// TODO: Provide this
-		public IDispatcher Dispatcher => null; // CoreDispatcher.Main;
+		public IDispatcher Dispatcher => Application.Current.Dispatcher;
 
 		public string? Comment { get; set; }
 
