@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net8.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <LangVersion>11.0</LangVersion>
     <Nullable>enable</Nullable>
@@ -12,7 +12,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\UniversalUI\UniversalUI.csproj" />
+    <ProjectReference Include="..\..\UniversalUI.Foundation\UniversalUI.Foundation.csproj" />
+    <ProjectReference Include="..\..\UniversalUI\UniversalUI-skia.csproj" />
   </ItemGroup>
 
 </Project>

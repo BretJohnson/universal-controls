@@ -10,7 +10,7 @@
     <ProjectReference Include="..\..\..\external\example-framework\src\ExampleFramework\ExampleFramework.csproj" />
     <ProjectReference Include="..\..\..\src\UniversalUI.Analyzers\UniversalUI.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="False" />
     <ProjectReference Include="..\..\..\src\UniversalUI\UniversalUI.csproj" />
-    <ProjectReference Include="..\..\..\src\UniversalUI.FrameworkForwarderStub\UniversalUI.FrameworkForwarderStub.csproj" Private="False" PrivateAssets="All" />
+    <ProjectReference Include="..\..\..\src\UniversalUI.FrameworkForwarderStub\UniversalUI.FrameworkForwarder-reference.csproj" Private="False" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup Condition="$(UseLocalExampleFramework) == ''">
