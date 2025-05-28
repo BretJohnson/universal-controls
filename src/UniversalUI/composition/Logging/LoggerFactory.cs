@@ -3,39 +3,38 @@
 using System;
 using System.Collections.Generic;
 
-namespace UniversalUI.Logging
+namespace UniversalUI.Logging;
+
+public class LoggerFactory
 {
-	internal class LoggerFactory
+	private static object _gate = new();
+	private Dictionary<string, Logger> _loggers = new Dictionary<string, Logger>();
+	private static Logger _nullLogger = new Logger(null);
+
+	public static IExternalLoggerFactory? ExternalLoggerFactory { get; set; }
+
+	public LoggerFactory()
 	{
-		private static object _gate = new();
-		private Dictionary<string, Logger> _loggers = new Dictionary<string, Logger>();
-		private static Logger _nullLogger = new Logger(null);
+	}
 
-		public static IExternalLoggerFactory? ExternalLoggerFactory { get; set; }
+	internal Logger CreateLogger(Type type)
+		=> CreateLogger(type.FullName ?? type.Name);
 
-		public LoggerFactory()
+	internal Logger CreateLogger(string name)
+	{
+		if (ExternalLoggerFactory == null)
 		{
+			return _nullLogger;
 		}
 
-		internal Logger CreateLogger(Type type)
-			=> CreateLogger(type.FullName ?? type.Name);
-
-		internal Logger CreateLogger(string name)
+		lock (_gate)
 		{
-			if (ExternalLoggerFactory == null)
+			if (!_loggers.TryGetValue(name, out var logger))
 			{
-				return _nullLogger;
+				_loggers[name] = logger = new Logger(ExternalLoggerFactory.CreateLogger(name));
 			}
 
-			lock (_gate)
-			{
-				if (!_loggers.TryGetValue(name, out var logger))
-				{
-					_loggers[name] = logger = new Logger(ExternalLoggerFactory.CreateLogger(name));
-				}
-
-				return logger;
-			}
+			return logger;
 		}
 	}
 }

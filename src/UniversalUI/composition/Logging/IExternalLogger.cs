@@ -2,11 +2,10 @@
 
 using System;
 
-namespace UniversalUI.Logging
+namespace UniversalUI.Logging;
+
+public interface IExternalLogger
 {
-	internal interface IExternalLogger
-	{
-		void Log(LogLevel logLevel, string? message, Exception? exception = null);
-		LogLevel LogLevel { get; }
-	}
+	void Log(LogLevel logLevel, string? message, Exception? exception = null);
+	LogLevel LogLevel { get; }
 }

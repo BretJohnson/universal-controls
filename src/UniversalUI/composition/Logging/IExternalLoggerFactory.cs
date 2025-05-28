@@ -1,9 +1,8 @@
 // This file is copied, with modifications, from the Uno project
 
-namespace UniversalUI.Logging
+namespace UniversalUI.Logging;
+
+public interface IExternalLoggerFactory
 {
-	internal interface IExternalLoggerFactory
-	{
-		IExternalLogger CreateLogger(string categoryName);
-	}
+	IExternalLogger CreateLogger(string categoryName);
 }
