@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>UniversalUI.FrameworkForwarderWpf</PackageId>
+    <AssemblyName>UniversalUI.FrameworkForwarder</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

@@ -8,11 +8,11 @@
 	<PropertyGroup>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<AssemblyName>UniversalUI</AssemblyName>
+    <RootNamespace>UniversalUI</RootNamespace>
 		<DefineConstants>$(DefineConstants);IS_UNO_COMPOSITION</DefineConstants>
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<RootNamespace>Uno.UI.Composition</RootNamespace>
 		<DefineConstants>$(DefineConstants);XAMARIN;IS_UNO</DefineConstants>
 
 		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
@@ -22,14 +22,7 @@
 		<PlatformItemsBasePath>.\</PlatformItemsBasePath>
 
 		<UseCommonOverridePackage>true</UseCommonOverridePackage>
-		<CommonOverridePackageId>Uno.UI</CommonOverridePackageId>
 	</PropertyGroup>
-
-	<ItemGroup>
-	  <Compile Remove="Disposables\**" />
-	  <EmbeddedResource Remove="Disposables\**" />
-	  <None Remove="Disposables\**" />
-	</ItemGroup>
 
 	<ItemGroup>
 		<None Remove="AssemblyInfo.skia.cs" />
@@ -40,7 +33,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\UniversalUI.CommonTypes\UniversalUI.CommonTypes.csproj" />
+	  <ProjectReference Include="..\UniversalUI.Foundation\UniversalUI.Foundation.csproj" />
+	  <ProjectReference Include="..\UniversalUI.FrameworkForwarderStub\UniversalUI.FrameworkForwarder-reference.csproj" />
 	</ItemGroup>
 
   <!--
