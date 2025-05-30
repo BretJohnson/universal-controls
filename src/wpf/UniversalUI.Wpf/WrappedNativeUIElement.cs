@@ -54,7 +54,7 @@ namespace UniversalUI.Wpf
         }
 
         // TODO: Error if appropriate when set to Visibility.Hidden
-        bool IUIElement.Visible
+        bool IUIElement.IsVisible
         {
             get => _frameworkElement.Visibility != System.Windows.Visibility.Collapsed;
             set => _frameworkElement.Visibility = value ? System.Windows.Visibility.Visible : System.Windows.Visibility.Collapsed;

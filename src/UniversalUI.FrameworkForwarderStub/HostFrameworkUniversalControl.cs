@@ -32,7 +32,7 @@ public abstract class HostFrameworkUniversalControl : IUniversalControl
     double IUIElement.ActualY { get => throw CreateNotSupportedException(); }
     double IUIElement.ActualWidth { get => throw CreateNotSupportedException(); }
     double IUIElement.ActualHeight { get => throw CreateNotSupportedException(); }
-    bool IUIElement.Visible { get => throw CreateNotSupportedException(); set => throw CreateNotSupportedException(); }
+    bool IUIElement.IsVisible { get => throw CreateNotSupportedException(); set => throw CreateNotSupportedException(); }
     int IUIElement.VisualChildrenCount { get => throw CreateNotSupportedException(); }
 
     void IUIElement.Arrange(Rect finalRect) => throw CreateNotSupportedException();

@@ -43,7 +43,7 @@ namespace UniversalUI.Controls
             set => FlowDirection = value.ToWpfFlowDirection();
         }
         
-        bool IUIElement.Visible
+        bool IUIElement.IsVisible
         {
             get => Visibility != Visibility.Collapsed;
             set => Visibility = value ? Visibility.Visible : Visibility.Collapsed;

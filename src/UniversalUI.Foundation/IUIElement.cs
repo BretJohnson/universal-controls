@@ -93,34 +93,29 @@ public interface IUIElement : IUIObject
     /// <summary>
     /// Gets the X position of this UIElement, relative to its parent, computed during the arrange pass of the layout process
     /// </summary>
-    [DefaultValue(0)]
     public double ActualX { get; }
 
     /// <summary>
     /// Gets the Y position of this UIElement, relative to its parent, computed during the arrange pass of the layout process
     /// </summary>
-    [DefaultValue(0)]
     public double ActualY { get; }
 
     /// <summary>
     /// Gets the rendered width of a UIElement.
     /// </summary>
-    [DefaultValue(0)]
     public double ActualWidth { get; }
 
     /// <summary>
     /// Gets the rendered height of a UIElement
     /// </summary>
-    [DefaultValue(0)]
     public double ActualHeight { get; }
 
     /// <summary>
     /// The visibility of a UIElement. A UIElement that is not visible is not rendered, does not take up space in the
     /// layout, and cannot receive focus or input events.
     /// </summary>
-    // TODO: We should probably rename this to IsVisible, consistent with MAUI and Avalonia.
     [DefaultValue(true)]
-    public bool Visible { get; set; }
+    public bool IsVisible { get; set; }
 
     public int VisualChildrenCount { get; }
 
