@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Build.Locator;
@@ -36,11 +36,11 @@ namespace UniversalUI.CommandLineSourceGenerator
 
                 Project? anywhereUICommonTypesProject = anywhereControlsProject.ProjectReferences
                     .Select(projectRef => workspace.CurrentSolution.GetProject(projectRef.ProjectId))
-                    .First(referencedProj => referencedProj?.Name == "UniversalUI.CommonTypes");
+                    .First(referencedProj => referencedProj?.Name == "UniversalUI.Foundation");
 
                 if (anywhereUICommonTypesProject == null)
                 {
-                    throw new UserViewableException("Couldn't find referenced UniversalUI.CommonTypes project");
+                    throw new UserViewableException("Couldn't find referenced UniversalUI.Foundation project");
                 }
 
                 await GenerateClassesForProject(anywhereUICommonTypesProject, rootDirectory);
