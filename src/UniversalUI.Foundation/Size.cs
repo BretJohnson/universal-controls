@@ -32,7 +32,9 @@ public struct Size
 
 	public static Size Empty => new Size(double.NegativeInfinity, double.NegativeInfinity);
 
-	public bool IsEmpty => double.IsNegativeInfinity(Width) && double.IsNegativeInfinity(Height);
+    public static Size Infinity => new Size(double.PositiveInfinity, double.PositiveInfinity);
+
+    public bool IsEmpty => double.IsNegativeInfinity(Width) && double.IsNegativeInfinity(Height);
 
 	public double Height
 	{

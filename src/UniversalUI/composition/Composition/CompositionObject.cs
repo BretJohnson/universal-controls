@@ -8,6 +8,7 @@ using Windows.Foundation.Metadata;
 using UniversalUI.Dispatching;
 using UniversalUI.Logging;
 using static UniversalUI.Composition.SubPropertyHelpers;
+using UniversalUI.ApplicationModel.Core;
 
 namespace UniversalUI.Composition
 {

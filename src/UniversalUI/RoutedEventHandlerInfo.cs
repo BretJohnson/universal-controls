@@ -87,7 +87,7 @@ public readonly struct RoutedEventHandlerInfo
     /// <summary>
     ///     Is the given object equivalent to the current one
     /// </summary>
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj == null || obj is not RoutedEventHandlerInfo routedEventHandlerInfoObj)
             return false;

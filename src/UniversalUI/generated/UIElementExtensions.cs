@@ -66,7 +66,7 @@ namespace UniversalUI
         
         public static T Visible<T>(this T uiElement, bool value) where T : IUIElement
         {
-            uiElement.Visible = value;
+            uiElement.IsVisible = value;
             return uiElement;
         }
     }

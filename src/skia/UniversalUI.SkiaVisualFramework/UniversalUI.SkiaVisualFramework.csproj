@@ -13,8 +13,4 @@
     <PackageReference Include="SkiaSharp" Version="2.88.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\UniversalUI\UniversalUI.csproj" />
-  </ItemGroup>
-
 </Project>

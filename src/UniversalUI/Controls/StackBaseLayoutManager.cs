@@ -16,7 +16,7 @@ namespace UniversalUI.Controls
             for (int i = 0; i < count; i++)
             {
                 IUIElement child = children[i];
-                if (!child.Visible)
+                if (!child.IsVisible)
                 {
                     continue;
                 }
@@ -49,7 +49,7 @@ namespace UniversalUI.Controls
             for (int i = 0; i < count; i++)
             {
                 IUIElement child = children[i];
-                if (!child.Visible)
+                if (!child.IsVisible)
                 {
                     continue;
                 }
@@ -94,7 +94,7 @@ namespace UniversalUI.Controls
                 for (int n = 0; n < count; n++)
                 {
                     IUIElement child = children[n];
-                    if (!child.Visible)
+                    if (!child.IsVisible)
                     {
                         continue;
                     }
@@ -109,7 +109,7 @@ namespace UniversalUI.Controls
                 for (int n = count - 1; n >= 0; n--)
                 {
                     IUIElement child = children[n];
-                    if (!child.Visible)
+                    if (!child.IsVisible)
                     {
                         continue;
                     }
@@ -140,7 +140,7 @@ namespace UniversalUI.Controls
             {
                 IUIElement child = children[n];
 
-                if (!child.Visible)
+                if (!child.IsVisible)
                 {
                     continue;
                 }

@@ -50,7 +50,7 @@ namespace UniversalUI.Controls
                 IUIElement child = gridChildren[n];
 
                 // Skip any children that aren't visible
-                if (!child.Visible)
+                if (!child.IsVisible)
                     continue;
 
                 var row = child.GridRow().Clamp(0, rowDefinitions.Length - 1);
